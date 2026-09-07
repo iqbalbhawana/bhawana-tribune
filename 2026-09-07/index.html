@@ -443,6 +443,35 @@
     background: #f59e0b;
     color: #050a14;
   }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 26, 54, 0.8);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    padding: 4px;
+    border-radius: 9999px;
+  }
+  .lang-btn {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .lang-btn.active {
+    background: #d97706;
+    color: #ffffff;
+  }
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+  }
+
 </style>
 </head>
 <body>
@@ -467,7 +496,13 @@
           <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
         </div>
       </div>
-      <div class="edition-badge">Monday, September 7, 2026</div>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" style="font-family: serif; font-size: 13px;">اردو</a>
+        </div>
+        <div class="edition-badge">Monday, September 7, 2026</div>
+      </div>
     </div>
 
     <!-- Desk Navigation -->
