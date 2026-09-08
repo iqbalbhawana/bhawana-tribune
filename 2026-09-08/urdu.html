@@ -517,9 +517,9 @@
         </div>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
         <div class="lang-switcher">
-          <a href="./index.html" class="lang-btn inactive">English</a>
+          <a href="./index.html" class="lang-btn inactive" id="engSwitchLink" title="Read in English">English</a>
           <span class="lang-btn active">اردو</span>
         </div>
         <div class="edition-badge">منگل، ۸ ستمبر ۲۰۲۶ء</div>
@@ -549,6 +549,10 @@ let activeDeskId = 1;
 
 function renderDesk(id) {
   activeDeskId = id;
+  const engLink = document.getElementById('engSwitchLink');
+  if (engLink) {
+    engLink.href = `./index.html?desk=${id}`;
+  }
   const d = DESKS.find(item => item.id === id) || DESKS[0];
 
   // Update pills
@@ -666,8 +670,13 @@ function renderDesk(id) {
   `;
 }
 
-// Initialize
-renderDesk(1);
+// Initialize with URL parameter support
+const urlParams = new URLSearchParams(window.location.search);
+const initialDesk = parseInt(urlParams.get('desk') || '1', 10);
+if (!isNaN(initialDesk) && initialDesk >= 1 && initialDesk <= 6) {
+  activeDeskId = initialDesk;
+}
+renderDesk(activeDeskId);
 </script>
 
 </body>

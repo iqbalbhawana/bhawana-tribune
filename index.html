@@ -90,6 +90,42 @@
     font-family: monospace;
   }
 
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
   /* Navigation Pills */
   .desk-pills {
     display: flex;
@@ -467,7 +503,13 @@
           <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
         </div>
       </div>
-      <div class="edition-badge">Tuesday, September 8, 2026</div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">Tuesday, September 8, 2026</div>
+      </div>
     </div>
 
     <!-- Desk Navigation -->
@@ -493,6 +535,10 @@ let activeDeskId = 1;
 
 function renderDesk(id) {
   activeDeskId = id;
+  const urduLink = document.getElementById('urduSwitchLink');
+  if (urduLink) {
+    urduLink.href = `./urdu.html?desk=${id}`;
+  }
   const d = DESKS.find(item => item.id === id) || DESKS[0];
 
   // Update pills
@@ -610,8 +656,13 @@ function renderDesk(id) {
   `;
 }
 
-// Initialize
-renderDesk(1);
+// Initialize with URL parameter support
+const urlParams = new URLSearchParams(window.location.search);
+const initialDesk = parseInt(urlParams.get('desk') || '1', 10);
+if (!isNaN(initialDesk) && initialDesk >= 1 && initialDesk <= 6) {
+  activeDeskId = initialDesk;
+}
+renderDesk(activeDeskId);
 </script>
 
 </body>
