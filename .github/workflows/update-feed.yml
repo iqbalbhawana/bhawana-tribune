@@ -1,0 +1,33 @@
+name: Update Tribune RSS feed
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - feed.xml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the Tribune
+        uses: actions/checkout@v4
+
+      - name: Generate RSS feed
+        run: python3 scripts/generate_feed.py
+
+      - name: Commit changed feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- feed.xml; then
+            echo "feed.xml is already current"
+            exit 0
+          fi
+          git add feed.xml
+          git commit -m "Update Tribune RSS feed"
+          git push
