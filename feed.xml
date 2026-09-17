@@ -5,47 +5,89 @@
     <link>https://iqbalbhawana.github.io/bhawana-tribune/</link>
     <description>Daily web-magazine editions from Bhawana Tribune.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Sep 2026 00:00:00 +0500</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 +0500</lastBuildDate>
     <atom:link href="https://iqbalbhawana.github.io/bhawana-tribune/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Desk 01 • Statutory Directive • SBP Foreign Exchange Reserves Surge to $18.33B as Total Reserves Touch $23.72B Amid Monetary Discipline</title>
+      <title>Desk 01 • Statutory Directive • FBR Outsources Valuation Functions of Imported Goods and Retail Supplies to Independent Third Parties</title>
       <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=1</link>
       <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=1</guid>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0500</pubDate>
+      <description>Board exercises statutory authority under proviso to Section 2(46) of Sales Tax Act, 1990 read with Section 25A of Customs Act; partners with external audit firms and Pakistan Bureau of Statistics to eliminate under-invoicing and curb retail sales tax evasion. The Federal Board of Revenue (FBR) has obtained statutory legal authority to outsource the valuation of imported goods and domestic retail supplies to independent third-party audit and valuation firms. Operating under the first proviso to clause (46) of Section 2 of the Sales Tax Act, 1990, read alongside Section 25A of the Customs Act, 1969, the revenue authority is establishing a comprehensive institutional framework to fix binding minimum values for imported consignments and Third Schedule items charged on printed retail price, decisively curtailing persistent under-invoicing and sales tax evasion. Under the expanded statutory mandate, the Board has integrated real-time economic telemetry from the Pakistan Bureau of Statistics (PBS) alongside international commodity price indices. The contracted third-party valuation entities will conduct continuous price discovery and cross-border commercial telemetry, feeding objective valuation matrices directly into the customs WeBOC automation database and domestic IRIS sales tax declarations to eliminate discretionary under-valuation by importers and corporate distributors.</description>
+    </item>
+    <item>
+      <title>Desk 02 • Harmonized Compliance • Bank of England Holds Benchmark Rate at 3.75% as Monetary Policy Committee Weighs Inflation and Energy Shocks</title>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=2</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=2</guid>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0500</pubDate>
+      <description>MPC maintains policy rate amid inflation uptick to 3.1% driven by Middle East geopolitical risks; Governor Bailey signals cautious path ahead. The Bank of England&#x27;s Monetary Policy Committee decided to maintain its official Bank Rate at 3.75% following a closely contested policy review. While core inflation metrics showed moderation, headline consumer price inflation climbed to 3.1% in August, driven largely by global energy price fluctuations stemming from escalating tensions in the Middle East. Governor Andrew Bailey underscored that although disinflation remains the central medium-term expectation, supply-side vulnerabilities require central banks to adopt a data-dependent, measured approach before initiating further easing cycles.</description>
+    </item>
+    <item>
+      <title>Desk 03 • Frontier Architectures • Emerald AI, Google and NVIDIA Launch Trilateral Alliance for Modular and Flexible AI Data Centers</title>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=3</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=3</guid>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0500</pubDate>
+      <description>Next-generation energy-efficient architectures designed to support hyper-dense compute clusters and multimodal inference at multi-gigawatt scale. In a major strategic initiative to address the global AI compute bottleneck, Emerald AI, Google Cloud, and NVIDIA announced a comprehensive technology alliance to build modular, energy-flexible data center architectures. The partnership combines NVIDIA&#x27;s Blackwell and Rubin GPU superclusters with Google Cloud&#x27;s distributed orchestration and Emerald AI&#x27;s dynamic power-shifting software. The joint architecture allows hyperscale data centers to throttle power dynamically in response to renewable grid fluctuations without disrupting distributed model training or low-latency inference workloads.</description>
+    </item>
+    <item>
+      <title>Desk 04 • Cinema &amp; Music Charts • Emmy Awards &amp; Venice International Film Festival: Global Cinema Honors Bold Screenwriting and Cinematic Craft</title>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=4</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=4</guid>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0500</pubDate>
+      <description>International juries celebrate breakthrough dramatic achievements, independent filmmaking, and innovative episodic storytelling. The conclusion of the Venice International Film Festival and the announcement of the 78th Primetime Emmy Award winners have underscored a renaissance in original screenwriting and international cinematic collaboration. Major festival accolades went to auteur-led indie features that balanced daring visual metaphors with compelling social narratives. Concurrently, television academy voters recognized internationally produced limited series, highlighting that global streaming audiences increasingly demand sophisticated, culturally authentic storytelling over formulaic franchise productions.</description>
+    </item>
+    <item>
+      <title>Desk 05 • Aviation &amp; Expeditions • European Union and Canada Advance Associate Strategic Partnership to Deepen Transatlantic Trade &amp; Technology</title>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=5</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=5</guid>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0500</pubDate>
+      <description>Framework focuses on critical minerals, green supply chains, and scientific research collaboration amidst shifting global alliances. European Commission leadership officially endorsed a landmark bilateral roadmap proposing that Canada become an &#x27;associate partner&#x27; of the European Union. The proposed treaty deepens strategic cooperation across critical minerals processing, clean energy hydrogen corridors, and joint funding under the Horizon Europe science framework. The initiative reflects a shared transatlantic commitment to secure resilient, diversified supply networks for advanced semiconductors, batteries, and aerospace engineering amidst broader geopolitical realignment.</description>
+    </item>
+    <item>
+      <title>Desk 06 • Premier League &amp; Grand Slam • Stanford University Neuroengineers Achieve Breakthrough in Cellular Neurological Model Integration</title>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=6</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=6</guid>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0500</pubDate>
+      <description>Laboratory research advances understanding of neurological disorders and neural circuitry repair. In a pioneering biomedical research breakthrough, neuroengineers at Stanford University successfully demonstrated the functional integration of human neuronal organoids within mammalian laboratory models. The peer-reviewed findings, published in leading biological journals, reveal that transplanted human cortical cells established synaptic connectivity and active bioelectric signaling, opening unprecedented therapeutic avenues for investigating neurodegenerative conditions and traumatic brain injuries.</description>
+    </item>
+    <item>
+      <title>Desk 01 • Statutory Directive • SBP Foreign Exchange Reserves Surge to $18.33B as Total Reserves Touch $23.72B Amid Monetary Discipline</title>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=1</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=1</guid>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0500</pubDate>
       <description>State Bank of Pakistan liquid reserves gain $1.21 billion in a single week driven by Eurobond refinancing proceeds and export earnings; MPC holds benchmark policy rate at 11.5% to anchor long-term disinflation. Pakistan&#x27;s external sector has recorded a substantial turnaround as the State Bank of Pakistan (SBP) reported an increase of $1.21 billion in its foreign exchange reserves, elevating central bank holdings to $18.33 billion. Including commercial bank reserves of $5.39 billion, the nation&#x27;s total liquid foreign exchange reserves have surged to $23.72 billion. The sharp accretion reflects successful external debt refinancing, sovereign Eurobond inflows, and sustained positive momentum in export receipts and overseas remittances. Concurrently, the Monetary Policy Committee (MPC) maintained the benchmark policy rate at 11.5%, underscoring that while headline inflation eased to 11.1% in August, global commodity and geopolitical volatility necessitate a cautious stance. The policy stability has catalysed renewed investor appetite in sovereign debt papers and equity markets, prompting the early retirement of over Rs1.2 trillion in high-cost domestic debt by the Ministry of Finance.</description>
     </item>
     <item>
       <title>Desk 02 • Harmonized Compliance • Complaints to watchdog about water firms jump 84%</title>
-      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=2</link>
-      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=2</guid>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=2</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=2</guid>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0500</pubDate>
       <description>Business: Many complaints were about affordability, after customers saw steep hikes to bills. Global financial markets experienced renewed volatility as sovereign bond yields across North America and Europe hovered near multi-decade highs, driven by stubborn energy price shifts and sustained core services inflation. In London and Frankfurt, utility regulatory watchdogs fielded record formal grievances over consumer affordability, as water and power distribution entities implemented steep double-digit tariff escalations to finance capital upgrades. In Pakistan, provincial revenue authorities in Punjab (PRA) and Sindh (SRB) finalized synchronized technical guidelines to harmonize Point-of-Sale (POS) electronic invoicing with the federal revenue backbone. The automated telemetry integration ensures commercial service sector transactions are reconciled in real time, closing compliance gaps across luxury hospitality, specialized logistics, and corporate services.</description>
     </item>
     <item>
       <title>Desk 03 • Frontier Architectures • AI app ads promoting &#x27;objectification of women&#x27; banned by watchdog</title>
-      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=3</link>
-      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=3</guid>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=3</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=3</guid>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0500</pubDate>
       <description>Technology: The ad regulator said it had &quot;zero-tolerance&quot; for ads promoting AI tools that could sexualise or objectify women. International digital safety authorities and consumer protection tribunals have instituted comprehensive regulatory bans against synthetic artificial intelligence applications utilizing non-consensual biometric processing and predatory commercial advertising. Regulatory agencies across the European Union and the United Kingdom underscored that automated algorithmic systems targeting vulnerable consumers will face severe statutory penalties and mandatory service blocking under emerging frontier AI compliance mandates. At the architectural frontier, leading enterprise research laboratories published empirical benchmarks demonstrating that reasoning-specialized small language models (SLMs) achieve 94% parity with massive frontier clusters on corporate tax code interpretation and statutory contract analysis, while slashing operational compute latency and deployment power expenditures by over 70%.</description>
     </item>
     <item>
       <title>Desk 04 • Cinema &amp; Music Charts • Five things you may not know about Emmy history-maker Matthew Rhys</title>
-      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=4</link>
-      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=4</guid>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=4</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=4</guid>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0500</pubDate>
       <description>Entertainment: The Welsh actor became the first person to win two lead acting prizes in one night at the Emmy Awards. The 78th Primetime Emmy Awards concluded with landmark critical triumphs as veteran Welsh performer Matthew Rhys secured historical honors, cementing his stature among television&#x27;s most versatile dramatic actors. Industry commentators celebrated the recognition of deep, nuanced character studies at a time when global streaming platforms are restructuring operational budgets toward high-density prestige narratives. International film festivals in Venice and Toronto concluded their autumn showcases, revealing significant commercial acquisitions for independent international cinema, with spatial audio and high-dynamic-range cinematography emerging as foundational storytelling criteria for next-generation theatrical and home distribution.</description>
     </item>
     <item>
       <title>Desk 05 • Aviation &amp; Expeditions • All support acts on Ed Sheeran&#x27;s US tour quit after Macklemore dropped</title>
-      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=5</link>
-      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=5</guid>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=5</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=5</guid>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0500</pubDate>
       <description>World: The star said he was not responsible for Macklemore being dropped from the line-up after he made pro-Palestinian statements on stage. The global live concert touring sector navigated major logistical and scheduling realignments as stadium headliners adjusted autumn itineraries following unexpected promoter and artist coalition disputes across major North American venues. Industry analysts note that unprecedented touring demand has collided with escalating venue production overheads, necessitating renegotiated staging contracts. Across the Northern Karakoram and Himalayan transit routes, eco-tourism federations and civil aviation authorities inaugurated low-impact alpine trekking corridors, combining real-time satellite weather telemetry with strict conservation ordinances to protect fragile high-altitude glacial environments during autumn expeditions.</description>
     </item>
     <item>
       <title>Desk 06 • Premier League &amp; Grand Slam • Third Heathrow runway should only go ahead if airlines pay for cleaner flying, say advisers</title>
-      <link>https://iqbalbhawana.github.io/bhawana-tribune/?desk=6</link>
-      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/?desk=6</guid>
+      <link>https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=6</link>
+      <guid isPermaLink="true">https://iqbalbhawana.github.io/bhawana-tribune/2026-09-16/?desk=6</guid>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0500</pubDate>
       <description>Science: The government&#x27;s climate advisers say Heathrow&#x27;s third runway cannot be approved under current climate policies. The UK Independent Climate Advisory Council issued definitive policy guidance on London Heathrow&#x27;s prospective third runway expansion, determining that airport infrastructure growth must remain strictly contingent upon commercial airlines financing Sustainable Aviation Fuel (SAF) procurement and industrial carbon offsetting. The directive establishes an international precedent for future aviation infrastructure financing. In weekend sports action, European club football leagues delivered tactical masterclasses, with reigning champions overcoming early deficits through disciplined second-half pressing, while international test cricket squads completed intensive red-ball conditioning camps ahead of subcontinental tours.</description>
     </item>
