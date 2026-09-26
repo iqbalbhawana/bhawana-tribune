@@ -15,13 +15,18 @@ DESKS_RE = re.compile(r"const DESKS = (\[.*?\]);\s*let activeDeskId", re.S)
 
 def parse_edition(path: Path) -> tuple[datetime, list[dict]]:
     html = path.read_text(encoding="utf-8")
-    match = DESKS_RE.search(html)
-    if not match:
+    marker = "const DESKS ="
+    pos = html.find(marker)
+    if pos == -1:
         raise ValueError(f"could not find DESKS data in {path}")
-    desks = json.loads(match.group(1))
+    start = html.find("[", pos)
+    if start == -1:
+        raise ValueError(f"could not find start bracket in {path}")
+    desks, _ = json.JSONDecoder().raw_decode(html, start)
     if not desks or not desks[0].get("date"):
         raise ValueError(f"edition has no date in {path}")
-    local_date = datetime.strptime(desks[0]["date"], "%A, %B %d, %Y")
+    date_str = desks[0]["date"].strip().title()
+    local_date = datetime.strptime(date_str, "%A, %B %d, %Y")
     return local_date.replace(tzinfo=timezone(timedelta(hours=5))), desks
 
 
