@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (SATURDAY, OCTOBER 17, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">SATURDAY, OCTOBER 17, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 17, 2026", "headline": "ECC Approves 11% Additional Customs Duty on 13 Locally Manufactured Auto Parts to Shield Domestic Engineering", "deck": "Cabinet body amends SRO 693(I)/2006 to rationalize import duties on commercial vehicle components; FBR implements tariff measures while monitoring automotive supply chain costs.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Founder & Senior Counsel", "hero_source": "Ministry of Finance & ECC", "hero_url": "https://finance.gov.pk/ecc-auto-parts-customs-duty-oct16", "body": ["Under formal decisions ratified by the Economic Coordination Committee (ECC) of the Cabinet on Friday, 16 October 2026, the federal government approved an 11% additional customs duty on 13 specialized categories of imported automotive components and commercial vehicle parts under SRO 693(I)/2006. The statutory intervention, promulgated under Section 18 of the Customs Act, 1969, is engineered to level the playing field for Pakistan's domestic auto-parts manufacturing sector against heavily subsidized foreign imports.", "The targeted product lines include industrial shock absorbers, radiators, cast-iron brake drums, steering knuckles, leaf spring assemblies, cold-forged transmission shafts, oil and air filtration units, and exhaust silencers. Ministry of Industries and Production officials confirmed that comprehensive technical audits by the Engineering Development Board (EDB) verified that domestic Pakistani engineering vendors possess adequate manufacturing capacity and precision metallurgical tooling to satisfy domestic automotive assembly demand without compromising vehicle safety standards.", "Customs Appraisement collectorates at Custom House Karachi, Port Qasim, and upcountry dry ports received immediate electronic tariff schedule updates via the Pakistan Single Window (PSW) and WeBOC systems. Under the revised schedules, the 11% additional customs duty will apply uniformly across all commercial imports of the listed tariff headings, ensuring that local original equipment manufacturers (OEMs) and replacement market vendors receive statutory price parity against low-cost imported alternatives.", "Simultaneously, the Federal Board of Revenue affirmed that automated customs valuation cross-checks under Section 25A will accompany the duty enhancement to prevent the under-invoicing of imported vehicle spares. Automotive assemblers and commercial importers are advised that all consignments arriving with bills of lading dated on or after 17 October 2026 will be assessed strictly under the updated statutory regulatory order."], "quote": "Sovereign tariff policy must establish predictable protection for domestic industrial vendors without burdening downstream consumer transport. \u2014 Muhammad Iqbal Bhawana, Founder & Editor", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR Chairman Orders Time-Bound Administrative Mechanism to Fast-Track Income Tax Refunds Following Tax Bar Concerns", "body": "Federal Board of Revenue (FBR) Chairman Rashid Mehmood Langrial issued strict directives to Inland Revenue field formations on Friday, ordering the formulation of an automated, time-bound mechanism to expedite pending income tax refund claims under Section 170 of the Income Tax Ordinance, 2001. The intervention addresses formal representations submitted by the Pakistan Tax Bar Association (PTBA) and regional business chambers regarding delayed electronic payment orders (EPOs). The Chairman directed PRAL to eliminate manual processing bottlenecks and ensure direct central bank electronic fund transfers for verified corporate and individual refund claimants.", "source": "Federal Board of Revenue", "url": "https://fbr.gov.pk/news/fbr-time-bound-refund-mechanism-oct16"}, {"head": "Valuation Directorate Issues Benchmark Ruling on Imported Industrial Steel Billets and Wire", "body": "Custom House Karachi issued Valuation Ruling 1929/2026 under Section 25A of the Customs Act, 1969, updating minimum assessment thresholds for imported secondary quality steel billets and high-carbon industrial drawing wire. The ruling aligns assessment benchmarks with London Metal Exchange (LME) spot settlement averages, closing persistent valuation gaps at seaports and ensuring equitable customs duty realization across ship-breaking and secondary re-rolling mills.", "source": "Directorate General of Customs Valuation", "url": "https://customs.gov.pk/valuation/advices/steel-billets-wire-oct2026"}, {"head": "Pakistan Single Window Integrates Real-Time Container Yard Clearance Telemetry", "body": "The Pakistan Single Window (PSW) successfully integrated automated container yard gate-out telemetry across marine terminals at KICT, QICT, and SAPT. The digital interface synchronizes real-time terminal operator handling systems with customs WeBOC out-of-charge releases, eliminating manual paper gate-passes, preventing physical queuing of freight trucks, and reducing overall port container dwell times by 40%.", "source": "Pakistan Single Window", "url": "https://psw.gov.pk/news/container-yard-telemetry-oct16"}, {"head": "Ministry of Commerce Updates Duty Draw-Back Schedules for Surgical Instrument Exporters", "body": "The Ministry of Commerce and Pakistan Customs published revised standard input-output coefficients under SRO 214(I)/2026 for surgical instrument and electro-medical device manufacturers operating under the Export Facilitation Scheme (EFS). The measure accelerates automated duty drawback disbursements through banking channels, supporting working capital liquidity across Sialkot's specialized export manufacturing cluster.", "source": "Ministry of Commerce", "url": "https://commerce.gov.pk/duty-drawback-surgical-instruments-oct16"}, {"head": "Pakistan Named Incoming Chair of IMF and World Bank Boards of Governors for 2027", "body": "In a historic diplomatic and multilateral milestone, Pakistan was officially elected as the incoming Chair of the Boards of Governors of the International Monetary Fund (IMF) and the World Bank Group for the year 2027 during the Annual Meetings in Washington, DC. This marks Pakistan's first chairmanship of the multilateral governing boards since 1953, reflecting international recognition of the country's macroeconomic stabilization program, fiscal consolidation, and institutional structural reforms.", "source": "IMF & Ministry of Finance", "url": "https://imf.org/en/news/pakistan-chair-boards-governors-2027"}, {"head": "Pakistan Explores $1.5 Billion Financing Backed by World Bank Policy Guarantee and MIGA", "body": "Finance Minister Muhammad Aurangzeb concluded high-level negotiations with World Bank and Multilateral Investment Guarantee Agency (MIGA) leadership to structure a $1.5 billion sovereign commercial financing facility backed by multilateral policy-based guarantees. The derisking credit enhancement structure enables Pakistan to access international institutional debt markets at significantly reduced commercial interest margins, supporting balance-of-payments resilience.", "source": "World Bank & EAD", "url": "https://worldbank.org/en/news/pakistan-policy-based-guarantee-oct16"}, {"head": "Finance Ministry Seeks Fitch's Sovereign Roadmap for Upgraded BB Credit Rating", "body": "A senior Pakistani financial delegation met with Fitch Ratings analysts in Bangkok to establish a clear institutional roadmap for upgrading Pakistan's sovereign credit rating to the 'BB' tier. Sovereign analysts evaluated Pakistan's expanding foreign exchange reserves, reduced debt-servicing ratios, disciplined primary fiscal surpluses, and sustained energy sector tariff rationalization as foundational drivers for future rating upgrades.", "source": "Fitch Ratings & Ministry of Finance", "url": "https://fitchratings.com/pakistan-sovereign-rating-consultations-oct16"}, {"head": "State Bank Real Effective Exchange Rate (REER) Climbs to 108.9 in September Bulletin", "body": "On Friday, 16 October 2026, the State Bank of Pakistan released its official September 2026 statistical bulletin confirming that the country's Real Effective Exchange Rate (REER) index appreciated to 108.9, marking its highest reading in eight years. The statistical appreciation reflects domestic inflation differentials relative to trading partners alongside nominal rupee stability in the interbank market, prompting trade economists to evaluate potential implications for merchandise export price competitiveness.", "source": "State Bank of Pakistan", "url": "https://sbp.org.pk/ecodata/reer-bulletin-sep2026"}, {"head": "Pakistan Pitches Capital Market Reforms to MSCI and Evaluates Panda Bond Issuance", "body": "Pakistani financial authorities presented comprehensive capital market reform milestones to MSCI index executives, aiming to increase sovereign weightings within the Frontier Markets Index. Concurrently, discussions with Deutsche Bank evaluated inaugural Panda bond issuances in Chinese renminbi and tokenised Eurobonds to diversify sovereign international funding channels across Asian debt capital markets.", "source": "SECP & PSX", "url": "https://secp.gov.pk/news/msci-reforms-panda-bonds-oct16"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 17, 2026", "headline": "KSE-100 Claws Back 234 Points to Finish Week at 166,420 as Systems Limited and Commercial Banks Anchor Late-Session Rally", "deck": "Benchmark index oscillates 850 points between red and green before late institutional buying in technology and banking counters seals positive weekly close; market turnover crosses 410 million shares.", "hero_source": "Pakistan Stock Exchange", "hero_url": "https://psx.com.pk/market-summary-oct16", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The Pakistan Stock Exchange (PSX) concluded a volatile trading week on a firm note on Friday, 16 October 2026, as late-session institutional buying in blue-chip technology and commercial banking equities propelled the benchmark KSE-100 Index to close 233.55 points higher at 166,419.72 points. The market had experienced heavy mid-day profit-taking, sliding over 600 points into negative territory amid global equity pullbacks and rising international energy benchmarks, before corporate buyers absorbed selling pressure.", "Market participation remained robust throughout the session, with total traded volume across all boards crossing 410.2 million shares valued at Rs 18.42 billion. Sectoral leadership was spearheaded by Systems Limited, which surged 4.2% on news of expanding enterprise AI software export contracts, alongside solid gains in Meezan Bank Limited, MCB Bank, Hub Power Company (HUBCO), and Lucky Cement. Foreign institutional portfolio investors (FIPI) recorded net buying of $1.4 million, reflecting confidence in Pakistan's external account stability.", "Equity strategists highlighted that the bourse's resilient weekly performance underscores sustained domestic liquidity and healthy corporate profitability expectations for the first quarter of fiscal year 2027. While short-term consolidation remains likely near the 167,000 psychological barrier, expanding central bank foreign exchange buffers and ongoing capital market reforms continue to provide solid fundamental support for blue-chip valuations."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "EXPORT POLICY \u00b7 2035 HORIZON", "body": "The Federal Cabinet officially approved the establishment of the National Trade Facilitation Board (NTFB) to coordinate cross-ministerial reforms aimed at reducing maritime container dwell times, eliminating duplicative customs inspections, and lowering shipping demurrage fees. The high-level institutional board unites the Ministry of Commerce, Pakistan Customs, terminal operators, and provincial logistics directorates to execute a comprehensive strategy targeting $100 billion in annual merchandise and services exports by 2035.", "source": "Ministry of Commerce", "url": "https://nation.com.pk/pakistan-100b-export-goal-trade-facilitation-board-oct16"}, {"head": "Sindh Revenue Board Notifies Accelerated Assessment Timelines for Port Logistics Providers", "body": "The Sindh Revenue Board (SRB) issued circular guidelines establishing strict 30-day statutory assessment turnaround times for marine stevedoring, terminal handling, and bonded freight forwarding services. The procedural reform eliminates prolonged provisional withholding audits and facilitates timely input tax credit reconciliation for shipping lines operating across Karachi Port and Port Qasim.", "source": "Sindh Revenue Board", "url": "https://srb.gos.pk/revenue/port-logistics-timelines-oct16"}, {"head": "KPRA Achieves 28% Growth in Q1 Services Tax Receipts Driven by Telecommunications", "body": "The Khyber Pakhtunkhwa Revenue Authority (KPRA) recorded a 28% year-on-year growth in services sales tax receipts during the first quarter of fiscal year 2026-27, collecting Rs 10.8 billion. Revenue realization was driven by expanded digital telecommunications infrastructure, engineering services for run-of-the-river hydropower projects, and interprovincial freight logistics across northern corridors.", "source": "KPRA Media Bureau", "url": "https://kpra.gov.pk/news/quarterly-collection-fy27-q1"}, {"head": "Rupee Closes at 276.91 Per US Dollar in Friday Interbank Market on Balanced Remittances", "body": "The Pakistani rupee posted a modest gain of one paisa against the US dollar in Friday's interbank foreign exchange market, closing at 276.91 per dollar. Foreign exchange dealers reported that robust worker remittance flows and disciplined commercial import retirement schedules maintained smooth liquidity in the interbank currency market throughout the week.", "source": "State Bank of Pakistan", "url": "https://sbp.org.pk/ecodata/interbank-exchange-rates-oct16"}, {"head": "Domestic Gold Surges Rs 2,800 to Rs 440,636 Per Tola as Silver Hits Historic Apex of Rs 6,256", "body": "Domestic bullion prices surged to fresh records on Friday, with 24-karat gold gaining Rs 2,800 to close at Rs 440,636 per tola, tracking international bullion spot prices reaching $4,172 per ounce. Concurrently, domestic silver prices reached an all-time historic record of Rs 6,256 per tola, propelled by unprecedented global industrial demand for photovoltaic and electronics manufacturing.", "source": "APSGJA", "url": "https://apsgja.com.pk/bullion-rates-oct16"}, {"head": "Brent Crude Settles at $109.86 Per Barrel Following Middle East Shipping Alerts and Stockpile Draws", "body": "International benchmark Brent crude futures settled sharply higher at $109.86 per barrel on Friday, reaching their highest closing price since May 2026. The commodity rally was fueled by maritime security alerts in Gulf shipping lanes, intercept reports near major energy transit corridors, and substantial commercial crude inventory draws reported by OECD refining hubs.", "source": "ICE & Bloomberg", "url": "https://theice.com/energy/brent-crude-five-month-high-oct16"}, {"head": "Nasdaq Drops 2.1% as Wall Street Weighs Mega-Cap AI Infrastructure Debt and Rising Oil", "body": "Wall Street equities closed significantly lower on Friday as the tech-heavy Nasdaq Composite dropped 2.1% to settle at 26,134.40 points. Investors consolidated profits across semiconductor and AI hyperscaler shares following reports of massive corporate bond issuances for data center expansions, alongside surging international crude oil benchmarks that reignited inflation concerns.", "source": "New York Stock Exchange & Reuters", "url": "https://nyse.com/market-update-oct16"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "SATURDAY, OCTOBER 17, 2026", "headline": "Claude Designs Quantum Circuits That Outperform Best Published Human Architectures in Closed-Loop Benchmark", "deck": "Anthropic research reveals frontier reasoning model autonomously synthesized optimized quantum circuits across eight core algorithmic primitives, reducing gate count by up to 28%.", "hero_source": "Anthropic AI Research", "hero_url": "https://anthropic.com/research/designing-efficient-quantum-circuits-oct16", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Technical Analysis", "body": ["In technical research findings published on Friday, 16 October 2026, Anthropic demonstrated that its frontier reasoning model, Claude, successfully designed quantum computing circuits that surpass the best previously published human architectures across eight foundational computational primitives. Operating largely autonomously within a closed-loop synthesis environment, the system formulated novel topological circuit layouts for Hamiltonian simulation, molecular quantum chemistry, and combinatorial optimization.", "The model's synthesized circuits achieved an average 18% to 28% reduction in two-qubit entangling gate counts and reduced overall circuit depth, which directly mitigates decoherence noise on noisy intermediate-scale quantum (NISQ) processors. Quantum physicists noted that the AI discovered non-intuitive symmetry cancellations that human circuit designers had missed, proving that reinforcement-guided reasoning models can discover fundamental algorithmic shortcuts in complex scientific domains.", "Anthropic emphasized that the breakthrough relied on formal test-time search loops rather than simple associative memorization, pairing the language model with an automated quantum state fidelity simulator. The research highlights a pivotal transition in artificial intelligence, moving from language generation toward self-verifying scientific discovery and automated physical engineering."], "quote": "Protectionist tariffs are a double-edged sword: they nurture infant engineering capacity only when coupled with sunset clauses, while currency overvaluation quietly taxes our most productive exporters.", "editorial": {"title": "EDITORIAL: THE STATUTORY & FISCAL IMPERATIVE: Tariff Discipline, Export Competitiveness, and the Real Effective Exchange Rate", "deck": "The ECC's auto parts duty revision and an elevated REER of 108.9 demand calibrated statutory balance between domestic vendor protection and external trade competitiveness.", "paragraphs": ["The decisions ratified by the Economic Coordination Committee on 16 October 2026, levying an 11% additional customs duty across 13 distinct categories of locally manufactured automotive parts under SRO 693(I)/2006, represent a classic instrument of industrial policy. In customs jurisprudence, the exercise of delegated powers under Section 18 of the Customs Act, 1969 to shield infant domestic manufacturing against foreign under-invoicing is a legitimate exercise of economic sovereignty. However, statutory protectionism must never be treated as an open-ended subsidy; it requires rigorous technological benchmarks and transparent sunset clauses to ensure domestic assemblers deliver global quality standards.", "Simultaneously, the macroeconomic telemetry confirmed by the State Bank of Pakistan\u2014recording the Real Effective Exchange Rate (REER) at 108.9 for September 2026, its highest level in eight years\u2014serves as an urgent structural warning. A REER substantially above 100 indicates real-term currency appreciation relative to our major trade competitors, including Bangladesh, Vietnam, and India. While nominal exchange rate stability near Rs 276.91 per dollar anchors short-term debt servicing, an overvalued real currency inadvertently functions as an unlegislated tax on our export-oriented value-added textile and engineering sectors.", "Furthermore, the current account deficit expanding to $356 million in September highlights the fragility of our external equilibrium when domestic industrial import demand rebounds. It is precisely in this context that FBR Chairman Rashid Mehmood Langrial's directive ordering a time-bound administrative mechanism for Section 170 income tax refunds assumes paramount importance. Liquidity is the lifeblood of commerce; withholding legitimate taxpayer refunds on administrative pretexts cripples the working capital of compliant corporate entities and drives productive enterprise toward the informal economy.", "The institutional path forward requires systemic harmony between tariff policy, exchange rate realism, and tax administration integrity. As Pakistan prepares to assume the incoming Chair of the Boards of Governors of the IMF and the World Bank for 2027, our fiscal governance must embody the highest standards of statutory due process. Protection must be conditioned on localization performance; currency valuations must safeguard export competitiveness; and tax authorities must transition decisively from coercive revenue targets to automated, faceless, and verifiable compliance telemetry."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "FRONTIER HARDWARE ARCHITECTURE", "body": "NVIDIA officially commenced worldwide shipments of its new RTX Spark mobile enterprise workstation laptops on Friday. Built upon custom Blackwell mobile silicon and featuring 128GB of high-speed unified LPDDR5X memory, the hardware enables AI engineers and enterprise researchers to run, fine-tune, and quantize 70-billion-parameter open-weight models locally with zero cloud latency and complete data confidentiality.", "source": "NVIDIA Corporation", "url": "https://nvidia.com/news/rtx-spark-128gb-laptops-oct16"}, {"head": "Stealth Startup Elorian Unveils 'Glimpse', a Specialized Frontier Reasoning Model for Geometric Verification", "body": "Emerging AI venture Elorian announced 'Glimpse', a compact frontier reasoning model built from the ground up to verify complex multimodal inputs, architectural schematics, and geometric mathematical proofs. The system implements dual-stream token processing, allowing parallel symbolic and spatial reasoning loops that prevent visual hallucination during structural code audits.", "source": "Elorian AI", "url": "https://elorian.ai/glimpse-multimodal-reasoning-oct16"}, {"head": "GitHub Releases Enterprise Open-Source License Compliance Telemetry Module to GA", "body": "GitHub launched the general availability of its automated open-source license compliance engine for enterprise organizations. The cloud service scans commit histories, dependencies, and container layers in real time, alerting development leads to reciprocal licensing conflicts or proprietary intellectual property exposure.", "source": "GitHub Engineering", "url": "https://github.blog/enterprise-license-compliance-ga-oct16"}, {"head": "Meta Confirms Ray-Ban Smart Glasses Recorded Audio Without Wake-Word, Deploys Firmware Patch", "body": "Meta acknowledged on Friday that a software sensor glitch caused certain Ray-Ban smart glasses to capture ambient audio snippets without explicit user wake-word activation. The company confirmed that an immediate over-the-air firmware patch has been distributed to disable rogue background microphone polling and purge unprompted audio recordings.", "source": "The Verge & Meta", "url": "https://theverge.com/meta-ray-ban-smart-glasses-audio-bug-patch-oct16"}, {"head": "Meta Clarifies Revised Terms of Service Do Not Authorize Unauthorized Publisher Scraping", "body": "Following concerns raised by international publishing associations, Meta issued a clarifying statement affirming that its updated enterprise commercial agreements do not authorize automated web crawling or commercial content harvesting of news media without negotiated licensing agreements.", "source": "Reuters & TechCrunch", "url": "https://techcrunch.com/meta-clarifies-commercial-scraping-terms-oct16"}, {"head": "Anthropic Signs Long-Term Commercial Lease for First Dedicated Canadian Clean-Energy Data Center", "body": "Anthropic completed a long-term anchor tenant lease for a green-energy computational data center in Nova Scotia, Canada. Powered by hydro-electric and offshore wind energy, the specialized facility will host next-generation model training clusters while adhering to zero-carbon computational mandates.", "source": "Bloomberg & The Logic", "url": "https://bloomberg.com/news/anthropic-canadian-data-center-lease-oct16"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 17, 2026", "headline": "Paramount's Video Game Adaptation 'Street Fighter' Punches to $30 Million Global Debut as Elizabeth Holmes Documentary Sets 17-Year Box Office Record", "deck": "Capcom's legendary fighting franchise captures multiplex screens worldwide; Marina Zenovich's Theranos chronicle 'You Can See Everything' generates second-highest documentary opening weekend in modern history.", "hero_source": "Deadline & Box Office Mojo", "hero_url": "https://deadline.com/box-office-street-fighter-you-can-see-everything-oct16", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Cinemas across North America, Europe, and Asia witnessed an energetic autumn box office surge on Friday night, led by Paramount Pictures and Legendary Entertainment's live-action adaptation of Capcom's iconic video game franchise 'Street Fighter'. Industry box office tracking confirmed an estimated $30 million opening weekend across 4,100 domestic screens, fueled by cross-generational martial arts fans, premium IMAX ticket presales, and high fan turnout in Latin America and East Asia.", "Simultaneously, theatrical specialty distributor Neon achieved a remarkable documentary milestone with Marina Zenovich's gripping Theranos investigative chronicle 'You Can See Everything'. Profiling the criminal trial and corporate downfall of Elizabeth Holmes, the film generated the second-highest opening weekend box office gross for a theatrical documentary in the past 17 years, filling metropolitan art-house auditoriums and sparking widespread social media discussion.", "Box office analysts noted that diverse theatrical offerings\u2014spanning big-budget action spectacles and compelling investigative journalism\u2014are sustaining multiplex revenues during mid-autumn, demonstrating that audiences continue to prioritize shared large-format cinematic experiences for distinctive cultural storytelling."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "MAJOR STUDIO SCI-FI FRANCHISE ACQUISITION", "body": "In a major Hollywood studio bidding contest, Paramount Pictures finalized a multi-million-dollar deal on Friday to acquire the global screen rights to author Pierce Brown's bestselling dystopian sci-fi saga 'Red Rising'. The studio attached acclaimed director Francis Lawrence ('The Hunger Games: Catching Fire') to direct the inaugural live-action feature adaptation, with Brown himself co-writing the screenplay for the epic Martian space opera.", "source": "Deadline Hollywood", "url": "https://deadline.com/paramount-red-rising-francis-lawrence-oct16"}, {"head": "Diablo Cody Confirms 'Jennifer's Body 2' Enters Active Development with Expanded Cult Lore", "body": "Academy Award-winning screenwriter Diablo Cody confirmed that a sequel to the cult 2009 feminist horror film 'Jennifer's Body' has officially entered active development. Cody stated that the new screenplay will explore a more nuanced, empathetic perspective of the supernatural succubus mythology, exploring modern themes of trauma and friendship while reuniting key creative personnel.", "source": "Variety", "url": "https://variety.com/jennifers-body-2-diablo-cody-update-oct16"}, {"head": "Los Angeles Superior Court Judge Dismisses Timothy Busfield Case Citing Prosecutorial Misconduct", "body": "A Los Angeles Superior Court judge on Friday dismissed historic child endangerment allegations against Emmy Award-winning actor and director Timothy Busfield, citing severe prosecutorial misconduct and procedural suppression of exculpatory evidence during preliminary hearings, clearing the veteran actor of all claims.", "source": "The Hollywood Reporter", "url": "https://hollywoodreporter.com/news/timothy-busfield-case-dismissed-oct16"}, {"head": "Miley Cyrus Headlines Historic Hollywood Bowl Benefit Concert, Performing Emotional 'Jolene' Tribute", "body": "Pop superstar Miley Cyrus headlined a sold-out benefit concert at the iconic Hollywood Bowl on Friday night, marking her first major performance at the amphitheater in several years. Cyrus delivered an emotionally charged, tearful rendition of Dolly Parton's classic hit 'Jolene', earning a standing ovation from 17,500 attendees while raising funds for regional music education initiatives.", "source": "Variety", "url": "https://variety.com/miley-cyrus-hollywood-bowl-jolene-tribute-oct16"}, {"head": "Cardi B Named Inaugural Global Woman of the Year at Billboard Canada Women in Music 2026", "body": "Billboard Canada honored Grammy Award-winning rapper and songwriter Cardi B with the inaugural Global Woman of the Year award at its Women in Music celebration in Toronto on Friday. The prestigious honor recognized her record-breaking streaming dominance, global fashion impact, and persistent advocacy for equitable music publishing compensation.", "source": "Billboard Canada", "url": "https://billboard.com/business/cardi-b-global-woman-of-the-year-oct16"}, {"head": "My Chemical Romance Signs Worldwide Publishing Administration Deal with Warner Chappell Music", "body": "Seminal rock band My Chemical Romance concluded a comprehensive global publishing administration agreement with Warner Chappell Music on Friday. The commercial agreement encompasses their entire iconic song catalog, including 'The Black Parade', coordinating global sync licensing for major film, television, and video game productions.", "source": "Music Week & Billboard", "url": "https://musicweek.com/publishing/my-chemical-romance-warner-chappell-oct16"}, {"head": "Hello82 Launches Inaugural 82World K-Pop Arena Festival in Los Angeles Headlined by ATEEZ", "body": "Global K-pop fan platform Hello82 announced its inaugural arena-scale music festival, '82World Weekend', scheduled for late autumn at the Crypto.com Arena in Los Angeles. Headlined by global superstars ATEEZ, the multi-day festival integrates interactive fan experiences, live pop-up recording studios, and exclusive merchandise drops.", "source": "The Hollywood Reporter", "url": "https://hollywoodreporter.com/music/hello82-82world-festival-la-oct16"}, {"head": "Plex and Fandango Activate Direct In-App Theatrical Ticketing for 25 Million Connected Streaming Users", "body": "Streaming media platform Plex and movie ticketing service Fandango completed the national rollout of their integrated ticketing interface on Friday. The software integration surfaces real-time theater showtimes and frictionless ticket checkout directly inside the Plex smart TV app, connecting digital home streaming with theater attendance.", "source": "IndieWire", "url": "https://indiewire.com/plex-fandango-ticketing-live-oct16"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 17, 2026", "headline": "Autumn Splendour Transforms Pakistan's Alpine Valleys as Travelers Flock to Neelum, Leepa, and Babusar Corridors for Peak Foliage", "deck": "Golden larch forests, walnut harvests, and crisp Himalayan skies draw thousands across Azad Kashmir and Khyber Pakhtunkhwa; tourism police coordinate safe high-altitude transit before seasonal winter passes close.", "hero_source": "PTDC & AJK Tourism", "hero_url": "https://ptdc.gov.pk/autumn-foliage-valleys-neelum-leepa-babusar-oct16", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["A vibrant tapestry of golden larch, crimson birch, and amber walnut foliage has transformed the alpine river terraces and forested slopes across Pakistan's northern mountain valleys, attracting tens of thousands of domestic ecotourists, landscape photographers, and families over the mid-October weekend. Regional tourism departments in Azad Jammu & Kashmir reported near-capacity weekend lodge occupancy across Neelum Valley gems including Sharda, Keran, Arang Kel, and Taobat, alongside the picturesque terraced farms of Leepa Valley and the pine-fringed shores of Banjosa Lake in Rawalakot.", "In Khyber Pakhtunkhwa, the provincial Culture and Tourism Authority deployed round-the-clock advisory checkpoints along the 4,173-meter Babusar Pass, Lake Saif-ul-Malook, and Swat's upper Kalam corridor. Coordinated mountain transit convoys ensured unhindered daytime passage for travelers traveling between Hazara and Gilgit-Baltistan before anticipated late-autumn snowfall triggers seasonal pass closures. In Chitral, indigenous Kalash valleys\u2014Bumburet, Rumbur, and Birir\u2014welcomed cultural enthusiasts celebrating the conclusion of the seasonal grape and walnut harvest.", "Local administration officials in Muzaffarabad and Gilgit affirmed that specialized rescue vehicles, updated mountain weather telemetry, and high-altitude medical first-responder teams remain stationed along key Karakoram and Himalayan corridors, promoting sustainable, family-friendly eco-tourism while preserving fragile alpine valley environments."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "INTERNATIONAL MARITIME COMMERCE & SECURITY", "body": "United States Central Command (CENTCOM) naval coalition forces reported on Friday that coordinated maritime interdiction operations across Gulf waters and the Strait of Hormuz successfully blocked shadow tanker networks responsible for transporting over $25 billion in unsanctioned crude oil exports. Coalition naval commanders affirmed that international maritime corridors remain protected, ensuring safe and unhindered lawful passage for global merchant shipping fleets.", "source": "US Central Command & Reuters", "url": "https://centcom.mil/maritime-security-intercept-oil-network-oct16"}, {"head": "Khyber Pakhtunkhwa Tourism Institutes 24-Hour Advisory Patrols for Babusar Pass and Saif-ul-Malook", "body": "The Khyber Pakhtunkhwa Tourism Police deployed dedicated high-altitude transit patrol units along the Babusar Pass highway connecting Naran to Chilas. The teams monitor road surface friction, provide emergency vehicle assistance, and ensure strict compliance with daytime travel schedules to ensure tourist safety during the peak autumn foliage season.", "source": "KP Tourism Authority", "url": "https://kptourism.com/babusar-advisory-patrols-oct16"}, {"head": "Azad Kashmir Tourism Directorate Registers Surge in Autumn Walnut and Apple Harvest Cultural Ecotourism", "body": "Tourism authorities across Azad Jammu & Kashmir recorded substantial growth in autumn cultural ecotourism across Sharda, Arang Kel, and Leepa Valley, as visitors participate in seasonal walnut and apple harvests while experiencing pristine sub-alpine forest foliage before early winter cold snaps.", "source": "AJK Tourism Directorate", "url": "https://ajktourism.gov.pk/autumn-harvest-ecotourism-oct16"}, {"head": "Singapore Serves Formal Statutory Notices on Seven Foreign Timber Firms Over Cross-Border Haze", "body": "Singapore's National Environment Agency served formal statutory notices under the Transboundary Haze Pollution Act on seven regional plantation corporations whose agricultural concession areas were identified as source points for persistent toxic haze fires, demanding immediate fire-suppression action and preventive satellite disclosures.", "source": "NEA Singapore & Straits Times", "url": "https://nea.gov.sg/news/transboundary-haze-statutory-notices-oct16"}, {"head": "UN Climate Panel Plenary in Addis Ababa Concludes Sessions on Sovereign Adaptation Timelines", "body": "Delegates attending the technical plenary of the Intergovernmental Panel on Climate Change (IPCC) in Addis Ababa concluded working sessions defining standardized criteria for measuring national adaptation resilience, recommending dedicated non-debt grant financing for vulnerable developing nations.", "source": "UNFCCC & UNEP", "url": "https://unfccc.int/news/addis-ababa-adaptation-timelines-oct16"}, {"head": "European Union Leaders Conclude Brussels Summit Affirming Unified Maritime Trade Security Standards", "body": "Heads of state concluding the European Council summit in Brussels reaffirmed collective naval support for safeguarding freedom of commercial navigation across international maritime straits while standardizing customs single window protocols for transatlantic cargo.", "source": "European Council & AFP", "url": "https://consilium.europa.eu/en/press/brussels-summit-maritime-trade-oct16"}, {"head": "Republic of Maldives Advances Final UNESCO World Heritage Review for Historic Coral Stone Mosques", "body": "The Republic of Maldives completed the final round of international conservation evaluations conducted by UNESCO and ICOMOS experts on Friday, advancing its landmark 13-year heritage bid to inscribe six ancient maritime coral-stone mosques onto the UNESCO World Heritage List, celebrating their sea-carved architectural masonry.", "source": "UNESCO & Maldives Tourism", "url": "https://unesco.org/en/news/maldives-coral-mosques-world-heritage-oct16"}, {"head": "Brazil's GOL Airlines Temporarily Suspends US Routes Until Early 2027 Citing Jet Fuel Price Surges", "body": "Brazilian low-cost carrier GOL Linhas A\u00e9reas announced on Friday night that it is temporarily suspending all scheduled passenger flights to the United States through early 2027. Airline executives cited soaring global aviation kerosene fuel costs, aircraft delivery delays, and route network restructuring aimed at protecting balance-sheet liquidity.", "source": "TheStreet & Reuters", "url": "https://thestreet.com/aviation/gol-airlines-suspends-us-routes-oct16"}, {"head": "United Airlines and Air Canada Unveil Six New Transborder Corridors for Summer 2027 Tourism", "body": "Star Alliance partners United Airlines and Air Canada announced six new non-stop transborder seasonal flight routes connecting major leisure and ecotourism destinations across Canada and the United States for summer 2027, featuring optimized connections and reciprocal frequent flyer benefits.", "source": "IATA & CAPA Aviation", "url": "https://centreforaviation.com/air-canada-united-transborder-routes-oct16"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 17, 2026", "headline": "Pakistan and Sri Lanka Finalize Squad Combinations in Rawalpindi Ahead of ODI Tri-Series Opener", "deck": "Captains Shaheen Shah Afridi and Kusal Mendis address pre-match press conferences and inspect 22-yard pitch; England squad arrives in Islamabad ahead of Sunday's tournament start.", "hero_source": "Pakistan Cricket Board", "hero_url": "https://pcb.com.pk/news/pakistan-srilanka-odi-triseries-preview-oct17", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["On the eve of the highly anticipated 2026 Pakistan, Sri Lanka, and England ODI Tri-Series, the national squads of Pakistan and Sri Lanka completed intensive training sessions under floodlights at the Rawalpindi Cricket Stadium on Saturday, 17 October 2026. Pakistan ODI captain Shaheen Shah Afridi and Sri Lankan skipper Kusal Mendis addressed formal pre-match press conferences, evaluating the lively 22-yard surface and outlining strategic playing combinations ahead of Sunday's Day-Night opening fixture, scheduled to bowl off at 1:00 PM PKT.", "The seven-match tournament, structured across a double round-robin group phase before culminating in the grand finale at Lahore's Gaddafi Stadium on 31 October, marks a significant international cricket milestone for the host nation. The Pakistan selection committee confirmed a balanced 16-member roster featuring prolific top-order batter Babar Azam, fiery pace duo Naseem Shah and Haris Rauf, and leg-spin all-rounder Shadab Khan. Meanwhile, Sri Lanka's contingent conducted extensive batting drills against high-pace throwdowns, with seasoned campaigner Dasun Shanaka and top-order anchor Pathum Nissanka showing sharp form.", "Simultaneously, the England white-ball squad, captained by Jos Buttler, landed at Islamabad International Airport on Friday evening and checked into their federal capital base before commencing net sessions ahead of their opening clash against Pakistan on Tuesday, 20 October. Pakistan Cricket Board (PCB) commercial directors confirmed that over 85% of general and hospitality enclosure tickets for Sunday's opener were snapped up through the online portal within 48 hours, with live high-definition broadcasts confirmed across PTV Sports and digital platforms."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "COLOMBO WHEELCHAIR T20 SERIES", "body": "The Pakistan Disabled Cricket Association (PDCA) officially announced a 14-member national squad captained by Muhammad Zeeshan for the upcoming Colombo Triangular Wheelchair T20 Series against Sri Lanka and Bangladesh. The national selection committee finalized the touring contingent following rigorous open trials in Karachi, with an intensive 7-day conditioning camp commencing at the National Stadium complex on 21 October. [PDCA Squad: Muhammad Zeeshan (C), Imran Amin, Sajid Ali, Asad Khan \u00b7 Triangular Series in Colombo]", "source": "PDCA Media Bureau", "url": "https://pdca.com.pk/triangular-series-colombo-squad-announcement"}, {"head": "Rolex Shanghai Masters: 20-Year-Old Rafael Jodar Stuns Casper Ruud to Reach Historic Semifinal", "body": "In one of the most sensational upsets of the 2026 ATP season, 20-year-old Spanish qualifier Rafael Jodar produced a courageous baseline display on Friday, defeating 20th seed Casper Ruud 4-6, 6-4, 6-3 to become the youngest semifinalist in tournament history. Meanwhile, Daniil Medvedev overcame Tommy Paul 6-3, 1-6, 6-3 to seal his place in the final four.", "source": "ATP Tour & Reuters", "url": "https://atptour.com/news/jodar-ruud-shanghai-masters-semifinals-oct16"}, {"head": "WTA 1000 Wuhan Open: Iga Swiatek and Maja Chwalinska Set Up Historic All-Polish Semifinal", "body": "World No. 1 Iga Swiatek dispatched Ann Li 6-4, 6-1, while qualifier Maja Chwalinska edged Maria Sakkari 6-0, 3-6, 7-5 on Friday to set up the first all-Polish semifinal on the WTA Tour in the Open Era. British qualifier Sonay Kartal also advanced to her maiden WTA 1000 semifinal by defeating Elina Svitolina 6-2, 2-6, 6-4.", "source": "WTA Tour & Dawn", "url": "https://wtatennis.com/news/swiatek-chwalinska-wuhan-semifinal-oct16"}, {"head": "India Women Defeat Zimbabwe by 38 Runs in T20I Series Opener at Harare Sports Club", "body": "India Women claimed a 38-run victory over Zimbabwe in their T20I opener in Harare on Friday. Rescued from 42/3 by all-rounder Deepti Sharma (34 and 3/14) and 19-year-old debutant Niki Prasad (38), India posted 156/6 before spin bowling restricted Zimbabwe to 118/8 in 20 overs.", "source": "ESPNcricinfo & AP", "url": "https://espncricinfo.com/series/india-women-tour-zimbabwe-t20i-oct16"}, {"head": "NASA Europa Clipper Successfully Deploys 100-Foot Solar Arrays on 5.5-Year Voyage to Jupiter", "body": "NASA flight controllers confirmed on Friday that the Europa Clipper spacecraft successfully deployed its massive 100-foot-wide solar arrays in deep space following a flawless launch aboard a SpaceX Falcon Heavy rocket from Kennedy Space Center. The solar panels will power the probe's scientific payload during its 1.8-billion-mile trajectory to investigate the habitability of Jupiter's ice-crusted ocean moon Europa.", "source": "NASA JPL Media Bureau", "url": "https://jpl.nasa.gov/news/europa-clipper-solar-array-deployment-oct16"}, {"head": "Nature Medicine Publishes Landmark Trial of Personalized mRNA Cancer Vaccine for Pancreatic Carcinoma", "body": "In a clinical trial published in Nature Medicine on Friday, oncologists reported that an individualized neoantigen mRNA vaccine administered with immune checkpoint inhibition stimulated durable, tumor-specific cytotoxic T-cell responses in 50% of surgically resected pancreatic cancer patients, demonstrating significantly prolonged recurrence-free survival.", "source": "Nature Medicine Journal", "url": "https://nature.com/articles/s41591-026-pancreatic-mrna-oct16"}, {"head": "London Review of Books Features Critical Reappraisal of Intizar Husain's Epic 'Basti'", "body": "The London Review of Books published an in-depth critical reappraisal of Intizar Husain's landmark Urdu novel 'Basti' on Friday, celebrating its lyrical exploration of displacement, mythological memory, and historical fracture during the partition of South Asia, praising the definitive English translation for capturing Husain's unique mystical cadence.", "source": "London Review of Books", "url": "https://lrb.co.uk/the-paper/v48/n20/intizar-husain-basti-review-oct16"}, {"head": "Pro Bono Advisory Note: Navigating SRO 693(I)/2006 Auto Parts Duty Uplifts & Section 170 Refund Applications", "body": "In a pro bono legal advisory for commercial importers, automotive engineering vendors, and tax practitioners, Senior Customs & Tax Counsel Muhammad Iqbal Bhawana clarifies that the 11% additional customs duty notified under SRO 693(I)/2006 applies prospectively to bills of lading dated on or after 17 October 2026. Consignments with established letters of credit or bills of lading issued prior to notification are legally protected against retrospective tariff uplifts under Section 31A of the Customs Act, 1969. Furthermore, filers with overdue income tax refunds under Section 170 are advised to utilize the FBR Chairman's newly mandated time-bound administrative mechanism by verifying CPR challans electronically to secure immediate liquidity.", "source": "Chambers of Muhammad Iqbal Bhawana", "url": "https://iqbalbhawana.com/advisory/auto-parts-sro693-refund-guidance-oct17"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "2026-10-17", "cond": "Clear & Sunny", "temp": "33\u00b0C / 21\u00b0C", "pop": "0%"}, {"date": "2026-10-18", "cond": "Sunny", "temp": "32\u00b0C / 20\u00b0C", "pop": "0%"}, {"date": "2026-10-19", "cond": "Hazy Sunshine", "temp": "31\u00b0C / 19\u00b0C", "pop": "5%"}, {"date": "2026-10-20", "cond": "Clear Autumn", "temp": "30\u00b0C / 18\u00b0C", "pop": "0%"}, {"date": "2026-10-21", "cond": "Clear", "temp": "29\u00b0C / 18\u00b0C", "pop": "0%"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
