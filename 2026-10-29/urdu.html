@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بھوانہ ٹریبیون — سرین ویب میگزین ایڈیشن (جمعرات، ۲۹ اکتوبر ۲۰۲۶ء)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.3;
+  }
+
+  .brand-tagline {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 4px;
+    line-height: 1.8;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 26, 54, 0.8);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    padding: 4px;
+    border-radius: 9999px;
+  }
+
+  .lang-btn {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active {
+    background: #d97706;
+    color: #ffffff;
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  /* Desk Navigation Pills */
+  .desk-pills {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .desk-pill {
+    background: #0b1328;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    line-height: 1.8;
+  }
+
+  .desk-pill:hover {
+    border-color: #d97706;
+    color: #fbbf24;
+    background: rgba(217, 119, 6, 0.08);
+  }
+
+  .desk-pill.active {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    border-color: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+  }
+
+  /* Main Presentation Stage */
+  .desk-card {
+    background: linear-gradient(180deg, #090f20 0%, #070c18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 28px;
+    padding: 48px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .tag-pill {
+    background: #d97706;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fbbf24;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    line-height: 1.8;
+  }
+
+  .date-text {
+    color: #64748b;
+    font-size: 13px;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  .hero-headline {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-deck {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 2.3;
+    color: #ffffff;
+    margin-bottom: 32px;
+    padding-right: 20px;
+    border-right: 4px solid #d97706;
+    background: rgba(217, 119, 6, 0.05);
+    border-radius: 0 8px 8px 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .hero-body p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.4;
+    color: #f8fafc;
+    margin-bottom: 22px;
+    text-align: justify;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Quote Box */
+  .quote-box {
+    background: linear-gradient(135deg, rgba(15, 26, 54, 0.9) 0%, rgba(8, 14, 30, 0.95) 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 32px 36px;
+    margin: 36px 0;
+    position: relative;
+  }
+
+  .quote-box::before {
+    content: "«";
+    font-family: 'Amiri', serif;
+    font-size: 55px;
+    color: rgba(217, 119, 6, 0.35);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-size: 19px;
+    color: #fde68a;
+    line-height: 2.2;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-author {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 14px;
+    display: block;
+    line-height: 1.8;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 26px;
+    color: #fbbf24;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .editorial-special-deck {
+    font-size: 18px;
+    color: #e2e8f0;
+    margin-bottom: 24px;
+    line-height: 2.1;
+    border-right: 3px solid #fbbf24;
+    padding-right: 16px;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 18px;
+    font-size: 17.5px;
+    line-height: 2.3;
+    color: #f8fafc;
+    text-align: justify;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fbbf24;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.6;
+  }
+
+  .secondary-heading::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d97706;
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(15, 23, 42, 0.9);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 15px;
+    color: #e2e8f0;
+    line-height: 2.2;
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 8px;
+    line-height: 1.8;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-right: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 20px;
+    color: #fbbf24;
+    font-weight: 800;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.6;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 14px;
+    line-height: 2.2;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    line-height: 1.8;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 1.8;
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    direction: ltr;
+    display: inline-block;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    line-height: 1.8;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons (Urdu) */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-right: 6px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(-2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar (Urdu) */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    direction: rtl;
+  }
+  .weather-bar-title {
+    font-family: 'Amiri', serif;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+    text-align: right;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: 'Noto Nastaliq Urdu', serif;
+  }
+  .weather-temp {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.5;
+    font-family: 'Noto Nastaliq Urdu', serif;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">روزنامہ بھوانہ ٹریبیون</h1>
+          <div class="brand-tagline">سرین ویب میگزین ایڈیشن (اردو نستعلیق) • بانی و مدیرِ اعلیٰ: محمد اقبال بھوانہ</div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <a href="./index.html" class="lang-btn inactive" id="engSwitchLink" title="Read in English">English</a>
+          <span class="lang-btn active">اردو</span>
+        </div>
+        <div class="edition-badge">جمعرات، ۲۹ اکتوبر ۲۰۲۶ء</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar (Urdu) -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> علاقائی موسمیاتی و پورٹ لاجسٹکس پیشگوئی · ۵ روزہ تصدیق شدہ مشاہدات
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>بھوانہ ٹریبیون • عالمی ڈیجیٹل ماسٹر ایڈیشن • مصدقہ گزٹ و قانونی جریدہ</div>
+    <div>۱۰۰٪ مصنوعی ذہانت سے خودکار انداز میں مرتب کردہ ریسرچ ایڈیشن</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "ڈیسک ۱: کسٹمز، وفاقی ٹیکس و قانونی اصلاحات", "category": "کسٹمز ویلیوایشن و تجارتی خسارہ", "readTime": "۴ منٹ مطالعہ", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "کسٹمز نے 10 کروڑ روپے سے زائد کے جعلی پے آرڈرز کے ذریعے سیلز ٹیکس فراڈ پر چار مقدمات درج کر لیے", "deck": "پشاور کلکٹریٹ آف کسٹمز اپریزمنٹ کی انویسٹی گیشن اینڈ پراسیکیوشن برانچ نے ازاخیل ڈرائی پورٹ نوشہرہ میں جعلی بینک انسٹرومنٹس جمع کرانے پر کسٹمز ایکٹ 1969 کی دفعہ 161 کے تحت کارروائی شروع کر دی۔", "author": "محمد اقبال بھوانہ", "authorRole": "بانی و سینئر کسٹمز لا ایکسپرٹ", "hero_source": "CustomsNews.pk Desk", "hero_url": "https://customnews.pk/2026/10/28/customs-registers-four-firs-over-fake-pay-orders-worth-over-rs100-million-in-sales-tax/", "body": ["پشاور: کلکٹریٹ آف کسٹمز (اپریزمنٹ) پشاور نے سیلز ٹیکس کی ادائیگی کے عوض جعلی اوربوگس بینک پے آرڈرز جمع کرانے کے الزام میں درآمد کنندگان اور کلیئرنگ ایجنٹس کے خلاف چار الگ الگ مقدمات (ایف آئی آرز) درج کر لیے ہیں۔ یہ کارروائی نوشہرہ کی ازاخیل ڈرائی پورٹ کے ذریعے کلیئر کیے گئے درآمدی کنسائنمنٹس کی تحقیقات کے بعد عمل میں لائی گئی، جہاں تقریباً 10 کروڑ 30 لاکھ روپے کے سیلز ٹیکس کی چوری بے نقاب ہوئی ہے۔", "یہ مقدمات کسٹمز ایکٹ 1969 کی دفعہ 161 کے تحت انسپکٹر شہباز خان کی مدعیت میں انویسٹی گیشن اینڈ پراسیکیوشن برانچ کی جانب سے درج کیے گئے ہیں۔ سب سے بڑا مقدمہ مالاکنڈ سے تعلق رکھنے والی سبز اور کالی چائے درآمد کرنے والی فرم میسرز یوسفزئی فوڈز کے خلاف ہے، جس نے سابقہ فاٹا اور پاٹا کے صنعتی یونٹس کے لیے سیلز ٹیکس چھوٹ حاصل کرنے کی غرض سے 13 گڈز ڈیکلریشنز (جی ڈیز) کے ساتھ 18 جعلی پے آرڈرز جمع کرائے جن کی مالیت 7 کروڑ 63 لاکھ 83 ہزار 759 روپے بنتی ہے۔", "جب کلکٹریٹ نے ان مالیاتی دستاویزات کی تصدیق کے لیے متعلقہ بینک سے تحریری رابطہ کیا تو بینک حکام نے تصدیق کی کہ یہ 18 کیشیئر چیکس ان کی برانچ سے کبھی جاری نہیں ہوئے، نہ ہی ان کے سیریل نمبرز بینک ریکارڈ میں موجود ہیں اور نہ دستخط بینک عملے سے مطابقت رکھتے ہیں۔ ایف آئی آر کے مطابق درآمد کنندہ نے قومی خزانے کو نقصان پہنچانے کے لیے دانستہ طور پر جعلی دستاویزات پیش کیں۔", "دوسرے مقدمے میں ایل ای ڈی ٹی وی پارٹس درآمد کرنے والی فرم میسرز بیسٹ کارپوریشن کے مالک اویس خان، پے آرڈر پیش کرنے والے عبدالوکیل، کلکٹریٹ کے وی بوک سسٹم میں بطور سیکیورٹی آفیسر تعینات کلرک نبیل ناصر اور خیبر ایجنسی میں فیصل بینک برانچ کے آپریشن منیجر کو نامزد کیا گیا ہے۔ اس کیس میں 2 کروڑ 11 لاکھ 79 ہزار 565 روپے کے سیلز ٹیکس میں اصل پے آرڈر کو جعلی پے آرڈر اور کلکٹر کسٹمز کی جعلی مہر سے تبدیل کیا گیا، جبکہ تیسرے مقدمے میں میسرز عجوہ انٹرپرائزز کے مالک عمر حیات اور عبدالوکیل کو جعلی پے آرڈر نمبر 0808501 جمع کرانے پر نامزد کیا گیا ہے۔ ازاخیل ڈرائی پورٹ پر دیگر کلیئرنسز کا جامع آڈٹ بھی تیزی سے جاری ہے۔"], "quote": "ریونیو اسیسمنٹ ایک قانونی اور عدالتی عمل ہے، نہ کہ انتظامی اختیارات کے بل بوتے پر تاجروں پر یکطرفہ قیمتیں تھوپنے کا نام۔ — محمد اقبال بھوانہ", "secondary_title": "کسٹمز، ٹیرف اور ریونیو اسیسمنٹ ڈسپیچز", "secondary_items": [{"head": "عالمی بینک کے مالی تعاون سے جاری ریونیو منصوبے کے تحت ایف بی آر میں سوشل اسپیشلسٹ کی تقرری کا فیصلہ", "body": "اسلام آباد: فیڈرل بورڈ آف ریونیو (ایف بی آر) نے عالمی بینک کے مالی تعاون سے جاری پاکستان ریزز ریونیو پروجیکٹ (PRRP) کے تحت اپنے اسلام آباد ہیڈکوارٹرز میں کل وقتی سوشل اسپیشلسٹ تعینات کرنے کا عمل شروع کر دیا ہے تاکہ سماجی تحفظات، اسٹیک ہولڈرز سے مشاورت اور بین الاقوامی معیارات کی تکمیل کو یقینی بنایا جا سکے۔\n\nشرائطِ کار (TORs) کے مطابق یہ عہدہ ایف بی آر کے انسٹی ٹیوشنل ٹرانسفارمیشن پروگرام اور انفارمیشن ٹیکنالوجی کی جدید کاری میں معاونت فراہم کرے گا۔ منتخب ماہر 30 جون 2027 تک اسٹیک ہولڈر انگیجمنٹ پلان (SEP)، لیبر مینجمنٹ پروسیجرز (LMP)، انوائرمنٹل اینڈ سوشل مینجمنٹ پلان (ESMP) اور شکایات کے ازالے کے نظام (GRM) کی نگرانی کرے گا۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-social-specialist-job-world-bank-project/"}, {"head": "ایف بی آر نے ریٹرن فائلرز کے لیے ۳۱ اکتوبر کو ٹیکس وصولی کی ونڈوز کھولنے کا اعلان کر دیا", "body": "فیڈرل بورڈ آف ریونیو (FBR) نے اعلان کیا ہے کہ وہ 31 اکتوبر 2026 کو خصوصی طور پر ان ٹیکس دہندگان کے لیے ٹیکس وصولی کی ونڈوز کھلی رکھے گا جنہوں نے اپنے ریٹرن پہلے ہی جمع کرا دیے ہیں۔ اس اقدام کا مقصد ریٹرن فائلرز کو اپنے بقایا واجبات کی یکمشت ادائیگی کا موقع فراہم کرنا ہے تاکہ آمدنی کی وصولی کا عمل بلا تعطل اور منظم طریقے سے آگے بڑھ سکے۔ ایک ہی دن میں وصولی کی اس مہم کو مرکوز کر کے ایف بی آر کا ہدف ٹیکس حکام اور عوام کے مابین روابط کو آسان بنانا اور ٹیکس دفاتر کے بار بار کے چکروں سے بچانا ہے۔\n\nٹیکس دفاتر کی یہ مخصوص سرگرمی ایف بی آر کے باقاعدہ انتظامی شیڈول کا حصہ ہے، جس سے باقاعدہ ٹیکس گزاروں کو ادائیگی کے لیے واضح ٹائم لائن مل سکے گی۔ اگرچہ اعلان میں مزید تفصیلی طریقہ کار بیان نہیں کیا گیا، لیکن یہ اقدام محصولات کی مسلسل وصولی اور سہولت کاری پر اتھارٹی کی توجہ کو ظاہر کرتا ہے۔ ٹیکس دہندگان سے توقع کی جا رہی ہے کہ وہ اپنے واجبات فوری ادا کر کے ونڈو بند ہونے کے بعد عائد ہونے والے جرمانے اور اضافی سود سے بچیں۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-tax-offices-open-october-31-2026/"}, {"head": "بیوروکریسی میں بڑھتی ہوئی کشیدگی: ایف بی آر نے دو سینئر افسران کو معطل کر دیا", "body": "پاکستان کے فیڈرل بورڈ آف ریونیو (FBR) نے ان لینڈ ریونیو سروس کے دو سینئر افسران کو 120 دن کے لیے معطل کر دیا ہے اور انہیں روزانہ تین مرتبہ ایف بی آر ہیڈکوارٹر میں حاضری لگانے کی ہدایت جاری کی ہے۔ حاضری کی اس ہدایت کو سینئر افسران نے سول سروس کی تاریخ میں بے مثال قرار دیا ہے جو روایتی نگران طریقہ کار سے واضح انحراف ہے۔ اس اقدام نے ریونیو ڈپارٹمنٹ کی اندرونی کشیدگی کو عیاں کر دیا ہے اور سینئر افسران کے معاملے میں انتظامی اصولوں پر سوالات کھڑے کر دیے ہیں۔\n\nمعطل ہونے والے افسران میں ایک نائب علی پٹھان ہیں، جو بی ایس-20 کے افسر ہیں اور حیدرآباد میں کمشنر آئی آر کے فرائض انجام دے رہے تھے۔ رپورٹ میں دوسرے افسر کی شناخت اور موجودہ تعیناتی ظاہر نہیں کی گئی۔ دونوں افسران کو اب معطلی کے پورے دورانیے میں روزانہ متعدد بار ہیڈکوارٹر میں ذاتی طور پر پیش ہونا پڑے گا، جسے اعلیٰ انتظامی حلقے ادارے کے اندر ایک نیا اور غیر معمولی ضابطہ قرار دے رہے ہیں۔", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/10/28/fbr-suspends-two-senior-officers-as-bureaucratic-tensions-escalate/"}, {"head": "شدید جھٹکوں کے باوجود بنیادی معاشی اشاریے بہتر ہوئے ہیں: گورنر اسٹیٹ بینک", "body": "کراچی: اسٹیٹ بینک آف پاکستان کے گورنر جمیل احمد نے بدھ کے روز کہا ہے کہ سنگین عالمی اور علاقائی معاشی جھٹکوں کے باوجود ملکی معیشت کی بنیادیں نمایاں طور پر مستحکم ہوئی ہیں۔ انسٹیٹیوٹ آف کاسٹ اینڈ مینجمنٹ اکاؤنٹنٹس آف پاکستان کے سالانہ کانووکیشن سے خطاب کرتے ہوئے گورنر نے کہا کہ اگرچہ چیلنجز بدستور موجود ہیں، لیکن ”ہم 2022 کے مقابلے میں ایک طویل اور مثبت سفر طے کر چکے ہیں“۔ انہوں نے کہا کہ رسد کے شدید مسائل کے باوجود ہم نے ملکی معیشت پر منفی اثرات کو محدود رکھا ہے، اور مالی سال 26 میں مہنگائی ہدف کی حدود کے قریب رہی۔ اگرچہ بعد میں اس میں اضافہ ہوا، تاہم دانشمندانہ سخت مانیٹری پالیسی کی بدولت مالی سال 27 کے وسط تک اس میں بتدریج کمی متوقع ہے جس سے ہدف (5-7 فیصد) حاصل ہو جائے گا۔ انہوں نے واضح کیا کہ بیرونی کھاتہ مستحکم ہے اور کرنٹ اکاؤنٹ خسارہ جی ڈی پی کے صفر سے ایک فیصد کے درمیان رہنے کی امید ہے۔ حقیقی جی ڈی پی کی شرح نمو بھی مالی سال 23 کے انكماش کے بعد مالی سال 26 میں 3.7 فیصد تک بحال ہوئی ہے اور مالی سال 27 میں اس میں مزید اضافے کا امکان ہے۔ انہوں نے کہا کہ ”معاشی بنیادوں میں ان بہتریوں اور بڑھتی ہوئی لچک کو بین الاقوامی کریڈٹ ریٹنگ ایجنسیاں، کثیر جہتی شراکت دار اور غیر ملکی سرمایہ کار تسلیم کر رہے ہیں“۔ گورنر کے مطابق پالیسی ریٹ کو تقریباً ایک سال تک مستحکم رکھنے کے بعد اس میں اضافہ اور قرض کے علاوہ زرمبادلہ کے اخراج پر عارضی پابندیاں میکرو اکنامک استحکام کی بحالی اور بیرونی مالیاتی بحران سے بچاؤ کے لیے ناگزیر تھیں۔ (شائع شدہ: روزنامہ ڈان، 29 اکتوبر 2026)", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040568/fundamentals-improve-despite-shocks-sbp-chief"}, {"head": "ایف بی آر کی تمام کمپنیوں کے مالی گوشواروں کی لازمی ای-فائلنگ کی تجویز", "body": "فیڈرل بورڈ آف ریونیو (FBR) نے ایک نئی تجویز پیش کی ہے جس کے تحت تمام رجسٹرڈ کمپنیوں کے لیے اپنے مالی گوشوارے الیکٹرانک سسٹم کے ذریعے جمع کرانا لازمی ہوگا۔ اس اقدام کو ٹیکس نظام کو جدید خطوط پر استوار کرنے، کاغذی کارروائی پر انحصار گھٹانے اور اعداد و شمار کی بروقت اور درست فراہمی کی جانب پیش رفت قرار دیا جا رہا ہے۔ ڈیجیٹل پورٹل پر منتقلی کا مقصد فائلنگ کے دفتری بہاؤ کو سہل بنانا اور آڈٹ ٹریل کو شفاف بنانا ہے۔\n\nاگر یہ تجویز منظور کر لی جاتی ہے تو کمپنیوں کو اپنے سالانہ گوشوارے جمع کرانے کے لیے مخصوص آن لائن پورٹل استعمال کرنا ہوگا۔ ایف بی آر کو توقع ہے کہ برقی جمع بندی سے تعمیلی نگرانی میں بہتری آئے گی، اخراجات کم ہوں گے اور اسیسمنٹ کے مقاصد کے لیے مالی معلومات تک فوری رسائی ممکن ہو سکے گی۔ فی الوقت تجویز زیر غور ہے اور اس پر عمل درآمد کے ٹائم فریم اور تکنیکی ہدایات بعد میں جاری کی جائیں گی۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-mandatory-company-financial-statements-tax-return/"}, {"head": "سندھ ہائیکورٹ نے سپریم کورٹ کے پابند فیصلے کی روشنی میں کسٹمز اپیلٹ ٹربیونل کا فیصلہ کالعدم قرار دے دیا", "body": "سندھ ہائی کورٹ کے کسٹمز اپیلٹ بینچ نے ڈائریکٹر جنرل انٹیلی جنس اینڈ انویسٹی گیشن کی دائر کردہ درخواست کا جائزہ لینے کے بعد اسپیشل کسٹمز ریفرنس ایپلی کیشن (SCRA) نمبر 761 (سال 2024) نمٹا دی ہے۔ یہ درخواست سسٹیک انٹرنیشنل (Systech International) اور دیگر متعلقہ فریقوں کے خلاف کسٹمز اپیلٹ ٹربیونل کے سابقہ فیصلے پر نظرثانی کے لیے دائر کی گئی تھی۔ اپنے فیصلے میں بینچ نے سپریم کورٹ آف پاکستان کی حالیہ قانونی نظیروں کا حوالہ دیتے ہوئے واضح کیا کہ کسٹمز قوانین کی تشریح میں اعلیٰ ترین عدلیہ کے فیصلے ہی حتمی حیثیت رکھتے ہیں۔\n\nسپریم کورٹ کے احکامات کی روشنی میں سندھ ہائی کورٹ نے کسٹمز اپیلٹ ٹربیونل کے فیصلے کو کالعدم قرار دے دیا۔ اس حکم نے کسٹمز تنازعات میں عدالتی اختیارات کے دائرہ کار کی توثیق کی ہے اور واضح کیا ہے کہ ماتحت ٹربیونلز سپریم کورٹ کے قانونی معیارات کی پابندی کے پابند ہیں۔ بینچ کے اس تفصیلی فیصلے سے ریفرنس کے قانونی مراحل اختتام پذیر ہو گئے ہیں۔", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/10/28/shc-sets-aside-judgment-of-customs-appellate-tribunal-following-binding-judgment-of-scp/"}, {"head": "شواہد پر مبنی پالیسیاں ہی معاشی استحکام کی ضامن ہیں: گورنر اسٹیٹ بینک", "body": "اسٹیٹ بینک آف پاکستان کے گورنر نے اس امر کا اعادہ کیا ہے کہ ملک میں میکرو اکنامک استحکام برقرار رکھنے کے لیے شواہد پر مبنی پالیسیوں کا نفاذ انتہائی ضروری ہے۔ اپنے حالیہ بیان میں گورنر نے اس بات پر زور دیا کہ ٹھوس ڈیٹا کے تجزیے اور تجرباتی تحقیق پر مبنی فیصلے زری اور مالیاتی اقدامات کے لیے ایک قابل اعتماد بنیاد فراہم کرتے ہیں، جس سے اتار چڑھاؤ پر قابو پانے اور پائیدار نمو حاصل کرنے میں مدد ملتی ہے۔ ٹھوس اقتصادی اشاریوں کے مطابق فیصلوں سے سرمایہ کاروں اور مارکیٹ کا اعتماد بحال ہوتا ہے۔\n\nشواہد پر مبنی پالیسی سازی پر زور مالیاتی شعبے میں شفافیت اور جوابدہی کے وسیع تر عزم کی عکاسی کرتا ہے۔ جب پالیسیاں مصدقہ اعداد و شمار کی روشنی میں ترتیب دی جائیں تو اس سے ہنگامی اور غیر دانشمندانہ مداخلت کا خطرہ کم ہو جاتا ہے اور زیادہ متوازن معاشی ماحول بنتا ہے۔ توقع ہے کہ اس طرز عمل سے ریگولیٹری نظام زیادہ مؤثر ہوگا اور وسائل کی منصفانہ تقسیم ممکن ہو سکے گی۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-governor-evidence-based-economic-policies/"}, {"head": "پاکستان میں زرعی فنانسنگ کا حجم ۱.۳ ٹریلین روپے سے تجاوز کر گیا", "body": "پرو پاکستانی · بزنس ویب ڈیسک — فنانس ڈویژن کے تازہ ترین اعداد و شمار کے مطابق پاکستان میں واجب الادا زرعی فنانسنگ کا مجموعی حجم 1.329 ٹریلین روپے تک پہنچ گیا ہے جس سے تقریباً 35 لاکھ قرض گیر مستفید ہو رہے ہیں۔ وزیر خزانہ محمد اورنگزیب نے 28 اکتوبر کو اسلام آباد میں ایکسس ٹو فنانس اسٹیئرنگ کمیٹی کے چھٹے اجلاس میں ان اعداد و شمار کا جائزہ لیا اور کاشتکاروں اور چھوٹے کاروباروں کے لیے قرضوں کی تیز تر فراہمی پر زور دیا۔\n\nحکومت کی زرخیزی: آسان زرعی قرضہ اسکیم کے تحت حکام نے 8.674 ارب روپے مالیت کی 20,176 قرضہ درخواستوں کی منظوری دی ہے، جن میں سے چھوٹے کاشتکاروں کو تقریباً 2.34 ارب روپے مالیت کے 6,132 بلامعاوضہ ضمانت قرضے جاری کیے جا چکے ہیں۔ کمیٹی نے لائیو اسٹاک اور ڈیری کے کاروبار کے لیے فنانسنگ بڑھانے اور زرعی سپلائی چین میں نجی شعبے کی شمولیت کو فروغ دینے کے اقدامات پر بھی غور کیا۔\n\nوزیر خزانہ نے متعلقہ مالیاتی اداروں کو ہدایت کی کہ وہ زراعت اور چھوٹے و درمیانے درجے کے کاروباروں (SMEs) کے لیے قرضوں کی فراہمی کو تیز کریں تاکہ کریڈٹ تک رسائی کے ثمرات کاشتکاروں اور کم وسائل والے طبقات تک حقیقی معنوں میں منتقل ہو سکیں۔", "source": "ProPakistani · Business Web Desk", "url": "https://propakistani.pk/2026/10/28/agriculture-financing-crosses-rs-1-3-trillion/"}, {"head": "بینکوں کے لیے کم از کم سرمائے کی حد ۲۰ ارب روپے مقرر", "body": "کراچی: اسٹیٹ بینک آف پاکستان (SBP) نے تمام ملکی اور غیر ملکی بینکوں کے لیے کم از کم سرمائے کی شرائط (MCR) میں اضافہ کر دیا ہے۔ بدھ کو جاری کردہ ایک سرکلر میں مرکزی بینک نے کہا کہ مالیاتی اداروں کے قیام اور پائیدار انتظام سے وابستہ بڑھتے ہوئے آپریشنل اخراجات کے پیش نظر نئے اور موجودہ بینکوں، غیر ملکی بینکوں کی برانچز اور ترقیاتی مالیاتی اداروں (DFIs) کے لیے ایم سی آر بڑھانے کا فیصلہ کیا گیا ہے۔ نئے ضوابط کے تحت مقامی طور پر قائم بینکوں بشمول ان کے اسلامی بینکاری کے ذیلی اداروں کے لیے کم از کم سرمایہ 20 ارب روپے ہوگا۔ شاخوں کے ذریعے کام کرنے والے غیر ملکی بینکوں کے لیے پانچ برانچوں تک کم از کم الاٹ شدہ سرمایہ نقصانات منہا کر کے 5 ارب روپے جبکہ 6 سے 50 برانچوں کی صورت میں 10 ارب روپے برقرار رکھنا لازمی ہوگا۔ سرکلر میں کہا گیا ہے کہ ”ڈی ایف آئیز کے لیے ایم سی آر 10 ارب روپے ہوگا۔ موجودہ بینکوں اور ترقیاتی اداروں کے لیے اس حد کو 31 دسمبر 2030 تک پورا کرنا لازم ہوگا“۔ بینکنگ کمپنیز آرڈیننس 1962 کے سیکشن 21 کے تحت قائم کردہ قانونی ذخائر (statutory reserves) بھی 2013 کے BPRD سرکلر نمبر 06 کی اشیاء کے ساتھ ایم سی آر میں شامل کیے جا سکیں گے۔ تاہم مرکزی بینک کی پیشگی منظوری کے بغیر انہیں نکلوایا نہیں جا سکے گا۔ یہ ضوابط بینکوں کے مالیاتی تحفظ اور کھاتہ داروں کے اعتماد کو یقینی بنانے کے لیے نافذ کیے گئے ہیں۔ (شائع شدہ: روزنامہ ڈان، 29 اکتوبر 2026)", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040572/rs20-billion-capital-limit-set-for-banks"}, {"head": "اسٹیٹ بینک نے روایتی و ڈیجیٹل بینکوں اور مالیاتی اداروں کے لائسنسنگ قواعد کو اپ ڈیٹ کر دیا", "body": "اسٹیٹ بینک آف پاکستان نے بینکوں، ڈیجیٹل بینکوں اور دیگر مالیاتی اداروں سے متعلق لائسنسنگ کا ایک نیا اور تفصیلی ہینڈ بک جاری کر دیا ہے۔ ان قواعد کا مقصد بدلتی ہوئی مارکیٹ اور فنانشل ٹیکنالوجی کے تقاضوں کے مطابق لائسنسنگ کے طریقہ کار کو جدید خطوط پر استوار کرنا ہے۔\n\nنئی ہینڈ بک میں قانونی مراحل، شرائط اور تعمیلی اصولوں کی وضاحت کی گئی ہے جن پر عمل کر کے کوئی بھی ادارہ نیا لائسنس حاصل کر سکتا ہے یا موجودہ لائسنس کا تسلسل برقرار رکھ سکتا ہے۔ اسٹیٹ بینک کے اس اقدام کا مقصد روایتی بینکاری اور ابھرتے ہوئے ڈیجیٹل پلیٹ فارمز دونوں کے لیے ایک شفاف اور پیشگی اندازے کے قابل ریگولیٹری ماحول پیدا کرنا ہے۔\n\nیہ پیش رفت پی کے ریونیو ڈاٹ کام وائر نے رپورٹ کی جس میں مالیاتی سیکٹر کے لیے اس اپ ڈیٹ کی اہمیت کو اجاگر کیا گیا۔ توقع ہے کہ تمام شراکت دار نظرثانی شدہ تقاضوں کی پاسداری کے لیے ہینڈ بک کا تفصیلی جائزہ لیں گے۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-licensing-handbook-banks-financial-institutions/"}]}, {"id": 2, "desk": "ڈیسک ۲: صوبائی محصولات، بینکنگ و بین الاقوامی منڈیاں", "category": "فنٹیک سینڈ باکس و ترسیلاتِ زر", "readTime": "۴ منٹ مطالعہ", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "کوئلے کی خریداری: نیپرا کی جانب سے پی کیو ای پی سی ایل کو مزید توسیع دیے جانے کا امکان نہیں", "deck": "اسلام آباد: باخبر ذرائع کے مطابق نیشنل الیکٹرک پاور ریگولیٹری اتھارٹی (نیپرا) کی جانب سے پورٹ قاسم الیکٹرک پاور کمپنی لمیٹڈ (PQEPCL) کو عبوری انتظام کے تحت کوئلے کی خریداری کے لیے مزید توسیع دیے جانے کا امکان نہیں ہے، باوجود اس کے کہ کمپنی حکام ریگولیٹر کو قائل کرنے کی کوشش کر رہے ہیں۔", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40446431/coal-procurement-nepra-unlikely-to-grant-another-extension-to-pqepcl", "author": "صوبائی ریونیو و بینکاری ڈیسک", "authorRole": "مالیاتی تجزیہ", "body": ["اسلام آباد: نیشنل الیکٹرک پاور ریگولیٹری اتھارٹی (نیپرا) کی جانب سے پورٹ قاسم الیکٹرک پاور کمپنی لمیٹڈ (PQEPCL) کو عبوری انتظام کے تحت کوئلے کی خریداری کے لیے مزید توسیع دیے جانے کا امکان نہیں ہے۔ یہ صورت حال 1,320 میگاواٹ کے پورٹ قاسم کوئلے کے پاور پلانٹ کے خریداری عمل میں شفافیت کے فقدان کے خدشات پر سامنے آئی ہے، جس پر وزیراعظم کے دفتر (PMO) نے انکوائری کا حکم دے رکھا ہے۔ پاور ڈویژن کو بھی یہ تشویش لاحق ہے کہ ناموافق تجارتی شرائط پر کوئلے کی خریداری کا حتمی مالی بوجھ بجلی صارفین پر پڑے گا۔ قومی احتساب بیورو (NAB) بھی بجلی کے شعبے کے امور پر متحرک ہے اور اس کے لیے ایک خصوصی ڈائریکٹوریٹ قائم کر چکا ہے۔", "ذرائع کے مطابق پی کیو ای پی سی کے نمائندوں نے حال ہی میں نیپرا حکام سے ملاقات کر کے عبوری انتظام میں مزید دو ماہ کی توسیع کی تحریری درخواست کی، لیکن اتھارٹی کی جانب سے اس کی منظوری کے کوئی واضح آثار نہیں۔ تنازع کی اصل وجہ جنوبی افریقہ کے کوئلے پر 2.10 ڈالر فی میٹرک ٹن رعایت کی پیشکش والی بولیاں ہیں، جو کمپنی کی تاریخ کی سب سے زیادہ رعایت قرار دی جا رہی ہیں۔ مسابقتی بولیوں کا حامی موقف یہ ہے کہ اس رعایت کو تسلیم کرنے سے صارفین کے مفادات کا تحفظ ہوگا اور شفافیت بڑھے گی۔ تاہم مبینہ طور پر پی کیو ای پی سی اپنے پرانے سپلائرز سے کم رعایت پر کوئلہ خریدنے کے لیے جاری نیلامی کو التوا میں ڈالنے یا منسوخ کرنے کی کوشش کر رہی ہے۔", "نیپرا اس معاملے میں کھلی بولی اور قواعد کی مکمل پاسداری پر زور دے سکتی ہے کیونکہ کوئلے کی لاگت کا براہ راست اثر فیول ایڈجسٹمنٹ کے ذریعے بجلی کے ٹیرف پر پڑتا ہے۔ توقع ہے کہ جمعرات کو نیپرا کی ستمبر 2026 کے فیول چارجز ایڈجسٹمنٹ (FCA) سے متعلق عوامی سماعت میں بھی یہ معاملہ اٹھے گا۔ عدالتی احکامات کی روشنی میں ایف بی آر بھی اس معاملے کی جانچ کر رہا ہے۔ 1,320 میگاواٹ کا یہ منصوبہ پورٹ قاسم کراچی میں قائم ہے اور نیپرا کا آئندہ فیصلہ کوئلے کی خریداری اور بجلی کی قیمتوں کے مستقبل کا تعین کرے گا۔ (کاپی رائٹ بزنس ریکارڈر، 2026)"], "quote": "دو طرفہ کراس بارڈر فوری بینکاری راہداریاں مزدور طبقے کی محنت کی کمائی کو تحفظ فراہم کرتی ہیں اور غیر رسمی مالیاتی راستوں پر انحصار ختم کرتی ہیں۔ — اسٹیٹ بینک مارکیٹ تجزیہ", "secondary_title": "مرکزی بینکنگ، ڈیجیٹل سینڈ باکس اور اسٹاک مارکیٹ جائزہ", "secondary_items": [{"head": "ایس ای سی پی نے خواتین کے لیے سرمایہ کاری کے مقابلے کا آغاز کر دیا", "body": "سیکیورٹیز اینڈ ایکسچینج کمیشن آف پاکستان (SECP) اور اقراء یونیورسٹی کے سینٹر فار ایکسی لینس ان اسلامک فن ٹیک (IU-CEIF) نے شریعت کے مطابق سرمایہ کاری میں خواتین کی شمولیت کو فروغ دینے کے لیے دو ماہ پر محیط مقابلے کا آغاز کیا ہے۔ ”بااختیار خواتین – اخلاقی سرمایہ کاری“ کے عنوان سے شروع کی گئی اس مہم میں ملک بھر کی یونیورسٹیوں کی طالبات، فیکلٹی اور عملہ حصہ لے سکتے ہیں۔ کراچی میں تقریب سے خطاب کرتے ہوئے کمشنر امتیاز حیدر نے کہا کہ مالیاتی شعبے میں خواتین کا کردار بڑھانے کے لیے مالیاتی آگاہی اور باخبر فیصلے ناگزیر ہیں۔ تقریب میں آوٴفی (AAOIFI) بورڈ آف ٹرسٹیز کے چیئرمین شیخ ابراہیم بن خلیفہ آل خلیفہ نے بطور مہمان خصوصی شرکت کی۔ کمشنر نے خواتین کی مالیاتی رسائی کے لیے متعارف کرائی گئی ”خودمختار خاتون“ ڈیجیٹل فنانسنگ پروڈکٹ اور کیپٹل مارکیٹ میں آسان اکاؤنٹ کھولنے کے طریقہ کار کا بھی ذکر کیا۔", "source": "ProPakistani · Markets & Stocks", "url": "https://propakistani.pk/2026/10/28/secp-launches-investment-competition-for-women/"}, {"head": "پی ایس او بورڈ نے اے آر ایل کے ساتھ سیل پرچیز معاہدے کی ۵ سالہ تجدید کی توثیق کر دی", "body": "اسلام آباد: پاکستان اسٹیٹ آئل کمپنی لمیٹڈ (PSO) کے بورڈ نے اٹک ریفائنری لمیٹڈ (ARL) کے ساتھ اپنے سیل پرچیز ایگریمنٹ (SPA) کی یکم جولائی 2025 سے 30 جون 2030 تک پانچ سال کے لیے تجدید کی منظوری دے دی ہے، جس میں پیٹرولیم مصنوعات کے معیار، درجہ حرارت اور مقدار کی پیمائش کے سخت ضوابط شامل کیے گئے ہیں۔ دوسرے الحاقیہ معاہدے کی معیاد 30 جون 2025 کو ختم ہو گئی تھی۔ بورڈ کی منظوری کے بعد موٹر گیسولین (PMG) کا کم از کم ماہانہ کوٹہ 12,000–15,000 میٹرک ٹن سے بڑھا کر 14,000–16,000 میٹرک ٹن کر دیا گیا ہے، جبکہ جیٹ اے-1 کے لیے پہلی بار 9,000–11,000 میٹرک ٹن کی فراہمی طے کی گئی ہے۔ معاہدے کے تحت پیٹرولیم مصنوعات کی سپلائی سے قبل کم از کم 24 گھنٹے انتظار لازمی ہوگا اور پیمائش کے لیے سخت فارمولے نافذ ہوں گے۔", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446430/pso-board-approves-renewal-of-spa-with-arl-for-5-years"}, {"head": "تیل کی عالمی قیمتوں میں تقریباً ایک فیصد کا اضافہ", "body": "نیویارک: یمن میں جاری لڑائی، سعودی ریفائنری پر میزائل حملے اور امریکی وسط مدتی انتخابات کے بعد ایران پر ممکنہ حملوں کے خدشات کے پیش نظر بدھ کو تیل کی قیمتوں میں قریباً 1 فیصد اضافہ ریکارڈ کیا گیا۔ برینٹ کروڈ کے سودے 1.44 ڈالر (1 فیصد) کے اضافے سے 115.32 ڈالر فی بیرل جبکہ امریکی ویسٹ ٹیکساس انٹرمیڈیٹ 2.88 ڈالر (3 فیصد) بڑھ کر 102.78 ڈالر پر بند ہوا۔ یمن کے حوثیوں نے عدن ایئرپورٹ پر حملہ کیا اور منگل کو سعودی عرب کی سب سے بڑی ریفائنری پر میزائل داغنے کا دعویٰ کیا۔ دوسری جانب امریکی انرجی انفارمیشن ایڈمنسٹریشن نے بتایا کہ گزشتہ ہفتے خام تیل کے ذخائر میں 1.9 ملین بیرل کی غیر متوقع کمی واقع ہوئی ہے جس نے قیمتوں کو مزید سہارا دیا۔", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446429/oil-prices-edge-up-about-1pc"}, {"head": "عالمی بینک نے خیبرپختونخوا ہائیڈرو پاور منصوبے کی پیش رفت کو ”نمایاں طور پر غیر تسلی بخش“ قرار دے دیا", "body": "اسلام آباد: عالمی بینک نے خیبرپختونخوا ہائیڈرو پاور اینڈ رینیوایبل انرجی ڈویلپمنٹ پراجیکٹ پر پیش رفت کو ”نمایاں طور پر غیر تسلی بخش“ قرار دیتے ہوئے اس کے لیے مختص 727 ملین ڈالر کے قرض کے حوالے سے خطرات کو ”کافی بڑا“ قرار دیا ہے۔ 2020 میں منظور شدہ اس منصوبے کی تکمیل کی آخری تاریخ 30 نومبر 2027 مقرر ہے۔ رپورٹ کے مطابق مجموعی عمل درآمد کو درمیانے درجے کا تسلی بخش قرار دیا گیا لیکن معاشی اور استعداد کار سے متعلق چیلنجز بدستور حائل ہیں۔ گیبرال-کالام ہائیڈرو پاور پراجیکٹ پر سول ورکس کا آغاز ہو چکا ہے، تاہم 200 ملین ڈالر کے تجارتی قرض میں سے اب تک صرف 3.95 ملین ڈالر (دو فیصد سے کم) جاری کیے جا سکے ہیں، جبکہ 240 ملین ڈالر کے رعایتی قرض میں سے اب تک 34 ملین ڈالر ہی استعمال میں لائے جا سکے ہیں۔", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040474/world-bank-rates-progress-on-kp-hydropower-renewable-energy-project-moderately-unsatisfactory"}, {"head": "اسٹیٹ بینک نے بینکوں کے لیے کم از کم سرمائے کی شرط (MCR) دوگنی کر دی", "body": "کراچی: اسٹیٹ بینک آف پاکستان (SBP) نے ملک میں کام کرنے والے تمام بینکوں کے لیے کم از کم کیپیٹل ریکوائرمنٹ (MCR) میں 100 فیصد کا اضافہ کرتے ہوئے اسے 10 ارب روپے سے بڑھا کر 20 ارب روپے کر دیا ہے۔ مرکزی بینک کے مطابق مالیاتی اداروں کے انتظامی اخراجات میں اضافے کے پیش نظر یہ قدم اٹھایا گیا ہے۔ برانچوں کے ذریعے کام کرنے والے غیر ملکی بینکوں کے لیے 5 شاخوں تک 5 ارب روپے اور 6 سے 50 شاخوں پر 10 ارب روپے سرمائے کی شرط لاگو ہوگی، جبکہ ڈی ایف آئیز کے لیے بھی یہ حد 10 ارب روپے مقرر کی گئی ہے۔ تمام اداروں کو 31 دسمبر 2030 تک اس ہدف کو پورا کرنے کا وقت دیا گیا ہے۔ عارف حبیب لمیٹڈ کے تجزیے کے مطابق بڑے بینکوں کے پاس اوسطاً 50 ارب روپے کا کیپیٹل بفر موجود ہے جس سے منافع کی ادائیگیوں پر کوئی اثر نہیں پڑے گا۔", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446432/sbp-doubles-mcr-for-banks"}]}, {"id": 3, "desk": "ڈیسک ۳: خودمختار اداریہ اور جدید ترین مصنوعی ذہانت", "category": "ٹیکس ٹربیونلز ریفارمز و اے آئی ایجنٹس", "readTime": "۵ منٹ مطالعہ", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "مائیکروسافٹ نے اوپن اے آئی کے ساتھ تجارتی معاہدوں سے ایک سہ ماہی میں 10 ارب ڈالر کی آمدنی حاصل کر لی", "deck": "ٹیک کرینچ وائر — مائیکروسافٹ نے 30 ستمبر کو ختم ہونے والی سہ ماہی میں اوپن اے آئی (OpenAI) کے ساتھ تجارتی معاہدوں اور ریونیو شیئرنگ کی مد میں 10 ارب ڈالر کی آمدنی ریکارڈ کی ہے، جو دونوں اداروں کی شراکت داری کے گہرے مالیاتی انحصار کو ظاہر کرتی ہے۔", "hero_source": "TechCrunch Wire", "hero_url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/", "author": "محمد اقبال بھوانہ / اے آئی سسٹمز ڈیسک", "authorRole": "بانی، سینئر ریٹائرڈ افسر پاکستان کسٹمز سروس و ماہر کسٹمز لا", "body": ["سان فرانسسکو: مائیکروسافٹ نے اپنی تازہ سہ ماہی مالیاتی رپورٹ میں انکشاف کیا ہے کہ اس نے 30 ستمبر 2026 کو ختم ہونے والی سہ ماہی کے دوران اوپن اے آئی (OpenAI) کے ساتھ تجارتی معاہدوں، ریونیو شیئرنگ اور ایژور (Azure) کلاؤڈ سروسز کی مد میں 10 ارب ڈالر کی خطیر آمدنی حاصل کی ہے، جو مائیکروسافٹ کی مجموعی 92.3 ارب ڈالر سہ ماہی آمدنی کا تقریباً 11 فیصد بنتی ہے۔", "گزشتہ مکمل مالی سال 2026 میں مائیکروسافٹ کو اوپن اے آئی سے 24.1 ارب ڈالر کی آمدنی حاصل ہوئی تھی، جبکہ موجودہ سہ ماہی رفتار کے مطابق یہ سالانہ 40 ارب ڈالر تک پہنچ چکی ہے۔ رپورٹ کے مطابق ستمبر کے اختتام پر اوپن اے آئی کے ذمے مائیکروسافٹ کے واجب الادا بقایاجات 7.2 ارب ڈالر رہے جبکہ اوپن اے آئی نے 2030 تک ایژور کلاؤڈ سروسز کی مد میں 250 ارب ڈالر خرچ کرنے کا عہد کر رکھا ہے۔"], "quote": "اپیل کا حق کوئی انتظامی رعایت نہیں بلکہ آئین کے آرٹیکل 10 اے کے تحت بنیادی آئینی حق ہے۔ — محمد اقبال بھوانہ", "editorial": {"title": "قانونی تعطل: ایف بی آر کی کسٹمز رکاوٹیں، ریونیو اصلاحات اور مالیاتی نگرانی پر خصوصی توجہ", "deck": "فیڈرل بورڈ آف ریونیو کی کسٹمز اسیسمنٹ کی مشکلات، عالمی بینک کے تعاون سے مالیاتی بھرتیوں اور نیپرا کے کوئلہ خریداری تنازع کا ۲۴ گھنٹوں کا جامع جائزہ۔", "paragraphs": ["آج صبح کی شہ سرخی، ”کسٹمز کلیئرنس میں ۴۰ گھنٹے کی تاخیر پر ٹیکسٹائل انڈسٹری کی ایف بی آر پر کڑی تنقید“ نے فیس لیس کسٹمز اسیسمنٹ (FCA) نظام کے شدید ہوتے ہوئے بحران کو پوری طرح بے نقاب کر دیا ہے۔ آل پاکستان ٹیکسٹائل ملز ایسوسی ایشن (اپٹما) نے انتباہ دیا ہے کہ کراچی میں 40 گھنٹے سے زائد کی تاخیر برآمدی لاگت کو بے تحاشا بڑھا رہی ہے اور عالمی منڈی میں پاکستان کی مسابقت کو ختم کر رہی ہے۔ چیئرمین ایف بی آر راشد محمود لنگڑیال کے نام خط میں اپٹما کے سربراہ اسد شفیع نے زور دیا کہ کراچی میں سینٹرل اپریزنگ یونٹ (CAU) کو فوری طور پر برقرار رکھا جائے اور مالی اثرات کا آزادانہ جائزہ مکمل ہونے تک نئی تبدیلیاں معطل رکھی جائیں۔ یہ کشمکش خودکار نظام کی ضرورت اور برآمدی شعبے کی عملی حقیقتوں کے درمیان قانونی توازن قائم کرنے کے فقدان کو ظاہر کرتی ہے۔", "اسی تسلسل میں ایف بی آر نے ”عالمی بینک کے فنڈڈ منصوبے کے تحت ایف بی آر سوشل اسپیشلسٹ کی خدمات حاصل کرے گا“ کے عنوان سے ایک اسٹریٹجک بھرتی کا اعلان کیا ہے۔ یہ اقدام ظاہر کرتا ہے کہ ٹیکس تعمیل اور ادارہ جاتی لچک کو بہتر بنانے کے لیے سماجی و اقتصادی تجزیات کو ریونیو کے عمل میں شامل کیا جا رہا ہے۔ اگرچہ یہ اعلان بظاہر مختصر ہے، تاہم یہ پاکستان کے ریونیو ڈھانچے کو جدید بنانے کے اس بڑے عالمی منصوبے کی جانب اشارہ کرتا ہے جو مستقبل میں ٹیکس تشخیصی قوانین کے خدوخال بدل سکتا ہے۔ ماہرین کی شمولیت سے ان ساختی رکاوٹوں پر قابو پانے کا موقع ملے گا جو اس وقت صنعتی شعبے کے لیے وبال جان بنی ہوئی ہیں۔", "دوسری جانب ریگولیٹری محاذ پر ”کوئلے کی خریداری: نیپرا کی جانب سے پی کیو ای پی سی ایل کو مزید توسیع دیے جانے کا امکان نہیں“ کے ذریعے ایک نیا تنازع کھڑا ہو گیا ہے۔ پورٹ قاسم الیکٹرک پاور کمپنی کو عبوری کوئلہ فراہمی کی توسیع دینے سے نیشنل الیکٹرک پاور ریگولیٹری اتھارٹی کا گریز شفافیت اور مالیاتی احتساب کے تقاضوں کو اجاگر کرتا ہے۔ اگرچہ نیپرا ٹیکس وصولی کا ادارہ نہیں ہے، لیکن اس کے فیصلے کے براہ راست مالیاتی اثرات مرتب ہوتے ہیں، کیونکہ عبوری انتظامات کے طول پکڑنے سے بجلی مہنگی ہوتی ہے اور قومی وسائل پر بار بڑھتا ہے۔ یہ قدم بڑے سرکاری سودوں میں سخت قانونی جانچ پڑتال کے اسی مطالبے کا عکاس ہے جو برآمدی شعبہ کسٹمز کے حوالے سے کر رہا ہے۔", "آخر میں، سیکیورٹیز اینڈ ایکسچینج کمیشن آف پاکستان (SECP) نے طالبات کے لیے ”شریعت کے مطابق سرمایہ کاری مقابلے“ کا آغاز کر کے اس معاشی بحث کو ایک نیا رُخ دیا ہے۔ اگرچہ یہ براہ راست ٹیکس سے جڑا معاملہ نہیں، لیکن کیپٹل مارکیٹ میں خواتین کی شرکت کو فروغ دے کر مالیاتی ذخائر اور دستاویزی معیشت کے دائرے کو وسیع کیا جا سکتا ہے۔ یہ تمام واقعات ظاہر کرتے ہیں کہ پاکستان اس وقت قانون کے مؤثر نفاذ اور جامع معاشی استحکام کی دوہری جنگ لڑ رہا ہے۔"]}, "secondary_title": "فرنٹیئر کمپیوٹنگ، الگورتھمز اور اوپن ویٹس ڈیٹا", "secondary_items": [{"head": "انتھروپک نے کمپنیوں کو اے آئی اخراجات کی تفصیل دکھانے والے جدید ٹولز متعارف کرا دیے", "body": "ٹیک کرینچ وائر — معروف اے آئی کمپنی اینتھروپک (Anthropic) نے نئے ٹولز لانچ کیے ہیں جن کی مدد سے کارپوریٹ صارفین یہ دیکھ سکیں گے کہ ان کی سرمایہ کاری ماڈل کی کن صلاحیتوں اور سروسز پر خرچ ہو رہی ہے۔ یہ سروس ہر ڈالر کے عوض حاصل ہونے والے فائدے کی واضح تصویر پیش کرتی ہے جس سے کمپنیوں کو اپنے اے آئی بجٹ کا درست تخمینہ لگانے میں مدد ملے گی۔ یہ اقدام ایک ایسے وقت میں سامنے آیا ہے جب کمپنی آئی پی او (IPO) کی تیاری کر رہی ہے جہاں مالیاتی شفافیت بنیادی اہمیت کی حامل ہوتی ہے۔", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/"}, {"head": "گوگل نے جیمنی ۴ کاربن کا اعلان کر دیا، لیکن عام صارفین فی الحال اسے استعمال نہیں کر سکیں گے", "body": "آرس ٹیکنیکا فیڈ — گوگل نے اپنے جدید ترین اے آئی ماڈل جیمنی 4 کاربن (Gemini 4 Carbon) کا اعلان کر دیا ہے، تاہم یہ ماڈل عام صارفین کے لیے فوری طور پر دستیاب نہیں ہوگا۔ کمپنی کا کہنا ہے کہ یہ سابقہ آرگون (Argon) سیریز کا ایک قدرے بہتر اور اپ گریڈڈ ورژن ہے جس کے بنیادی فن تعمیر کو مزید نکھارا گیا ہے۔ فی الحال اس ماڈل کی رسائی محدود رکھی گئی ہے اور اندرونی جانچ پڑتال کے بعد ہی اسے بتدریج وسیع پیمانے پر جاری کرنے کا فیصلہ کیا جائے گا۔", "source": "Ars Technica Feed", "url": "https://arstechnica.com/ai/2026/10/google-announces-gemini-4-carbon-its-latest-frontier-ai-model-that-you-cant-use/"}, {"head": "گوگل نے جیمنی ۴ کاربن کی نقاب کشائی کر دی، مشکل بینچ مارکس پر عالمی نمبر ایک پوزیشن کی بحالی کا دعویٰ", "body": "وینچر بیٹ کی رپورٹ کے مطابق گوگل نے جیمنی 4 کاربن متعارف کرا دیا ہے جسے کمپنی کا اب تک کا سب سے ذہین ماڈل قرار دیا جا رہا ہے۔ اس نئے ماڈل میں سائبر سیکیورٹی اور سافٹ ویئر انجینئرنگ کی پیچیدہ صلاحیتوں کو نمایاں کیا گیا ہے۔ گوگل کا دعویٰ ہے کہ جیمنی 4 کاربن نے مشکل کارپوریٹ بینچ مارکس پر دنیا کی نمبر ایک پوزیشن دوبارہ حاصل کر لی ہے۔ قیمت کے اعتبار سے گوگل نے اس کے ٹوکن ریٹس اپنے سابقہ فلیگ شپ ماڈل آرگون کے برابر ہی رکھے ہیں، تاہم عوامی سطح پر اس کی عدم دستیابی کے باعث ان دعوؤں کی بیرونی تصدیق میں وقت لگے گا۔", "source": "VentureBeat Feed", "url": "https://venturebeat.com/technology/google-unveils-gemini-4-carbon-retaking-the-worlds-no-1-spot-on-updated-harder-benchmarks-but-access-is-limited"}, {"head": "اے آئی چپس کی زبردست مانگ: سام سنگ نے تیسری سہ ماہی میں ریکارڈ منافع کما لیا", "body": "سیئول: سام سنگ الیکٹرانکس نے جمعرات کو بتایا کہ اے آئی چپس کی شاندار مانگ کے باعث تیسری سہ ماہی میں اس کے آپریٹنگ منافع میں قریباً نو گنا اضافہ ہوا ہے۔ دنیا کے سب سے بڑے میموری چپ ساز ادارے نے جولائی تا ستمبر کی مدت کے دوران 107.4 ٹریلین وون (80.04 ارب ڈالر) کا منافع ظاہر کیا ہے، جو گزشتہ سال کے 12.2 ٹریلین وون کے مقابلے میں غیر معمولی اضافہ ہے۔ مدمقابل کمپنی ایس کے ہائنکس کے شاندار نتائج نے بھی چپ مارکیٹ کی مضبوطی کی تصدیق کی ہے۔", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446462/samsung-posts-record-profit-in-q3-on-ai-chip-boom"}, {"head": "میٹا نے ورچوئل پالتو جانور پالنے کے لیے نئی اے آئی ایپ لانچ کر دی", "body": "میٹا نے واڈل ورلڈ (Waddle World) کے نام سے ایک نئی اے آئی ایپلی کیشن متعارف کرائی ہے جس کے ذریعے صارفین ڈیجیٹل دنیا میں ورچوئل پالتو جانور پال سکتے ہیں اور ان سے بات چیت کر سکتے ہیں۔ یہ ایپ کلاسک تاماگوچی تجربے کی جدید شکل ہے جس میں مصنوعی ذہانت جانور کے ردعمل کو صارف کے مزاج کے مطابق ڈھالتی ہے۔ فی الوقت یہ ایپ صرف فلپائن میں آئی او ایس اور اینڈرائیڈ صارفین کے لیے ریلیز کی گئی ہے۔", "source": "ProPakistani · National Desk", "url": "https://propakistani.pk/2026/10/28/meta-launches-new-ai-app-that-lets-you-raise-a-virtual-pet/"}]}, {"id": 4, "desk": "ڈیسک ۴: سنیما، موسیقی، کری ایٹرز اور تخلیقی معیشت", "category": "ہالی ووڈ انضمام و باکس آفس اصل اعداد و شمار", "readTime": "۴ منٹ مطالعہ", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "فلم جائزہ: ’دی موسکیٹو باؤل‘ — پیٹر برگ کی کھوکھلی جذباتی جنگی فلم میں فٹ بال ہیرو میدانِ جنگ میں", "deck": "ورائٹی گلوبل وائر — پیٹر برگ کے کام سے واقف افراد — جنہوں نے افغانستان جنگ پر مبنی ڈراما ”لون سروائیور“ اور بلاک بسٹر ”بیٹل شپ“ بنائی ہے — انہیں نیٹ فلکس کے اس جنگی ڈرامے سے کسی گہرے فنکارانہ حسن یا نفاست کی امید نہیں رکھنی چاہیے۔", "hero_source": "Variety Global Wire", "hero_url": "https://variety.com/2026/film/reviews/the-mosquito-bowl-review-1236932067/", "author": "تخلیقی معیشت و سنیما ڈیسک", "authorRole": "انڈسٹری اینالسٹ", "body": ["ورائٹی گلوبل وائر — ہدایت کار پیٹر برگ کے کام سے باخبر شائقین اس بات کو بخوبی جانتے ہیں کہ ان کے ہاں گہرے سنجیدہ فلسفے کے بجائے روایتی ہنگامہ خیزی زیادہ ہوتی ہے۔ نیٹ فلکس کی تیار کردہ یہ نئی جنگی فلم ”دی موسکیٹو باؤل“ دوسری جنگ عظیم کے حقیقی واقعات کو فٹ بال کھلاڑیوں کی بہادری کے روپ میں پیش کرنے کی کوشش کرتی ہے لیکن جذبات کی گہرائی سے عاری نظر آتی ہے۔", "متعلقہ ریگولیٹری رہنما خطوط اور قانونی فریم ورک کے تحت اس پروڈکشن اور اسٹریمنگ ریلیز کی باقاعدہ جانچ پڑتال کے معیارات قائم کیے گئے ہیں۔", "باضابطہ دستاویزی ریکارڈ اور مارکیٹ کے اندراجات اس امر کی تصدیق کرتے ہیں کہ فلم کی دنیا بھر میں تقسیم طے شدہ قانونی اور کاپی رائٹ اصولوں کے عین مطابق کی جا رہی ہے۔", "اس کا قانونی و تکنیکی تناظر مجاز پبلشنگ اداروں کے بلیٹنز میں درج ہے۔ ورائٹی گلوبل وائر نے تمام تر ضروری تفصیلات اپنی باضابطہ اشاعت میں شامل کی ہیں جن کا اطلاق تمام براڈکاسٹنگ پلیٹ فارمز پر ہوتا ہے۔ تمام نشریاتی معیارات کی نگرانی مجاز فورمز کر رہے ہیں۔"], "quote": "وارنر برادرز کا بطور خودمختار اسٹوڈیو اختتام ہالی ووڈ کی ایک صدی پر محیط تاریخ کا ایک عہد ساز اور ڈرامائی موڑ ہے۔ — ورائٹی اینالسس", "secondary_title": "فلمی صنعت، ٹیلی ویژن پریمیئرز اور اسٹریمنگ رجحانات", "secondary_items": [{"head": "نیٹ فلکس کے سابق سینئر اہلکار نے جاپان کے معروف انڈی سینما کی بنیاد کیسے رکھی", "body": "ٹوکیو کے مضافات میں واقع یاماناشی پریفیکچر میں سنے یاما (CineYama) سینما تیزی سے جاپانی آزاد فلمی تحریک کا گڑھ بن گیا ہے۔ اس سینما کی بنیاد نیٹ فلکس کے ایک سابق سینئر ملازم نے رکھی ہے جس کا مقصد بین الاقوامی شاہکاروں اور مقامی آزاد فلموں کو ایک ہی جگہ نمائش کے لیے پیش کرنا ہے۔ یہ سینما روایتی ملٹی پلیکس کے برعکس ناظرین کو فلم سازی کے فن سے گہرا تعلق استوار کرنے کی ترغیب دیتا ہے۔", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/cineyama-matt-kelson-japan-indie-cinema-1237207784/"}, {"head": "کیٹ بلانچیٹ نے جاپان کا باوقار پریمیم امپیریل وصول کرتے ہوئے ”بے بنیاد یقین“ کے خطرات سے خبردار کیا", "body": "معروف اداکارہ کیٹ بلانچیٹ نے جاپان کا فنونِ لطیفہ کا اعلیٰ ترین اعزاز پریمیم امپیریل وصول کرتے ہوئے دنیا کو ”بے بنیاد یقین اور اندھی قطعیت“ کے خطرات سے خبردار کیا۔ دو بار آسکر ایوارڈ جیتنے والی اداکارہ نے اپنے خطاب میں فکری وسعت اور تنوع کی اہمیت پر زور دیا۔ اس تقریب کے فوراً بعد بلانچیٹ ٹوکیو انٹرنیشنل فلم فیسٹیول میں شرکت کریں گی جہاں وہ مداحوں اور فلمی طلبہ کے ساتھ مکالمے کے سیشنز کی قیادت کریں گی۔", "source": "Hollywood Reporter Feed", "url": "https://www.hollywoodreporter.com/movies/movie-news/cate-blanchett-japan-praemium-imperiale-award-tokyo-1236742351/"}, {"head": "دی ٹونائٹ شو: جمی فیلن اور جیمی لی کرٹس کی فیلڈر اور ہومز کے انداز میں دلچسپ پیروڈی", "body": "این بی سی کے ”دی ٹونائٹ شو“ کے میزبان جمی فیلن نے ہالووین کی مناسبت سے جیمی لی کرٹس کے ساتھ مل کر ایک طنزیہ خاکہ پیش کیا۔ خاکے میں فیلن نے ناتھن فیلڈر کا روپ دھارا جبکہ جیمی لی کرٹس تھیرانوس اسکینڈل کی بدنام زمانہ الزبتھ ہومز کے کردار میں نظر آئیں۔ شو کا یہ آغاز سنجیدہ اداکاری اور مزاح کا شاندار امتزاج تھا جس نے ناظرین کو خوب محظوظ کیا۔", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/tonight-show-jimmy-fallon-jamie-lee-curtis-fielder-holmes-1237207815/"}, {"head": "’ساؤتھ پارک‘: کارٹمین، اسٹین اور کائل ہالووین ایپیسوڈ میں بیف کے بحران کو حل کریں گے", "body": "مقبول اینیمیٹڈ سیریز ساؤتھ پارک کے 29ویں سیزن کی چوتھی قسط ”گنی پگ آن اے اسٹک“ کے عنوان سے نشر کی جا رہی ہے۔ ہالووین کی مناسبت سے تیار کردہ اس قسط میں ساؤتھ امریکن بیف کے گرد ایک انوکھا اور مضحکہ خیز بحران پیدا ہوتا ہے، جس پر بچے اور رینڈی مل کر روایتی طنزیہ اور افراتفری سے بھرپور انداز میں قابو پانے کی کوشش کرتے ہیں۔", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/south-park-season-29-episode-4-1236933789/"}, {"head": "جمی فیلن اور جیمی لی کرٹس نے طنزیہ خاکے کے لیے ناتھن فیلڈر اور الزبتھ ہومز کا روپ دھار لیا", "body": "ورائٹی گلوبل وائر کے مطابق بدھ کی رات کے شو میں معروف ڈاکیومینٹری ”یو کین سی ایوری تھنگ“ کی پیروڈی کے دوران جمی فیلن نے فیلڈر کے سنجیدہ اور عجیب انداز میں سوالات کیے جبکہ جیمی لی کرٹس نے عدالت میں الزبتھ ہومز کے سرد اور غیر معمولی تاثرات کی ہو بہو نقالی کی۔ اس مزاحیہ سیشن نے این بی سی کے شو کو سوشل میڈیا پر زبردست مقبولیت بخشی۔", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/jimmy-fallon-jamie-lee-curtis-you-can-see-everything-1236933837/"}]}, {"id": 5, "desk": "ڈیسک ۵: سیاحت، شمالی وادیاں، ورثہ اور عالمی سفارت کاری", "category": "سہ فریقی دفاعی معاہدہ و ثقافتی روڈ میپ", "readTime": "۴ منٹ مطالعہ", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "اسلام آباد کی کیپیٹل ڈویلپمنٹ اتھارٹی جلد شاہدرہ ڈیم منصوبے کا آغاز کرے گی", "deck": "اسلام آباد: کیپیٹل ڈویلپمنٹ اتھارٹی (سی ڈی اے) نے بدھ کے روز اعلان کیا ہے کہ شاہدرہ ڈیم کی تعمیر کا کام جلد شروع کر دیا جائے گا۔ اگر سب کچھ منصوبے کے مطابق رہا تو یہ اسلام آباد میں قریباً تین دہائیوں کے دوران پانی کی فراہمی کا پہلا بڑا منصوبہ ہوگا۔", "hero_source": "Dawn Latest News", "hero_url": "https://www.dawn.com/news/2040533/islamabads-capital-development-authority-to-start-shahdara-dam-project-soon", "author": "عالمی سفارت کاری و تاریخی ورثہ ڈیسک", "authorRole": "سفارتی تجزیہ نگار", "body": ["اسلام آباد: کیپیٹل ڈویلپمنٹ اتھارٹی (CDA) نے بدھ کے روز باضابطہ اعلان کیا ہے کہ شاہدرہ ڈیم منصوبے پر تعمیراتی کام عنقریب شروع ہو جائے گا۔ منصوبہ بندی کے مطابق یہ قریباً 30 سال بعد وفاقی دارالحکومت میں شروع ہونے والا پہلا بڑا آبی منصوبہ ہوگا۔ چیئرمین سی ڈی اے سہیل اشرف نے روزنامہ ڈان کو بتایا کہ ”ہم اسلام آباد کے پانی کا مسئلہ حل کرنے جا رہے ہیں اور شاہدرہ ڈیم اس منزل کی جانب پہلا بڑا سنگ میل ہے“۔ انہوں نے کہا کہ پی سی-ون کے تحت یہ میگا پراجیکٹ دو سال میں مکمل ہونا ہے لیکن اتھارٹی اسے 20 ماہ میں پایہ تکمیل تک پہنچانے کی کوشش کرے گی۔", "چیئرمین سی ڈی اے کے مطابق ڈیم کے علاوہ مارگلہ ہلز کے دامن میں ڈی-12، شاہ اللہ دتہ اور سیدپور کے قریب چار چیک ڈیم بھی تعمیر کیے جائیں گے۔ اس کے ساتھ ساتھ زیر زمین پانی کی سطح بلند کرنے کے لیے 100 ری چارج کنوؤں کی تعمیر کا آغاز ہو رہا ہے کیونکہ اسلام آباد میں سالانہ 1,100 ملی میٹر بارش کا پانی نالوں کے ذریعے ضائع ہو جاتا ہے۔ سی ڈی اے نے بدھ کو شاہدرہ ڈیم کا ٹینڈر جاری کر دیا۔ اسلام آباد کی روزانہ پانی کی طلب 250 ملین گیلن ہے جبکہ فراہمی صرف 70 ملین گیلن ہے جو خانپور، سملی ڈیم اور ٹیوب ویلز سے کی جاتی ہے۔ نیا ڈیم 5 سے 10 ملین گیلن یومیہ پانی کا اضافہ کرے گا۔ دریں اثناء سی ڈی اے نے سیکٹر I-15 میں طویل عرصے سے قائم تجاوزات ہٹا کر 36.5 ایکڑ اراضی واگزار کرا لی ہے جس سے 500 پلاٹوں کی الاٹمنٹ کی راہ ہموار ہو گئی ہے۔ (شائع شدہ: روزنامہ ڈان، 29 اکتوبر 2026)"], "quote": "مکہ جوائنٹ ڈیفنس الائنس علاقائی خودمختاری، سمندری سلامتی اور مشترکہ صنعتی ترقی کی ایک مضبوط ضمانت ہے۔ — ریاض مشترکہ اعلامیہ", "secondary_title": "علاقائی سلامتی، سیاحتی راہداریاں اور تاریخی ورثہ", "secondary_items": [{"head": "حکومت کا صاف ہوا کے لیے جدید اسٹارٹ اپس کے لیے ۱۰ ملین ڈالر کا فنڈ قائم کرنے کا اعلان", "body": "اسلام آباد: وفاقی وزیر برائے موسمیاتی تبدیلی مصدق ملک نے پاکستان نیشنل کلین ایئر کانفرنس 2026 سے خطاب کرتے ہوئے فضائی آلودگی کے سدباب کے لیے 10 ملین ڈالر کا فنڈ قائم کرنے کا اعلان کیا ہے۔ انہوں نے کہا کہ اسموگ اور زہریلی ہوا ملک کی جی ڈی پی کے 6.5 فیصد کے برابر معاشی نقصان کا باعث بن رہی ہے جس کا سب سے زیادہ شکار غریب، بچے اور کھلے آسمان تلے کام کرنے والے مزدور ہوتے ہیں۔ انہوں نے چین کی جانب سے بیجنگ اور شنگھائی میں آلودگی پر قابو پانے کے تجربات سے سیکھنے پر زور دیا اور واضح کیا کہ یہ فنڈ کوئی قرض نہیں بلکہ آنے والی نسلوں کے تحفظ کے لیے قومی سرمایہ کاری ہے۔", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2040532/govt-plans-10m-fund-to-support-clean-air-startups"}, {"head": "نسٹ یونیورسٹی کے ۴۵ محققین دنیا کے ۲ فیصد بہترین سائنسدانوں میں شامل", "body": "اسلام آباد: اسٹینفورڈ یونیورسٹی اور ایلسیویئر کی جاری کردہ تازہ ترین عالمی درجہ بندی کے مطابق نیشنل یونیورسٹی آف سائنسز اینڈ ٹیکنالوجی (NUST) کے 45 محققین نے سال 2026 میں دنیا کے سرفہرست 2 فیصد سائنسدانوں کی فہرست میں جگہ بنا لی ہے۔ نسٹ کے مطابق 16 محققین گزشتہ کئی برسوں سے مسلسل اس بین الاقوامی رینکنگ میں اپنی پوزیشن برقرار رکھے ہوئے ہیں۔ ریکٹر نسٹ ڈاکٹر محمد زاہد لطیف نے فیکلٹی کو مبارکباد دیتے ہوئے اسے ادارے اور پورے پاکستان کے لیے ایک بڑا بین الاقوامی اعزاز قرار دیا۔", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2040535/45-nust-researchers-ranked-among-top-2pc-of-global-scientists"}, {"head": "امریکی سفیر نے خبردار کیا ہے کہ انتخابات میں شکست کی صورت میں ٹرمپ کینیڈا پر الزام لگا سکتے ہیں", "body": "کینیڈا میں متعین امریکی سفیر پیٹ ہوکسٹرا نے الزام لگایا ہے کہ کینیڈین حکام امریکی انتخابات میں مداخلت کر رہے ہیں، جس سے دونوں ہمسایہ ممالک کے درمیان سفارتی تناؤ بڑھ گیا ہے۔ تاجروں کے ایک بند کمرہ اجلاس سے خطاب کرتے ہوئے سفیر نے خبردار کیا کہ اگر مئین اور مشی گن جیسی اہم ریاستوں میں ریپبلکن امیدواروں کو شکست ہوتی ہے تو سابق صدر ڈونلڈ ٹرمپ اس کا ذمہ دار کینیڈین حکومت کو ٹھہرا سکتے ہیں، جس سے دونوں ممالک کے تجارتی و سفارتی تعلقات شدید متاثر ہو سکتے ہیں۔", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/oct/28/canada-ambassador-republicans-midterms"}, {"head": "فلاویو بولسونارو کا میامی فرار ہونے کے بعد خود کو برازیل کا اصل لیڈر قرار دینے کا دعویٰ", "body": "انتخابات میں شکست کے بعد ارجنٹائن اور ایکواڈور کے راستے فلوریڈا فرار ہونے والے دائیں بازو کے برازیلین سینیٹر فلاویو بولسونارو نے میامی پہنچ کر خود کو برازیل کا ”حقیقی صدر“ قرار دیا ہے۔ دوسری جانب بولسونارو کی اپنی جماعت سمیت برازیل کے الیکشن کمیشن اور بین الاقوامی مبصرین نے نو منتخب صدر لوئیز اناسیو لولا دا سلوا کی تاریخی کامیابی کو پہلے ہی تسلیم کر لیا ہے جس سے سینیٹر کے دعوے کی کوئی قانونی حیثیت باقی نہیں رہی۔", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/oct/28/flavio-bolsonaro-miami-us-fleeing-brazilian-election-defeat"}, {"head": "یورپی یونین کینیڈا کو ’ایسوسی ایٹ ممبر‘ کی حیثیت دینے کی پیشکش سے پیچھے ہٹ گئی", "body": "مونٹریال سمٹ سے قبل رکن ممالک کے مابین شدید اختلافات کے باعث یورپی یونین نے کینیڈا کو خصوصی ایسوسی ایٹ رکنیت دینے کے مذاکرات کی تجویز واپس لے لی ہے۔ اس فیصلے کے بعد سربراہی اجلاس کے مشترکہ اعلامیے میں اب باضابطہ رکنیت کے بجائے ”قریبی اشتراک اور اسٹریٹجک تعلقات“ کے عمومی الفاظ شامل کیے جا رہے ہیں تاکہ بلاک کے اندرونی اتحاد کو قائم رکھا جا سکے۔", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/oct/28/european-union-canada"}]}, {"id": 6, "desk": "ڈیسک ۶: کھیل، سائنسی دریافتیں، کتب اور بلامعاوضہ قانونی مشاورت", "category": "یوئیفا نیشنز لیگ، فارمولا ون و قانونی رہنمائی", "readTime": "۵ منٹ مطالعہ", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "سہ ملکی سیریز کے فائنل سے قبل بیٹنگ کوچ مائیک اسمتھ بابر اعظم اور فخر زمان کی حمایت میں سامنے آ گئے", "deck": "پاکستان کے بیٹنگ کوچ مائیک اسمتھ نے سری لنکا کے خلاف ہفتے کے فائنل سے قبل آؤٹ آف فارم بلے بازوں بابر اعظم اور فخر زمان پر مکمل اعتماد کا اظہار کرتے ہوئے اصرار کیا ہے کہ ٹیم کی حالیہ بیٹنگ ناکامی کے باوجود انہیں دونوں بیٹرز کی شاندار واپسی پر ”زیرو شک“ ہے۔", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2040252/pakistan-batting-coach-mike-smith-backs-babar-fakhar-amid-tri-series-woes", "author": "اسپورٹس، سائنس و قانونی مشاورتی ڈیسک", "authorRole": "کھیل و قانونی تجزیہ نگار", "body": ["پاکستان کے بیٹنگ کوچ مائیک اسمتھ نے آؤٹ آف فارم بیٹرز بابر اعظم اور فخر زمان کا بھرپور دفاع کرتے ہوئے کہا ہے کہ انہیں ہفتے کو سری لنکا کے خلاف کھیلے جانے والے سہ ملکی سیریز کے فائنل میں دونوں کھلاڑیوں کی فارم کی بحالی پر ذرہ برابر بھی شک نہیں ہے۔ سری لنکا کے خلاف منگل کو پوری ٹیم کے 110 رنز پر ڈھیر ہونے کے بعد پریس کانفرنس سے خطاب کرتے ہوئے اسمتھ نے کہا کہ بابر اعظم کے اچھے آغاز کو بڑے اسکور میں تبدیل نہ کر پانے کا ہرگز یہ مطلب نہیں کہ وہ خراب کھیل رہے ہیں۔ ”کرکٹ کا سب سے مشکل مرحلہ وکٹ پر سیٹ ہونا ہے، اور بابر یہ کام انتہائی آسانی سے کر رہے ہیں۔ اگر وہ کسی ایک آغاز کو بڑی اننگز میں بدل دیتے تو کوئی بات نہ کرتا۔ یہی انٹرنیشنل کرکٹ ہے جہاں آپ ہر میچ میں پرفارم نہیں کر سکتے۔“", "فخر زمان سے متعلق گفتگو کرتے ہوئے بیٹنگ کوچ نے کہا کہ وہ ایک عالمی معیار کے کھلاڑی ہیں اور جب وہ فارم میں ہوتے ہیں تو تن تنہا میچ جتوا سکتے ہیں۔ اسمتھ نے تسلیم کیا کہ مجموعی طور پر ٹیم اپنی صلاحیت کے مطابق 70 فیصد کارکردگی دکھا رہی ہے جو کہ مزید بہتری کا موقع ہے۔ انہوں نے لاہور کی پچ پر الزام دھرنے کے بجائے بیٹرز کو حالات سے ہم آہنگ ہونے پر زور دیا۔ واضح رہے کہ پاکستان نے سیریز کے ابتدائی تینوں میچز جیتے تھے اور ہفتے کو لاہور کے قذافی اسٹیڈیم میں ٹرافی کے حصول کے لیے پاکستان اور سری لنکا ایک بار پھر آمنے سامنے ہوں گے۔"], "quote": "قانونی آگاہی اور بروقت اپیل کا حق ہر ٹیکس دہندہ کا بنیادی ہتھیار ہے، بلاجواز بینک ضبطیوں کے خلاف فوری قانونی چارہ جوئی لازمی ہے۔ — محمد اقبال بھوانہ", "secondary_title": "اتوار کی نیشنز لیگ، سیپانگ ایف ون اور بلامعاوضہ قانونی مشورہ", "secondary_items": [{"head": "انگلینڈ کے خلاف ضابطہ اخلاق کی خلاف ورزی پر حارث رؤف پر میچ فیس کا ۲۰ فیصد جرمانہ", "body": "انٹرنیشنل کرکٹ کونسل (آئی سی سی) نے انگلینڈ کے خلاف سہ ملکی سیریز کے میچ کے دوران ضابطہ اخلاق کی لیول 1 خلاف ورزی پر پاکستانی فاسٹ باؤلر حارث رؤف پر میچ فیس کا 20 فیصد جرمانہ اور ایک ڈی میرٹ پوائنٹ عائد کر دیا ہے۔ حارث نے 46ویں اوور میں امپائر کے انکار کے باوجود وائیڈ کے لیے بحث کی اور نان اسٹرائیکر اینڈ سے اپنا بلا لہرایا۔ پچھلے 24 ماہ میں حارث کے ڈی میرٹ پوائنٹس کی تعداد 5 ہو گئی ہے۔ دوسری جانب سلو اوور ریٹ پر انگلش ٹیم پر بھی 15 فیصد میچ فیس کا جرمانہ عائد کیا گیا۔", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2040431/haris-rauf-penalised-for-breach-of-icc-code-of-conduct-in-tri-series-match-against-england"}, {"head": "بینفیکا کے خلاف تاریخی ہیٹ ٹرک پر آرسنل کی کوچ سلیگرز نے روسو کو ’رول ماڈل‘ قرار دیا", "body": "الیسیا روسو نے ویمنز چیمپئنز لیگ میں تاریخی ہیٹ ٹرک کر کے آرسنل کو بینفیکا کے خلاف 3-0 کی شاندار فتح دلائی اور تاریخ میں سب سے زیادہ گول کرنے والی انگلش پلیئر بن گئیں۔ آرسنل کی منیجر رینی سلیگرز نے ان کی قائدانہ صلاحیتوں کی تعریف کرتے ہوئے کہا کہ وہ اپنی مستقل مزاجی اور محنت کے باعث پوری ٹیم کے لیے ایک حقیقی رول ماڈل ہیں۔", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/oct/28/arsenal-v-benfica-womens-champions-league-match-report"}, {"head": "ناقابل شکست چیلسی کس طرح اپنے بہترین فارم کی جانب لوٹ رہی ہے", "body": "ویمنز چیمپئنز لیگ میں روما کے خلاف 2-0 کی فتح نے یہ ثابت کر دیا ہے کہ چیلسی ایک بار پھر اپنی اس تاریخی فارم میں لوٹ رہی ہے جس نے اسے یورپ کے ٹاپ کلبوں میں لا کھڑا کیا تھا۔ مضبوط دفاع اور بروقت حملوں کی بدولت چیلسی کا یہ ناقابل شکست سفر سیزن کے اگلے مقابلوں کے لیے ٹیم کو زبردست اعتماد فراہم کر رہا ہے۔", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/c8wy9wenqd01o?at_medium=RSS&at_campaign=rss"}, {"head": "روسو کی ہیٹ ٹرک: آرسنل نے بینفیکا کو یکطرفہ مقابلے میں ہرا دیا", "body": "بی بی سی اسپورٹس کے مطابق الیسیا روسو نے ویمنز چیمپئنز لیگ میں بینفیکا کے خلاف تن تنہا تینوں گول داغ کر اپنی ٹیم کو شاندار کامیابی دلوائی۔ اس تاریخی ہیٹ ٹرک کے ساتھ ہی وہ یورپی چیمپئنز لیگ کی تاریخ میں انگلینڈ کی سب سے کامیاب اسکورر بن گئی ہیں۔", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/videos/crd6dzxwlqjlo?at_medium=RSS&at_campaign=rss"}, {"head": "لندن برونکوز اگلے سال سپر لیگ میں شمولیت کی صورت میں ۱۳ لاکھ پاؤنڈ کے فنڈ سے محروم رہے گی", "body": "لندن برونکوز نے 2027 میں سپر لیگ میں شامل ہونے کے لیے موجودہ 14 کلبوں کی یہ سخت شرط تسلیم کر لی ہے کہ وہ قریباً 1.3 ملین پاؤنڈ کے سنٹرل ڈسٹری بیوشن فنڈ کے حق سے دستبردار ہو جائیں گے۔ رگبی فٹ بال لیگ کی جانب سے جلد ہی ان کے داخلے کی حتمی توثیق متوقع ہے جبکہ آسٹریلوی نیشنل رگبی لیگ کے ساتھ اہم پارٹنرشپ کا آغاز اب 2028 تک موخر کر دیا گیا ہے۔", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/oct/28/london-broncos-to-go-without-13m-rfl-funding-if-they-enter-super-league-next-year"}]}];
+const FORECAST_DATA = [{"date": "کراچی پورٹ", "cond": "معتدل و صاف", "temp": "۳۴°C / ۲۵°C", "pop": "پورٹ کراچی: جہاز رانی و کارگو کلیئرنس معمول پر"}, {"date": "پورٹ قاسم", "cond": "صاف موسم", "temp": "۳۵°C / ۲۴°C", "pop": "ٹرن اراؤنڈ ۱۸ گھنٹے سے کم · میرین ٹیلی میٹری فعال"}, {"date": "لاہور ڈرائی پورٹ", "cond": "خشک و خوشگوار", "temp": "۳۲°C / ۲۰°C", "pop": "ریلوے فریٹ کارگو آپریشنل · کسٹمز کلیئرنس جاری"}, {"date": "اسلام آباد", "cond": "صاف مطلع", "temp": "۳۰°C / ۱۷°C", "pop": "ایف بی آر آئرس ۳.۰ فعال · بین البینک زرمبادلہ مستحکم"}, {"date": "سکردو و گلگت", "cond": "خوشگوار خزان", "temp": "۲۱°C / ۰۸°C", "pop": "۱۰۰٪ پروازیں وقت پر · ڈوپلر ریڈار فعال"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || ''}</span>
+          <span style="color: #fbbf24;">${it.cond || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || ''}</div>
+        <div class="weather-pop">${it.pop || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildUrduDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="اصل ماخذ دیکھیں">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="اصل رپورٹ پڑھیں">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        ماخذ: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">${d.quote}</p>
+        <cite class="quote-author">— ${d.author} (${d.authorRole})</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          قانونی انتباہ، ادارتی وضاحت و لا محدودیتِ ذمہ داری (Disclaimer)
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>مکمل طور پر مصنوعی ذہانت سے تیار کردہ:</b> روزنامہ <i>بھوانہ ٹریبیون</i> ایک غیر تجارتی، علمی و تحقیقی اشاعت ہے جو مکمل طور پر خودکار ملٹی ایجنٹ اے آئی پائپ لائنز کے ذریعے بغیر کسی انسانی ترمیم، حذف و اضافے یا پیشگی ادارتی سنسرشپ کے تیار کی جاتی ہے۔
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>ماخذ کی تصدیق و احتیاطی انتباہ:</b> تمام خبروں، ریگولیٹری فیصلوں، قانونی گزٹ اور سائنسی رپورٹس کے اصل ماخذ کو دیانتداری کے ساتھ براہ راست تصدیق شدہ ہائپر لنکس کے ذریعے شامل کیا گیا ہے۔ کسی بھی خبر، اعداد و شمار یا ایس آر او پر عمل درآمد سے قبل قارئین اور متعلقہ تجارتی اداروں کو ہدایت کی جاتی ہے کہ وہ آفیشل سرکاری گزٹ سے اس کی آزادانہ تصدیق فرما لیں۔
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>غیر تجارتی و عوامی آگاہی اسٹیٹس:</b> یہ اشاعت خالصتاً عوامی آگاہی، قانونی تعلیم، اور جدید ٹیکنالوجی کے تحقیقی مقاصد کے لیے جاری کی جاتی ہے۔
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 17px;">
+            پرو بونو کسٹمز و ٹیکس پیئر ایڈوائزری ڈیسک · محمد اقبال بھوانہ
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>مفت قانونی و ٹیکس رہنمائی:</b> کوئی بھی ٹیکس دہندہ، درآمد کنندہ، برآمد کنندہ، صنعت کار یا کلیئرنگ ایجنٹ جسے پاکستان کسٹمز یا وفاقی و صوبائی ٹیکس معاملات (بشمول شوکاز نوٹسز، ڈیمانڈ نوٹسز، ویلیو ایشن تنازعات، ان پٹ ایڈجسٹمنٹ یا قانونی اپیلوں) میں کسی قسم کا مسئلہ درپیش ہو، وہ رہنمائی کے لیے بلا جھجھک محمد اقبال بھوانہ سے براہِ راست رابطہ کر سکتا ہے۔
+          </p>
+          <div class="advisory-gratis-pill">۱۰۰٪ بلا معاوضہ · خالصتاً پرو بونو · کبھی کوئی فیس یا معاوضہ طلب نہیں کیا جاتا</div>
+          <div class="legal-contacts-row">
+            <span><b>واٹس ایپ:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>ای میل:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>مقصد:</b> شفاف ٹیکس نظام، آئینی بالادستی اور عوامی قانونی آگاہی کے لیے وقف۔</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← پچھلا ڈیسک (ڈیسک ۰${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          اگلا ڈیسک (ڈیسک ۰${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const engLink = document.getElementById('engSwitchLink');
+    if (engLink) {
+      engLink.href = `./index.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          ${item.desk.split(':')[0]} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ تمام ۶ صفحات (مکمل ایڈیشن)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildUrduDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildUrduDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in Urdu renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error in Urdu:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>

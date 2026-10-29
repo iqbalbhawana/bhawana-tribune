@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (THURSDAY, OCTOBER 29, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">THURSDAY, OCTOBER 29, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "Customs registers four FIRs over fake pay orders worth over Rs100 million in sales tax", "deck": "Investigation & Prosecution Branch in Peshawar lodges criminal cases under Section 161 of the Customs Act, 1969 after importers allegedly presented counterfeit bank instruments at Azakhel Dryport.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Founder & Senior Counsel", "hero_source": "CustomsNews.pk Desk", "hero_url": "https://customnews.pk/2026/10/28/customs-registers-four-firs-over-fake-pay-orders-worth-over-rs100-million-in-sales-tax/", "body": ["PESHAWAR: The Collectorate of Customs (Appraisement) has registered four First Information Reports (FIRs) against importers and associated clearing agents for allegedly submitting fake and forged bank pay orders in place of mandatory sales tax payments. The enforcement action stems from consignments cleared through the Azakhel Dryport in Nowshera, where investigators uncovered counterfeit instruments masking approximately Rs103 million in sales tax liabilities.", "The cases were registered by the Collectorate's Investigation and Prosecution Branch under Section 161 of the Customs Act, 1969, on the formal complaint of Inspector Shahbaz Khan. The largest single case targets M/s Yousafzai Foods, a Malakand-based importer of green and black tea, which allegedly submitted 18 forged pay orders against 13 Goods Declarations to claim sales tax exemptions designated for industrial units in the erstwhile FATA and PATA regions, involving Rs76,383,759 in evaded sales tax.", "When the Collectorate wrote to the issuing bank to verify the instruments, bank officials confirmed in writing that the 18 cashier cheques had never been issued by their branch, their serial numbers did not exist in the branch ledger, and the signatures did not match authorized banking staff. Investigators allege the importer knowingly presented fabricated instruments to cause wrongful revenue loss to the national exchequer, and customs personnel who processed the clearances have also been placed under scrutiny.", "A second FIR names Awais Khan, owner of M/s Best Corporation, an importer of LED television components, alongside clearing presenter Abdul Wakeel, lower division clerk Nabeel Nasir\u2014who was serving as Security Officer in the WeBOC system at the Collectorate\u2014and the Operation Manager of a Faysal Bank branch in Khyber Agency. In that case, involving Rs21,179,565 in sales tax, a genuine pay order issued from 2025 was allegedly swapped for a forged instrument bearing a fabricated stamp and endorsement of the Collector of Customs, even though pay orders are ordinarily cancelled only by a Principal Appraiser or Inspector with a formal release order.", "A further FIR names Umar Hayat, owner of Khyber-based PU-coated fabric importer M/s Ajwa Enterprises, and presenter Abdul Wakeel over fake Pay Order No. 0808501 submitted to claim exemption under Entry 151 of the Sixth Schedule to the Sales Tax Act, 1990. All four FIRs invoke Sections 32(1)(a), 32A(1)(a) and (e), and 156(1) of the Customs Act, 1969, read with the Sales Tax Act, 1990, as well as Sections 420, 468, and 471 of the Pakistan Penal Code, while a comprehensive audit of historical clearances at Azakhel Dryport continues."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR to hire social specialist under World Bank-funded revenue project", "body": "ISLAMABAD: The Federal Board of Revenue (FBR) has initiated the recruitment of a full-time Social Specialist at its Islamabad headquarters under the World Bank-funded Pakistan Raises Revenue Project (PRRP) to oversee social safeguards, stakeholder engagement, and compliance with international development standards. The position supports the board's Institutional Transformation Programme, including its nationwide information and communication technology modernisation strategy.\n\nUnder the terms of reference, the specialist will be responsible for implementing and monitoring the project's Stakeholder Engagement Plan (SEP), Labour Management Procedures (LMP), and Environmental and Social Management Plan (ESMP) in accordance with the World Bank's Environmental and Social Framework. The contractual appointment runs through June 30, 2027, with the specialist reporting directly to the Additional Director (Coordination and Internal Communication) or the Deputy Director of the PRRP.\n\nCore duties include managing the project's Grievance Redress Mechanism, maintaining records of stakeholder complaints, preparing quarterly compliance reports, and coordinating with environmental specialists, civil society organisations, and field formations across Pakistan. Applicants must hold at least a 16-year master's degree in social sciences, sociology, anthropology, economics, or development studies, backed by a minimum of 10 years of professional experience under multilateral safeguard frameworks.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-social-specialist-job-world-bank-project/"}, {"head": "FBR opens tax collection windows on October 31 for return filers", "body": "ISLAMABAD: The Federal Board of Revenue (FBR) has directed all Inland Revenue field formations across Pakistan to remain open with extended working hours until 8:00 p.m. on Saturday, October 31, 2026, to facilitate taxpayers settling payments ahead of the Tax Year 2026 income tax return filing deadline.\n\nIn formal instructions issued to Chief Commissioners of Inland Revenue, the board directed all Large Taxpayer Offices (LTOs), Corporate Tax Offices (CTOs), and Regional Tax Offices (RTOs) to observe full operational hours despite Saturday being a weekly holiday. Field formations have been instructed to assist return filers in generating payment slips and clearing tax dues before the statutory window closes.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-tax-offices-open-october-31-2026/"}, {"head": "FBR Suspends Two Senior Officers as Bureaucratic Tensions Escalate", "body": "ISLAMABAD: The Federal Board of Revenue (FBR) has suspended two senior Inland Revenue Service (IRS) officers for 120 days and ordered them to mark their attendance at FBR headquarters three times daily\u2014a disciplinary directive that senior civil servants describe as unprecedented in Pakistan's tax administration. Naib Ali Pathan, a BS-20 officer serving as Commissioner-IR at the Regional Tax Office in Hyderabad, and Ali Saleh Hayat Kalyar, a BS-19 Additional Commissioner-IR posted in Sargodha, were placed under immediate suspension under Rule 5(1) of the Civil Servants (Efficiency and Discipline) Rules, 2020.\n\nUnder the suspension orders, both officers must report in person to the office of the Member for Administration and Human Resources at FBR headquarters at 9:00 a.m., 12:00 noon, and 4:00 p.m. each working day and submit a daily time diary. Pathan serves as president and Kalyar as general secretary of the Inland Revenue Service Officers Association, which had recently opposed proposals to outsource core tax functions and called for career service representation in structural policy decisions.\n\nSenior officials noted that while suspended civil servants are routinely detached from field postings to prevent interference with departmental inquiries, requiring thrice-daily physical attendance at headquarters departs sharply from established civil service norms. Representatives of the officers' associations have convened consultations regarding the orders and indicated plans to seek judicial review.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/10/28/fbr-suspends-two-senior-officers-as-bureaucratic-tensions-escalate/"}, {"head": "Fundamentals improve despite shocks -SBP chief", "body": "KARACHI: The country\u2019s economic fundamentals have significantly improved despite severe global and regional shocks, said State Bank of Pakistan Governor Jameel Ahmad on Wednesday. Addressing the annual convocation of the Ins\u00adti\u00adtute of Cost and Mana\u00adge\u00adment Accountants of Pakis\u00adtan, Mr Ahmad said that although challenges still abound, \u201cwe have come a long way since 2022\u201d. \u201cDespite significant supply shocks, we have contained the impact on the domestic economy,\u201d he said, adding that inflation remained close to the target range in FY26.\n\nWhile it has risen since then, it is projected to gradually ease towards the mid-year FY27 target range (5-7pc), supported by prudent monetary tightening, he said. He said the external account remains stable, with the current account deficit expected to remain within 0 to 1pc of GDP. Real GDP growth is also recovering gradually, from a contraction in FY23 to 3.7pc in FY26; he expects it to rise further in FY27.\n\n\u201cThese improvements in economic fundamentals and the growing resilience in the economy are being recognised by international credit rating agencies, multilateral partners, as well as foreign investors,\u201d he said. He said that raising the policy rate after keeping it steady for almost a year, together with temporary measures to manage non-debt foreign exchange outflows, was necessary to restore macroeconomic stability and avert a deeper external financing and debt crisis.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040568/fundamentals-improve-despite-shocks-sbp-chief"}, {"head": "FBR proposes mandatory e-filing of company financial statements", "body": "ISLAMABAD: The Federal Board of Revenue (FBR) has proposed making the electronic submission of audited financial statements mandatory for all corporate taxpayers filing annual income tax returns from Tax Year 2026 onwards. Under draft notification SRO 1912(I)/2026, the board has published proposed amendments to Rule 73 of the Income Tax Rules, 2002, exercising powers under Section 237 read with Section 114(2A) of the Income Tax Ordinance, 2001.\n\nThe proposed sub-rule (2F) requires corporate financial statements accompanying annual income tax returns to be uploaded through the IRIS portal in a machine-readable format conforming to the FBR's prescribed data schema, taxonomy, field mapping, and automated validation rules. The board may notify distinct technical specifications for different categories of corporate entities based on their applicable statutory accounting frameworks.\n\nThe draft notification also replaces sub-rule (3) to tighten electronic authentication across the IRIS platform, mandating that all returns, financial statements, certificates, and statutory annexures be digitally verified by the principal officer or an authorised e-intermediary before filing is treated as complete.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-mandatory-company-financial-statements-tax-return/"}, {"head": "SHC sets aside judgment of Customs Appellate Tribunal following binding judgment of SCP", "body": "KARACHI: A Customs appellate bench of the Sindh High Court (SHC) has set aside an order of the Customs Appellate Tribunal while disposing of Special Customs Reference Application (SCRA) No. 761 of 2024 filed by the Director General of Intelligence and Investigations against M/s Systech International and associated importers. The reference challenged the tribunal's decision to recall and revisit its earlier judgment under the rectification provisions of Section 194B(2) of the Customs Act, 1969.\n\nThe underlying dispute centred on the appropriate Pakistan Customs Tariff (PCT) classification heading applicable to imports of Liquid Crystal Device (LCD) Open Cell Sandwich Glass. Counsel for the customs department, Khalid Mehmood Rajpar, argued that the legal question was settled by binding precedent of the Supreme Court of Pakistan in Chaudhry Steel Furnace versus Commissioner Inland Revenue, Sialkot (orders of 2025 SCMR 1505), which bars appellate tribunals from re-deciding substantive questions of law under the guise of rectifying clerical mistakes.\n\nAccepting the department's submissions as well-reasoned and governed by Supreme Court precedent, the Sindh High Court answered the proposed question of law in favour of Pakistan Customs, set aside the impugned tribunal order, and directed that a certified copy of the judgment be transmitted to the Registrar of the Customs Appellate Tribunal.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/10/28/shc-sets-aside-judgment-of-customs-appellate-tribunal-following-binding-judgment-of-scp/"}, {"head": "SBP governor says evidence-based policies are key to Pakistan\u2019s economic stability", "body": "KARACHI: State Bank of Pakistan (SBP) Governor Jameel Ahmad has emphasised that decisive, evidence-based policymaking and sustained fiscal discipline are essential to anchoring Pakistan's macroeconomic stability and long-term growth. Addressing the annual convocation of the Institute of Cost and Management Accountants of Pakistan (ICMA Pakistan), the central bank chief noted that the country's macroeconomic fundamentals have strengthened considerably since 2022 despite severe global and regional supply shocks.\n\nGovernor Ahmad observed that headline inflation remained close to the central bank's target range in FY26 and is projected to ease gradually toward the medium-term target band of 5 to 7 per cent in FY27, supported by prudent monetary policy and coordinated fiscal consolidation. He added that Pakistan's external account has stabilised, with the current account deficit projected to remain within 0 to 1 per cent of GDP while real GDP growth recovers to 3.7 per cent.\n\nReflecting on recent monetary policy adjustments, the Governor stated that maintaining a tight policy stance alongside targeted administrative measures to curb non-debt foreign exchange outflows had been indispensable in restoring external buffers, rebuilding foreign exchange reserves, and earning renewed confidence from international credit rating agencies and multilateral partners.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-governor-evidence-based-economic-policies/"}, {"head": "Agriculture Financing Crosses Rs. 1.3 Trillion", "body": "ISLAMABAD: Pakistan's total outstanding agricultural credit has reached Rs1.329 trillion across approximately 3.5 million active borrowers, Finance Minister Muhammad Aurangzeb was informed while chairing the sixth meeting of the Access to Finance Steering Committee in Islamabad on Wednesday. Reviewing the sector's disbursement trajectory, the minister called on commercial and microfinance institutions to accelerate credit delivery to smallholder farmers and rural enterprises.\n\nUnder the federal government's flagship Zarkhez-e Asaan Zarai Qarza Scheme, participating banks have approved 20,176 loan applications amounting to Rs8.674 billion, including 6,132 collateral-free loans worth approximately Rs2.34 billion already disbursed to small farmers. The steering committee also reviewed targeted credit instruments for livestock, dairy, and agricultural supply-chain modernisation.\n\nAurangzeb directed partner financial institutions and regulators to expand both agricultural and small and medium enterprise (SME) financing, stressing that broader institutional credit access must translate into higher farm productivity and sustainable income growth across underserved rural districts.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/10/28/agriculture-financing-crosses-rs-1-3-trillion/"}, {"head": "Rs20 billion capital limit set for banks", "body": "KARACHI: The State Bank of Pakistan (SBP) has increased the Minim\u00ad\u00adum Capital Requirements (MCR) for all local and foreign banks. In a circular issued on Wednesday, the central bank said it had decided to raise the MCR for new and existing banks, foreign bank branches and DFIs, citing higher operating costs associated with establishing and sustainably managing financial institutions. As per the requirements, the MCR for the locally incorporated banks, including the Islamic banking subsidiaries of banks, will be Rs20 billion. Foreign banks (FBs) op\u00ad\u00aderating in Pakistan thro\u00adu\u00ad\u00adgh branches will be requi\u00adred to maintain assigned capital, net of losses, of at least Rs5bn if they have up to five branches, and Rs10bn if they operate between six and 50 branches.\n\n\u201cThe MCR for DFIs (Development Financial Institutions) will be Rs10bn. The existing banks and DFIs shall meet the above MCR by Dec 31, 2030,\u201d said the circular. The statutory reserves created under Section 21 of the Banking Companies Ordinance 1962 will be eligible for inclusion in MCR, in addition to the items already prescribed under BPRD circular no. 06 since 2013. The statutory reserves accounted for MCR shall not be withdrawn without prior approval of SBP, said SBP.\n\nMCR forces financial institutions to keep a strong, high-quality capital buffer so they can handle bad loans or economic downturns without failing. Capital acts as a cushion to absorb unexpected financial shocks, protect depositors, and maintain trust in the banking system.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040572/rs20-billion-capital-limit-set-for-banks"}, {"head": "SBP updates licensing rules for banks, digital banks and financial institutions", "body": "KARACHI: The State Bank of Pakistan (SBP) has consolidated and updated its licensing and authorisation rules for regulated financial institutions into a single comprehensive framework, issuing the unified Handbook for Licensing and Authorisation of Regulated Entities on Wednesday. All new applications for banking and financial licences will now be evaluated strictly under the consolidated standards.\n\nThe handbook governs licensing for commercial banks, digital banks, microfinance banks (MFBs), exchange companies, electronic money institutions (EMIs), payment system operators and payment service providers (PSOs and PSPs), and private credit bureaus. It standardises sponsor eligibility criteria, capital adequacy thresholds, fit-and-proper assessments, ownership structures, and application documentation.\n\nAligned with the Basel Core Principles for Effective Banking Supervision and Financial Action Task Force (FATF) standards, the updated regime requires prospective institutions to demonstrate robust corporate governance, anti-money laundering controls, and operational risk management prior to receiving regulatory clearance.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-licensing-handbook-banks-financial-institutions/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "Coal procurement -NEPRA unlikely to grant another extension to PQEPCL", "deck": "The controversy centres on the ongoing coal procurement process and the availability of bids offering a discount of US$2.10 per metric tonne for South African-origin coal.", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40446431/coal-procurement-nepra-unlikely-to-grant-another-extension-to-pqepcl", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["ISLAMABAD: The National Electric Power Regulatory Authority (NEPRA) is unlikely to grant another extension to Port Qasim Electric Power Company Limited (PQEPCL) for coal procurement under an interim arrangement, despite the company\u2019s reported efforts to persuade the regulator\u2019s officials, sources said. The development comes amid concerns over the alleged lack of transparency in coal procurement by the 1,320-megawatt Port Qasim coal-fired power plant, with the Prime Minister\u2019s Office (PMO) reportedly ordering an inquiry into the matter. The Power Division is also said to be concerned that procurement on commercially unfavourable terms could add to the financial burden ultimately borne by electricity consumers. National Accountability Bureau (NAB) is also active on power sector matters and has established a special directorate on this sector. The request has reportedly been submitted to the regulator in writing, but there is no clear indication that the Authority will approve it.", "The controversy centres on the ongoing coal procurement process and the availability of bids offering a discount of US$2.10 per metric tonne for South African-origin coal. According to the information available, the discount has been described as the highest obtained by PQEPC in its procurement history. The case for proceeding with competitive bidding is being advanced on the grounds that accepting eligible and responsive bids offering the stated discount could help protect consumers\u2019 interests and improve transparency in fuel procurement. However, PQEPC is alleged to be seeking to continue purchasing coal from its existing supplier or suppliers at a comparatively lower discount while delaying, withholding or cancelling the ongoing bidding process, despite the availability of the South African coal offer. An insider said NEPRA could direct the company to proceed through open bidding and consider eligible offers in accordance with the applicable bidding terms and conditions, rather than favouring arrangements that provide a lower discount.", "The regulator\u2019s position will be significant because coal procurement costs form part of the fuel-related expenses associated with power generation and can ultimately affect electricity tariffs through the applicable adjustment mechanism. The issue is also expected to be raised during NEPRA\u2019s public hearing on the Fuel Charges Adjustment (FCA) for September 2026, scheduled for Thursday, according to sources. The Federal Board of Revenue (FBR) has also reportedly entered the matter in light of court orders, adding another dimension to the scrutiny surrounding the procurement process. The coal supply terms cited in the procurement documents require the bidder to sell and deliver coal according to the agreed delivery schedule. The purchaser is required to notify the bidder in writing of the aggregate quantity required no later than 45 days before the expected discharge of the shipment.", "The pricing mechanism varies according to the coal\u2019s country of origin. For South African coal, settlement is linked to the monthly average of the FOB Richards Bay index, expressed in US dollars per metric tonne on a 6,000 kcal/kg net-as-received basis and published by Argus/McCloskey as the API4 Index for the month in which the relevant bill of lading is dated. For Indonesian-origin coal, the settlement price is linked to the monthly average FOB Indonesia Coal Index on a 4,600 kcal/kg net-as-received basis, published by Argus/Coalindo as the ICI3 Index for the month corresponding to the bill of lading date. The competing procurement positions therefore raise questions about the commercial terms available to PQEPC, the treatment of bids submitted under the ongoing process and the basis for any decision to continue with existing suppliers rather than proceed with competitive offers. The 1,320MW power plant is located at Port Qasim, Karachi, with coal delivered to its dedicated unloading jetty.", "The procurement decision is consequently important not only for the company\u2019s fuel supply arrangements but also for ensuring that the process follows the applicable bidding conditions and protects electricity consumers against avoidable costs. NEPRA\u2019s decision on the requested extension, together with the outcome of the reported inquiry and any proceedings arising from the FBR\u2019s involvement, could determine the future course of the coal procurement process. The allegations concerning procurement practices and the preference for existing suppliers have not been independently established in the information provided. PQEPC\u2019s response and NEPRA\u2019s formal position would be required to establish the company\u2019s justification for seeking the extension and its approach to the competing bids."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "SECP Launches Investment Competition for Women", "body": "The Securities and Exchange Commission of Pakistan (SECP) and Iqra University\u2019s Center for Excellence in Islamic FinTech (IU-CEIF) have launched a two-month investment competition to promote women\u2019s participation in Shariah-compliant investing. The initiative, titled \u201cEmpowered Women \u2013 Ethical Investments,\u201d is open to female students, faculty and staff at universities across Pakistan. Speaking at the launch ceremony in Karachi, SECP Commissioner Imtiaz Haider said financial awareness and informed investment decisions were essential to increasing women\u2019s participation in the financial sector.\n\nSheikh Ebrahim bin Khalifa Al Khalifa, chairman of the AAOIFI Board of Trustees, attended the ceremony as chief guest, alongside representatives of Islamic financial institutions. Haider highlighted SECP initiatives aimed at improving women\u2019s access to finance, including the approval of Khudmukhtar Khatoon, Pakistan\u2019s first digital financing product exclusively for women-led micro, small and medium enterprises (MSMEs). He also cited simplified account-opening procedures intended to facilitate women\u2019s entry into the capital market.", "source": "ProPakistani \u00b7 Markets & Stocks", "url": "https://propakistani.pk/2026/10/28/secp-launches-investment-competition-for-women/"}, {"head": "PSO board approves renewal of SPA with ARL for 5 years", "body": "ISLAMABAD: The Board of Pakistan State Oil Company Limited (PSO) has approved renewal of its Sale Purchase Agreement (SPA) with Attock Refinery Limited (ARL) for five years, from July 1, 2025, to June 30, 2030, with revised supply commitments and tighter controls over petroleum product quality, temperature and quantity measurement. According to a note submitted for the Board\u2019s decision, the third addendum to the agreement aims to ensure continuity of petroleum product supplies from ARL while strengthening PSO\u2019s commercial safeguards and reducing the risk of disputes over product quality and delivered volumes. The previous, second addendum expired on June 30, 2025. The two companies subsequently negotiated revised commercial, operational and technical provisions, which were recommended by PSO\u2019s Supply Chain Committee on November 13, 2025, and endorsed by its Management Committee at a meeting held on February 23, 2026. The renewal provides for higher monthly volume allocations of selected petroleum products, including an increase in the minimum monthly allocation of Motor Gasoline (PMG) from 12,000\u201315,000 metric tonnes to 14,000\u201316,000 metric tonnes. The monthly allocation of MTT is also proposed to rise from 50\u2013100 metric tonnes to 250\u2013300 metric tonnes. For the first time, the agreement also specifies a monthly supply range of 9,000\u201311,000 metric tonnes for Jet A-1, providing a defined supply commitment for aviation fuel.\n\nPSO\u2019s note states that the revised terms were negotiated to bring the agreement\u2019s operational procedures in line with current industry practices and improve oversight of the products received from ARL. Under the arrangements, petroleum products will be required to settle for at least 24 hours before delivery. The temperature of PMG must remain at least 3\u20135 degrees Celsius below its Initial Boiling Point (IBP), while temperatures of white oil products\u2014including high-speed diesel (HSD), kerosene oil (SKO), Jet A-1 and light diesel oil (LDO)\u2014must remain within five degrees Celsius above or below ambient temperature, based on readings from sensors at ARL\u2019s pumping station. The revised agreement also establishes more stringent procedures for measuring delivered volumes. Volumetric conversion to litres at 85 degrees Fahrenheit will follow ASTM D4057 and formula C-410, according to the note, with the objective of reducing differences arising from calculations. Initial and final tank dips, temperatures and densities will be recorded jointly by the two companies. These measurements will serve as the final reference in cases where discrepancies arise between tank measurements and custody-transfer meters.\n\nThe safeguards further require ARL\u2019s delivery tanks to be sealed and dedicated to PSO until pumping is completed. PSO will also be entitled to witness tank sampling, with samples tested at its laboratory before loading. In a related quality-control provision, ARL has confirmed through a side letter that the flashpoint of HSD will remain within the historical range, averaging 64 degrees Celsius, recorded since 2024. The agreement also provides for independent meter proving every three months, with ARL required to share the relevant data with PSO. A meter drift of plus or minus 0.25 per cent will trigger reconciliation based on tank dips. To strengthen verification of quantities, weighbridges will be required to carry valid calibration certificates issued by an independent third party and endorsed annually by the Weights and Measurement Department. The arrangement also provides for PSO personnel to receive annual security cards for access to ARL\u2019s Key Point 1-A installation, with renewals every six months in accordance with ARL\u2019s security procedures.\n\nPSO\u2019s management believes that the revised provisions will improve visibility over product temperature, quality and quantity, while establishing clearer procedures for resolving discrepancies between the two companies. The renewal is intended to secure a stable sourcing arrangement with ARL for another five years and reduce uncertainty following the expiry of the previous addendum. The Board has approved execution of the third addendum for the period from July 1, 2025, to June 30, 2030, and authorise PSO\u2019s chief executive officer, or an officer nominated by him, to sign the final document and settle non-material textual changes or minor adjustments required during execution. The agreement will operate in accordance with the laws of Pakistan.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446430/pso-board-approves-renewal-of-spa-with-arl-for-5-years"}, {"head": "Oil prices edge up about 1pc", "body": "NEW YORK: Oil prices edged up about 1 percent on Wednesday on renewed concerns about additional energy supply disruptions in the Middle East due to continued fighting in Yemen, an attack on a refinery in Saudi Arabia and worries the US could strike Iran after next week\u2019s US midterm elections. Brent futures rose USD1.44, or 1 percent, to settle at USD115.32 per barrel, while US West Texas Intermediate crude rose USD2.88, or 3 percent, to settle at USD102.78. That price gain pushed Brent back into overbought territory for the fourth time in five days. Yemen\u2019s Houthis attacked Aden airport on Wednesday, Yemeni government forces said, after the group warned people to evacuate the facility as fighting escalated in the impoverished country caught in the wider Middle East conflict. On Tuesday, the Houthis said they had hit Saudi Arabia\u2019s biggest oil refinery with a missile, intensifying their strikes against the world\u2019s second-largest crude producer behind the US.\n\nSaudi authorities did not immediately confirm the strike on the 550,000-barrel-per-day facility. \u201cCrude futures once again pricing in nearer term tighter supplies on news the US is likely to re-start military operations soon, which could be more intense than in the past given the latest attacks on Saudi Arabia and other Middle East allies,\u201d Dennis Kissler, senior vice president of trading at US financial services firm BOK Financial, said in a note. In recent weeks, several analysts have said renewed US strikes on Iran could happen sometime after the US midterm elections on November 3. In hopes of ending the now eight-month-long conflict, Qatari mediators have presented Iran with a new draft deal to end the war with the US and Israel, an official briefed on the negotiations said. A senior Iranian official, however, said Doha had only put forward unacceptable ideas that did not amount to an offer.\n\nIran\u2019s foreign minister said on Wednesday that Tehran continued to give diplomacy a chance to succeed and raised the possibility of the seven-day plan proposed by Tehran being completed in less than a week if implemented. Qatar, along with Pakistan, has led mediation to end the war, which has disrupted global shipping and oil supplies and has spread to Saudi Arabia and Yemen. Another factor supporting crude prices was a US federal report showing a surprise decline in stockpiles. The US Energy Information Administration said on Wednesday that energy firms pulled 1.9 million barrels of crude from storage during the week ended October 23. That was a surprise draw compared with the 15,000-barrel build analysts forecast in a Reuters poll , and was in line with the 2-million-barrel decline seen in data from the American Petroleum Institute on Tuesday, according to sources.\n\nChina, meanwhile, issued a fourth batch of fuel export quotas for gasoline, diesel and jet fuel, a rare additional issue that brings the 2026 total in line with 2025 levels despite curbs earlier in the year, three people familiar with the matter said on Wednesday. Looking ahead, the market is waiting for an industry meeting on Sunday, where OPEC+ oil producers are expected to keep their December oil output targets steady, people familiar with the matter said.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446429/oil-prices-edge-up-about-1pc"}, {"head": "World Bank rates progress on KP hydropower, renewable energy project 'moderately unsatisfactory'", "body": "ISLAMABAD: The World Bank on Wednesday dubbed the progress on the Khyber Pakhtunkhwa Hydropower and Renewable Energy Development project \u201cmoderately unsatisfactory\u201d, with \u201csubstantial risk\u201d to its $727 million loan meant for strengthening provincial institutions and increasing renewable energy generation. In its public disclosure , the Washington-based lending agency rated the progress towards the achievement of project development objectives as \u201cmoderately unsatisfactory\u201d. Various segments of the loan were approved since 2020 with a targeted completion date of Nov 30, 2027. However, the World Bank rated the overall implementation progress as \u201cmoderately satisfactory\u201d and described the overall risk rating as \u201csubstantial\u201d.\n\nThe rating was based on \u201cmoderate\u201d risk in the political and governance and technical design categories, but \u201csubstantial\u201d risks emanated from macroeconomic, institutional capacity, fiduciary issues and environmental and social parameters. According to a World Bank document , each dimension is rated on a four-point scale \u2014 high, substantial, moderate, or low\u2014 depending on the likelihood that the risk will materialise and the expected severity of its impact if it does materialise. The bank said it processed restructuring of the project to align its scope and financing with implementation priorities at the request of the government. The report stated: \u201cOverall, implementation has gained momentum, with key milestones achieved under the Gabral-Kalam Hydropower Project , including commencement of civil works, progress on land acquisition and advancement of the electro-mechanical works procurement.\n\n\u201cThe project will continue to focus on timely implementation, effective contract management, and compliance with applicable environmental and social requirements.\u201d The original loan package , approved since September 2020, involved a $594m investment in hydropower development and renewable energy, $59m in environmental and social management, $55m for institutional strengthening and project implementation support, besides about $15m in financial charges on the bank loan itself. The market-based bank loan worth $200m became effective since September 2020, but only $3.95m has been disbursed so far, accounting for less than two per cent. The concessional development loan of $240m became effective around the same time and its disbursements amounted to $34m to date, about 14pc of the size. The KP Hydropower and Renewable Energy Development project was conceived as a transformational programme to help build capacity and institutions for harvesting the vast renewable energy potential in the province.\n\nTo achieve the objectives, the project was designed to be implemented through four components: one of them being the development of public sector investments in hydropower and renewable energy projects, including the Gabral-Kalam Hydropower Plant (GKH), an 88-megawatt (MW) run-of-river hydropower project capable of generating 339 gigawatt hours (GWh) annually. Another component covered cascade development of river basins and financing the construction of 157MW Madyan and other hydropower facilities on the Swat and other river basins. The total hydropower potential of the Swat River Basin was estimated to be more than 2,000MW for which several projects had been identified and new potential sites were required to be examined. Additionally, floating or land-based solar photovoltaic systems (a type of solar panel) on hydropower assets were envisioned.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040474/world-bank-rates-progress-on-kp-hydropower-renewable-energy-project-moderately-unsatisfactory"}, {"head": "SBP doubles MCR for banks", "body": "KARACHI: The State Bank of Pakistan (SBP) has announced a 100 percent increase in the Minimum Capital Requirement (MCR) for new and existing banks operating in Pakistan, citing rising operating costs associated with establishing and running financial institutions on a sustainable basis. The SBP has increased the MCR for locally operating banks including Islamic banking subsidiaries of banks from Rs10 billion to Rs20 billion. According to SBP, keeping in view the increased operating costs to establish and manage financial institutions on sustainable basis, it has been decided to enhance the MCR for new and existing banks, foreign bank branches and Development Finance Institutions (DFIs). Foreign banks operating between 6 to 50 branches in Pakistan will be required to maintain minimum assigned capital of Rs10 billion under the revised framework announced by the SBP.\n\nThe SBP has also set the MCR for Development finance institutions (DFIs) at Rs10 billion under the revised regulatory framework. As per instructions, the existing banks and DFIs will be required to meet the enhances MCR by December 31, 2030. According to SBP, the statutory reserves created in line with Section 21 of Banking Companies Ordinance 1962 will be eligible for inclusion in MCR, in addition to the already prescribed items as per BPRD Circular No. 06 since 2013. The statutory reserves accounted towards MCR will not be withdrawn without prior approval of SBP, the circular issued by SBP said.\n\nAccording to a research note by Arif Habib Limited (AHL) the revised framework also allows statutory reserves maintained under Section 21 of the Banking Companies Ordinance, 1962, to be counted towards meeting the minimum capital requirement. AHL Research estimates that its covered listed banks will retain substantial capital buffers, averaging around Rs50 billion, and does not expect any material change in dividend payouts. However, the revised requirements could increase capital needs for new entrants, particularly smaller banks, which may have limited accumulated statutory reserves.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446432/sbp-doubles-mcr-for-banks"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "Microsoft recorded $10 billion in revenue from OpenAI", "deck": "Commercial arrangements and Azure cloud services with OpenAI generated nearly 11% of Microsoft's $92.3 billion quarterly revenue in the first quarter of fiscal 2027, hitting a $40 billion annualized run rate.", "hero_source": "TechCrunch Wire", "hero_url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Technical Analysis", "body": ["SAN FRANCISCO: Microsoft generated $10 billion in revenue from its commercial arrangements with OpenAI, including revenue-sharing payments and Azure cloud computing services, during the quarter ended September 30, 2026, the company disclosed in its first-quarter fiscal 2027 regulatory filing on Wednesday. The figure represents nearly 11 per cent of Microsoft's $92.3 billion in total quarterly revenue, underscoring the scale of the financial relationship between the two companies even as they compete directly for enterprise AI customers.", "For the full 2026 fiscal year ended in June, Microsoft's revenue from OpenAI totalled $24.1 billion. At the latest quarterly pace, Microsoft is now generating an annualized run rate of $40 billion from OpenAI-related commercial arrangements. Microsoft also reported $7.2 billion in outstanding receivables from OpenAI at the close of September, up from $6 billion at the end of June, reflecting amounts owed for prior cloud and commercial transactions.", "Under the partnership structure established following Microsoft's multi-billion-dollar investment in the AI developer, OpenAI shares a portion of its commercial revenue with Microsoft alongside massive cloud infrastructure purchases. Under an April 2026 commercial agreement, OpenAI remains committed to sharing revenue with Microsoft through 2030, subject to a negotiated cap, while gaining flexibility to contract additional compute capacity from rival cloud providers.", "The two companies recalibrated their once-exclusive arrangement from 2025, when OpenAI committed to purchasing an additional $250 billion in Azure cloud services. Microsoft's regulatory filing also noted that its equity ownership stake in OpenAI stood at 24 per cent following recent employee and investor share issuances, compared with 25 per cent following OpenAI's corporate recapitalization from 2025."], "quote": "\"The textile sector\u2019s plea for a functional Central Appraising Unit is not just a demand for speed; it is a call for fiscal sanity in a system where assessment delays bleed the treasury.\"\n\u2014 APTMA Chairman Asad Shafi", "editorial": {"title": "Statutory Stalemate: FBR\u2019s Customs Bottleneck, Revenue Reboot, and Fiscal Oversight in Focus", "deck": "A 24\u2011hour roundup of the Federal Board of Revenue\u2019s customs assessment woes, a World Bank\u2011backed revenue hire, and NEPRA\u2019s coal procurement stand\u2011off.", "paragraphs": ["The headline that dominated the morning wire, **\"Textile Industry Slams FBR Over 40\u2011Hour Customs Delay,\"** laid bare a growing crisis in the Faceless Customs Assessment (FCA) system. The All Pakistan Textile Mills Association (APTMA) warned that the 40\u2011hour hold-up in Karachi is inflating costs and eroding competitiveness. In a pointed letter to FBR Chairman Rashid Mahmood Langrial, APTMA\u2019s chief Asad Shafi urged the Federal Board of Revenue to retain the Central Appraising Unit (CAU) in the city and to suspend any further procedural tweaks until an independent review can assess the fiscal impact. The appeal underscores a broader statutory tension: the need to balance streamlined assessment with the operational realities of a key export sector, a balance that the FBR has yet to achieve.", "In a parallel development, the FBR announced a strategic recruitment drive under the banner **\"FBR to hire social specialist under World Bank\u2011funded revenue project.\"** This move signals a shift toward integrating socio\u2011economic analytics into revenue collection, aiming to refine tax compliance frameworks and bolster fiscal resilience. While the announcement is brief, it hints at a larger World Bank\u2011sponsored initiative designed to modernise Pakistan\u2019s revenue apparatus, potentially reshaping the statutory landscape of tax assessment and collection. The hiring of a social specialist could provide the data\u2011driven insight needed to address systemic bottlene\u2011cks like those highlighted by the textile sector, aligning fiscal policy with ground\u2011level realities.", "The regulatory arena saw another flashpoint with the headline **\"Coal procurement - NEPRA unlikely to grant another extension to PQEPCL.\"** The National Electric Power Regulatory Authority\u2019s reluctance to extend the interim coal procurement arrangement for Port Qasim Electric Power Company Limited (PQEPCL) raises questions about transparency and fiscal prudence in the energy sector. Although NEPRA is not a tax authority, its decision carries significant fiscal implications, as prolonged interim arrangements can distort revenue forecasts and strain public reserves. The move reflects a broader statutory push for accountability in high\u2011value procurement, echoing the same demand for oversight that the textile industry voiced regarding customs assessment.", "Finally, the Securities and Exchange Commission of Pakistan (SECP) entered the statutory conversation with **\"SECP Launches Investment Competition for Women,\"** a two\u2011month initiative to promote Shariah\u2011compliant investing among female university affiliates. While not directly tied to tax or customs, the competition dovetails with the broader fiscal agenda by encouraging capital market participation, potentially expanding the tax base and enhancing reserves through diversified investment flows. Together, these four leads paint a portrait of a nation grappling with the twin imperatives of efficient statutory administration and inclusive fiscal growth."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Anthropic just launched tools to show companies what their AI spending is buying", "body": "SAN FRANCISCO: Frontier AI developer Anthropic on Wednesday unveiled a new suite of enterprise analytics and cost-visibility tools designed to give corporate engineering leaders a granular breakdown of what their artificial intelligence token spending is producing. The release follows strong commercial momentum for Anthropic's agentic coding platform, Claude Code, with the company reporting second-quarter operating profitability and 900 per cent net revenue retention from existing enterprise customers compared to 2025.\n\nCombining internal usage telemetry with developer workflow surveys, the new reporting dashboard allows engineering managers to inspect team output over custom date ranges, track token expenditure by task, identify workflow bottlenecks, and receive automated optimization recommendations. Anthropic stated that enterprise workflow telemetry is excluded from model training by default, and introduced pooled group budgets to help corporate departments manage token allocations.\n\nThe launch coincides with an industry benchmark study of 276,000 software engineers by developer analytics firm Jellyfish, which found that Claude Code and Anthropic-powered coding agents account for nearly one-third of all pull requests submitted for review. Enterprise spending on agentic coding tools has expanded tenfold since the start of the year to reach roughly 2 per cent of total software engineering payroll, prompting chief financial officers to demand clearer return-on-investment metrics.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/"}, {"head": "Microsoft just shared Azure\u2019s actual revenue in dollars \u2014 $33.2 billion", "body": "REDMOND: Microsoft has disclosed the exact quarterly dollar revenue of its flagship Azure cloud platform for the first time in a routine quarterly earnings release, reporting that Azure generated $33.2 billion during the July-to-September quarter, up 48 per cent from a year earlier. Previously, the software giant typically reported only percentage growth rates for Azure rather than standalone quarterly dollar figures.\n\nThe disclosure allows institutional investors to compare Azure's scale directly against Amazon Web Services and Alphabet's Google Cloud. Alphabet, which also reported quarterly earnings on Wednesday, posted $30.7 billion in Google Cloud and Workspace revenue for the same three-month period, placing Azure $2.5 billion ahead in quarterly run rate.\n\nAzure\u2014where enterprise customers rent GPU clusters and cloud infrastructure to train and deploy AI models and SaaS workloads\u2014now accounts for approximately 36 per cent of Microsoft's $92.3 billion total quarterly revenue. The $33.2 billion result beat Wall Street consensus estimates of $32.3 billion by nearly $850 million and exceeded Chief Financial Officer Amy Hood's prior growth guidance of 44 to 45 per cent. Under Microsoft's reorganized segment reporting, Azure now sits within the newly created Agents and Infra division, which generated $76.8 billion in total quarterly revenue, up 25 per cent year-on-year.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/"}, {"head": "PTA Starts Blocking WhatsApp Accounts Linked to Inactive SIMs", "body": "ISLAMABAD: The Pakistan Telecommunication Authority (PTA) has begun blocking WhatsApp accounts that remain linked to deactivated, cancelled, or recycled mobile SIM cards across Pakistan. Telecom regulators initiated the enforcement drive to prevent identity spoofing, financial fraud, and the unauthorised takeover of messaging accounts tied to mobile numbers no longer held by their original subscribers.\n\nPTA officials confirmed that the automated disconnection phase commenced following a nationwide public awareness campaign advising subscribers to verify that their messaging applications are registered strictly against active biometric SIMs in their personal possession. When an inactive SIM is eventually re-allocated by a mobile network operator to a new subscriber, any unmigrated WhatsApp account linked to that number faces security exposure.\n\nThe authority has urged mobile users who have changed their phone numbers to utilize WhatsApp's built-in number-migration feature immediately to transfer their account history and two-factor authentication credentials to an active, biometrically verified SIM.", "source": "ProPakistani \u00b7 Telecom & Tech", "url": "https://propakistani.pk/2026/10/28/pta-starts-blocking-whatsapp-accounts-linked-to-inactive-sims/"}, {"head": "Samsung posts record profit in Q3 on AI chip boom", "body": "SEOUL: Samsung Electronics reported on Thursday that its third-quarter operating profit surged nearly ninefold to a record high of 107.4 trillion won ($80.04 billion) for the July-to-September period, driven by extraordinary global demand for high-bandwidth artificial intelligence memory chips. The result matched the South Korean technology giant's preliminary guidance and rose sharply from 12.2 trillion won in the corresponding period a year earlier.\n\nThe record quarterly performance was reinforced by strong earnings and an upbeat server memory outlook from cross-town semiconductor rival SK Hynix on Wednesday. Together, the two memory chipmakers' results eased market concerns over the durability of hyperscale AI data-centre capital expenditure, lifting shares of both Samsung Electronics and SK Hynix in Seoul trading.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446462/samsung-posts-record-profit-in-q3-on-ai-chip-boom"}, {"head": "Meta Launches New AI App That Lets You Raise a Virtual Pet", "body": "MENLO PARK: Meta has rolled out a new artificial intelligence companion application called Waddle World, enabling mobile users to hatch and raise a digital pet, converse with it throughout the day, and record reflections on their daily routines. Currently launched for iOS and Android users in the Philippines, the application blends classic 16-bit pixel-art Tamagotchi mechanics with conversational large language models.\n\nWithin Waddle World's retro pixel environment, players feed their digital companions, play interactive mini-games, and share spoken or typed thoughts. Unlike static virtual pets, the AI companion learns from user conversations over time and compiles those interactions into illustrated perspective journal entries alongside weekly email summaries recapping what the digital pet has learned.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/10/28/meta-launches-new-ai-app-that-lets-you-raise-a-virtual-pet/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "\u2018The Mosquito Bowl\u2019 Review \u2014 Football Heroes Take to the Battlefield in Peter Berg\u2019s WWII Epic", "deck": "Peter Berg and Mark L. Smith adapt Buzz Bissinger's historical chronicle of four collegiate gridiron stars who enlist in the US Marine Corps after Pearl Harbor and clash on Guadalcanal.", "hero_source": "Variety Global Wire", "hero_url": "https://variety.com/2026/film/reviews/the-mosquito-bowl-review-1236932067/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["LOS ANGELES: Director Peter Berg's Netflix combat drama 'The Mosquito Bowl' brings the muscular, high-decibel intensity of his earlier military features to the Pacific Theater of the Second World War, charting the physical and psychological ordeal of four college football stars who enlist in the United States Marine Corps following the attack on Pearl Harbor. Adapted by Berg and screenwriter Mark L. Smith from Buzz Bissinger's acclaimed historical chronicle, the film salutes military brotherhood on Guadalcanal with relentless battlefield staging.", "The title refers to the historic Christmas Eve regiment football game organized on Guadalcanal between the 4th and 29th Regiments of the 6th Marine Division, contested by drafted collegiate gridiron standouts who had set aside professional sporting careers for wartime service. While the narrative seeks to imbue the muddy inter-regiment clash with the poignant resonance of wartime truce matches, the sporting interlude is swiftly overshadowed by the surrounding amphibious combat sequences.", "Brown University graduate and future coach John McLaughry, played by Nicholas Galitzine, anchors the framing narrative alongside Purdue fullback Tony Butkovich (Ray Nicholson), Wisconsin Badgers star Dave Schreiner (Tony nominee Tom Francis), and fellow Wisconsin lineman Bob Baumann (Bill Skarsg\u00e5rd). Together, the quartet endures the grueling crucible of Parris Island basic training before deploying into the Pacific theater.", "Shot by cinematographer Jacques Jouffret in an aggressively desaturated palette with kinetic point-of-view camera work and driven by a surging, guitar-heavy post-rock score from Explosions in the Sky, 'The Mosquito Bowl' achieves a blunt, visceral sensory force across its large-scale battle set-pieces even when its individual character portraits remain squarely archetypal."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "How A Former Senior Netflix Staffer Launched One Of Japan\u2019s Buzziest Indie Cinemas", "body": "TOKYO: CineYama, an independent cinema housed in a converted kindergarten in Uenohara City, Yamanashi Prefecture just outside Tokyo, has emerged as one of Japan's most talked-about arthouse screening venues. Founded by former senior Netflix executive Matt Kelson\u2014who spent 11 years with the streamer overseeing global product artwork in Los Angeles and festival screenings across the Asia-Pacific region from Tokyo\u2014the intimate venue bridges international repertory classics and contemporary independent cinema.\n\nFollowing regional corporate restructuring at Netflix, the Michigan native\u2014who had previously operated an independent screening space in Detroit\u2014partnered with Uenohara municipal authorities after a three-month public proposal review to transform the long-vacant Sawamatsu Kindergarten building into a cultural hub. This week's curated slate pairs South Korean auteur Lee Chang-dong's 'Possible Love' and Dario Argento's giallo classic 'Suspiria' with Sophy Romvari's acclaimed feature debut 'Blue Heron.'", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/cineyama-matt-kelson-japan-indie-cinema-1237207784/"}, {"head": "Cate Blanchett Warns Against \u201cUnthinking Certainty\u201d as She Accepts Japan\u2019s Praemium Imperiale", "body": "TOKYO: Two-time Academy Award winner Cate Blanchett accepted Japan's prestigious Praemium Imperiale award at a ceremony in Tokyo on Wednesday, using the occasion to champion creative doubt and warn against 'unthinking certainty' in global culture. Presented by the Japan Art Association and conferred by Princess Hitachi at the Meiji Kinenkan in Moto-Akasaka, the honour recognises lifetime achievement across painting, sculpture, architecture, music, and theatre or film, accompanied by a 15 million yen ($100,000) laureate prize.\n\nJoining an illustrious roster of past cinema and theatre laureates that includes Akira Kurosawa, Federico Fellini, Martin Scorsese, Judi Dench, and Ang Lee (who received the prize since 2024), Blanchett stood alongside fellow 2026 honourees Jenny Holzer, Andy Goldsworthy, Daniel Libeskind, and Herbert Blomstedt. In her acceptance address referencing surrealist painter Leonora Carrington, Blanchett reflected on the expressive spaces between spoken words and announced she will participate in a series of public conversations at the Tokyo International Film Festival starting Friday.", "source": "Hollywood Reporter Feed", "url": "https://www.hollywoodreporter.com/movies/movie-news/cate-blanchett-japan-praemium-imperiale-award-tokyo-1236742351/"}, {"head": "\u2018Tonight Show\u2019 -Jimmy Fallon & Jamie Lee Curtis Channel Fielder & Holmes In Cold Open", "body": "NEW YORK: Six-time Emmy winner Jimmy Fallon and Oscar-winning actress Jamie Lee Curtis opened Wednesday's episode of NBC's 'The Tonight Show' with a deadpan Halloween-week parody of A24's hit documentary 'You Can See Everything.' Fallon adopted comedian Nathan Fielder's famously awkward interrogation cadence while Curtis donned a blonde wig and black turtleneck to channel incarcerated Theranos founder Elizabeth Holmes.\n\nRe-creating the documentary's viral interview teaser, Fallon pressed Curtis on whether she truly wanted to appear on the programme or was merely promoting her new NBC comedy series 'Newlyweds,' before Curtis abruptly broke Holmes's unblinking persona the moment the host stepped out of the room. The late-night spoof arrives as director Lance Oppenheim and Fielder's documentary feature surpasses $45.1 million at the global box office.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/tonight-show-jimmy-fallon-jamie-lee-curtis-fielder-holmes-1237207815/"}, {"head": "\u2018South Park\u2019 -Cartman, Stan and Kyle Must Solve South America\u2019s Beef Crisis in Halloween Week Episode", "body": "LOS ANGELES: The fourth episode of 'South Park' Season 29, titled 'Guinea Pig on a Stick,' sends Cartman, Stan, Kyle, and a still-miniaturized Randy on a chaotic campaign to rescue their mountain town's beef supply after high-end steakhouse chains buy up local cattle ranches. The episode opens with Cartman discovering that the school cafeteria has replaced sloppy joes with rodent meat amid a nationwide rush by wealthy out-of-state diners to consume local beef as a performative badge of patriotism.\n\nWhen national chains Ruth's Chris Steak House and Sizzler commandeer the town's entire herd\u2014even as diners fall violently ill\u2014Stan realizes the craze is driven purely by status rather than taste, convincing the local rancher to serve butter-injected guinea pig on a stick to the luxury steakhouses so the town can reclaim its cattle. Creators Trey Parker and Matt Stone bypassed a traditional Halloween special for the installment, continuing a 29th season whose premiere drew 4.2 million viewers across its opening three days.", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/south-park-season-29-episode-4-1236933789/"}, {"head": "James Gunn Calls Batman, Superman and Wonder Woman the DCU\u2019s \u2018Diamond Characters,\u2019 Outlines Multi-Tone Studio Roadmap", "body": "LOS ANGELES: DC Studios co-chief James Gunn has clarified the studio's long-term creative architecture, explaining that the eight-to-ten-year roadmap he and co-chair Peter Safran formulated for Warner Bros. Discovery centres on anchoring the franchise around its core 'diamond characters'\u2014Superman, Batman, and Wonder Woman\u2014while elevating emerging fan favourites such as Krypto, Green Lantern John Stewart, and Peacemaker into marquee status.\n\nAddressing audience discussions ahead of the studio's upcoming feature 'Man of Tomorrow,' Gunn emphasised that the DC Universe is designed to foster filmmaker autonomy across multiple genres, tones, and maturity ratings rather than forcing every standalone film into a rigid crossover formula. Drawing comparisons to the expansive world-building of 'Star Wars' and George R.R. Martin, Gunn noted that individual films and series should stand as complete, self-contained stories set across different eras and corners of the DCU.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/james-gunn-batman-superman-wonder-woman-dcu-1236933827/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "Islamabad's Capital Development Authority to start Shahdara Dam project soon", "deck": "Islamabad receives 1,100 millimetres of rainfall annually, but rainwater goes to waste through nullahs,\u201d he said, adding that the recharge wells would help raise the city\u2019s underground water table.", "hero_source": "Dawn Latest News", "hero_url": "https://www.dawn.com/news/2040533/islamabads-capital-development-authority-to-start-shahdara-dam-project-soon", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["ISLAMABAD: The Capital Development Authority (CDA) on Wednesday announced that construction of the Shahdara Dam project would begin soon. If all goes as planned, this will be the first major water project undertaken in Islamabad in nearly three decades. \u201cWe are going to resolve Islamabad\u2019s water issue. Shahdara Dam is the first major step towards our goal,\u201d CDA Chairman Sohail Ashraf told Dawn. He said that, according to the project\u2019s PC-I, the mega project was scheduled to be completed in two years, but the authority would try to complete it within 20 months. Mr Ashraf said that, besides the dam, four check dams would also be constructed at the foothills of the Margalla Hills, including one near D-12, Shah Allah Ditta and Saidpur. \u201cSimilarly, the project to construct 100 recharge wells is also set to begin.", "Islamabad receives 1,100 millimetres of rainfall annually, but rainwater goes to waste through nullahs,\u201d he said, adding that the recharge wells would help raise the city\u2019s underground water table. He said the CDA was also working with the Japan International Cooperation Agency (JICA) on a master plan for water supply, sewerage and drainage in Islamabad. The CDA floated a tender for the Shahdara Dam project on Wednesday, while tenders for the recharge wells and check dams are yet to be issued. Islamabad has been facing a water shortage, as no new water source has been added to the system in the past three decades, resulting in a significant gap between demand and supply. The water demand of Islamabad is around 250 million gallons per day (MGD), while the CDA supplies approximately 70 MGD, mostly to the urban population, through three main sources, including Khanpur Dam, Simly Dam and tubewells. The rural population largely depends on borewells and small water supply schemes run by the district administration. Meanwhile, every year during the monsoon, the CDA releases large quantities of water from Simly Dam, while Rawalpindi authorities also release water from Rawal Dam, which is located in Islamabad but supplies water to the city\u2019s residents.", "This happens because no system is in place to store surplus water. A press release issued by the CDA on the Shahdara Dam project stated that, after decades of anticipation, consultations and deliberations, the project was expected to introduce a new source of surface water into Islamabad\u2019s water supply system. \u201cThe project is anticipated to contribute approximately 5\u201310 MGD, subject to final design, technical assessments and operational arrangements,\u201d the press release stated. It added that the project was planned for completion within two years and that its timely completion would mark an important milestone in Islamabad\u2019s water infrastructure development and strengthen ongoing efforts to meet the city\u2019s growing water demand. The dam will be constructed near the Shahdara picnic area in Islamabad. Besides Shahdara, the CDA had also planned the construction of Chinot Dam in the catchment area of Simly Dam and Dotara Dam in the catchment area of Khanpur Dam. Meanwhile, the CDA has taken a step towards resolving a long-standing issue in Sector I-15 by clearing major encroachments in Sub-Sector 1.", "The move has paved the way for the planned development of around 500 plots for lawful allottees whose investments have remained tied up since the sector was launched in 2005. According to a press release, the encroached village of Sheikhpur was vacated under the supervision of Deputy Director General (Enforcement) Dr Anam Fatima following nearly two months of sustained enforcement efforts. During the operation, more than 300 houses, barns and havelis were vacated, removing long-standing encroachments that had obstructed the planned development of the sector. The press release added that approximately 36.5 acres of built-up land had been cleared."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Govt plans $10m fund to support clean-air startups", "body": "ISLAMABAD: Federal Minister for Climate Change Musadik Malik on Wednesday announced plans to establish a $10 million fund to support startups developing solutions to Pakistan\u2019s air pollution crisis, saying its health and economic costs disproportionately affected poor and vulnerable people. Addressing the Pakistan National Clean Air Conference 2026, he said wealthier households could install air purifiers and take other precautions, while children, street vendors, farmers and daily-wage earners remained exposed to polluted air. Dr Malik estimated that air pollution imposed an economic cost equivalent to 6.5pc of Pakistan\u2019s gross domestic product (GDP), citing illness, hospitalisation and the financial burden on families. Referring to patients suffering from chronic obstructive pulmonary disease (COPD), he highlighted their need for oxygen and medication. He also cited a Unicef report on the harmful effects of air pollution on children\u2019s lung health and development. He said schoolchildren travelling through polluted streets and people working outdoors faced continued exposure to harmful air.\n\nStreet vendors and farmers, in particular, could not avoid exposure without risking their livelihoods. The minister also highlighted the plight of farmers involved in crop-residue burning, saying solutions must address environmental concerns while taking into account the economic circumstances of farming communities. Describing air pollution as a consequence of human activity and policy choices rather than an unavoidable natural disaster, he called for practical interventions to control industrial emissions and other sources of pollution. Citing the construction of the Karakoram Highway through difficult mountainous terrain and efforts to control dengue, he said determined action could overcome major challenges. He also referred to Beijing and Shanghai\u2019s progress in tackling pollution and China\u2019s emergence as a major exporter of solar technology. Pakistan could similarly improve air quality through effective policies, technological innovation and cooperation with international development partners, he said.\n\nDr Malik said the government had decided to establish the proposed $10 million clean-air startup fund from its limited resources after seeking assistance from development partners. Approval from the fund\u2019s board was expected the following day. He described the initiative as a responsibility towards future generations rather than a grant or loan, adding that the government intended to pursue clean-air measures even without external financial support. Acknowledging support from the World Bank, Asian Development Bank, Unicef and German development agency GIZ for climate-related initiatives, he stressed that tackling air pollution required engineering solutions, effective policies and financial commitments. The government would continue working with development partners to reduce emissions, improve air quality and protect public health, he added.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2040532/govt-plans-10m-fund-to-support-clean-air-startups"}, {"head": "45 Nust researchers ranked among top 2pc of global scientists", "body": "ISLAMABAD: As many as 45 researchers from the National University of Sciences and Technology (Nust) have earned the prestigious honour of being among the world\u2019s top 2pc of scientists in 2026, say rankings compiled by Stanford University and Elsevier. According to a press release issued by Nust, the distinction places Nust researchers among an international community of leading scholars whose work is contributing immensely to the advancement of knowledge and scientific progress across diverse disciplines.\n\nNotably, 16 Nust researchers have consistently featured in the rankings over successive years, demonstrating sustained scholarly impact and a long-term commitment to advancing knowledge across disciplines. \u201cExtending his heartiest felicitations to the distinguished researchers, Rector Nust Dr Muhammad Zahid Latif remarked that the meritorious accomplishment of our truly erudite faculty and researchers has brought immense pride to Nust and the nation, and exemplifies the calibre of scholarship that continues to elevate Pakistan\u2019s standing in the international research community,\u201d read the press release.\n\nRector said that the recognition also speaks volumes of Nust\u2019s enduring commitment to intellectual leadership, scientific inquiry and the pursuit of finding solutions to complex real-world challenges. Like, Nust faculty members from several other universities are also part of the top 2pc of scientists list.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2040535/45-nust-researchers-ranked-among-top-2pc-of-global-scientists"}, {"head": "US ambassador suggests Trump could blame Canada if midterms don\u2019t go his way", "body": "OTTAWA: United States Ambassador to Canada Pete Hoekstra has sparked fresh diplomatic friction between Washington and Ottawa after warning Canadian business leaders at a closed-door gathering that Canada could be blamed if Republican candidates suffer losses in next week's US midterm elections. Hoekstra suggested that if Democrats prevail in closely contested swing states such as Maine and Michigan, where Ottawa has levied retaliatory tariffs during the ongoing cross-border trade dispute, Donald Trump could hold the Canadian government responsible.\n\nAsked by reporters about the envoy's remarks on Wednesday, Canadian Prime Minister Mark Carney responded dryly that it was 'an interesting way of framing it,' while noting that although Ottawa remains open to a bilateral trade settlement, negotiations are not currently at that stage. Hoekstra has faced sustained criticism in Canada following a House of Commons petition signed by more than 225,000 citizens calling for his recall over comments perceived as interfering in Canadian domestic affairs.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/oct/28/canada-ambassador-republicans-midterms"}, {"head": "Fl\u00e1vio Bolsonaro calls himself the \u2018leader of Brazil\u2019 after fleeing to Miami", "body": "MIAMI: Far-right Brazilian Senator Fl\u00e1vio Bolsonaro declared himself the 'leader of Brazil' on Wednesday after losing Sunday's presidential runoff election to President Luiz In\u00e1cio Lula da Silva and flying to the United States aboard a private Gulfstream IV jet. Bolsonaro, the son of jailed former president Jair Bolsonaro, initially published a letter upon landing at Miami-Opa Locka Executive Airport claiming to be Brazil's 'true president' before deleting the post and reissuing it under the modified title.\n\nAfter vanishing for more than 24 hours following Sunday's defeat, Bolsonaro crossed by land into Argentina on Tuesday night and boarded the private aircraft at Puerto Iguaz\u00fa airport, routing through Guayaquil, Ecuador, to avoid Brazilian airspace. His declaration was immediately repudiated across Brazil's political spectrum, with his own party, Brazil's electoral courts, and international observers formally recognising Lula's re-election victory and Brazil's leading dailies condemning the letter as coup-mongering.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/oct/28/flavio-bolsonaro-miami-us-fleeing-brazilian-election-defeat"}, {"head": "EU backs away from offer to Canada to start \u2018associate member\u2019 talks", "body": "MONTREAL: The European Union has scaled back an earlier proposal to open negotiations with Canada on becoming an 'associate member' of the bloc after legal and political objections from member states surfaced ahead of the two-day EU-Canada summit opening in Montreal on Thursday. European Commission President Ursula von der Leyen had surprised EU capitals during her recent State of the Union address by floating formal associate membership for Ottawa.\n\nIn place of a formal membership track, a draft joint communiqu\u00e9 prepared for the conclusion of the Montreal summit commits Brussels and Prime Minister Mark Carney's government to define by the 2027 EU-Canada summit the concept of an 'ever closer association of Canada to the EU, short of full membership itself.' European diplomats noted that the Treaties of the European Union contain no legal provision for associate membership or non-member participation in European Council decision-making, prompting the 27 member states to focus instead on deeper cooperation in economic security, defence procurement, and strategic autonomy.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/oct/28/european-union-canada"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "THURSDAY, OCTOBER 29, 2026", "headline": "Pakistan batting coach Mike Smith backs Babar, Fakhar amid tri-series woes", "deck": "Smith defended the two experienced batters after Pakistan were bowled out for 110 against Sri Lanka on Tuesday, saying Babar\u2019s inability to convert promising starts into big scores should not overshadow the positive aspects of his batting. \u201cDefinitely not,\u201d Sm", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2040252/pakistan-batting-coach-mike-smith-backs-babar-fakhar-amid-tri-series-woes", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Pakistan batting coach Mike Smith has backed out-of-form players Babar Azam and Fakhar Zaman to rediscover their touch ahead of Saturday\u2019s tri-series final against Sri Lanka, insisting he has \u201czero doubt\u201d that both will deliver despite the team\u2019s latest batting collapse. Smith defended the two experienced batters after Pakistan were bowled out for 110 against Sri Lanka on Tuesday, saying Babar\u2019s inability to convert promising starts into big scores should not overshadow the positive aspects of his batting. \u201cDefinitely not,\u201d Smith said in the post-match press conference when asked whether Babar\u2019s failure to make substantial runs was a concern. \u201cThe hardest part of cricket is getting yourself in, and Babar\u2019s doing that incredibly easily at times.\u201d The batting coach said Babar had been doing several things well and remained confident the former captain would produce a significant innings. \u201cIf he had turned one of those starts into a big score, no one\u2019s saying a thing,\u201d Smith said. \u201cThat\u2019s international cricket.", "That\u2019s the top-end sport. You can\u2019t perform at the highest level every single time.\u201d He added: \u201cWe have zero doubt he\u2019ll be going big, and when he does go big, it\u2019ll be great to watch.\u201d Fakhar, meanwhile, has struggled to provide Pakistan with the starts expected of him, but Smith described the left-hander as a world-class player capable of dominating matches when in form. \u201cHe\u2019s a world-class player. Some players go through a period where they\u2019re not scoring as many runs as they want to, but he\u2019s shown time and time again what class he\u2019s got,\u201d Smith said. \u201cWe have zero doubt that he\u2019ll come good for us. Hopefully he does in the final and everyone\u2019s happy.\u201d Smith said Fakhar\u2019s ability to turn a start into a match-defining innings made him an important part of Pakistan\u2019s plans.", "\u201cHe\u2019s a quality player. He\u2019s got a good conversion rate as an opening batter, and when he gets in he is dynamic and impactful and he dominates games,\u201d he said. \u201cSo we\u2019re hoping to see that in the final.\u201d The coach\u2019s backing comes at a crucial stage for Pakistan, who had won their first three matches in the tri-series before Tuesday\u2019s comprehensive defeat exposed familiar weaknesses at the top of the order. Smith acknowledged that the batting unit had yet to reach its full potential, but viewed that as an opportunity for improvement rather than a reason for alarm. \u201cWe\u2019re probably batting at about, as a collective, at about 70 per cent of where we need to be,\u201d he said. \u201cAnd that\u2019s a real positive as well.\u201d He admitted Pakistan had failed to build momentum against Sri Lanka, with a combination of loose shots and disciplined bowling contributing to the collapse.", "\u201cToday, yeah, it\u2019s just one of those where a couple of soft shots, some good piece of bowling, and we just didn\u2019t really get any sort of momentum in the game, and it\u2019s quite a tough thing to pull back,\u201d Smith said. Despite the setback, Smith urged perspective, pointing out that Pakistan had secured their place in the final and had shown resilience in earlier matches. \u201cLet\u2019s not take away from the fact that we\u2019ve played some really good cricket and we\u2019ve won games where we shouldn\u2019t have, and we\u2019re in a really good place as a team and we\u2019re playing in a final,\u201d he said. Pakistan\u2019s middle order has often helped compensate for the lack of runs from the top, a trend Smith believes could become a strength if the leading batters find form. \u201cWe\u2019ve been talking about it and the fact that we\u2019ve done so well when maybe we haven\u2019t got the runs that we wanted to at the top, with a lot of our middle order doing exceptionally well, those are good signs,\u201d he said. \u201cWhen the top order fire, and they will fire, that\u2019s a dangerous place to be for the Pakistan batting unit.\u201d Smith also rejected suggestions that Lahore\u2019s pitches were responsible for the team\u2019s struggles, saying international batters must adapt to changing conditions.", "\u201cNo, I\u2019m not blaming the pitches, not the pitches\u2019 fault,\u201d he said. \u201cI think all the teams here are asking their batting groups to be adaptable and to adjust when they have to in certain situations. And we haven\u2019t really done it as well as we wanted to.\u201d The batting coach said Tuesday\u2019s defeat would have no bearing on the final, where handling pressure would determine the outcome. \u201cThe fact that we\u2019ve lost the game leading into the final is going to have zero bearing on anything,\u201d Smith said. \u201cAt the end of the day, it\u2019s a final, and whichever team stands up under the pressure is going to do well and lift the trophy.\u201d Pakistan will meet Sri Lanka again on Saturday, with Smith hoping Babar and Fakhar can turn his confidence in them into the kind of performances that have often made them decisive players for the national side."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Haris Rauf penalised for breach of ICC Code of Conduct in tri-series match against England", "body": "Pakistan pacer Haris Rauf has been fined 20pc of his match-fee for breaching the International Cricket Council (ICC) Code of Conduct during the One-day International (ODI) tri-series match against England on Sunday. According to an ICC media released issued on Wednesday, Haris was found to be in breach of Level 1 of the code for appealing for a wide from the n0n-striker\u2019s end in the 46th over and argued with England all-rounder Will Jacks after it was denied. The ICC said Haris ignored the warning given from on-field umpire Sharfuddoula and continued arguing, and also raised his bat in frustration. The right-armer, whose stand of seven off 19 balls played a crucial role in Pakistan\u2019s one-wicket victory in the match along with Shadab Khan\u2019s century effort, also received a demerit point as part of his penalty, which he incurred after breaching Article 2.20 of the Code of Conduct, that pertains to \u201cdisplaying conduct that is contrary to the spirit of the game\u201d. Haris hit the winning run at the end of an 89-run partnership with Shadab to propel Pakistan into the series final, after the home side were reduced to 154-9 in pursuit of England\u2019s 242. This was his third offence in a 24-month period, taking his overall tally of demerit points to five.\n\nHaris accepted his offence, as well as the sanctions proposed by Jeff Crowe of the Emirates ICC Elite Panel of Match Referees, and hence there was no formal hearing, the ICC release read. Under ICC rules, four or more demerit points incurred within a 24-month period become two suspension points. That in turn equates to a ban from one Test, two One-day Internationals or two T20Is. Haris served a ban of two ODIs last year following breaches in three Asia Cup games against India. The bans will be doubled if Haris reaches eight demerit points. England were fined 15pc of their match fee after they were found to have bowled three overs short of their target.\n\nThey failed to qualify for the final after losing their first three matches. Pakistan and Sri Lanka will contest Saturday\u2019s final in Lahore. England, meanwhile, were penalised 15pc of their match-fee for a slow over rate, after being found three overs short at the allocated time. Captain Harry Brook accepted the offence and the sanction as well, the ICC said.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2040431/haris-rauf-penalised-for-breach-of-icc-code-of-conduct-in-tri-series-match-against-england"}, {"head": "Arsenal\u2019s Slegers hails \u2018role model\u2019 Russo after historic hat-trick sinks Benfica", "body": "LONDON: Alessia Russo etched her name into the record books on Wednesday evening, becoming the highest English goalscorer in UEFA Women's Champions League history with a clinical hat-trick that powered Arsenal to a 3-0 victory over Benfica at Meadow Park and lifted the Gunners to second place in the league-phase standings. The 27-year-old striker's treble took her tally to 10 goals in her past seven appearances for club and country.\n\nArsenal manager Ren\u00e9e Slegers praised Russo's leadership and consistency following the victory, describing the England forward as a role model who connects seamlessly with her teammates and drives standards across the squad. Slegers had made three changes to her starting line-up following Saturday's north London derby triumph, restoring Ona Batlle to right-back and handing full debuts to summer signings \u00c9lisa De Almeida and G\u00e9raldine Reuteler.\n\nAfter surviving an early scare when Benfica forward Fr\u00f8ya Dorsin lobbed narrowly off target against a stranded Misa Rodr\u00edguez, Arsenal seized control of the contest, with Olivia Smith testing goalkeeper Lena Pauels before Russo's ruthless finishing sealed all three points ahead of upcoming European clashes against Barcelona and OL Lyonnes.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/oct/28/arsenal-v-benfica-womens-champions-league-match-report"}, {"head": "How unbeaten Chelsea are getting back to their best", "body": "LONDON: Chelsea's 2-0 victory over AS Roma in the UEFA Women's Champions League on Wednesday extended their unbeaten start across all competitions this season, demonstrating that Sonia Bompastor's side has rediscovered its tactical versatility and defensive resilience. After surrendering their Women's Super League and FA Cup titles last term following an unbeaten domestic treble in Bompastor's debut campaign, the Blues now sit level with Manchester City at the top of the WSL table after seven matches and hold two wins and a draw from three European outings.\n\nSpeaking after the clean-sheet triumph over Roma, Bompastor highlighted her squad's ability to prevail through different tactical approaches, combining disciplined defensive organization with clinical execution in the final third. With summer signings settling into the French manager's system, Chelsea's unbeaten run has restored their standing among the primary contenders for both domestic and European honours.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/c8wy9wenqd01o?at_medium=RSS&at_campaign=rss"}, {"head": "Liverpool beat Chelsea on penalties yet again to secure Carabao Cup progress", "body": "LIVERPOOL: Liverpool defeated Chelsea in a dramatic penalty shootout at Anfield on Wednesday night to advance to the Carabao Cup quarter-finals, marking the fifth consecutive time the Merseyside club has eliminated Chelsea on spot-kicks across major cup competitions. After Morgan Rogers and Cody Gakpo traded penalties during a tightly contested 1-1 draw in normal time, Wesley Fofana blazed his decisive sudden-death effort high into the Kop to send Andoni Iraola's side through to a last-eight tie against his former club Bournemouth.\n\nChelsea had an opportunity to seal victory in sudden death through Emmanuel Emegha, only for Liverpool goalkeeper Giorgi Mamardashvili to produce a superb diving save. Earlier in the shootout, Kostas Tsimikas fired over the crossbar with victory in sight for the hosts, while Ryan Gravenberch and Valentin Barco also saw their spot-kicks saved.\n\nLong-serving defender Joe Gomez, who has never scored a senior goal in open play for Liverpool, stepped up in sudden death to dispatch an unstoppable strike into the top corner past goalkeeper Mike Penders before Fofana's miss settled the fourth-round tie. Chelsea manager Xabi Alonso praised his players' courage in a close tactical contest and confirmed his squad would immediately turn its focus to Saturday's Premier League fixture against Manchester United.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/oct/28/liverpool-chelsea-carabao-cup-fourth-round-match-report"}, {"head": "London Broncos to go without \u00a31.3m RFL funding if they enter Super League next year", "body": "LONDON: London Broncos have agreed to relinquish approximately \u00a31.3 million in central distribution funding as a condition set by the existing 14 Super League clubs to secure entry into an expanded 15-team top flight in 2027, with the Rugby Football League (RFL) expected to ratify their elevation imminently. The agreement moves Super League expansion forward even though a proposed administrative and financial partnership with Australia's National Rugby League (NRL) has been deferred until 2028.\n\nWhile the NRL will assist in broadcasting four Super League fixtures per week on DAZN next season, the one-year delay to the full commercial partnership initially threatened to consign Championship winners London to another second-tier campaign. Existing Super League clubs, however, offered to expand the division to 15 teams immediately provided the Broncos entered with zero central funding.\n\nFacing a Championship distribution of just \u00a3140,000 and the risk of losing key squad members if they remained outside the top tier, London accepted the terms. Following a formal club vote on league size, the RFL is expected to confirm London's promotion under the IMG grading metrics after 15th-ranked Barrow indicated that their facilities and squad are not yet ready for Super League competition.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/oct/28/london-broncos-to-go-without-13m-rfl-funding-if-they-enter-super-league-next-year"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
