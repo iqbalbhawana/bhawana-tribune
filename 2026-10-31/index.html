@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (SATURDAY, OCTOBER 31, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">SATURDAY, OCTOBER 31, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 31, 2026", "headline": "FBR Faces Huge Rs. 157 Billion Tax Collection Shortfall for October 2026", "deck": "The Federal Board of Revenue (FBR) has just one day left to collect another Rs. 157 billion to meet its October 2026 tax target after provisionally collecting Rs. 975 billion during the first 30 days of the month.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Founder & Senior Counsel", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/10/31/fbr-faces-huge-rs-157-billion-tax-collection-shortfall-for-october-2026/", "body": ["The Federal Board of Revenue (FBR) has just one day left to collect another Rs. 157 billion to meet its October 2026 tax target after provisionally collecting Rs. 975 billion during the first 30 days of the month.", "FBR\u2019s monthly collection target stands at Rs. 1,132 billion, leaving a shortfall of Rs. 157 billion ahead of October 31.", "The provisional figures show that FBR\u2019s cumulative collection has reached around Rs. 4,058.5 billion against a target of Rs. 4,185 billion. This leaves a shortfall of about Rs. 126.5 billion.", "The gap comes a month after FBR exceeded its three-month tax collection target for the first quarter of the fiscal year. Earlier, it had missed its August target but still beat its two-month goal.", "These numbers are provisional. The final revenue position for October will become clear once collections made on October 31 are counted.", "A large share of FBR\u2019s monthly revenue usually comes in on the last day of the month. The final figures are therefore expected to give a clearer picture of how the tax authority performed against its October target.", "FBR is expected to complete the compilation and reconciliation of the final collection figures in the coming days.", "ProPakistani is the premier and most trustworthy resource for all happenings in technology, telecom, business, sports, auto, education, real estate and entertainment news in Pakistan. Whether it's the top trending news, inside scoops or features, interviews, market trends and analysis, product reviews, How to's or tutorials \u2013 we cover it all."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "Supreme Court rejects FBR appeal against MCB Bank in pension fund tax case", "body": "Supreme Court rules that pension fund surpluses are not taxable bank income unless actually refunded to the employer.\n\nIslamabad, October 30, 2026: The Supreme Court has dismissed an appeal filed by the Federal Board of Revenue (FBR) against MCB Bank, ruling that surplus generated in a pension fund cannot be treated as a bank\u2019s taxable income unless the amount is actually refunded to the employer.\n\nIn its judgment authored by Justice Aqeel Ahmed Abbasi, the apex court held that under Rule 4 of Part II of the Sixth Schedule to the Income Tax Ordinance, 2001, employer contributions to a pension fund and income earned on those contributions become taxable in the year in which the amount is actually received back by the employer.\n\nThe court observed that although banks operate under a special tax regime prescribed in the Seventh Schedule, it contains no specific provision dealing with pension fund surpluses.\n\nConsequently, the relevant provisions of the Sixth Schedule apply through Rule 9 of the Seventh Schedule.\n\nThe judgment clarified that annual actuarial valuations under International Accounting Standard (IAS) 19 may reflect a surplus or deficit in pension fund assets and liabilities. However, merely recognising a surplus in financial statements does not create a taxable income liability.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/supreme-court-rejects-fbr-appeal-mcb-bank-pension-fund-tax-case/"}, {"head": "FBR orders electronic monitoring of tyre production across Pakistan by November 30", "body": "The Federal Board of Revenue (FBR) has issued a directive requiring all tyre manufacturers operating in Pakistan to install electronic monitoring systems for their production lines by 30 November. The order mandates that the devices capture real\u2011time data on output volumes, raw material usage and shipment details, which will be transmitted to a centralized FBR platform. The electronic monitoring framework is intended to enhance transparency, curb under\u2011declaration of output and improve the accuracy of excise duty assessments on tyre products.\n\nThe implementation aligns with the board\u2019s broader digitalisation agenda aimed at modernising tax administration and strengthening coordination with customs and other revenue agencies. FBR officials indicated that the data collected will be cross\u2011checked against import and export records to identify discrepancies and potential revenue leakages. Manufacturers are required to submit compliance reports through the FBR\u2019s online portal and are expected to bear the cost of installing the approved monitoring equipment, with the board offering technical guidelines to ensure uniformity across the sector.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-orders-electronic-monitoring-of-tyre-production-across-pakistan-by-november-30/"}, {"head": "Uploading order to FBR\u2019s IRIS portal alone not valid delivery, rules LHC", "body": "The Lahore High Court has ruled that the mere act of uploading a customs order to the Federal Board of Revenue\u2019s Integrated Revenue Information System (IRIS) portal does not satisfy the legal requirement for delivery of goods. The judgment clarifies that physical delivery, as defined under the Customs Act, remains a mandatory step for the transfer of ownership and for the issuance of a customs clearance certificate. The court emphasized that the electronic submission of documents, while facilitating procedural efficiency, cannot replace the statutory obligation of handing over the consignment to the importer or their authorized agent.\n\nThe decision follows a series of disputes where importers argued that the electronic acknowledgment on IRIS should be sufficient to release cargo from customs warehouses. The ruling reinstates the traditional delivery protocol, requiring customs officials to verify that the goods have been physically handed over before finalizing clearance. The Federal Board of Revenue has been instructed to align its operational guidelines with the court\u2019s interpretation, ensuring that electronic filings complement rather than substitute the delivery requirement.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040917/uploading-order-to-fbrs-iris-portal-alone-not-valid-delivery-rules-lhc"}, {"head": "Pakistani three-wheelers go international as automotive manufacturer opens plant in Philippines", "body": "A Pakistani automotive manufacturer has opened up a manufacturing plant in the Philippines, it emerged on Friday. In a post on the social media platform X, the Pakistan embassy in the Southeast Asian country said: \u201cPakistan-made three-wheelers have entered the Philippine market!\u201d It said that Philippine President Ferdinand R. Marcos Jr inaugurated the assembly plant of Pakistan\u2019s Sazgar Engineering Works Limited. It highlighted that, facilitated by the embassy, the manufacturer was introducing its \u201cpassenger, commercial three-wheelers and electric vehicles\u201d in the Philippines. According to the official website of the Philippine president, the plant was inaugurated on Thursday. It quoted him as saying that the inauguration of the plant marked \u201can important step in our journey to strengthen our country\u2019s manufacturing sector and advancing the transition to cleaner, more sustainable transportation\u201d. He said that the plant was designed to assemble approximately 12,000 three-wheeled vehicles annually, covering both electric and internal combustion engines. \u201cSazgar has been building vehicles in Pakistan for over three decades. When it chose its first home outside of Pakistan and its hub for all of Southeast Asia, it chose the Philippines. It placed its confidence in our country,\u201d he said. According to the company\u2019s website , Sazgar is a public limited company headquartered in Lahore. It exports three-wheelers and parts to over 20 countries, including Japan, the United Arab Emirates, Sri Lanka and Nigeria.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040991/pakistani-three-wheelers-go-international-as-automotive-manufacturer-opens-plant-in-philippines"}, {"head": "FBR revises customs values for imported artificial flowers and decorations", "body": "The Federal Board of Revenue (FBR) has issued a directive revising the customs valuation methodology applied to imported artificial flowers and decorative items. The amendment, which takes effect from the start of the upcoming fiscal quarter, replaces the previous ad\u2011hoc assessment approach with a standardized framework that references internationally recognised valuation principles. The change is intended to bring greater transparency to the duty calculation process and to align Pakistan\u2019s customs practices with global trade norms.\n\nImporters of artificial floral products and d\u00e9cor will now be required to submit detailed invoices and supporting documentation that reflect the transaction value of each shipment. The FBR has indicated that the revised system will reduce discretionary adjustments and provide a clearer basis for duty liability, thereby facilitating smoother clearance procedures. Trade associations have been advised to brief their members on the new compliance requirements to avoid delays at ports.\n\nThe valuation revision forms part of a broader effort by the revenue authority to modernise customs operations, improve revenue collection efficiency, and support the country\u2019s trade facilitation agenda. By standardising assessments across a range of non\u2011essential consumer goods, the FBR aims to create a more predictable environment for both domestic and foreign suppliers.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-customs-values-artificial-flowers-decoratives-2026/"}, {"head": "State Bank launches small and medium enterprises digital portal", "body": "<p>KARACHI: The State Bank of Pakistan has moved to simplify financing for small and medium enterprises (SMEs), which are seen as a cornerstone of Pakistan\u2019s economy.</p>\n<p>The central bank on Thursday launched SMEConnect, a centralised digital platform that simplifies access to financing for SMEs across the country.</p>\n<p>In the past, efforts to stimulate the SME sector have failed because banks and DFIs were unwilling to take risks. Instead, they parked their liquidity in risk-free government papers to achieve higher returns.</p>\n<p>Just a day before financial institutions offered Rs4.9 trillion for investment in treasury bills, the government did not disappoint, raising Rs1.9tr, exceeding the auction target.</p>\n<blockquote class=\"blockquote-level-1\">\n<p>From Nov 1, SMEConnect will be sole channel for financing applications; real-time tracking, rejection reasons, live dashboard for regulator</p>\n</blockquote>\n<p>Moreover, SMEs have a higher default rate than other sectors. For financial institutions, investing in SMEs is riskier than equity market. However, the government has been striving to encourage SME financing, largely seen as the only way to bolster business and industrial activities, as economic expansion has been stuck at 3.7pc.</p>\n<p>The government has introduced another investment option for banks and financial institutions through the subsidised and protected Prime Minister\u2019s Housing Scheme, where investment levels are higher than those in SMEs.</p>\n<p>The SBP said SMEConnect will serve as a single digital platform for applying for financing from banks/DFIs.</p>\n<p>\u201cThe digital platform will streamline the application process, improve accessibility, efficiency and transparency in SME financing,\u201d said the SBP.</p>\n<p>SMEConnect will not only simplify the loan application process but also enable applicants to track the status of their applications in real time and, in case of rejection, see the reasons.</p>\n<p>Bankers said that any bank can reject any SME financing application, as they are regarded as the first protectors of depositors\u2019 money; the government or the central bank can\u2019t compel any private bank to extend loans to SMEs unless the bank is satisfied.</p>\n<p>The SMEConnect live dashboard will give the SBP complete visibility into financing applications and their status. It will provide real-time data on applications received, processed, approved, disbursed, and rejected at the individual bank and DFI level, as well as on an industry-wide basis, it added.</p>\n<p>\u201cFrom Nov 1 onwards, all SME financing applications shall be received exclusively through SMEConnect,\u201d the SBP announced.</p>\n    <figure class='media  w-full  w-full  media--  media--embed  media--uneven media--tweet' data-original-src='https://x.com/StateBank_Pak/status/2115914142712504653?a=4vlEoVmhQChV9WD_8OU&amp;s=20'>\n        <div class='media__item  media__item--twitter  '><span>\n    <blockquote class=\"twitter-tweet\" lang=\"en\">\n        <a href=\"https://twitter.com/StateBank_Pak/status/2115914142712504653?a=4vlEoVmhQChV9WD_8OU&amp;s=20\"></a>\n    </blockquote>\n</span></div>\n        \n    </figure>\n<p>SME applicants visiting banks/DFIs branches or accessing their websites to apply for financing will be directed to SMEConnect, it said.</p>\n<p>\u201cAll banks and DFIs have been advised to prominently display the SMEConnect link on their websites to facilitate easy access for their clients. They have also been advised to ensure that their SME teams and field staff have complete awareness and understanding of SMEConnect and should guide and facilitate the applicants in applying for financing using SMEConnect,\u201d directed the SBP.</p>\n<p>A tutorial video is also available on the portal to guide applicants in applying for financing.</p>\n<p>\u201cThe digital platform underscores SBP\u2019s commitment to promoting financial inclusion, supporting entrepreneurship, and strengthening the SME financing ecosystem for achieving inclusive economic growth,\u201d said the SBP.</p>\n<p><em>Published in Dawn, October 30th, 2026</em></p>", "source": "Dawn Business", "url": "https://www.dawn.com/news/2040852/state-bank-launches-small-and-medium-enterprises-digital-portal"}, {"head": "Nestl\u00e9 Pakistan to attend sustainable development moot", "body": "KARACHI: Nestl\u00e9 Pakistan is set to participate in the 29th Sustainable Development Conference (SDC) and Sustainability Investment Expo (SIE), hosted by the Sustainable Development Policy Institute (SDPI) from November 2 to 5, 2026, bringing to the forum its efforts to advance regenerative agriculture through food systems, climate action and water stewardship, better systems and packaging, and circular economy. Building on its recognition at last year\u2019s conference, where Nestl\u00e9 Pakistan secured 1st Position in Renewable Energy & Low-Carbon Transitions at the SDC Sustainability Awards since 2025 and received the Best Pavilion Award at the Sustainability Investment Expo, Nestl\u00e9 Pakistan will return this year to demonstrate how sustainability is being embedded across its value chain, from farms and factories to communities and ecosystems. Under the theme \u201cAdvancing Regenerative Food Systems at Scale,\u201d Nestl\u00e9 Pakistan\u2019s presence at the Sustainability Investment Expo will offer visitors an immersive view of interventions being undertaken across its sustainability pillars. Sheikh Waqar Ahmad, Head of Corporate Affairs & Sustainability, Nestl\u00e9 Pakistan & Afghanistan has said that Nestl\u00e9, believe building more resilient food systems starts with supporting farmer livelihoods and healthier ecosystems, while strengthening the value chain. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446788/nestle-pakistan-to-attend-sustainable-development-moot"}, {"head": "Rs2 Billion Customs Fraud Exposed at Karachi Port; Wider Smuggling Network Probed", "body": "The Directorate of Transit Trade lodged a formal First Information Report (FIR) after uncovering a customs fraud scheme at Karachi Port that bypassed duty and tax obligations amounting to more than Rs2\u202fbillion. Investigators found that high\u2011value industrial consignments were misdeclared and cleared through the green channel without physical examination, allowing the goods to enter the market duty\u2011free. The scheme involved a nominated bonded carrier that secured bail while the investigation continues, prompting customs officials to seize related documentation and initiate a broader probe into the network of intermediaries facilitating the illicit clearance.\n\nCustoms authorities have mobilised a joint task force comprising officials from the Federal Board of Revenue, the Karachi Port Trust and the Directorate of Transit Trade to trace the flow of the misdeclared cargoes and identify additional participants. The probe is expected to examine the role of freight forwarders, warehousing firms and shipping lines in circumventing standard inspection protocols, with a view to tightening controls on the green channel and preventing further revenue loss at the country\u2019s busiest maritime gateway.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/10/30/rs2-billion-customs-fraud-exposed-at-karachi-port-wider-smuggling-network-probed/"}, {"head": "SBP raises SME financing to Rs1.11 trillion, announces Rs50m collateral-free loan limit", "body": "State Bank of Pakistan increased its target for financing small and medium enterprises to Rs1.11 trillion, reflecting a strategic push to deepen credit to the sector. The move follows a series of measures aimed at improving access to finance for businesses that contribute significantly to employment and GDP. The central bank's policy revision includes a new ceiling of Rs50 million for collateral\u2011free loans, allowing firms with limited asset bases to obtain funding without pledging security.\n\nThe collateral\u2011free limit is intended to stimulate growth among micro\u2011enterprises and startups, which often face high borrowing costs and stringent collateral requirements. By expanding the financing pool, the SBP expects to boost credit flow, support export\u2011oriented SMEs, and enhance resilience of the private sector amid global economic headwinds. The initiative aligns with broader financial inclusion objectives and is expected to be operational through participating commercial banks under the central bank\u2019s regulatory framework.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-sme-financing-pakistan-rs1-11-trillion/"}, {"head": "You Are Among Pakistan\u2019s Top 10% Earners With Rs. 121,000 Salary", "body": "A person in Pakistan needs to earn about Rs. 440,000 a month to join the country\u2019s top 1 percent of earners, according to the latest estimates from the World Inequality Database (WID).\n\nThe same data shows that around Rs. 121,000 a month puts a person in the top 10 percent, earning more than 90 percent of Pakistani adults. About Rs. 189,000 a month is enough to enter the top 5 percent.\n\nThese figures are based on WID\u2019s since 2024 income estimates, expressed since 2025 rates.\n\nWID puts the yearly entry point for the top 10 percent at Rs. 1.46 million, or about Rs. 121,443 a month. For the top 5 percent, it is Rs. 2.26 million a year, or about Rs. 188,511 a month.\n\nThe top 1 percent starts at Rs. 5.28 million a year, or roughly Rs. 439,852 a month. To reach the top 0.1 percent, a person needs around Rs. 23.2 million a year, or about Rs. 1.93 million a month.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/10/30/rs-440000-monthly-income-puts-you-in-pakistans-richest-1/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 31, 2026", "headline": "OGDC Profit Surges 53% to Rs. 58.5 Billion as Cash Reserve Hits Record High", "deck": "Oil and Gas Development Company Ltd. reported first-quarter profit rose 53%, driven by higher oil and gas production and a surge in income earned on its growing cash pile. Net income for the quarter ended September climbed to Rs. 58.5 billion from Rs. 38.3 billion a year earlier,", "hero_source": "ProPakistani \u00b7 Industry & Trade", "hero_url": "https://propakistani.pk/2026/10/30/ogdc-profit-surges-53-to-rs-58-5-billion-as-cash-reserve-hits-record-high/", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["Oil and Gas Development Company Ltd. reported first-quarter profit rose 53%, driven by higher oil and gas production and a surge in income earned on its growing cash pile. Net income for the quarter ended September climbed to Rs. 58.5 billion from Rs. 38.3 billion a year earlier, Pakistan\u2019s largest oil and gas explorer said in a filing to the Pakistan Stock Exchange. Earnings per share came in at Rs. 13.60 versus Rs. 8.91. The board declared a dividend of Rs. 5 per share. Cash and short-term investments swelled to a record Rs. 365.5 billion, or Rs. 84.98 per share, from Rs. 222 billion, or Rs. 52 per share, a year ago. Other income climbed 13% year-on-year, helped by the returns on that balance, according to Arif Habib Ltd. Net sales increased 38 percent year over year to Rs. 132.4 billion, supported by 13 percent growth in oil production and 17 percent growth in gas production. A 26 percent increase in Arab Light prices to $90.07 per barrel, higher LPG revenues, and 11 percent production growth also contributed to the company\u2019s topline performance. Exploration expenses rose 55 percent year over year, mainly due to higher prospecting expenditures, despite no dry wells being reported during the quarter or in the corresponding period last year. Other income increased 13 percent year over year to Rs. 13.7 billion in the first quarter of fiscal year 2027."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "easypaisa digital bank Reports Profit Before Tax of PKR 13.30 Billion for Nine Months Ended September 2026, EPS Stands at PKR 12.31", "body": "The Board of Directors of easypaisa digital bank approved the financial statements for the nine-month period ended September 30, 2026. The Bank announced its financial performance, reporting a Profit Before Tax (PBT) of PKR 13.30 billion and Profit After Tax (PAT) of PKR 7.41 billion, representing a 2.35x increase in PBT over the corresponding period last year. Earnings per Share (EPS) stood at PKR 12.31. The growth was broad-based across the Bank\u2019s core business streams, supported by an expanding customer base, rising transaction volumes, and continued investments in customer acquisition, talent, technology, and digital innovation. Total revenue increased by 38.53% to PKR 46.67 billion year-on-year, reflecting strong momentum across lending, treasury and fee-based streams. Net markup income grew by 37.0%, supported by the expansion of the lending portfolio and treasury investments, underpinned by strong growth in customer deposits. Fee-based income increased by 40.63%, supported by higher revenues from payment services, including online payments, disbursements, collections and insurance products. Non-markup expenses increased to PKR 32.80 billion, in line with revenue growth, reflecting investment in customer acquisition, engagement and merchant penetration, as well as risk-sharing costs from higher digital lending volumes. The cost-to-income ratio was 70.27%.", "source": "ProPakistani \u00b7 Banking & Fintech", "url": "https://propakistani.pk/2026/10/30/easypaisa-digital-bank-reports-profit-before-tax-of-pkr-13-30-billion-for-nine-months-ended-september-2026-eps-stands-at-pkr-12-31/"}, {"head": "KSA offered to set up oil reserves", "body": "ISLAMABAD: Federal Minister for Petroleum Ali Pervaiz Malik said Saudi companies could establish commercial oil reserves in Pakistan without incurring local tax liabilities, offering an opportunity to diversify maritime transit risks associated with the Strait of Hormuz and Bab el-Mandeb. He said the move would facilitate Riyadh\u2019s access to Asian markets. Ali Pervaiz Malik held a meeting with the new Ambassador of Kingdom Saudi Arabia (KSA) to Pakistan, Dr. Rajeh bin Tami Al-Baqami, to discuss opportunities for strengthening bilateral cooperation in the mining, petroleum and energy sectors, including strategic oil storage, refinery upgradation, LPG supplies and facilitation of commercial engagement. The Minister informed the Ambassador that Pakistan has approved a tax-neutral bonded policy, benchmarked against international energy hubs such as Fujairah and Singapore. He highlighted that strategic oil storage facilities in Pakistan would provide Saudi Arabia with greater flexibility in managing supply routes and accessing regional markets. READ ALSO: Pakistan seeks stronger energy ties with Saudi Arabia, refinery upgrade in focus The Minister welcomed the longstanding strategic partnership between Pakistan and Saudi Arabia and conveyed that, during his recent visit to Riyadh, he had conveyed to His Royal Highness Prince Abdulaziz bin Salman Al Saud the leadership\u2019s special sentiments of solidarity and affection for the Saudi people. He said Pakistan deeply values its historic relationship with Saudi Arabia and remains committed to expanding cooperation across strategic sectors. He further highlighted Pakistan\u2019s plans to develop a major petroleum storage and refining complex at Hub, Balochistan, under the guidance of Technip Energies UK. The proposed facility, supported by the Prime Minister and the Chief of Defence Forces, will have the capacity to accommodate Very Large Crude Carriers and strengthen Pakistan\u2019s potential as a regional energy corridor serving Central Asian and Chinese markets. The Minister also highlighted the investment opportunities offered by Pakistan\u2019s ongoing refinery upgradation programme, aimed at modernising domestic refining infrastructure, improving operational efficiency and transitioning towards Euro 5 fuel standards. He said the programme offers significant opportunities for Saudi investment and participation in Pakistan\u2019s refining sector. Appreciating Saudi Arabia\u2019s support during recent global market disruptions, the Minister thanked the Saudi authorities at Yanbu port for prioritising crude oil shipments to Pakistan. He also discussed coordination with Saudi Aramco to explore expanded procurement of crude oil cargoes and dedicated LPG shipments to support Pakistan\u2019s energy requirements, particularly in view of the anticipated increase in domestic gas demand during the winter season. Both sides underscored that the strong defence and strategic partnership between Pakistan and Saudi Arabia provides a foundation for broader regional peace, stability and economic cooperation. Ambassador Dr. Rajeh bin Tami Al-Baqami reiterated Saudi Arabia\u2019s deep appreciation for Pakistan\u2019s longstanding support, stating that the two countries stand together in all circumstances. He emphasised that their defence and energy cooperation frameworks are aimed at promoting peace, stability and economic growth across the region. The Saudi Ambassador also announced that the Embassy of Saudi Arabia in Islamabad has introduced same-day processing of visa applications for Pakistani citizens to facilitate travel and strengthen business, cultural and people-to-people exchanges. The Minister also invited Saudi Arabia\u2019s Vice Minister of Mining, Excellency Khalid al-Mudafier, to participate in the Pakistan Minerals Investment Forum scheduled to be held in Islamabad on November 12 and 13, highlighting further opportunities for cooperation and investment in Pakistan\u2019s minerals sector. Both sides expressed their commitment to further strengthening the longstanding brotherly relationship through enhanced cooperation, investment and mutually beneficial partnerships in the energy and petroleum sectors. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446780/ksa-offered-to-set-up-oil-reserves"}, {"head": "ABHI Microfinance Bank plans to raise billions thru IPO", "body": "KARACHI: ABHI Microfinance Bank planned to raise between Rs 2 billion to Rs 3 billion through an initial public offering (IPO) of 132 million ordinary shares on the Pakistan Stock Exchange (PSX), with a floor price of Rs15 per share. According to details disclosed to the PSX, the book-building process will take place on November 5 and 6, while the retail subscription period is scheduled for November 12 and 13. The book-building portion comprises 99 million ordinary shares, representing 75 percent of the total issue, at a floor price of Rs15 per share, including a premium of Rs5 per share. The price band allows a maximum increase of 50 percent, taking the upper price limit to Rs22.50 per share. The general public portion of the offering will be fully underwritten by Arif Habib Limited, Topline Securities Limited, Growth Securities (Private) Limited and Dawood Equities Limited. At the floor price, the bank expects to raise gross proceeds of Rs1.98 billion, which will primarily be used to expand its loan portfolio and strengthen its capital base. The proposed equity injection is expected to improve the bank\u2019s capital adequacy ratio (CAR), support balance-sheet growth and help it meet the minimum regulatory capital requirements prescribed by the State Bank of Pakistan (SBP) for microfinance banks. According to the bank\u2019s projections, the IPO proceeds will help address its capital shortfall and bring its CAR closer to the regulatory threshold. The bank\u2019s projected profitability over the following two years is expected to further strengthen its capital position and support compliance with regulatory requirements. The bank has continued to report profits in 2026 as the management estimates a profit of approximately Rs1.5 billion in the second half of calendar year 2026, taking the projected full-year profit to around Rs3 billion. The bank\u2019s forecast puts its 2026 profit at Rs2.927 billion. The bank expects its CAR to turn positive and reach approximately 4.3 percent by the end of 2026, following the addition of IPO proceeds and projected earnings, before accounting for other capital adjustments. Profitability is projected to improve further in 2027, adding to retained earnings. Combined with other routine regulatory capital adjustments, this is expected to lift the CAR to 17.8 percent by the end of 2027, above the SBP-prescribed minimum of 15 percent for microfinance banks. ABHI Microfinance Bank operates through both branch-based and branchless banking channels. Supported by a technology-enabled digital platform and a network of more than 114 branches across over 108 cities, the bank offers a range of financial services throughout Pakistan. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446781/abhi-microfinance-bank-plans-to-raise-billions-thru-ipo"}, {"head": "ABHI Microfinance Bank to Raise Rs 2 billion to Rs 3 Billion Through IPO Next Month", "body": "ABHI Microfinance Bank plans to raise between Rs 2 billion and Rs 3 billion through an initial public offering (IPO) of 132 million ordinary shares on the Pakistan Stock Exchange (PSX), with a floor price of Rs15 per share. According to details disclosed to the PSX, the book-building process will take place on November 5 and 6, while the retail subscription period is scheduled for November 12 and 13. The offering comprises 99 million shares for institutional and high-net-worth investors through book-building, representing 75 percent of the total issue. The shares will have a floor price of Rs. 15 each, including a premium of Rs. 5 per share. The price band allows an increase of up to 50 percent, taking the maximum price to Rs. 22.50 per share. At the floor price, the bank expects to raise gross proceeds of approximately Rs. 1.98 billion. The funds will primarily be used to expand its loan portfolio and strengthen its capital base. The proposed equity injection is expected to improve the bank\u2019s capital adequacy ratio (CAR), support balance-sheet growth, and help it meet the minimum regulatory capital requirements set by the State Bank of Pakistan (SBP) for microfinance banks.", "source": "ProPakistani \u00b7 Markets & Stocks", "url": "https://propakistani.pk/2026/10/30/abhi-microfinance-bank-to-raise-rs-3-billion-through-ipo-next-month/"}, {"head": "Cheaper Money Transfers Announced for Overseas Pakistanis", "body": "Pakistani banks are exploring cheaper ways to receive remittances from Europe and other international markets as they seek to attract overseas Pakistanis, reduce reliance on foreign money transfer companies, and earn more from cross-border transactions. Remittances from European countries reached $5.22 billion in FY26, up from $4.54 billion in FY25 and $3.85 billion in FY24, according to the State Bank of Pakistan (SBP). Germany, France, the Netherlands, Italy, Spain, Sweden, Greece, Denmark, Belgium, and Ireland are among the major sources of these inflows. An estimated 1.2 million to 1.5 million Pakistanis live across these countries. Speaking exclusively to ProPakistani, Bruno Pedras, Founder and CEO of Belmoney, said Pakistani banks were preparing to adopt a direct-to-customer (D2C) model through partnerships with licensed fintech companies. He said local banks and money transfer operators often earn relatively low margins under existing arrangements with international remittance providers. Their ability to reach European customers directly is also limited by a lack of technical infrastructure and local market presence.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/10/30/cheaper-money-transfers-announced-for-overseas-pakistanis/"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "SATURDAY, OCTOBER 31, 2026", "headline": "Your Phone Can Get Hacked Just by Seeing an Ad", "deck": "Your phone can be infected with spyware simply by loading an online advertisement, without you clicking anything, the National Cyber Emergency Response Team (National CERT) has warned. In its latest advisory, National CERT said attackers are exploiting online advertising networks", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/10/30/your-phone-can-get-hacked-just-by-seeing-an-ad-national-cert-warns/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Technical Analysis", "body": ["Your phone can be infected with spyware simply by loading an online advertisement, without you clicking anything, the National Cyber Emergency Response Team (National CERT) has warned. In its latest advisory, National CERT said attackers are exploiting online advertising networks to target mobile devices. Users do not need to click a suspicious link, open an attachment, or take any action for the attack to work. The advisory mentioned a technique known as \u201cAdFection.\u201d It lets attackers misuse digital advertising systems to profile users and deliver mercenary spyware through ads shown on websites and mobile apps. The warning is based on research published by Citizen Lab on October 15, 2026. The same research found that Pakistan was among the most targeted countries in the ad-based spyware campaign. According to the advisory, Citizen Lab documented a high-confidence finding that devices at Al Jazeera were targeted and infected with Candiru spyware using this method."], "quote": "A target that survives only on the last day of the month is not a fiscal plan; it is a statutory fiction awaiting correction.", "editorial": {"title": "One Day, Rs. 157 Billion, and the Credibility of the Statutory Target", "deck": "The FBR's October collection gap, the Supreme Court's refusal to revive its pension fund tax claim against MCB Bank, and record reserves at OGDC and easypaisa digital bank frame a single fiscal question: is revenue policy measuring the economy it actually has?", "paragraphs": ["The arithmetic confronting the Federal Board of Revenue on the final day of October 2026 is stark. With provisional tax collection standing at Rs. 975 billion after thirty days against a monthly target of Rs. 1,132 billion, the Board entered October 31 needing Rs. 157 billion in a single day \u2014 a figure that speaks less to the diligence of collection machinery and more to the credibility of the statutory target itself. A fiscal target that can be met, if at all, only through a last-hour surge invites precisely the kind of coercive assessment practices that erode taxpayer confidence in the revenue system.", "The Supreme Court's rejection of the FBR's appeal against MCB Bank in the pension fund tax case deserves equal attention. When the apex court declines to disturb a matter the Board has carried through litigation, the statutory position stands settled, and the revenue administration must weigh what further pursuit achieves beyond cost and uncertainty. Pension funds occupy a sensitive corner of the fiscal architecture; certainty of tax treatment there is not a concession to one bank but a signal to every institution calibrating long-horizon obligations. An assessment regime that respects final judicial pronouncements is stronger, not weaker, for it.", "The corporate ledger published alongside these developments shows where taxable capacity actually resides. OGDC's first-quarter profit rose 53 percent to Rs. 58.5 billion from Rs. 38.3 billion a year earlier, lifted by higher oil and gas production and by income earned on a cash reserve that has hit a record high. easypaisa digital bank, for the nine months ended September 30, 2026, reported profit before tax of PKR 13.30 billion \u2014 a 2.35-fold increase \u2014 with profit after tax of PKR 7.41 billion and EPS of PKR 12.31. Reserves that generate income and digital platforms that compound earnings are precisely the fiscal base a credible revenue strategy should be measuring, assessing, and taxing with predictability rather than surprise.", "Read together, the day's leads describe a revenue state at a crossroads: a collector short of its statutory mark, a court restraining overreach, and corporates whose reserves and profits demonstrate that the formal economy can pay. The lesson for fiscal policy is not to raise targets higher but to set them honestly, to litigate less and settle the law more, and to let assessment follow the real economy \u2014 production, reserves, digital flows \u2014 rather than the calendar. October's shortfall will close tonight; the credibility gap it exposes should not be allowed to roll into November."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Anthropic expected to receive high \u2018junk\u2019 rating from credit agencies following IPO, FT report says", "body": "Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE.\n\nAnthropic is expected to receive a high \u201cjunk\u201d rating from credit rating agencies following its initial public offering, according to a report from the Financial Times.\n\nThe FT says the investment giant Blackstone, the anchor investor in a recent $63 billion deal to finance Anthropic\u2019s chips, told investors in the deal that it expects the AI lab to receive a \u201chigh\u201d junk rating after its IPO. Previously, the FT notes, Blackstone had said the opposite: that the Claude maker would receive an investment-grade rating (indicating low risk for lenders) before 2027 rolls around.\n\nNow Blackstone expects double B range rating, the top tier of speculative \u201cjunk\u201d grade, according to the reporting.\n\nBlackstone\u2019s forecast is just a prediction, but naturally, a high junk rating would make it more difficult and costlier for Anthropic to raise the money to keep funding its massive spending that has undergirded its business. The lab has been on a spending spree, racking up large compute power deals throughout the past 12 months, which has worried investors .", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/"}, {"head": "Strava integrates Google Gemini to offer personalised workout insights", "body": "Once connected, Gemini can analyse activity records to provide insights into different aspects of training. Users can ask whether they are getting faster while maintaining the same heart rate, how strength training is affecting their performance and request a detailed breakdown of their most recent race.\n\nThe integration also allows users to compare their fastest 10K run of the current year with their all-time personal best. Gemini can identify the longest running streak recorded on Strava and assess whether weather conditions may have influenced performance.\n\nThese features are designed to help athletes understand patterns in their training data and gain a clearer picture of their progress without manually reviewing individual activities.\n\nStrava said connecting an account to Gemini is entirely optional and operates on a read-only basis. Users must choose to authorise the connection and can disconnect their accounts at any time.\n\nTo connect the services, users need to open Google Gemini and navigate to Personal Intelligence. They can then select Strava from the connected apps section, sign in using their Strava account and authorise Gemini to access their activity data.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/strava-integrates-google-gemini-to-offer-personalised-workout-insights/"}, {"head": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours", "body": "The Visual Studio Code extension for Cursor, the AI\u2011driven coding assistant developed by Anthropic, was compromised for almost twelve hours, allowing malicious code to be injected into the extension's update stream. Security analysts observed that the backdoor was active from early morning UTC until shortly after noon, during which the compromised package was distributed to developers who installed the extension from the official marketplace. The intrusion was traced to a verified Anthropic account that managed the extension's publishing credentials, though the precise method by which the attackers obtained those credentials remains undisclosed.\n\nAnthropic and the Cursor development team have confirmed the breach and are conducting a joint investigation with independent security researchers. Both parties have issued advisories urging users to uninstall the affected version and reinstall the latest, patched release. The incident highlights the growing risk of supply\u2011chain attacks on AI\u2011enhanced development tools and underscores the need for stricter credential management and continuous monitoring of software distribution channels.", "source": "Ars Technica Feed", "url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/"}, {"head": "Nvidia weighs playing the cosigner for Nscale\u2019s AI data center in West Virginia", "body": "Founder Summit begins Nov. 4, 9:00 a.m. ET. Get your pass savings & deals before it starts. REGISTER HERE.\n\nNvidia is in talks to guarantee billions in debt financing for AI cloud provider Nscale\u2019s planned Anthropic data center in West Virginia, The Information reported Thursday . Bloomberg later corroborated the report. Anthropic has signed a $44.6 billion contract for the project\u2019s first building alone, according to Nscale\u2019s IPO filing . In essence, the chipmaker would be co-signing a customer\u2019s loans, a sign of how hard the AI industry is working to keep its buildout plans afloat as investors grow jittery about the amounts of money involved.\n\nThe proposed arrangement would help Nscale secure financing for the electricity and construction costs of its West Virginia campus. Under what\u2019s known as a residual value guarantee, Nvidia would step in if Nscale defaulted on construction payments, temporarily take over the facility, and help find a buyer and new tenant, according to The Information .\n\nNvidia\u2019s earlier support for cloud providers has mostly covered leases and chip purchases, not construction.\n\nThe stakes are high for Nscale, which is seeking to go public at a valuation of up to $35 billion despite growing concerns about its ability to deliver on ambitious data center projects.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/"}, {"head": "Ollie, a privacy-focused AI assistant, is shutting down", "body": "The developer of Ollie, a conversational AI platform that marketed itself on strict user\u2011privacy safeguards, announced that the service will cease operations a week after the statement, with the final shutdown scheduled for early November 2026. The decision comes as the market for AI assistants becomes increasingly crowded, with a growing number of competitors offering similar functionalities and integrating more aggressively with third\u2011party services. The founder explained that sustaining a privacy\u2011first model has become financially untenable amid the rapid expansion of the sector and the escalating costs of maintaining independent data infrastructure.\n\nOllie was launched several years ago as an alternative to mainstream assistants that rely heavily on data collection for personalization and advertising. It distinguished itself by storing user interactions locally and limiting any external data sharing, a stance that attracted privacy\u2011conscious users and small\u2011business adopters. However, the surge of new entrants, many backed by large technology firms with extensive resources, has intensified competition and reduced the economic viability of niche privacy\u2011centric offerings. The shutdown will affect existing users, who have been advised to export their data before the service is discontinued.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 31, 2026", "headline": "Cate Blanchett-Backed Group and Collection of Hollywood Stars File Brief in New York Times-OpenAI Lawsuit: Hollywood Has \u2018Proven Infrastructure\u2019 to License Content", "deck": "The Human Consent Foundation , the Cate Blanchett-backed nonprofit trying to protect the likenesses of individuals from unauthorized scraping by AI models, and a legion of Hollywood companies have filed an amicus brief in the New York Times \u2018 lawsuit against OpenAI and Microsoft,", "hero_source": "Variety Global Wire", "hero_url": "https://variety.com/2026/biz/news/cate-blanchett-hollywood-stars-brief-nyt-openai-lawsuit-1236935578/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["The Human Consent Foundation , the Cate Blanchett-backed nonprofit trying to protect the likenesses of individuals from unauthorized scraping by AI models, and a legion of Hollywood companies have filed an amicus brief in the New York Times \u2018 lawsuit against OpenAI and Microsoft, claiming the tech companies\u2019 position that it could not reasonably clear the rights for content \u201cmischaracterizations\u201d in light of an active licensing market.", "The group\u2019s 31-page brief was filed in the Southern District of New York late Friday, and the group was joined by CAA, the Music Artists Coalition, the National Association of Voice Actors, Writer, Inc, and the Creative Coalition on AI. The brief featured an appendix with a suite of Hollywood stars supportive of the cause, including Anne Hathaway, Emma Thompson, Dan Levy, Ron Howard, Madonna, Olivia Wilde and more. Related Stories Ethan Klein Reacts to Hila Klein's Cheating Allegations Amid 'H3 Podcast' Fallout: 'Please Respect My Family's Privacy ... They Have Nothing to Do With This' H3 Podcast Crew Cuts Ties With Ethan Klein After Hila Klein Says He Has Been Having an Affair", "\u201cDefendants have argued that licensing creative works for AI training is cost-prohibitive,\u201d the brief read. \u201cDefendants also claim there is no settled means of valuing training data. The facts demonstrate otherwise. The creative industries already have in place a proven infrastructure and workflows to clear rights for dispersed works at scale and cost-effectively.\u201d"], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "\u2018Clayface\u2019 In Brawl With Elizabeth Holmes & Nathan Fielder At Halloween Box Office: Both Pics Eyeing $10M+ Each", "body": "The Halloween weekend at the domestic box office has shaped up as a two-horse race, with A24's 'You Can See Everything' and Warner Bros/DC's 'Clayface' each eyeing $10 million-plus debuts. 'You Can See Everything' counted $3.2 million on Friday, giving the A24 title the early advantage in a contest that remained tight heading into the heart of the weekend. The odds currently favour the film built around Elizabeth Holmes, the incarcerated Theranos founder, over the DC release about a Gotham celebrity whose face melts.\n\nThe matchup makes for one of the more unusual marquees of the season: A24's counterprogramming leans on the stranger-than-fiction Theranos saga and comedian Nathan Fielder, while 'Clayface' carries the Warner Bros and DC banner into standalone villain territory with its body-horror premise. Both pictures are tracking toward $10 million-plus openings, a result that would stand as a solid showing for the late-October corridor, a stretch of the calendar historically thinned by trick-or-treating and Halloween festivities.\n\nWith Halloween landing on Saturday this year, Saturday night attendance is expected to absorb the customary holiday dip, leaving Sunday holds to settle the final ranking. A debut north of $10 million for either title would represent a respectable claim on moviegoers' attention at the close of October, and the weekend's remaining sessions will determine whether the A24 release or the DC tentpole exits the holiday frame on top.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/box-office-you-can-see-everything-clayface-halloween-1237209579/"}, {"head": "Martin Scorsese Says His \u2018Cleopatra\u2019 Movie With Angelina Jolie Was \u2018Ruined\u2019 by Seth Rogen and the Sony Hack -\u2018It Was Gonna Be Really Wild\u2019", "body": "Martin Scorsese disclosed that his long\u2011planned biopic of Cleopatra, which had secured Angelina Jolie for the title role, was abandoned after a series of setbacks linked to the since 2014 Sony Pictures hack. The director said the project, which was poised to be a high\u2011profile collaboration, was effectively \u201cruined\u201d by the fallout from the cyber\u2011attack and the involvement of comedian Seth Rogen, whose own film \"The Interview\" had drawn the ire of the hackers. Scorsese explained that the breach not only exposed internal communications but also created a climate of uncertainty that made it difficult to move forward with the Cleopatra production.\n\nThe Sony hack, carried out by a hacker collective that targeted the studio in retaliation for \"The Interview,\" began in late since 2014 and resulted in the public release of thousands of internal emails and documents. The breach disrupted multiple projects across Sony\u2019s film division, prompting executives to reassess risk and prioritize security. In the aftermath, several high\u2011budget ventures, including Scorsese\u2019s Cleopatra, were placed on hold or cancelled as the studio redirected resources to address the security fallout and manage the reputational damage caused by the intrusion.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/martin-scorsese-cleopatra-angelina-jolie-ruined-sony-hack-1236935596/"}, {"head": "Daytime Emmys 2026 Winners List (UPDATED LIVE)", "body": "The 53rd Daytime Emmy Awards are being staged at Hollywood's historic Palladium Theatre, where the industry\u2019s leading daytime programs gather for the annual celebration of creative achievement. CBS\u2019s long\u2011running soap opera \"The Young and the Restless\" tops the nomination tally with 18 nods, reflecting its continued dominance in the genre. Newcomer CBS drama \"Beyond the Gates\" follows closely, earning 15 nominations in its first year of eligibility, signaling strong critical reception for the series.\n\nEarly in the ceremony, the Academy presented the award for Outstanding Supporting Actor in a Drama Series, marking the first of several categories to be announced as the night progressed. Additional wins have been recorded across acting, writing and technical fields, with each recipient joining a roster of professionals recognized for elevating daytime television. The live\u2011updated winners list continues to evolve as the event moves toward its conclusion, offering a real\u2011time snapshot of the evening\u2019s outcomes.", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/daytime-emmys-2026-winners-list-1236935712/"}, {"head": "Selma Blair Breaks Silence On JFK Airport Arrest -\u201cI Take This Very Seriously\u201d", "body": "Selma Blair issued a public apology on Friday after her arrest at John F. Kennedy International Airport earlier this month for an alleged assault. In a written statement she said she never intended to hurt or frighten anyone and emphasized that she takes the incident \"very seriously.\" The actress was detained following an episode on a flight bound for New York City in which she reportedly attempted to open an aircraft door mid\u2011flight and later confronted airline staff, leading to her being taken into custody at the airport. \n\nLegal authorities confirmed that the case is under investigation and that Blair could face charges related to interference with aircraft operations and assault. Airline officials said they are cooperating with investigators and have reviewed security footage of the event. Blair's statement did not address potential legal outcomes but expressed remorse and a commitment to addressing the situation responsibly.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/selma-blair-breaks-silence-jfk-airport-arrest-1237210351/"}, {"head": "LAPD Arrests 2 In Connection With Killing Of \u2018SNL\u2019 Writer Jimmy Fowlie\u2019s Sister", "body": "Nearly a year after Christina Downer was reported missing, Los Angeles police announced the arrest of two suspects tied to her death. Downer, the sister of Saturday Night Live writer Jimmy Fowlie, vanished under circumstances that prompted an extensive search and a multi\u2011agency investigation. Authorities said the case remained open as detectives pursued leads and forensic evidence, ultimately narrowing their focus on two individuals.\n\nOn Thursday, officers took 41\u2011year\u2011old Delorean Bijon Brandon, identified as Downer\u2019s boyfriend, and 34\u2011year\u2011old Kaylee Markowski into custody. Both were charged with murder in connection with Downer\u2019s killing. Police described the arrests as a significant breakthrough in a case that had drawn considerable public attention, and indicated that further details about the motive and the evidence linking the suspects would be disclosed as the investigation proceeds.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/lapd-arrests-2-men-killing-snl-writer-jimmy-fowlie-sister-1237210269/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 31, 2026", "headline": "Canada and EU announce new alliance open to like-minded countries", "deck": "Alliance for the Future, unveiled at Montreal summit and open to other countries, conceived for world \u2018shaken by new storms\u2019", "hero_source": "Guardian World Wire", "hero_url": "https://www.theguardian.com/world/2026/oct/30/canada-european-union-alliance", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["Alliance for the Future, unveiled at Montreal summit and open to other countries, conceived for world \u2018shaken by new storms\u2019", "Canada and Europe have announced a new alliance of like-minded nations to serve as both a \u201cprotective canopy under which our citizens can thrive\u201d and a powerful hedge against the unpredictable nature of geopolitics, while welcoming other countries to join.", "Speaking to reporters on Friday from Montreal, the prime minister, Mark Carney, and the European Commission president, Ursula von der Leyen , called the new partnership the Alliance for the Future and said the \u201cdeepest possible partnership between Canada and the 27-member bloc had the potential to offer unprecedented stability and opportunity\u201d.", "\u201cOur societies have been shaken by new storms,\u201d Carney told reporters, referring to the damaging effects of the climate emergency but also the \u201cerosion of democratic norms\u201d and \u201cthe weaponization of trade\u201d.", "As they concluded their two-day summit, Canada agreed to contribute to a \u20ac90bn support loan for Ukraine. Leaders also said future discussions would lead to a more integrated market worth tens of billions of dollars, reduced trade and travel restrictions, and new educational opportunities for both sides."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Sudanese diaspora and human rights groups denounce UAE nominee for UN top job", "body": "Members of the Sudanese diaspora and international human rights monitors have denounced the candidature of the Emirati diplomat Lana Nusseibeh for the top job at the United Nations, citing her denial of accusations that the United Arab Emirates is fuelling the war in Sudan by supporting the paramilitary Rapid Support Forces. The UAE nominated Nusseibeh last week to replace the UN secretary general, Ant\u00f3nio Guterres, as he finishes his second five-year term this year.\n\nThe nomination upended a leadership race that had become gridlocked, injecting a prominent new contender into a selection contest that had shown little movement toward a successor. For the diaspora activists and rights monitors voicing opposition, Nusseibeh's public denial of the accusations against Abu Dhabi over the conflict in Sudan stands at the centre of their objection to her candidacy.\n\nThe objections from Sudanese communities abroad and human rights groups add a pointed international dimension to the Emirati diplomat's bid, tying her pursuit of the UN's highest office directly to the war in Sudan and to the allegations her denial was intended to rebut.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/oct/30/sudanese-diaspora-human-rights-groups-denounce-uae-nominee-un-top-job"}, {"head": "Brazil claims it questioned Argentina over Bolsonaro's escape, Buenos Aires denies it", "body": "Brazilian officials announced that they had approached Argentine authorities for clarification after former President Jair Bolsonaro entered Argentina via the border town of Puerto Iguaz\u00fa. The Brazilian foreign ministry said it sought answers to why Argentine officials allowed Bolsonaro to board a private aircraft only 40 minutes after he crossed the border on foot, a move they described as \u201cunprecedented\u201d given the former leader\u2019s pending legal proceedings in Brazil. Migration officials in Argentina, however, refuted the claim, stating that no formal questioning or interrogation took place. They confirmed that Bolsonaro arrived in Puerto Iguaz\u00fa on Tuesday evening, where he was escorted to a private plane that departed shortly thereafter.\n\nThe incident has heightened diplomatic sensitivities between the two neighbours, with Brazil emphasizing the need for cooperation on law\u2011enforcement matters while Argentina maintains that its procedures were fully compliant with national regulations. Both governments have indicated that further diplomatic channels will be used to resolve the disagreement, underscoring the broader regional implications of high\u2011profile cross\u2011border movements.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/10/30/brazil-claims-it-questioned-argentina-over-bolsonaros-escape-buenos-aires-denies-it"}, {"head": "EU diplomats object to G20 photo with Lavrov, prompting US cancellation", "body": "EU diplomatic staff raised objections after a photograph taken with Russian Foreign Minister Sergei Lavrov at a recent G20 preparatory gathering. The image, circulated among participants, was deemed inconsistent with the European Union\u2019s stance on Russia\u2019s ongoing actions in Ukraine, prompting several EU delegations to formally voice their concerns. In response, the United States announced that its delegation would withdraw from the planned joint photo session, citing the need to respect the sensitivities expressed by its European partners.\n\nDespite the diplomatic friction, the scheduled meeting in Atlanta is set to proceed as planned. Organisers confirmed that the agenda will focus on logistical coordination and policy alignment ahead of the G20 leaders\u2019 summit, which President Donald Trump will host at his Miami golf club in December. The continuation of the Atlanta session underscores the broader commitment of G20 members to maintain momentum on economic and security discussions despite isolated diplomatic disagreements.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/10/30/eu-diplomats-object-to-g20-photo-with-lavrov-prompting-us-cancellation"}, {"head": "Thousands of students, workers hold peaceful protests in Italy", "body": "Thousands of students and workers took to the streets across Italy on Friday, calling for more school funding and relief from the soaring cost of living, in massive protests that remained mostly peaceful. The protests were the biggest in a recent wave of demonstrations inspired by those in France and Spain , led by students who have set up tent camps and occupied schools to make their demands heard. A general strike called by Italy\u2019s USB trade union drew thousands of workers to Friday\u2019s protests, including truck drivers, taxi drivers and farmers who have rallied in recent weeks over the spike in fuel prices and to oppose rising defence spending. The USB union estimated to AFP that between 1 and 1.5 million people across Italy participated on Friday. The authorities did not publish official numbers. Protesters block a street with tents in front of the Colosseum during a demonstration, part of a nationwide day of strikes and protests as school and university students demand more funding for schools and support for housing, in Rome, Italy on October 30, 2026. \u2014 AFP Roman student Sofia Cataldi said conditions in her high school were not safe. \u201cWe don\u2019t want windows falling on our heads, and we don\u2019t want mice in our schools. We want clean buildings, and I want to live in a better world than this one,\u201d the 16-year-old told AFP . University student Beatrice Chilelli said students were \u201cat a breaking point\u201d. \u201cThey can\u2019t afford to pay exorbitant tuition fees, and rent\u2026 which weighs heavily on their parents\u2019 shoulders,\u201d said the 21-year-old, citing student housing in Rome that could reach 1,200 euros per month for a single room. Two tractors and a taxi were at the start of the Rome procession that began at the main train station and made its way past the Colosseum and the economy ministry building, with protesters waving flags and shouting into megaphones. \u201cWe need more houses, not bombs!\u201d sang one group in the crowd. \u2018Reclaim our future\u2019 The Milan protest also began at the central train station, but then headed outside the city \u2013 far from the centre where young vandals had looted stores, destroyed property and clashed with police two weeks ago after another sanctioned cost-of-living demonstration. \u201cLet\u2019s reclaim our future\u201d read one banner unfurled by students in Milan. In the Milan crowd was Stefano De Finis, 25, who said he hoped the various protests would lead to something \u201clasting\u201d. \u201cBecause next year we\u2019ll have elections and honestly, when it comes to voting for real change, we honestly don\u2019t know how it could happen,\u201d he said. \u201cThe problem is that in Italy there are many elderly people and few young people, so we need to make sure the elderly start getting mobilised\u2026 otherwise we\u2019re alone in this struggle,\u201d he added, citing the political power of Italy\u2019s ageing union workers. Across the country, police in riot gear were seen on the sidelines of the various protests. Guardia di Finanza officers operate during a demonstration part of a nationwide day of strikes and protests as school and university students demand more funding for schools and support for housing, in Milan, northern Italy on October 30, 2026. \u2014 AFP In one of the few reported clashes, protesters in Turin were beaten back with batons by the police, who used a water cannon to keep them away from the prefecture. In Rome, AFP reporters saw young protesters throwing bottles and knocking over rubbish bins and setting one on fire towards the end of the demonstration. Following the October 17-18 weekend of clashes between youth and police in Milan, Meloni\u2019s hard-right government toughened laws on public gatherings while easing rules on detaining minors. The government also last week agreed a \u20ac175.2 million ($195m) aid package for truck drivers, farmers and fishermen hit by soaring fuel prices linked to the war in the Middle East. Measures in favour of young people and families are also planned in the draft 2027 budget being discussed among the various governing parties, such as an annual bonus of \u20ac2,500 for workers under 30. \u201cI hope this can provide answers for young people in general \u2026 who feel that the state doesn\u2019t care about them,\u201d Meloni told journalists on Wednesday, stressing that these measures were \u201cnot for those who smash windows\u201d.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2040997/thousands-of-students-workers-hold-peaceful-protests-in-italy"}, {"head": "Severe rainfall and flood warnings issued for central Greece and western Turkey", "body": "Turkey has been hit by powerful thunderstorms and a fatal tornado this week with more heavy rain expected Heavy rain and strong winds will continue to affect parts of south-eastern Europe and Turkey over the next few days, as an area of low pressure in the region has allowed for the formation of powerful thunderstorms. During a particularly intense thunderstorm in Antalya, a coastal city in the south-west of Turkey, the formation of a tornado resulted in the deaths of four construction workers on Tuesday. Authorities in Greece and Turkey have released severe rainfall and flooding warnings, as a further 100-150mm (nearly 4-6in) of rain is expected this week in central Greece and western parts of Turkey, with locally higher totals possible. Travelling eastwards towards south Asia, strong winds and heavy rainfall have swept across the Indian regions of Odisha and Andhra Pradesh as Cyclone Arnab made landfall. With wind gusts in excess of 85mph (140km/h) and rainfall totals in some regions exceeding 200mm, the severe storm has prompted mass evacuations of more than 180,000 people, as well as widespread disruption to energy and transport infrastructure. The cyclone will weaken as it continues to traverse northwards over the coming days, though will continue to deliver heavy rain to parts of northern and central India as it does so. Continue reading...", "source": "Guardian World Wire", "url": "https://www.theguardian.com/environment/2026/oct/30/severe-rainfall-flood-warnings-greece-turkey"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "SATURDAY, OCTOBER 31, 2026", "headline": "Salman Ali Agha hopes Pakistan top-order turns up in tri-series final, seeks \u2018perfect game\u2019", "deck": "Pakistan batter Salman Ali Agha believes the the side have not yet displayed a complete team performance in the ongoing One-day International tri-nation series, and hopes the final against Sri Lanka in Lahore on Saturday is where it falls into place. The hosts\u2019 top-order has been", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2040986/salman-ali-agha-hopes-pakistan-top-order-turns-up-in-tri-series-final-seeks-perfect-game", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Pakistan batter Salman Ali Agha believes the the side have not yet displayed a complete team performance in the ongoing One-day International tri-nation series, and hopes the final against Sri Lanka in Lahore on Saturday is where it falls into place. The hosts\u2019 top-order has been notably starved of runs for the series, underscoring Pakistan\u2019s underwhelming campaign with the bat. \u201cSometimes all of your players don\u2019t score runs. Our top order isn\u2019t scoring runs at the moment, like they used to,\u201d Salman said during a press conference on the eve of the match, adding that they have been key performing players for the team over the last few years. \u201cThey haven\u2019t performed like that in this series, but tomorrow is the final and we hope that they will.\u201d He added that Babar Azam and Fakhar Zaman, despite their current lean patch, have been Pakistan\u2019s best players in ODI cricket over the last decade and that the duo were \u201csecond to none.\u201d \u201cThey know themselves what they need to do and what they need to work on,\u201d Salman said. He added that Fakhar had almost always come good in knock-outs and high-stakes matches like tomorrow\u2019s final, and was \u201choping he will go big.\u201d Salman added that the team always discusses how to put up totals of more than 3oo, and that they needed to focus on converting innings of 50 or 6o runs to big hundreds to help them post the scores they were looking for. The fragility of Pakistan\u2019s top order is just one of the factors that have gone into the slightly unconvincing cricket the side has played in this series, even in the matches they have won. Salman said that head coach Mike Hesson always emphasised playing the \u201cperfect game\u201d, where a team aces all of batting, bowling and fielding. He admitted that Pakistan are yet to play one of those matches so far, with performances being punctuated with batting collapses, patches of underwhelming bowling, and \u201clapses\u201d in the field. He added that the win against England last Sunday, which was brought about on the back of a sensational 10th-wicket partnership between Shadab Khan and Haris Rauf, was one they \u201cshould have won much more easily.\u201d The 32-year-old added that the contributions from the young players Arafat Minhas, Hassan Nawaz and Saad Baig have been key in Pakistan\u2019s wins, calling them \u201camazing and very talented players\u201d who are the \u201cfuture of Pakistan.\u201d When asked about what the team will seek to do to offset Sri Lanka\u2019s incredibly strong record at Gaddafi Stadium, he said: \u201cMore than stats, it is how you play on the day that decides who will win.\u201d \u201cWhichever team plays well will win.\u201d Pakistan have been under considerable scrutiny for the elements that have been lacking this series. However, Salman does not believe those are for a lack of trying or seriousness, especially in response to criticism about him being too relaxed. \u201cI am playing for Pakistan, how is it possible that I will not be serious about it? I am part of the eleven people representing a population of 25 crore.\u201d \u201cI made my debut at the age of 28 or 29, and I played domestic cricket for 10 years. I know how I have reached to this stage, and to reach this point and not take it seriously is beyond me. \u201cYes, you can say that my shot selection in the last three games has not been what it should be, and I admit that and I am working on it.\u201d When asked about how much rope out-of-form players should be given in the side, he said a \u201cdecent amount of games\u201d that would give them a chance to \u201covercome\u201d periods of failure is crucial. \u201cTo make runs in international cricket and be consistently successful is not an easy thing to do,\u201d he said, adding that settling into it took time and youngsters brought into the side should be given ample opportunity."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Climate resilience, disaster risk reduction -Innovative applications of space tech, GeoAI explored", "body": "ISLAMABAD: The fourth day of the UN/Pakistan International Conference on \u201cLeveraging Space Technology for Early Warning for All (EW4All), Climate Action and Disaster Risk Assessment,\u201d hosted by SUPARCO, focused on \u201cInnovation, Youth & Field Experience,\u201d bringing together national and international experts, researchers, academics and young professionals to explore innovative applications of space technology, GeoAI and emerging technologies for climate resilience and disaster risk reduction. The day\u2019s proceedings featured two technical sessions, highlighting advancements in geospatial technologies, artificial intelligence and youth-led climate research. The first session, \u201cInnovative Tools and GeoAI,\u201d explored the role of UN-SPIDER in the UN Early Warning for All initiative, responsible and ethical applications of GeoAI for disaster risk reduction, and the potential of geospatial technologies for socio-economic transformation. Presentations also showcased AI-driven multi-hazard risk assessment, climate-related health analysis, agentic AI for proactive early warning, satellite-based earthquake precursor research, and innovative tools for building damage assessment. The second session, \u201cRising Voices: Youth-Led Climate Research and Action,\u201d provided a platform for emerging researchers and young professionals to present innovative research addressing critical climate and disaster-related challenges. Topics included satellite-based landslide assessment, GeoAI applications, snow-cover changes and GLOF risks in the Hunza Basin, stream flow prediction in data-scarce regions, AI-driven flood management, climate-resilient settlement recovery, urban subsidence monitoring, decentralized early warning systems, climate variability, and above-ground biomass estimation using LiDAR and machine learning. The session highlighted the growing contribution of academic institutions and young researchers to developing practical, technology-driven solutions for climate resilience. A panel discussion on \u201cParis Climate Change Agreement \u2013 How Space Can Help in Its Realization\u201d brought together experts from Pakistan and China to deliberate on the role of satellite-based observations, geospatial intelligence and space-enabled technologies in supporting climate commitments, environmental monitoring, informed policymaking and sustainable development. The discussion featured representatives from the Ministry of Climate Change and Environmental Coordination, SUPARCO, China\u2019s Aerospace Information Research Institute, Global Change Impact Studies Centre and NUST, with the session moderated by the Sustainable Development Policy Institute (SDPI). As part of the day\u2019s field engagement, conference participants also undertook a technical visit to the National Disaster Management Authority (NDMA) to gain insights into institutional mechanisms, operational capabilities and the application of technology in disaster preparedness, response and risk management. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446785/climate-resilience-disaster-risk-reduction-innovative-applications-of-space-tech-geoai-explored"}, {"head": "New Zealand's Phillips hits sublime century in 87-run win over India", "body": "Glenn Phillips scored a sublime century as New Zealand made their highest T20 score in an 87-run win against India in Auckland on Friday. Phillips hit 10 sixes as he blasted 107 from just 49 balls, steering New Zealand to a record 259-7 in their fourth T20 International of the five-match series. He was well supported by a blistering 25-ball 65 by all-rounder Michael Bracewell, who hit six sixes during his stay. India won the toss for the fourth time running, electing again to bowl after batting last led them to a 3-0 series lead. Phillips made a lightning start after coming to the crease with the score at 34-2 in the third over, and initially found good support in opener Finn Allen, who made 31. New Zealand\u2019s innings was teetering at 112-4 in the 11th over when Bevon Jacobs was removed. But Bracewell\u2019s arrival heralded a 115-run partnership in just 40 balls, taking New Zealand\u2019s total to 227-5 when he fell in the 18th over. Phillips hit four straight sixes from Nitish Kumar Reddy in the 16th over to begin the final onslaught, 85 runs coming from the last five overs. It was Phillips\u2019 third T20 International century. India lost two wickets in the opening over in response, Sanju Samson and Ishan Kishan falling to Jacob Duffy. Needing 13 runs per over, India lost wickets regularly as New Zealand\u2019s bowlers adjusted far better to the conditions than they did four days earlier in Wellington, where they conceded 178 runs in the first 10 overs. Captain Mitchell Santner had another double strike in the ninth over, taking his 150th and 151st T20 International wickets, before Duffy took two in two balls in the 12th as India collapsed to 121-8. Duffy finished with 4-23 from his four overs, and Santner took 2-24 from his four, as India reached 172-9 in the chase. The fifth and final T20 will be played in Hamilton on Sunday.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2040996/new-zealands-phillips-hits-sublime-century-in-87-run-win-over-india"}, {"head": "Reigning champs chase history in New York Marathon", "body": "Defending champions Benson Kipruto and Hellen Obiri of Kenya will chase history and back-to-back titles in Sunday\u2019s New York Marathon. About 60,000 runners from 140 nations are expected to compete over 26.2 miles (42.16km) through the five boroughs of New York. Kipruto won the closest New York men\u2019s marathon in history last year, edging compatriot Alex Mutiso by three-hundredths of a second after both crossed the finish line in 2:08:09. The 36-year-old Kenyan will try to become the first back-to-back New York men\u2019s winner since Geoffrey Mutai of Kenya since 2013. Kipruto also won the since 2021 Boston Marathon, since 2022 Chicago Marathon and since 2024 Tokyo Marathon titles and took third at the since 2024 Paris Olympic marathon and this year\u2019s Boston Marathon. Ethiopia\u2019s Deresa Geleta, sixth in this year\u2019s London Marathon, makes his North America marathon debut on the streets of New York. There is also excitement about the marathon debut of 31-year-old Swede Andreas Almgren, who set a European half-marathon record of 58:06 earlier in the quarter at Copenhagen. \u201cI haven\u2019t felt nervous yet. Right now it\u2019s just excitement,\u201d Almgren said. \u201cI don\u2019t know that I\u2019ve ever been so excited for a race.\u201d The data analyst also posted on social media: \u201cI \u201cm not saying good bye to track racing. I\u2019m just saying hello to marathons.\u201d Obiri, 36, is well-acquainted with the distance. She won the Boston Marathon since 2023 and since 2024 and the New York Marathon since 2023 and since 2025 as well as taking a bronze medal at the since 2024 Paris Olympics marathon. Obiri took her second New York City Half-Marathon title earlier this year, winning in a course-record 1:06:33. She was this year\u2019s London Marathon runner-up, finishing 12 seconds off the women-only marathon world record of 2:15:41 set by Ethiopian Tigst Assefa. Obiri will try to become only the fourth woman to win a third career New York title after Norway\u2019s Grete Waitz, Kenya\u2019s Mary Keitany and Britain\u2019s Paula Radcliffe. Obiri seeks her third crown in four years after setting a course record of 2:19:51 last year. She would be the first New York repeat women\u2019s winner since Keitany won from 2014\u201316. Clear conditions and perfect running temperatures are expected for the 50th edition of the race as it switched to a course that includes each of the city\u2019s five boroughs, heralding the modern edition of the event.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2041007/reigning-champs-chase-history-in-new-york-marathon"}, {"head": "Rickelton, Mulder centuries lift South Africa's chances in Test decider", "body": "Former schoolmates Ryan Rickelton and Wiaan Mulder hit centuries and swung the series-deciding third Test in South Africa\u2019s favour at Newlands on Friday. Rickelton made 101 and Mulder 115 before South Africa were bowled out for 387 in the last over of the fourth day, setting Australia a target of 288 runs to win on the final day. The series between the two leading Test nations is tied at 1-1. Rickelton and Mulder both attended the elite St Stithians College, north of Johannesburg. \u201cIt was really special,\u201d said Rickelton. \u201cWe have played a lot of cricket coming through the teenage years together and we know each other\u2019s games really well.\u201d South Africa started the day on 140 for four \u2014 but with a 100-run first innings deficit it was effectively a precarious 40 for four. Matthew Breetzke (43) helped Rickelton absorb the early pressure before Mulder joined him in a sixth-wicket stand of 154. \u201cIt was about spending time at the wicket and not getting too far ahead of ourselves,\u201d said Rickelton. \u201cWe knew that the longer we batted the more frustrated the Australians would get.\u201d Rickelton said South Africa would be pushing hard for victory on Saturday. \u201cFor them (Australia) to bat out three sessions will be a big ask but we will also have our work cut out,\u201d he added. Only one wicket fell in the first five hours of the day, most of which was taken up by Rickelton and Mulder. Just when it seemed South Africa were forging an impregnable position, Rickelton was run out shortly before the afternoon drinks break. His dismissal sparked a collapse in which four wickets fell for 16 runs in another twist in a series which has featured numerous changes of fortune. But Kagiso Rabada \u2014 another St Stithians old boy \u2014 stayed with Mulder, who reached his century during a last-wicket stand of 36. \u201cIt was a really important partnership,\u201d said Rickelton. \u201cThose last 20 or 30 runs will hopefully take us over the edge tomorrow.\u201d Australian bowling coach James Franklin said the pitch had not deteriorated markedly, especially for fast bowlers, although there was some turn for the spinners. \u201cIt\u2019s set up for a great last day of the series,\u201d said Franklin.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2041004/rickelton-mulder-centuries-lift-south-africas-chances-in-test-decider"}, {"head": "Australia set 288 to win on final day after South African centurions turn tide", "body": "Ryan Rickelton and Wiaan Mulder hit hundreds for hosts Australia face last-day chase to clinch Test and the series It would be unfair to say that Australia let a winning position slip on the fourth day of the third Test at Cape Town, only because that would undersell how Ryan Rickelton and Wiaan Mulder prised it away. Australia\u2019s vaunted four bowlers, owners of 1,674 wickets at day\u2019s beginning, could only raise that to 1,678 by day\u2019s end. In the process, a lead of 40 became 287. South Africa had been 40 for four in the first innings at Gqeberha and bounced back to win; they were effectively 40 for four in the third innings here , and now have a great chance to do the same. The unlikely basis was Rickelton, a franchise circuiteer who spends most of his year smiting runs or keeping wicket in 20-over blocks. In this series he was monstered in Durban by Josh Hazlewood, out for none and two while pinch-hitting as an opener, then made scant impression down the order with 31 in Gqeberha. He looked like a modern cricketer become anachronism in this ancient form. Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/oct/30/australia-set-288-to-win-after-south-african-centurions-turn-the-tide"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
