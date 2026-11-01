@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (SUNDAY, NOVEMBER 01, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">SUNDAY, NOVEMBER 01, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 01, 2026", "headline": "FBR to Track Every Tyre Produced in Pakistan", "deck": "The Federal Board of Revenue (FBR) has directed registered tyre manufacturers in Pakistan to install electronic production monitoring systems by November 30, requiring real-time recording of output and transmission of production data to tax authorities.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Founder & Senior Counsel", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/10/31/fbr-to-track-every-tyre-produced-in-pakistan/", "body": ["The Federal Board of Revenue (FBR) has directed registered tyre manufacturers in Pakistan to install electronic production monitoring systems by November 30, requiring real-time recording of output and transmission of production data to tax authorities.", "The directive, issued through Sales Tax General Order (STGO) No. 32 of 2026 on Friday, brings the tyre industry under the FBR\u2019s electronic monitoring regime. The system is part of the tax authority\u2019s efforts to address a sales tax gap estimated at Rs. 3.7 trillion.", "The regime already covers several sectors, including packaged tea, household electronics, paper and paperboard, edible oil and ghee, leather, textile spinning, tiles, packaged milk, juices, bottled water and aerated beverages.", "Under the new rules, manufacturers must install prescribed hardware and software at every curing press and takeaway conveyor or finishing line to electronically record production.", "The system will count each cured tyre while distinguishing actual output from dry runs, maintenance and warm-up cycles. It must also identify uncured tyres and classify finished products using approved stock keeping unit (SKU) data, including tyre diameter, width, tread design or pattern, and weight.", "The FBR has authorised ISSM Labelling Solutions (Pvt) Ltd to provide electronic production monitoring systems to the industry. The vendor must ensure that production events are recorded in real time and securely transmitted to the FBR\u2019s central control system.", "The equipment must also detect and report unexpected stoppages, machinery failures, tampering, interruptions, and attempts to bypass monitoring devices.", "The monitoring system will maintain audit logs and generate production reports and analytical data to support reconciliation and enforcement under sales tax law. Registered manufacturers will be prohibited from removing tyres from their premises unless the products have undergone the prescribed electronic monitoring."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR prescribes methods for serving tax notices on non-filers and others in TY2027", "body": "Section 218 of the Income Tax Ordinance 2001 allows tax authorities to serve notices through personal delivery, registered post, courier, court procedures and electronic means.\n\nThe Federal Board of Revenue (FBR) has prescribed various methods for serving income tax notices, orders and requisitions on non-filers and other taxpayers during Tax Year 2027.\n\nAccording to the Income Tax Ordinance, 2001, updated up to June 30, 2026, Section 218 explains the legal procedures for delivering notices and other documents during the tax year running from July 1, 2026, to June 30, 2027.\n\nUnder subsection (1), notices issued to resident individuals can be served personally, through registered post or courier at their usual or last known address in Pakistan, under the procedures prescribed for serving summons under the Code of Civil Procedure, 1908, or electronically in the prescribed manner.\n\nFor other persons, including companies and organisations, subsection (2) allows notices to be delivered personally to their representatives, sent through registered post or courier to their registered offices or designated addresses for service in Pakistan, or served through prescribed court procedures and electronic means.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-tax-notice-service-methods-section-218-ty2027/"}, {"head": "FBR to reward e-intermediaries for filing returns of new taxpayers", "body": "The Federal Board of Revenue (FBR) has announced a new incentive scheme that will grant financial rewards to registered e\u2011intermediaries that submit tax returns on behalf of newly registered taxpayers. Under the programme, e\u2011intermediaries who successfully file returns for individuals or entities that have opened a tax account within the current fiscal year will receive a monetary credit, payable after verification of the filed returns. The initiative is designed to accelerate the onboarding of fresh taxpayers, improve the timeliness of filing, and broaden the overall tax base by leveraging the digital capabilities of e\u2011intermediaries.\n\nThe FBR indicated that the scheme will be funded through a dedicated allocation within its operational budget, and that the reward amounts will be calibrated to reflect the complexity and volume of filings processed. Participation is open to all e\u2011intermediaries that are duly registered with the board and have complied with existing data\u2011security standards. The board expects the incentive to encourage greater collaboration between the tax authority and technology\u2011driven service providers, thereby reducing manual processing delays and enhancing compliance rates across the newly registered taxpayer segment.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-rewards-e-intermediaries-new-taxpayers-ty2027/"}, {"head": "Saudi Arabia Introduces Same-Day Visa Processing for Pakistanis", "body": "Saudi Arabia has introduced same-day visa processing for Pakistani citizens at its embassy in Islamabad, while both countries have agreed to expand cooperation in oil storage, refinery upgrades, energy supplies and minerals.\n\nThe developments were announced after Petroleum Minister Ali Pervaiz Malik met Saudi Arabia\u2019s newly appointed ambassador to Pakistan, Dr. Rajeh bin Tami Al-Baqami, to discuss opportunities in the mining, petroleum and energy sectors.\n\nThe minister announced that the Saudi embassy in Islamabad had introduced same-day processing of visa applications for Pakistani citizens.\n\nMalik also invited Saudi Arabia\u2019s Vice Minister of Mining, Khalid al-Mudafier, to attend the Pakistan Minerals Investment Forum in Islamabad on November 12 and 13.\n\nBoth sides said their longstanding defence and strategic partnership provided a foundation for broader regional peace, stability and economic cooperation.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/10/31/saudi-arabia-introduces-same-day-visa-processing-for-pakistanis/"}, {"head": "Pakistan offers Saudi Arabia tax-free oil storage facilities to attract energy investment", "body": "Pakistan's Ministry of Finance has announced a policy that will allow Saudi Arabian firms to use oil storage facilities on a tax\u2011free basis. The scheme exempts customs duties, sales tax and other levies on the storage of crude and refined products at designated terminals, including the major ports of Karachi, Port Qasim and the emerging hub at Gwadar. The move is presented as part of a broader effort to position Pakistan as a regional logistics gateway and to draw long\u2011term energy\u2011sector investment from Gulf partners.\n\nThe initiative aligns with global trends of increasing demand for secure, cost\u2011effective storage capacity as oil markets adjust to shifting supply dynamics. By offering fiscal incentives, Pakistan aims to leverage its strategic location along key shipping lanes and its existing infrastructure to create a competitive advantage for Saudi investors seeking to diversify storage options and secure supply chains in South Asia. The policy is expected to complement ongoing efforts to modernise customs procedures and streamline revenue collection for the energy sector.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-saudi-arabia-tax-free-commercial-oil-storage/"}, {"head": "FBR offers rewards to persons reporting tax evasion in TY2027", "body": "The Federal Board of Revenue (FBR) has announced a new incentive scheme for the fiscal year 2027, inviting individuals to report instances of tax evasion. Under the program, informants who provide verifiable information that leads to the identification and recovery of undisclosed taxes will be eligible for monetary rewards, as stipulated in the board\u2019s existing whistle\u2011blower guidelines. The initiative aims to strengthen compliance by leveraging public participation, expanding the reach of tax authorities beyond traditional audit mechanisms.\n\nThe FBR emphasized that the rewards will be disbursed only after thorough verification of the submitted evidence and confirmation that the reported evasion resulted in actual tax recovery. The board also highlighted that the scheme aligns with its broader strategy to modernise revenue collection, improve transparency, and deter illicit financial practices across the formal economy.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-whistleblower-rewards-tax-evasion-ty2027/"}, {"head": "Pakistan\u2019s annual SPI inflation hits 11.32% as food and energy costs surge", "body": "The State Price Index (SPI) for Pakistan recorded an annual increase of 11.32 percent, driven primarily by sharp rises in food and energy prices. Analysts note that the surge reflects heightened consumer costs for staple items such as wheat, rice and edible oils, alongside higher electricity tariffs and fuel prices that have pushed energy expenses upward across the board. The upward trajectory follows a period of persistent price pressures that have strained household budgets, particularly among low\u2011income families who allocate a larger share of income to food and utilities.\n\nEconomic observers point to the broader macro\u2011economic context, including a depreciating rupee and elevated import bills, as contributing factors to the inflationary environment. The Federal Board of Revenue, which compiles the SPI, indicated that the index will continue to be monitored closely as policymakers assess monetary and fiscal measures to contain price growth and protect consumer purchasing power.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-spi-inflation-rises-11-32-percent/"}, {"head": "Pakistan inflation set to hit 10.5% in October, finance ministry warns", "body": "The Ministry of Finance has projected that consumer price inflation will rise to 10.5% in October, marking a continuation of the high inflationary environment that has persisted throughout the year. The warning follows a series of monthly readings that have kept inflation above the 10% threshold, driven primarily by sustained increases in food and energy costs, as well as the lingering effects of a weakened rupee on import prices. Analysts note that the upward pressure on prices reflects both domestic supply constraints and volatile global commodity markets, which together limit the government's ability to curb price growth without further fiscal tightening.\n\nThe finance ministry's forecast underscores the challenges facing monetary authorities, who may need to consider additional policy adjustments to anchor inflation expectations. Persistent price pressures are also expected to strain household purchasing power, especially among low\u2011income groups, and could complicate the government's broader economic stabilization agenda.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-inflation-outlook-october-2026/"}, {"head": "Sri Lankan HC calls for stronger trade ties with Pakistan", "body": "LAHORE: High Commissioner of Sri Lanka to Pakistan, Rear Admiral Fred Senevirathne (retd), has called for stronger trade and economic cooperation between Pakistan and Sri Lanka, stressing the need to translate the longstanding brotherly relations between the two countries into increased commercial engagement, investment and business partnerships. Speaking at the Lahore Chamber of Commerce and Industry (LCCI), the high commissioner invited the Pakistani businessmen to explore the trade and investment opportunities available in Sri Lanka and develop closer commercial relationships with their Sri Lankan counterparts. He stressed the importance of strengthening economic engagement so that the friendly relations between the two countries could also produce greater benefits for their business communities. LCCI President Ali Hussam Asghar proposed the exchange of trade delegations between the two countries to help businessmen understand each other\u2019s markets, identify potential partners and explore new avenues of cooperation. He also suggested organizing single-country exhibitions in Pakistan and Sri Lanka to showcase products, services and investment opportunities, enabling companies to establish direct business contacts. He said that stronger engagement with Sri Lankan businesses could open new avenues for Pakistani exporters and investors while providing opportunities for Sri Lankan companies to explore the Pakistani market. He stressed the need to promote business-to-business (B2B) contacts and strengthen chamber-to-chamber relations, explaining that direct interaction between business organizations could help identify areas of mutual interest and develop lasting commercial partnerships. He also encouraged businessmen from both countries to explore opportunities for establishing business outlets in each other\u2019s markets, which could help improve market access and strengthen commercial presence. Honorary Consul of Sri Lanka Yasin Joyia, LCCI Senior Vice President Sardar Usman Ghani, Vice President Ch Khadim Hussain, former vice presidents Mian Zahid Javed, Haris Atiq, and members of the LCCI Executive Committee were also present on the occasion. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446845/sri-lankan-hc-calls-for-stronger-trade-ties-with-pakistan"}, {"head": "SMEDA partners with Alibaba.com to help 2,000 Pakistani SMEs access global markets", "body": "The Small and Medium Enterprises Development Authority (SMEDA) has formalised a partnership with Alibaba.com aimed at integrating 2,000 Pakistani small and medium enterprises into the global e\u2011commerce ecosystem. The collaboration will provide participating firms with access to Alibaba's digital marketplace tools, logistics support and training modules designed to streamline cross\u2011border transactions, improve product visibility and align pricing with international standards.\n\nThe initiative arrives as Pakistan seeks to diversify its export base and boost the contribution of the SME sector to overall economic growth. By leveraging Alibaba's extensive buyer network, the programme intends to reduce entry barriers for local manufacturers and service providers, facilitating direct sales to overseas customers and encouraging the adoption of digital trade practices across the country's small business landscape.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/smeda-alibaba-partnership-pakistan-sme-exports/"}, {"head": "Pakistan raises diesel price by 85 paisas per litre, keeps petrol unchanged", "body": "The Federal Board of Revenue announced that, effective from early October 2026, the retail price of diesel will rise by 85 paisas per litre, while the price of petrol will remain unchanged. The revision follows a routine assessment of global crude oil market movements, exchange\u2011rate fluctuations, and the fiscal parameters guiding fuel subsidies. By adjusting diesel rates, authorities aim to align domestic fuel pricing with the latest import costs without extending the increase to gasoline, which is more widely used by private motorists.\n\nAnalysts expect the diesel hike to translate into higher operating costs for freight and logistics firms, potentially feeding through to modest increases in consumer prices for goods transported by road. Trucking companies have signalled a likely adjustment in freight charges, and public transport operators may revise fare structures to offset the added expense. Keeping petrol stable is intended to shield household fuel expenditures, while the diesel adjustment reflects its predominant use in commercial transport and industrial applications. The government indicated that the price structure will be monitored closely and reviewed in line with future market developments.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-diesel-price-increase-october-2026/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 01, 2026", "headline": "SECP Freezes Bank Accounts of Nearly 40,000 Companies Over Missed Filings", "deck": "The Securities and Exchange Commission of Pakistan (SECP) has declared 39,704 companies inactive after they failed to submit their annual returns and/or financial statements for four years. The companies will face restrictions on banking and financial services until they complete", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/10/31/secp-freezes-bank-accounts-of-nearly-40000-companies-over-missed-filings/", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The Securities and Exchange Commission of Pakistan (SECP) has declared 39,704 companies inactive after they failed to submit their annual returns and/or financial statements for four years. The companies will face restrictions on banking and financial services until they complete their outstanding filings. The regulator said the move is aimed at improving the reliability of Pakistan\u2019s corporate register and preventing the misuse of inactive companies. Under the restrictions, inactive companies will not be allowed to open new bank accounts, while their existing accounts will remain frozen until the required filings are completed. They will also be unable to access financial services during their inactive status. The SECP said companies seeking to regain active status must submit all outstanding filings. During the inactive period, changes to the companies\u2019 directors will not be registered. The regulator said the action would help prevent inactive companies from being misused and strengthen the integrity of the corporate register."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "SECP declares 39,704 companies inactive over four years of non-filing", "body": "The Securities and Exchange Commission of Pakistan (SECP) has formally classified 39,704 registered companies as inactive after they failed to file mandatory annual returns, financial statements and tax documents for four consecutive years. The determination follows a systematic audit of corporate filings under the Companies Act, which stipulates that prolonged non\u2011compliance triggers an inactive status and may lead to eventual removal from the corporate register.\n\nInactive designation restricts a company\u2019s ability to trade on the Pakistan Stock Exchange, obtain financing from banks, and engage in other regulated commercial activities. The SECP has indicated that firms remaining inactive will face deregistration and associated penalties, reinforcing its broader agenda to cleanse the corporate registry, enhance transparency and safeguard investor confidence.\n\nThe commission oversees a registry of more than 200,000 entities, making the 39,704 figure a notable proportion of the market. By enforcing strict filing requirements, the SECP aims to align Pakistan\u2019s corporate governance framework with international best practices and to deter future non\u2011filing behavior.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/secp-declares-39704-companies-inactive-over-four-years-of-non-filing/"}, {"head": "PSCA launches \u2018emergency panic buttons\u2019 in hospitals", "body": "LAHORE: In a significant step towards strengthening emergency healthcare support and public facilitation, the Punjab Safe Cities Authority (PSCA) has initiated the installation of advanced emergency QR panic buttons in government hospitals across Punjab, including Lahore. The initiative aims to provide citizens with quick, convenient and technology-enabled access to safe city emergency services, particularly during medical emergencies when timely assistance can prove critical. Under the project, emergency QR panic buttons will be installed in government hospitals across the province in phases. By simply scanning the QR code, citizens will be able to connect directly with the Punjab Safe Cities Authority. The relevant hospital\u2019s details will automatically appear on their mobile phones, enabling them to register their contact number and seek assistance through a call to Emergency Helpline 15, live chat or video call. A key feature of this initiative is its integration with the Safe City Virtual Blood Bank, which will facilitate patients and their attendants in arranging urgently required blood. Upon receiving a request, the Safe City team will help connect patients in need with available donors of the required blood group, making the process of locating blood donors easier, faster and more accessible. The QR panic button facility will not be limited to blood-related emergencies. Citizens will also be able to use the system to seek assistance from Safe City in other emergency situations, ensuring convenient access to emergency support through a single digital platform. According to the PSCA, the installation of QR Emergency Panic Buttons in government hospitals is an important milestone in leveraging modern technology to improve public services and strengthen emergency response mechanisms. The initiative will provide patients and their families with an accessible and effective means of seeking timely assistance during critical situations. It is further apprised that citizens can also call Emergency Helpline 15 and press option 4 to receive guidance regarding blood requirements and basic first aid assistance. The Punjab Safe Cities Authority remains committed to expanding technology-driven public safety and emergency facilitation services, ensuring that citizens across Punjab can access timely assistance through innovative and integrated digital solutions. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40446846/psca-launches-emergency-panic-buttons-in-hospitals"}, {"head": "Intel Suffers Worst Stock Crash in Over 50 Years", "body": "Intel suffered one of its biggest stock market crashes on Friday, October 30, as its shares plunged 28.6% following a disappointing financial forecast. The chipmaker\u2019s stock closed at $65.76, wiping out more than $140 billion in market value in a single trading session. The decline also reduced the value of the US government\u2019s investment in Intel by approximately $11 billion to $12 billion. Intel warned that weaker PC demand, rising memory prices, and heavy spending on chip manufacturing would continue to affect its business. Intel reported third-quarter revenue of $16.5 billion, an increase of 21% compared with the same period last year. However, investors were more concerned about the company\u2019s expectations for the final quarter of 2026.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/10/31/intel-suffers-worst-stock-crash-in-over-50-years/"}, {"head": "Rupee Crashes Against Big Currencies to End Week", "body": "The Pakistani rupee closed at 276.75 per US dollar on Friday, marking its 273rd consecutive day of appreciation against the greenback. The modest gain of one paisa followed a streak of daily advances that began on 25 since 2025, underscoring a period of relative stability in the foreign\u2011exchange market despite broader regional volatility. Analysts attribute the sustained upward trajectory to a combination of tighter monetary policy, steady inflows of remittances and a modest easing of external financing pressures.\n\nAgainst other major currencies, the rupee showed mixed performance. It slipped by Rs\u202f2.74 against the British pound, reflecting the pound\u2019s recent rally on global commodity price gains, while it rose by 28 paisas against the Australian dollar, mirroring the Australian currency\u2019s softness amid weaker commodity demand. The movements occurred as the Pakistan Stock Exchange recorded modest gains, and the State Bank of Pakistan continued to manage liquidity through open\u2011market operations, aiming to preserve the rupee\u2019s resilience while navigating IMF programme requirements.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/10/30/rupee-crashes-against-big-currencies-to-end-week/"}, {"head": "Sazgar takes Pakistani three-wheeler manufacturing overseas with new Philippines plant", "body": "Sazgar Motors, a leading Pakistani manufacturer of three\u2011wheelers, has confirmed the establishment of a new production facility in the Philippines. The plant, situated in the industrial zone of Cavite, will assemble the company\u2019s popular auto\u2011rickshaw models using locally sourced components alongside imported parts. The move follows a strategic decision to tap into the growing demand for low\u2011cost, fuel\u2011efficient transport solutions in Southeast Asia, where urban congestion and rising fuel prices are driving interest in compact vehicles.\n\nThe Philippines plant is expected to create a modest workforce and contribute to the country\u2019s manufacturing output, aligning with government incentives aimed at attracting foreign investment in the automotive sector. Sazgar\u2019s entry into the market also expands its export footprint beyond South Asia, offering an alternative to traditional four\u2011wheel vehicles for small\u2011business operators and commuters. The company anticipates that the new facility will enhance its supply chain resilience and open channels for future product diversification across the region.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sazgar-takes-pakistani-three-wheeler-manufacturing-overseas-with-new-philippines-plant/"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "SUNDAY, NOVEMBER 01, 2026", "headline": "US Blames North Korea for History\u2019s Worst Crypto Hack", "deck": "The Federal Bureau of Investigation (FBI) says North Korea was behind this week\u2019s $6.3 billion hack of Binance, the largest cryptocurrency theft in history. In a cyber alert issued on Saturday, the bureau blamed a North Korean state-backed hacking unit known as TraderTraitor. Nor", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/11/01/us-blames-north-korea-for-historys-worst-crypto-hack/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Technical Analysis", "body": ["The Federal Bureau of Investigation (FBI) says North Korea was behind this week\u2019s $6.3 billion hack of Binance, the largest cryptocurrency theft in history. In a cyber alert issued on Saturday, the bureau blamed a North Korean state-backed hacking unit known as TraderTraitor. North Korea now holds the record for both the biggest and second-biggest crypto hacks ever. The same group was behind the $1.5 billion theft from the Bybit exchange last year. Binance says its users will not lose money. The exchange has already replaced about 90% of the stolen assets with its own funds. \u201cThe FBI is releasing information advising the Democratic People\u2019s Republic of Korea was responsible for the theft of more than $6 billion in virtual assets from cryptocurrency exchange Binance, on or about October 29, 2026,\u201d the bureau said."], "quote": "\u201cCompliance is no longer optional; it is the new baseline for fiscal responsibility.\u201d", "editorial": {"title": "Statutory Tightening: FBR\u2019s New Production Monitoring and SECP\u2019s Crackdown Signal a Fiscal Reset", "deck": "Within 24 hours, the Federal Board of Revenue and the Securities and Exchange Commission have issued sweeping directives that could reshape compliance, revenue collection, and corporate accountability in Pakistan.", "paragraphs": ["The Federal Board of Revenue (FBR) has taken a decisive step toward granular fiscal oversight by ordering every registered tyre manufacturer to install electronic production monitoring systems by November 30, as outlined in Sales Tax General Order (STGO) No.\u202f32 of 2026. This statutory move forces real\u2011time recording and transmission of tyre output to tax authorities, effectively bringing the entire tyre sector under the FBR\u2019s electronic surveillance. By embedding production data into the tax assessment pipeline, the board aims to close long\u2011standing revenue gaps and ensure that sales\u2011tax liabilities are accurately reflected on a per\u2011unit basis.", "In a complementary effort to tighten tax compliance, the FBR has also prescribed new methods for serving tax notices on non\u2011filers and other delinquent taxpayers for Tax Year 2027 (TY2027). The procedural overhaul, announced in a separate lead, underscores the board\u2019s commitment to a more aggressive assessment regime. By standardising service of notices, the FBR seeks to reduce procedural delays that have historically hampered revenue collection, thereby bolstering the fiscal health of the exchequer at a time when every rupee of statutory revenue is under scrutiny.", "Parallel to the FBR\u2019s initiatives, the Securities and Exchange Commission of Pakistan (SECP) has frozen the bank accounts of 39,704 companies that have failed to file annual returns or financial statements for four consecutive years. The regulator\u2019s declaration of these entities as inactive, coupled with the banking restrictions, is a clear signal that corporate non\u2011compliance will no longer be tolerated. This sweeping action not only safeguards the integrity of Pakistan\u2019s corporate registry but also protects the broader financial system from the hidden risks posed by dormant firms that escape statutory oversight.", "Together, these developments illustrate a coordinated push by Pakistan\u2019s fiscal and regulatory bodies to tighten statutory compliance, enhance revenue streams, and reinforce the credibility of financial reporting. While the tyre\u2011monitoring mandate introduces a novel technology\u2011driven assessment tool, the SECP\u2019s freeze of dormant accounts serves as a stark reminder that corporate governance lapses will attract swift fiscal consequences. Stakeholders across industry and finance would do well to heed these signals and align their practices with the emerging statutory framework, lest they find themselves on the wrong side of the law."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "OpenAI reportedly lowers funding target for new round", "body": "OpenAI has trimmed the funding target for its latest financing round, a recalibration that suggests investor appetite for the largest private-market wagers on artificial intelligence is no longer limitless. The maker of ChatGPT had been expected to mount one of the biggest capital raises in the history of private technology markets, and the decision to scale back its goal points to a more measured reception than the frenzy that greeted its previous fundraisings. The round remains one of the most closely watched tests of sentiment in the sector, arriving as buyers across Silicon Valley weigh fresh commitments at prevailing valuations with growing caution.\n\nThe company sits at the centre of an extraordinary build-out of computing infrastructure. since 2025 it closed a $40 billion round led by Japan's SoftBank at a valuation of $300 billion, and it is a driving partner in Stargate, a data-centre venture with SoftBank and Oracle built around commitments of up to $500 billion. Microsoft, which has invested more than $13 billion in OpenAI, supplies cloud capacity for its models. Those arrangements underpin relentless capital demands: frontier-model training, energy contracts and server capacity consume billions of dollars each year, keeping external fundraising central to the company's operating plans rather than optional.\n\nA smaller round would not on its own signal distress, as revenue from ChatGPT subscriptions and enterprise contracts has grown quickly by the standards of the software industry. But the lowered target tempers the narrative of open-ended enthusiasm around frontier AI that has underpinned record infrastructure spending by chipmakers, cloud providers and utilities. Sam Altman, the company's chief executive, has himself conceded that investor excitement can at times run ahead of fundamentals, even while arguing that computing capacity will remain scarce for years. Attention now turns to whether the round closes with existing backers stepping up their cheques or new strategic partners entering at revised terms.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/"}, {"head": "Apple overtakes Nvidia to become world\u2019s most valuable company at $5.03 trillion", "body": "Apple Inc. has reached a market valuation of $5.03 trillion, moving past Nvidia Corp. to claim the title of the world\u2019s most valuable publicly listed company. The milestone was recorded after Apple\u2019s shares closed at a record high, driven by sustained demand for its flagship iPhone line, expanding services ecosystem, and growing presence in artificial\u2011intelligence\u2011enabled hardware. Analysts note that the company\u2019s diversified revenue streams and robust cash flow have reinforced investor confidence, allowing it to sustain a valuation that eclipses the previous leader.\n\nThe shift underscores a broader trend in technology markets where consumer\u2011oriented firms with deep hardware and software integration are gaining ground on pure\u2011chip manufacturers. Nvidia, which had briefly held the top spot amid a surge in AI\u2011related chip demand, saw its market cap recede as investors rebalanced portfolios toward companies with broader product portfolios and more predictable earnings. The new ranking reflects both Apple\u2019s strategic focus on AI capabilities across its devices and the continued appetite for high\u2011margin consumer technology products worldwide.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/apple-overtakes-nvidia-to-become-worlds-most-valuable-company-at-5-03-trillion/"}, {"head": "Google Just Made AI Talk From Space for the First Time Ever", "body": "Google has successfully run an AI model on a satellite in space and received its first response back on Earth, marking an important step toward its plans to explore AI data centers beyond the planet. The achievement is part of Project Suncatcher, Google\u2019s research project investigating whether artificial intelligence systems could eventually operate in space instead of relying entirely on data centers on Earth. Google announced the successful test on October 30, confirming that its experimental satellite had processed an AI request and sent the result back to Earth. The satellite launched on October 1 aboard a SpaceX rocket and has spent the past few weeks undergoing tests. During the experiment, Google sent a request from Earth to its satellite, asking the onboard Gemma 4 AI model to write a short poem about being in space.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/10/31/google-just-made-ai-talk-from-space-for-the-first-time-ever/"}, {"head": "Microsoft\u2019s New Tool Can Cut AI Coding Costs by Up to 31%", "body": "Researchers from Microsoft and the University of California, Berkeley have released TokenEconomizer, a free utility designed to lower the expense of using AI coding assistants. The tool integrates with leading assistants such as Claude Code, OpenAI Codex, GitHub Copilot CLI and Pi, intercepting token usage to optimise the amount of data processed for each request. By reducing the number of tokens consumed, developers can achieve the same or better output while paying less for the underlying AI services that charge per token.\n\nIn a benchmark covering 277 distinct coding tasks, TokenEconomizer delivered cost reductions ranging from 18.4% to 30.9%, with performance metrics comparable to or exceeding those of unoptimised runs. The researchers have made the software publicly available at no charge, allowing developers to adopt the optimisation layer without additional licensing fees. As AI\u2011driven code generation becomes more prevalent, tools that curtail token consumption could significantly impact development budgets, especially for teams that rely heavily on paid AI APIs.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/10/31/microsofts-new-tool-can-cut-ai-coding-costs-by-up-to-31/"}, {"head": "OnePlus Unveils Buds Pro 4 With AI Features and Twice the Noise Cancellation", "body": "OnePlus has lifted the curtain on its next generation of wireless audio with the Buds Pro 4, listing the earbuds on its official global website ahead of a formal launch. The new flagship earbuds promise improved sound quality alongside noise cancellation that is twice as effective, positioning them as the smartphone maker's most capable audio accessories to date and sharpening its competition in the premium earbuds segment.\n\nBattery endurance stands out among the published specifications, with up to 53 hours of total playback available when the charging case is factored in. The Buds Pro 4 also arrive with a suite of AI-driven functions, including AI-powered translation and support for Google Gemini, while wireless charging removes the need for cables at the dock. OnePlus has confirmed two colour options for the earbuds but has withheld both the official price and the release date, leaving those details for a subsequent announcement.\n\nOn the hardware side, each earbud houses two audio drivers: an 11mm woofer dedicated to bass reproduction and a 6mm tweeter handling higher-pitched frequencies. Each driver is paired with its own digital-to-analog converter, giving the earbuds finer control over sound output and a cleaner separation between low and high registers.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/10/31/oneplus-unveils-buds-pro-4-with-ai-features-and-twice-the-noise-cancellation/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 01, 2026", "headline": "Taika Waititi Calls \u2018Klara and the Sun\u2019 Critics \u201cIrrelevant, Out Of Touch, Obsolete\u201d", "deck": "As Taika Waititi \u2018s latest directorial effort gets its time in the sun, he has some choice words for critics attempting to rain on his parade.", "hero_source": "Deadline Hollywood Wire", "hero_url": "https://deadline.com/2026/10/taika-waititi-calls-klara-and-the-sun-critics-irrelevant-1237210687/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["As Taika Waititi \u2018s latest directorial effort gets its time in the sun, he has some choice words for critics attempting to rain on his parade.", "On Saturday, the Oscar winner boasted about Klara and the Sun \u2018s 78% Rotten Tomatoes audience score (now at 73%), while slamming the \u201csad lost souls\u201d who gave the movie a negative review, contributing to its 26% critics rating.", "\u201cI haven\u2019t read a review of anything aimed at me or my peers in almost 15 years. But I do listen to the people,\u201d he prefaced on Instagram .", "\u201cSo this Halloween, let\u2019s spare a thought for those sad lost souls who couldn\u2019t achieve their dreams of becoming artists, and thus became critics. The same people who also hated Jojo Rabbit ,\u201d added Waititi. \u201cIrrelevant. Out of touch. Obsolete. In the bin.\u201d Watch on Deadline Related Stories News How 'Klara and the Sun' Got Blotted Out at the Box Office News 'NAZA' Tops $1 Million With Neon, Solid Limited Expansion For 'La Bola Negra' -- Specialty Box Office", "In Deadline\u2019s review , Damon White wrote of the Sony Pictures adaptation, \u201cTaiki Waititi should be a snug-as-a-bug fit for Kazuo Ishiguro\u2019s dystopian \u2014 or is it? \u2014 2021 novel, given the director\u2019s affinity for a very particular and peculiar kind of reality-based cringe comedy. But Klara just doesn\u2019t deliver on any of the fronts it promises.\u201d"], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "Judge Dismisses Trump\u2019s Wall Street Journal Defamation Lawsuit Over Published Epstein \u2018Birthday Book\u2019 for a Second Time", "body": "U.S. District Judge Darrin P. Gayles again dismissed President Donald Trump\u2019s defamation suit against The Wall Street Journal, ruling that the complaint fails to meet the heightened \u201cactual malice\u201d standard required for public figures. The lawsuit stemmed from a since 2025 Wall Street Journal report that cited a 2003 birthday letter to convicted sex offender Jeffrey Epstein, which the paper said was authored by Trump. Gayles wrote that the plaintiff\u2019s allegations do not sufficiently demonstrate that the newspaper knowingly published false information or acted with reckless disregard for the truth, a prerequisite for prevailing on a defamation claim involving a former president.\n\nThe decision marks the second dismissal of the case, reinforcing the legal barrier that protects news organizations when reporting on matters of public interest, provided they adhere to established journalistic standards. Legal analysts note that the ruling underscores the difficulty of proving actual malice in defamation actions brought by high\u2011profile individuals against major media outlets.", "source": "Variety Global Wire", "url": "https://variety.com/2026/biz/news/judge-dismisses-trump-wsj-defamation-lawsuit-epstein-1236936423/"}, {"head": "Phoebe Bridgers Makes L.A.\u2019s Intuit Dome Into an Intimate Space Full of Love, Grief, Light Shows, \u2018Peter Pan\u2019 Cosplay and a Great Billie Eilish Duet -Concert Review", "body": "Phoebe Bridgers opened the newly inaugurated Intuit Dome in Los Angeles on Friday night, transforming the 20,000\u2011seat arena into a setting that felt more like a living room than a stadium. By asking the audience to turn off their phones, she created a darkened space illuminated only by a cascade of synchronized light patterns that shifted in tone with each song, underscoring themes of love and loss that ran through the set. The stage design incorporated whimsical elements, including a Peter Pan\u2011inspired costume change that added a theatrical layer to the performance, while the acoustic arrangements highlighted Bridger\u2019s hushed vocal delivery and lyrical introspection.\n\nMidway through the concert, Bridgers invited guest vocalist Billie Eilish to join her for a duet that blended their distinct styles into a seamless, emotionally resonant moment. The pair performed a reimagined version of one of Bridger\u2019s earlier tracks, allowing Eilish\u2019s ethereal harmonies to complement Bridger\u2019s plaintive phrasing. The collaboration was met with enthusiastic applause, reinforcing the evening\u2019s overarching sense of communal catharsis and artistic solidarity.", "source": "Variety Global Wire", "url": "https://variety.com/2026/music/concert-reviews/phoebe-bridgers-concert-review-billie-eilish-intuit-dome-1236936235/"}, {"head": "\u2018Vision Quest\u2019s Paul Bettany On How He Blew 10 Blood Vessels In His Eye While \u201cWildly Overacting\u201d -\u201cA Lesson In Less Is More\u201d", "body": "Paul Bettany\u2019s turn as an essentially unbreakable artificial being came with a distinctly human price. The actor, reprising his Marvel Cinematic Universe role as Vision in the Disney+ series Vision Quest, revealed that he \"blew out about 10 blood vessels\" in his eye while \"wildly overacting.\" Although the character he plays is a largely indestructible AI, Bettany found that bringing him to the screen kept the limits of the human body firmly in view.\n\nThe experience, as Bettany framed it, carried its own instruction. Describing the ordeal as \"a lesson in less is more,\" the actor suggested that the part rewards restraint over intensity \u2014 that playing an unbreakable figure still means performing inside a fragile human frame, and that pushing too hard carries real physical cost even for a performer whose character cannot bleed.\n\nThe remarks arrive as the series reaches its conclusion: Vision Quest airs its Season 1 finale on Nov. 10, closing a first season in which the on-screen invulnerability of its central figure stood at odds with a physical toll the performance exacted on the actor playing him.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/10/vision-quest-paul-bettany-blew-10-blood-vessels-eye-1237210698/"}, {"head": "\u2018Green Room\u2019 Director Remembers Patrick Stewart as a \u2018F\u2014ing Sweetheart\u2019 and Credits Him for Rescuing the Film -He \u2018Swooped Down\u2019 \u2018Into Our Cruddy Ass Movie and Saved Us\u2019", "body": "Jeremy Saulnier, writer and director of the since 2015 thriller Green\u202fRoom, paid tribute to the late actor Patrick Stewart during a 10th\u2011anniversary screening of the film in Los Angeles on Friday. Stewart, who appeared in the movie as a supporting character, died the day before, prompting Saulnier to reflect on the actor\u2019s impact on the production. The director said Stewart\u2019s involvement came at a critical moment when the film was close to shutting down, describing the veteran star as a \u201cf\u2014ing sweetheart\u201d who \u201cswooped down into our cruddy ass movie and saved us.\u201d\n\nSaulnier\u2019s remarks highlighted Stewart\u2019s willingness to lend his name and talent to a low\u2011budget horror\u2011thriller that had struggled to secure financing and distribution. The director credited the late actor\u2019s presence with attracting additional investors and raising the profile of the project, ultimately allowing Green\u202fRoom to reach a wider audience and achieve cult status over the past decade.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/green-room-director-patrick-stewart-1236936405/"}, {"head": "Tokyo Asian Future Drama \u2018Jani Be Good\u2019 Probes Silence and Motherhood in a Chinese-Indonesian Family, Marking Ariani Darmawan\u2019s Return", "body": "Indonesian filmmaker Ariani Darmawan re\u2011emerged onto the international circuit with her first feature, *Jani Be Good*, which is currently screening in the Asian Future competition at the Tokyo International Film Festival. The drama follows four women spanning three generations of a Chinese\u2011Indonesian family, using the themes of silence and motherhood to examine how personal histories intersect with cultural expectations. Darmawan, who paused her directing career for more than a decade to raise her own children, channels that hiatus into the film\u2019s narrative, presenting a nuanced portrait of intergenerational dialogue and the unspoken bonds that shape family life.\n\nThe Tokyo International Film Festival, one of Asia\u2019s most prominent film events, selected *Jani Be Good* for its Asian Future slate, a program dedicated to emerging voices from the region. The inclusion highlights Darmawan\u2019s return as a significant development in Southeast Asian cinema, positioning the film as a contender for broader festival exposure and potential distribution across streaming platforms.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/festivals/tokyo-drama-jani-be-good-silence-motherhood-1236936404/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 01, 2026", "headline": "Pakistan slams Afghan Taliban for 'shifting blame', 'persistent refusal' to address terrorism issues", "deck": "The information ministry on Saturday rebuked the Afghan Taliban\u2019s stance on the ongoing conflict between the two countries, assailing its \u201cpersistent refusal to address terrorism\u201d emanating from Afghanistan\u2019s soil. The statement came in response to remarks made by Afghan Taliban ", "hero_source": "Dawn Latest News", "hero_url": "https://www.dawn.com/news/2041221/pakistan-slams-afghan-taliban-for-shifting-blame-persistent-refusal-to-address-terrorism-issues", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["The information ministry on Saturday rebuked the Afghan Taliban\u2019s stance on the ongoing conflict between the two countries, assailing its \u201cpersistent refusal to address terrorism\u201d emanating from Afghanistan\u2019s soil. The statement came in response to remarks made by Afghan Taliban spokesperson Zabihullah Mujahid, who blamed Islamabad\u2019s \u201cwrong policies\u201d for preventing a resolution to the conflict and insisted Kabul was not the cause of counterterrorism issues. \u201cPakistan does not want to resolve the conflict with Afghanistan through talks,\u201d Mujahid told Hurriyat Radio , claiming that Islamabad \u201clacks the necessary readiness for a peaceful resolution of differences\u201d. In its statement, the information ministry said the Afghan spokesman\u2019s remarks expose the \u201cregime\u2019s deeply misguided approach and unwillingness to confront the root cause of deteriorating relations with Pakistan\u201d. \u201cThe Taliban leadership continues to blame Islamabad\u2019s policies while conveniently ignoring the single most important issue poisoning bilateral relations: its persistent failure to address terrorism emanating from Afghan soil,\u201d it added. The ministry reiterated Pakistan\u2019s \u201cunequivocal\u201d position: terrorism is a red line and the security of its citizens is non-negotiable.* \u201cThe Afghan Taliban regime must understand that Pakistan will not tolerate terrorist sanctuaries across its borders that impact its security nor allow its people to remain targets of terrorism emanating from Afghanistan,\u201d it stated. Islamabad reiterated that the \u201cTaliban regime\u2019s persistent refusal to address terrorism remains the principal obstacle to normal relations\u201d. \u201cShifting blame, making hollow assurances and questioning Pakistan\u2019s policies will neither resolve the crisis nor absolve Kabul of its responsibilities. The Afghan Taliban leadership must understand that Pakistan\u2019s security will not be held hostage to Afghan Taliban\u2019s inaction, evasions or misplaced priorities. \u201d The information ministry affirmed that Pakistan reserved the right to \u201ctake all necessary measures, in accordance with international law, to eliminate threats to its national security, wherever they originate\u201d. It urged Kabul to recognise that the responsibility for addressing these threats \u201crests squarely with the Afghan Taliban regime\u201d. \u201cPakistan\u2019s resolve to protect its people must never be mistaken for weakness,\u201d it declared. Islamabad has repeatedly urged the Taliban administration in Kabul to dismantle terrorist sanctuaries on Afghan soil, particularly those linked to the banned Tehreek-i-Taliban Pakistan (TTP), that are used for attacks in Pakistan. Officials say those appeals have gone unheeded. Multiple rounds of talks between the two sides last year, facilitated by Qatar and Turkiye , failed to bring about any workable solution, with the Pakistani government saying the Taliban officials gave no assurances on the key issues. Efforts this year made with China\u2019s involvement also resulted in no breakthrough. September witnessed another bout of conflict between the two neighbours, with Pakistan carrying out calibrated airstrikes in the border region in response to terrorist attacks in Khyber Pakhtunkhwa. This was followed by drone incursions from across the border, which Islamabad said were shot down, and two further rounds of retaliatory airstrikes. Those skirmishes continued in October, with Pakistani security forces responding to unprovoked fire from the Afghan side along the border in Kurram and Lower South Waziristan\u2019s Angoor Adda , according to security sources. On Tuesday, Afghan security forces opened unprovoked fire on border posts and residential areas in the Angoor Adda border area, which claimed the life of one local and injured a family of five."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "ECP notifies delimitation schedule for Quetta, Kharian cantonment boards after reclassification", "body": "ISLAMABAD: The Election Commission of Pakistan (ECP) has notified delimitation schedules for the Quetta and Kharian cantonment boards following their reclassification by the federal government. The federal government has reclassified the Quetta Cantonment Board from Class-II to Class-I and that in Punjab\u2019s Kharian from Class-III to Class-II. The ECP has fixed the number of wards in Quetta at 10 and five in Kharian. According to three notifications issued on Oct 29, the delimitation exercise for Quetta and Kharian will be carried out from November this year until January 2027. Administrative arrangements, including the procurement of maps and training of committees and authorities, will be completed from Nov 2 to 4, and delimitation committees will prepare preliminary lists of wards from Nov 5 to 19, which will be published on Nov 20 to invite objections. Objections can be filed before delimitation authorities from Nov 21 to Dec 20. The authorities will dispose of objections by Jan 5, 2027 and communicate decisions to committees by Jan 8. Final lists of wards will be published on Jan 13. The ECP has appointed the Gujrat district election commissioner as the convener of the delimitation committee for Kharian, with the Kharian cantonment executive officer and Gujrat assistant election commissioner as members. For Quetta, the Quetta East district election commissioner will act as convener, while the Quetta additional cantonment executive officer and Quetta East assistant election commissioner will serve as members. The regional election commissioners for Gujranwala and Quetta have been appointed as delimitation authorities for the Kharian and Quetta cantonment boards, respectively, to decide objections. The commission directed that officers appointed for delimitation shall not be transferred without its prior approval. The issuance of the delimitation schedule follows the ECP\u2019s fixation of a case on delay in the conduct of LG polls in cantonment boards across the country. The electoral body had directed its office to immediately prepare and submit a schedule for LG elections in cantonment boards for approval. The case, initially fixed for Oct 28, could not be held and was finally fixed for Nov 10. Notices have been issued to the defence ministry secretary and the director general of the Military Lands and Cantonments Department. In its meetings on Oct 5 and Oct 15 regarding the delay in LG polls in four provinces, Islamabad and cantonment boards, the ECP was informed that the entire delimitation process for cantonments had been completed and the commission is prepared to hold elections. However, under Section 19D(2) of the Cantonments Act since 2023, the federal government is required to submit a formal request to the ECP to hold these elections. The ECP noted that despite reminders and a letter from the chief election commissioner to the prime minister, the request has not been submitted.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2041208/ecp-notifies-delimitation-schedule-for-quetta-kharian-cantonment-boards-after-reclassification"}, {"head": "1 dead, over 13 injured during stampede at TikToker's mehndi ceremony in Sialkot", "body": "NAROWAL: A stampede at a mehndi (henna) event and prize-distribution ceremony held by a TikToker in Sialkot left one person dead and more than 13 others injured last night, police and rescue officials said on Saturday. The mehndi ceremony and prize-distribution event for Muhammad Ansar Jatt, a popular TikToker from Sialkot district known as \u201cMr Pattlo\u201d, was scheduled for Saturday night at Faraz Cricket Ground on Daska Road, according to a statement by Rescue 1122. In a statement, the Sialkot police said that as event organisers opened the stadium gates to allow attendees in, a stampede ensued and many fell to the ground. Citing initial information, it said 14 people were injured. Among those, 30-year-old Muhammad Aqeel passed away while being transported to the hospital due to his critical condition, the Rescue 1122 statement said. Sialkot police said they and Rescue 1122 personnel conducted a joint rescue operation and transported the injured to Allama Iqbal Memorial Teaching Hospital. Most of the individuals were discharged after receiving first aid, while others remained under medical care, the statement added. According to Rescue 1122, the injured persons comprised men aged between 22 and 51 years, and hailed from various districts, including Narowal, Gujranwala, Sheikhupura, Khanewal, Okara, Sialkot, Gujrat and Bahawalpur. However, Sialkot residents Muhammad Asif and Aamir Ali stated that more than 40 people were injured in the stampede, explaining that before the rescue teams arrived, attendees had taken several injured to nearby private hospitals and clinics for first aid on their own. Sialkot District Emergency Officer Engineer Naveed Iqbal said the rescue service had not been informed in advance about the large gathering planned at the cricket ground. He added that four ambulances and one motorcycle ambulance participated in the rescue operation. Following the incident, Sialkot District Police Officer (DPO) Dost Muhammad had also reached the site, accompanied by a large police contingent and the Elite Force. Acting on the DPO\u2019s instructions, the police took charge of security arrangements, brought the crowd under control, and ensured that rescue operations could proceed without interruption, the police statement said. Speaking to Dawn , DPO Muhammad criticised the event organisers for opening the stadium gates ahead of schedule. The retired captain noted that granting permission for such an event fell under the purview of the district administration. The DPO emphasised that the protection of the lives and property of citizens remains the police\u2019s top priority. All aspects of the incident will be examined and appropriate legal action will be taken, he asserted. Dawn has reached out to Sialkot Deputy Commissioner Awais Mushtaq for comment.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2041211/1-dead-over-13-injured-during-stampede-at-tiktokers-mehndi-ceremony-in-sialkot"}, {"head": "India opposition parties hold mock impeachment of poll chief", "body": "India\u2019s political opposition staged a symbolic impeachment of the election commissioner on Saturday to protest against a revision of voter lists that they say could unfairly benefit the ruling party. The nationwide revision of electoral rolls has sparked political disputes and street protests in the world\u2019s largest democracy over the earlier in the quarter. The election commission says the initiative is necessary to ensure accurate voter lists, but the opposition claims it is being manipulated to favour Prime Minister Narendra Modi\u2019s Bharatiya Janata Party (BJP). Both the commission and the BJP deny the allegations. On Saturday, opposition parties gathered at the residence of Congress president Mallikarjun Kharge in the capital, New Delhi, re-enacting a parliamentary session. They held mock impeachment proceedings, which have no constitutional or legal force, against Chief Election Commissioner Gyanesh Kumar. \u201cThe motion we have brought forward today is aimed at safeguarding the dignity of a constitutional institution,\u201d Kharge said. \u201cOur intention is for the election commission to function impartially, in line with the spirit of the constitution.\u201d Under the constitution, the chief election commissioner can only be removed through a parliamentary process requiring a special majority. Senior Congress leader Rahul Gandhi said the opposition had resorted to the symbolic exercise as they \u201chave nowhere else to go\u201d. \u201cWe have no other option. Every single institution \u2026 is closed for us,\u201d Gandhi said. The event came a day before a major opposition rally in Delhi backed by the Cockroach Janta Party, an online youth-led movement that also supports the campaign against the voter-roll revision. Home Minister Amit Shah said the BJP was ready to hold a special session of parliament to discuss the revision. \u201cBut they (the opposition) have no intention of speaking there. They refuse to let the parliament function. Instead, they just create a ruckus,\u201d he said.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2041212/india-opposition-parties-hold-mock-impeachment-of-poll-chief"}, {"head": "Travelling beyond the borders of Baku through fiction", "body": "In late October 2026, a literary gathering in Baku brought together an Iranian novelist renowned for her nuanced portrayals of women's lives, a British author celebrated for crafting imaginative worlds for children, and an Azerbaijani writer dedicated to preserving the cultural heritage of her nation. The three writers participated in a series of panel discussions and workshops that examined how narrative can bridge linguistic and geographic divides, offering audiences a glimpse into the diverse storytelling traditions that converge in the South Caucasus.\n\nThe dialogue highlighted the ways in which fiction serves as a conduit for cultural exchange, with the Iranian novelist describing how her work foregrounds the everyday struggles and aspirations of women across the Persian-speaking world, while the British children's author emphasized the universal appeal of fantasy as a tool for empathy. The Azerbaijani writer underscored the importance of safeguarding oral histories and folklore amid rapid modernization. Organisers noted that the event reflects Baku's growing role as a crossroads for literary voices from Europe, the Middle East and Central Asia, reinforcing the city's ambition to foster cross\u2011border artistic collaboration.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/10/31/travelling-beyond-the-borders-of-baku-through-fiction"}, {"head": "K\u00e4rcher boss -Less regulation, more action to get Europe and Germany fit again", "body": "The chief executive of K\u00e4rcher, the German manufacturer best known for its pressure washers, has warned of a \"perfect storm\" gathering over Germany and Europe and called for a \"fitness plan\" built on less regulation and more action to get the continent competitive again. The Winnenden-based company, which has recorded \u20ac3.5 billion in sales since 2025 and employs 17,000 people worldwide, ranks among the best-known names in Germany's Mittelstand, and its leader has used that vantage point to press politicians in Berlin and Brussels for delivery rather than deliberation.\n\nThe core of the argument is that Europe's largest economy is being weighed down by its own rulebook: mounting compliance costs, slow permitting and an ever-thicker layer of bureaucracy, while competitors abroad press ahead. For a company whose cleaning machines are fixtures in households, workshops and construction sites around the world, the fear is that German engineering's edge will be eroded not in the marketplace but in paperwork \u2014 hence the demand for fewer rules, faster decisions and a deliberate programme to restore Germany's and Europe's fitness.\n\nThe warning lands at a difficult stretch for German industry, which is contending with high energy costs, soft demand and rising global competition, and it chimes with a broader chorus from boardrooms for Berlin and Brussels to cut red tape and speed up decisions. For K\u00e4rcher's chief executive, the remedy is captured in a single line: less regulation, more action \u2014 and the will to get Europe and Germany fit again.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/10/31/karcher-boss-less-regulation-more-action-to-get-europe-and-germany-fit-again"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 01, 2026", "headline": "Fakhar Zaman and Arafat Minhas lead Pakistan to tri-series glory", "deck": "Pakistan chased down 326 to beat Sri Lanka by three wickets in the final of the tri-nation series on Saturday at a packed Gaddafi Stadium, sealing the title with nine balls to spare in what was the joint-highest successful chase in an ODI final. Shaheen Shah Afridi, the captain, ", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2041167/fakhar-zaman-and-arafat-minhas-lead-pakistan-to-tri-series-glory", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Pakistan chased down 326 to beat Sri Lanka by three wickets in the final of the tri-nation series on Saturday at a packed Gaddafi Stadium, sealing the title with nine balls to spare in what was the joint-highest successful chase in an ODI final. Shaheen Shah Afridi, the captain, finished it in style \u2014 a six slapped over midwicket off Dilshan Madushanka in the 49th over \u2014 after Hasan Nawaz had levelled the scores with a dab to backward point. Pakistan finished on 327 for seven in 48.3 overs. For Fakhar Zaman, this was an innings that answered the questions swirling around his place in the side. He had spent much of the first innings off the field after copping a blow while fielding, and came out to open with his team 22 for two inside four overs and the chase already wobbling. His early stay was scratchy. He was dropped on three by Madushanka at deep third, and again on 69 by Mahesh Theekshana, who put down a return catch and later tipped a six over the rope. But from the wreckage of Pakistan\u2019s top order he built an innings of substance, adding 149 with Saad Baig, who made 74 off 75 in his maiden half-century. Fakhar reached his 20th ODI fifty in the 22nd over, then his 12th ODI century in the 30th, pulling Asitha Fernando in front of square off 84 balls. He was finally bowled by Madushanka for 127 off 99 \u2014 11 fours and six sixes \u2014 charging and missing a slog in the 34th over, walking off to a standing ovation from a full house. It was, by common consent, a vintage Fakhar innings on the biggest occasion. If Fakhar held the chase together, Arafat Minhas won it. The all-rounder walked in at 230 for five in the 37th over with Pakistan needing 96 from 78 balls, and played the innings of his young career \u2014 61 off 31 balls, with three fours and four sixes. His check-drive six over long-on off Madushanka in the 46th over was the shot of the night, and his two sixes and a four off Asitha in the 47th brought the target within sight. He fell in the 48th over, caught-and-bowled by Asitha, and the Gaddafi Stadium rose as one. Sri Lanka\u2019s innings Pakistan had won the toss and elected to field, and the decision looked sound early as Sri Lanka\u2019s openers Kamindu Mendis and Avishka Fernando scored briskly without risk, taking the visitors past 50 without loss inside ten overs. Pakistan had brought in Faheem Ashraf for Shadab Khan, ruled out on medical grounds after being struck by a bouncer in the fifth ODI, while Sri Lanka replaced the pace of Eshan Malinga with the spin of Mahesh Theekshana. The contrasting selections suggested both sides had read the conditions differently, and Pakistan\u2019s pace attack struggled for early impact. It was Salman Ali Agha who provided the breakthroughs, claiming both wickets to fall before the final ten overs. Avishka missed a sweep and was leg-before in the 18th over, and four overs later Kusal Mendis stepped out and drove the ball back at Salman, who leapt to take a superb return catch. Beyond those two dismissals the innings belonged to Kamindu, who took charge through the middle overs and brought up his century in the 34th over, cutting Faheem over the wicket-keeper\u2019s head. Pavan Rathnayake gave him valuable support, the pair adding 146 for the third wicket, with Rathnayake making 77 off 65 balls. Kamindu\u2019s 131 off 128 balls, with 12 fours and two sixes, anchored the innings. At 238 for two after 40 overs, Sri Lanka looked set for a total beyond 350. But Pakistan\u2019s death bowling pulled it back. Shaheen trapped Kamindu leg-before in the 42nd over and dismissed Dasun Shanaka soon after for a brisk 17 off nine. Haris Rauf had Rathnayake caught by Babar Azam at wide long-on, and he and Naseem Shah removed Dunith Wellalage and Sahan Arachchige in quick succession. Naseem\u2019s wayward penultimate over let Sri Lanka past 320, but they lost six for 70 in the last ten overs to finish on 325 for eight. Pakistan\u2019s innings Pakistan\u2019s reply began badly. Maaz Sadaqat charged Madushanka in the second over and edged to slip for five, and in the fourth Babar Azam, under scrutiny for his form, drove at a floated delivery and was caught by a solitary fourth slip \u2014 a trap set by Kusal Mendis and executed to perfection. Babar departed for a five-ball duck, and Lahore went quiet. From there on , Saad joined forces with Fakhar and steadied Pakistan\u2019s innings. Saad brought up his maiden half-century in the 19th over, and Fakhar reached his 20th ODI fifty in the 22nd. The pair added 149, and Fakhar rode his luck \u2014 dropped on three by Madushanka, and again on 69 by Theekshana. Saad fell for 74 off 75, chipping a full delivery back to Theekshana in the 27th over. Fakhar, growing fluent, reached his century in the 30th over. Salman Agha made 17 before Wellalage bowled him with one that skidded under his slog sweep, and Fakhar\u2019s innings ended in the 34th over, bowled by Madushanka for 127. That left Pakistan 220 for four, needing 106 from 96 balls, and when Salman fell at 230 for five the game was alive again. Hasan Nawaz and Arafat Minhas steadied, then accelerated. Arafat\u2019s 61 off 31 turned the chase, and he and Hasan added 50 off 49 balls. Asitha removed Arafat, caught-and-bowled, and Faheem Ashraf first ball in the same over to briefly raise Sri Lankan hopes, but Hasan and Shaheen held their nerve, and the captain\u2019s six sealed it. The win is Pakistan\u2019s first ODI tri-series title since the Kitply Cup in Dhaka, when they beat India in the final, and it comes days after they were bowled out for 110 by this same Sri Lankan side in the league stage \u2014 a collapse that had raised fresh questions about the batting. Those questions were answered, at least for one night, by Fakhar, whose place in the side had itself been under discussion, and by Arafat, whose striking drew comparisons with a genuine match-winner. The dew that Pakistan had hoped for arrived late, but by then the hosts had found their own momentum. Sri Lanka, who had chased 430 against England in the league stage, will rue the missed chances \u2014 two lives for Fakhar, a dropped catch and a boundary conceded at deep cover \u2014 and a death-overs collapse with the bat that left them just short of a total that might have been enough."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Pakistan win tri-series final as Fakhar Zaman century denies Sri Lanka in thrilling chase", "body": "Opener scores 127 from 99 balls in Lahore Kamindu Mendis\u2019s 131 proves in vain for Sri Lanka This mini-tournament has been a welcome change of pace, carrying more meaning than your bog-standard three-match white-ball slog between two teams. And then there\u2019s the gift of a final. This was a fitting conclusion under the lights in a packed-out Gaddafi Stadium in Lahore, settled in the penultimate over as Pakistan beat Sri Lanka by three wickets to win the tri-series. Fakhar Zaman, Pakistan\u2019s hero from the since 2017 Champions Trophy final, crashed his way to 127 in a chase of 326. But plenty of work remained after his dismissal, and the new boys needed to stay calm. Arafat Minhas, 21, and Hasan Nawaz, 24, played like old-timers, their partnership of 94 securing the game. Minhas and Faheem Ashraf fell with two runs still required, but Shaheen Afridi finished the evening with a wallop over the ropes. Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/oct/31/pakistan-sri-lanka-tri-series-final"}, {"head": "Brighton stun Man City, 10-man Man Utd beaten by Chelsea", "body": "Brighton and Hove Albion inflicted a second straight Premier League defeat on Manchester City with a 1-0 win to close within two points of the leaders on Saturday, while Manchester United slumped to another damaging defeat for Michael Carrick at Chelsea. Third-placed Brighton ended their wait for a first away win against City at the 18th attempt to bolster dreams of challenging for the title. The Seagulls have never won a major trophy but have already beaten champions Arsenal convincingly this season to show their title credentials. Fabian Hurzeler\u2019s men got revenge for defeat to City on penalties in the League Cup on Wednesday. Hurzeler felt aggrieved at that result after his side twice led at the Etihad. This time they held on after Yasin Ayari slotted them into an 11th-minute lead. Bart Verbruggen was inspired in the Brighton goal to see off a City onslaught after half-time. \u201cWe expected a game where we had to suffer. Coming to this place is very difficult, facing one of the best teams in the world,\u201d said Hurzeler. \u201cI\u2019m really proud of how my players stuck together. They had a little bit of luck but, in the end, deserved it.\u201d City won their opening seven league games as Enzo Maresca made a flawless start to the daunting task of succeeding Pep Guardiola. However, the 10-time English champions know their results on the field may count for little this season unless they can successfully overturn a guilty verdict on over 100 charges of breaking Premier League financial rules. City have appealed, but if that ruling is upheld, they are likely to face a severe points penalty and possible relegation from the English top-flight. \u201cIn this moment we are conceding silly goals that we can avoid,\u201d said Maresca. \u201cI think we did enough to deserve something, but we need to move on and try to win games.\u201d Defeat for City means Arsenal can go top of the table if they avoid losing at Liverpool on Sunday. United self-implode Manchester United\u2019s nine-game winless run is their longest without victory for 38 years after a 2-0 defeat at Chelsea. The Red Devils were left to regret not taking advantage of a series of first-half chances to take the lead before they imploded in the second period to sit outside the relegation zone only on goal difference. Morgan Rogers was allowed to run straight through the heart of the United defence to open the scoring. Chelsea\u2019s Morgan Rogers scores past Manchester United goalkeeper Senne Lammens during their English Premier League match at Stamford Bridge in London on October 31, 2026. \u2014Reuters Lisandro Martinez then did his under-pressure manager no favours with two quickfire yellow cards, the second of which also conceded a penalty. Cole Palmer converted from the spot to lift Chelsea into the top four. \u201cThe two halves of football couldn\u2019t probably be further apart,\u201d said Carrick, who added he expects to be in charge for Tuesday\u2019s Champions League tie against AS Roma. \u201cWe looked in a good place going into half-time and then found a way of unravelling it in the second half.\u201d Crystal Palace may beat United to a managerial change after Pierre Sage\u2019s side were easily beaten 2-0 at Tottenham Hotspur to remain in the relegation zone. \u201cIt\u2019s a disaster for every club in the Premier League,\u201d said Sage on the prospect of relegation. \u201cI\u2019m not comfortable with the position, but it\u2019s a consequence of what we have done on the pitch.\u201d Jean-Philippe Mateta\u2019s early red card for a lunge on Micky van de Ven left the Eagles a mountain to climb. In keeping with Sage\u2019s time in charge, it was Palace\u2019s inability to deal with set-pieces that saw Spurs claim a third consecutive win. Archie Gray headed in unmarked from a corner before Jan Paul van Hecke bundled in the second after his initial attempt was brilliantly saved by Dean Henderson. Tottenham Hotspur\u2019s Archie Gray scores (R) heads to score against Crystal Palace during their English Premier League match at the Tottenham Hotspur Stadium in London on October 31, 2026. \u2014Reuters After a difficult start, a resurgent Tottenham are up to eighth. Earlier, Aston Villa\u2019s surge up the table stalled in a 1-1 draw against Fulham due to an own goal from goalkeeper Zion Suzuki. The in-form Nicolas Jackson put Unai Emery\u2019s men in front before Suzuki, who had made a string of excellent saves, fumbled Alex Iwobi\u2019s corner over the goal line. Meanwhile, Oliver Glasner vowed to make sweeping changes after a 2-0 defeat at Brentford saw Nottingham Forest slip to 19th. Elsewhere, Bournemouth also won 2-0 against Leeds United, while Sunderland remain rooted to the foot of the table after a 3-1 loss at Coventry City. Hull City and Ipswich Town played out a 2-2 draw.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2041270/brighton-stun-man-city-10-man-man-utd-beaten-by-chelsea"}, {"head": "Premier League Result: Hull City 2 vs Ipswich Town 2 (Full Time)", "body": "Hull City hosted Ipswich Town in a Premier League encounter that concluded with a 2\u20112 draw. Both sides found the net twice, sharing the three points on offer and leaving the match level on the scoreboard at full time. The fixture, played at the MKM Stadium, saw each team respond to the other's goals, creating a seesaw battle that kept spectators engaged throughout the ninety minutes.\n\nThe stalemate adds a point to each club's tally in the domestic championship race, maintaining the competitive balance as the season progresses. With both clubs seeking to climb the league table, the result underscores the tightly contested nature of the campaign, where every match can influence positioning and momentum for the weeks ahead.", "source": "ESPN Scoreboard Wire", "url": "https://espn.com/soccer/scoreboard"}, {"head": "Premier League Result: Chelsea 2 vs Manchester United 0 (Full Time)", "body": "Chelsea secured a 2-0 victory over Manchester United at Stamford Bridge, earning three points in the latest round of the Premier League. The home side opened the scoring in the first half and doubled the lead shortly after, while United were unable to create clear-cut opportunities. Chelsea's defensive organization limited United's forward thrusts, and the team maintained control throughout the match.\n\nThe win bolsters Chelsea's standing in the league table, keeping them firmly in contention for a top\u2011four finish, while Manchester United's loss adds to the pressure on their campaign as they seek to recover points in upcoming fixtures. Both clubs will now turn their focus to the next round of matches, aiming to build on the result and sustain momentum in the domestic championship race.", "source": "ESPN Scoreboard Wire", "url": "https://espn.com/soccer/scoreboard"}, {"head": "Premier League Result: Coventry City 3 vs Sunderland 1 (Full Time)", "body": "Coventry City secured a 3-1 victory over Sunderland in a Premier League fixture held at the Coventry Stadium. The home side opened the scoring early in the first half and extended their lead with two further goals before Sunderland reduced the deficit late in the second half. The win awarded Coventry three points, strengthening their position in the league table, while Sunderland collected a single point from the encounter, leaving them to chase results in the remaining fixtures of the domestic championship race.\n\nThe match featured a blend of attacking intent and defensive resilience, with Coventry's forward line converting the majority of their chances and Sunderland's defense conceding three goals despite periods of sustained pressure. Both clubs will now turn their focus to upcoming league commitments as the season progresses, with the three points earned by Coventry potentially influencing their pursuit of a higher finish, and Sunderland seeking to close the gap on rivals ahead of the next round of games.", "source": "ESPN Scoreboard Wire", "url": "https://espn.com/soccer/scoreboard"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
