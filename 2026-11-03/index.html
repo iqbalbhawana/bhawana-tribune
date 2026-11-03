@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (TUESDAY, NOVEMBER 03, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">TUESDAY, NOVEMBER 03, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "TUESDAY, NOVEMBER 03, 2026", "headline": "Senate panel questions FBR over Rs1,120 billion FATA/PATA imports, demands records within two days", "deck": "Senator Saifullah Abro directs the FBR and FIA to investigate suspected tax evasion, verify consumption certificates and establish potential revenue losses estimated at Rs400\u2013500 billion.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Founder & Senior Counsel", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/senate-panel-fbr-fata-pata-imports-rs1120-billion/", "body": ["Senator Saifullah Abro directs the FBR and FIA to investigate suspected tax evasion, verify consumption certificates and establish potential revenue losses estimated at Rs400\u2013500 billion.", "ISLAMABAD: A Senate sub-committee has questioned the Federal Board of Revenue (FBR) over imported goods worth approximately Rs1,120 billion under the FATA/PATA tax exemption scheme, directing the tax authority and other institutions to submit complete records within two days.", "The Senate Sub-Committee on Interior and Anti-Narcotics expressed serious concern over alleged misuse of tax exemptions, delays in recovering outstanding taxes and the failure of several companies to provide the required documentation.", "Convenor Senator Saifullah Abro directed the FBR, Federal Investigation Agency (FIA) and other relevant institutions to investigate suspected irregularities, establish potential revenue losses and identify officials or companies responsible for violations of the law.", "The meeting, held at Parliament House, reviewed consumption certificates issued for imported goods, alleged tax evasion, outstanding liabilities, ongoing investigations and the performance of relevant departments. Senator Umar Farooq and officials from the Interior Ministry, FBR, FIA, police and other departments attended.", "During the briefing, officials informed the committee that imported goods worth approximately Rs1,120 billion under the FATA/PATA tax exemption scheme were being examined.", "Consumption certificates and related records had been identified for goods worth around Rs389 billion, while further information was required regarding the remaining imports, their utilisation and outstanding tax liabilities.", "The committee was also informed that 223 consumption certificates had been issued to 108 companies.", "Senator Abro questioned why complete records covering imports, factory production, utilisation of goods and tax payments were unavailable for all beneficiary companies."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR ATL 2026: How to check your active taxpayer status online and by SMS", "body": "Taxpayers can verify their status through the FBR online portal, SMS service or by downloading the Active Taxpayers List.\n\nIslamabad, November 2, 2026: The Federal Board of Revenue (FBR) has explained three methods for checking active taxpayer status following the issuance of the Active Taxpayers List (ATL) for tax year 2026.\n\nIndividuals, companies and associations of persons (AOPs) can verify their status through the FBR online portal, SMS service or by downloading the latest ATL.\n\nTaxpayers can use the FBR\u2019s online verification portal to confirm whether their names appear on the Active Taxpayers List 2026.\n\n\u2022 Individuals: Type ATL, followed by a space and the 13-digit Computerised National Identity Card (CNIC) number, and send it to 9966.\n\n\u2022 Companies and AOPs: Type ATL, followed by a space and the seven-digit National Tax Number (NTN), and send it to 9966.\n\n\u2022 Individuals: Type AJKATL, followed by a space and the CNIC number without dashes, and send it to 9966.\n\n\u2022 NTN holders: Type AJKATL, followed by a space and the 11-digit NTN without dashes, and send it to 9966.\n\nTaxpayers can also download the latest Active Taxpayers List (Income Tax) from the FBR website to verify their inclusion.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/check-active-taxpayer-status-atl-2026/"}, {"head": "FBR releases ATL 2026 with record 8 million income tax filers", "body": "The Federal Board of Revenue (FBR) has published its Active Taxpayers List (ATL) for the fiscal year 2026, showing that more than eight million individuals and entities have filed income tax returns. The list, released as part of the board\u2019s annual transparency exercise, marks the highest number of registered filers since the ATL\u2019s inception, indicating a widening of the tax base across the country. The compilation includes both individual taxpayers and corporate entities, reflecting the cumulative effect of recent digital filing initiatives and compliance drives that have simplified the registration and filing process.\n\nThe surge in filers arrives amid a broader policy push to broaden revenue sources and reduce reliance on indirect taxes. FBR officials highlighted that the increase aligns with ongoing reforms aimed at improving taxpayer services, expanding electronic filing platforms, and enhancing data integration across tax administration units. The expanded taxpayer pool is expected to contribute to a more robust fiscal position and support the government\u2019s revenue targets for the upcoming budget cycle.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-active-taxpayers-list-2026-over-8-million-filers/"}, {"head": "Another 5 SCRAs remanded back to Customs Appellate Tribunal for jurisdictional issue", "body": "The Sindh High Court Customs Appellate bench has sent five identical Special Customs Reference Applications (SCRAs) \u2013 numbered 98, 100, 101, 102 and 103 \u2013 back to the Customs Appellate Tribunal for fresh adjudication. The applications, originally filed since 2019, were taken up by a two\u2011judge bench comprising Justice Agha Faisal and Justice Shah Nawaz Memon, which concluded that the earlier proceedings suffered a jurisdictional flaw that necessitated a re\u2011examination by the Tribunal.\n\nThe remand underscores the procedural safeguards built into Pakistan\u2019s customs dispute framework, where the Customs Appellate Tribunal serves as the primary forum for resolving complex tariff, valuation and classification issues. By directing the cases back for a fresh hearing, the court aims to ensure that the Tribunal can address the matters within its statutory remit, thereby upholding the integrity of customs adjudication and providing the affected parties an opportunity for a definitive resolution.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/02/another-5-scras-remanded-back-to-customs-appellate-tribunal-for-jurisdictional-issue/"}, {"head": "Israel Wants Trump to Nuke Iran Next Week Despite Pakistan Peace Efforts", "body": "Israel is pushing US President Donald Trump to launch a nuclear strike on Iran as soon as next week, a move that might lead Pakistan and India into a nuclear exchange of their own, according to US journalist Tucker Carlson.\n\nIn a post shared on November 1, Carlson said Israeli Prime Minister Benjamin Netanyahu is pressing the Trump administration hard, and Trump is likely to decide by November 7 whether to use nuclear weapons. \u201cBibi calls Trump about it every day,\u201d he said.\n\nThe target would be Pickax Mountain in central Iran, where Israeli intelligence believes Tehran has restarted uranium enrichment. No conventional US weapon can break through its 300 feet of granite, so Israel wants the Oval Office to exercise a nuclear option.\n\nCarlson said Netanyahu, struggling to form a government after last week\u2019s election, needs the war. Meanwhile, Vice President JD Vance and envoy Steve Witkoff are pushing for a deal with Iran instead.\n\nCarlson, who has blamed Trump for the Iran war before, warned that a US nuclear attack would set a new precedent. \u201cPakistan and India would be tempted to do the same against each other, as would North Korea against Seoul,\u201d he wrote.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/02/israel-pushing-trump-to-nuke-iran-next-week-tucker-carlson/"}, {"head": "SHC remands back matter to Customs Tribunal for being irrelevant", "body": "The Supreme Court of Pakistan has ordered the return of a case to the Customs Appellate Tribunal after finding the matter before the tribunal to be unrelated to the issue raised in the Show Cause Notice. The bench noted that the tribunal was examining the applicability of a Valuation Ruling, whereas the notice concerned a different legal question. \n\nCounsel Sardar Zafar Hussain, representing Pakistan Customs, highlighted that the case, filed under SCRA No\u202f19 since 2021, involves Humak Engineering (Pvt) Limited and should be adjudicated on the specific grounds outlined in the notice. The court\u2019s decision underscores the procedural requirement that tribunals address only the matters expressly raised, and it directs the Customs Appellate Tribunal to reassess the case within the correct legal framework.\n\nLegal analysts note that the remand may delay the resolution of the valuation dispute but ensures that the tribunal\u2019s jurisdiction is exercised appropriately, preserving the integrity of customs adjudication processes.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/02/shc-remands-back-matter-to-customs-tribunal-for-being-irrelevant/"}, {"head": "German envoy says Pakistan\u2019s GSP+ status up for renewal", "body": "ISLAMABAD: Pakistan\u2019s status under the Generalized Scheme of Preferences Plus (GSP+), which makes the European Union its largest export market, led by Germany, is up for renewal ahead of the new framework launching in 2028. Following a monitoring visit last winter, the EU published a report in July outlining key compliance areas Pakistan must address, German Ambassador to Pakistan Ina Lepel stated at a meet-the-press programme here on Monday. Beneficiary countries must reapply, and officials hope Pakistan will complete the necessary work convincingly to retain its preferential trade status. Germany supports Pakistan\u2019s ongoing IMF program on merit, noting positive signs of Pakistan\u2019s economic resilience following recent shocks. German Ambassador expressed hope that the government\u2019s momentum on IMF-mandated structural reforms will persist as the program moves forward. READ ALSO: GSP plus status: Pakistan highlights governance, rights reforms in talks with EU delegation Bilateral trade between Germany and Pakistan has stagnated at roughly \u20ac3.5 billion since 2017, showing minimal growth despite a historical economic relationship that dates back to 1959, when Pakistan became the first nation to sign an investment protection agreement with Germany, she said. However, the German ambassador highlighted renewed corporate interest driven by a global push to diversify supply chains. Pointing to Pakistan\u2019s large consumer market and strategic location, she noted key steps to boost ties\u2014including an upcoming German-Pakistan business forum and a newly established Pakistan Desk at the German-Emirati Joint Chamber of Commerce in Dubai to facilitate cross-border deals. She said the number of Pakistani students pursuing higher education in Germany has more than doubled over the past decade, surging from 6,000 since 2017 to 13,000 today. German officials attribute the influx primarily to the country\u2019s tuition-free public university system, which functions as a de facto scholarship for international students who only need to cover living expenses. Supported by a close partnership between the German Academic Exchange Service (DAAD) and Pakistan\u2019s Higher Education Commission, academic and skilled labor mobility between the two nations continues to experience steady growth, she added. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447160/german-envoy-says-pakistans-gsp-status-up-for-renewal"}, {"head": "Fuel relief scheme: 15 million Pakistanis benefit as government disburses Rs27 billion", "body": "The federal government has released a Rs27\u202fbillion fuel relief package aimed at cushioning the impact of recent fuel price hikes on the population. The scheme, administered by the customs and federal revenue authorities, targets roughly 15\u202fmillion eligible beneficiaries, including low\u2011income households, public transport operators and small\u2011scale traders. Disbursements are being made directly through bank accounts linked to the national identity system, with each recipient expected to receive an average subsidy of about Rs1,800. The relief effort follows a sharp rise in global oil prices that pushed domestic fuel costs up by more than 30\u202fpercent in the last quarter, contributing to heightened inflationary pressures.\n\nOfficials say the funding is drawn from the federal revenue surplus and is part of a broader strategy to stabilise living costs while the economy adjusts to volatile energy markets. The programme is scheduled to run through the current fiscal year, with periodic assessments to ensure that the assistance reaches the most vulnerable segments and mitigates the cost\u2011of\u2011living burden for millions of citizens.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fuel-relief-scheme-15-million-beneficiaries-rs27-billion/"}, {"head": "SHC finds two more judgments of Customs Appellate Tribunal devoid of independent deliberations, remands back the same", "body": "A two\u2011judge bench of the Sindh High Court, comprising Justice Agha Faisal and Justice Shah Nawaz Memon, has ruled that two recent judgments of the Customs Appellate Tribunal (CAT) in Karachi were issued without independent discussion or deliberation. The bench examined SCRA 12, a case pending since 2023 in which counsel Ehsan Ghulam Malik represented the applicant Crescent Steel and Allied Products. The judges concluded that the procedural deficiencies identified in the CAT\u2019s earlier rulings persisted, prompting a fresh assessment of the tribunal\u2019s decision\u2011making process.\n\nThe High Court\u2019s order remands the two CAT judgments back to the tribunal for reconsideration in accordance with the principles of natural justice and transparent adjudication. The decision underscores the judiciary\u2019s scrutiny of customs dispute mechanisms and reaffirms the requirement that tribunal members engage in independent, reasoned deliberations before issuing binding orders. The remand is expected to delay the final resolution of the Crescent Steel matter while ensuring compliance with procedural safeguards.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/02/shc-finds-two-more-judgments-of-customs-appellate-tribunal-devoid-of-independent-deliberations-remands-back-the-same/"}, {"head": "10 Years of Toshi -Pakistan\u2019s Renowned DJ Lights Up The Grid Lahore", "body": "Pakistani DJ and producer Toshi marked a decade in music with the Lahore chapter of 10 Years of Toshi at The Grid. The concert brought together music loves, the cr\u00e8me de la cr\u00e8me of Lahore\u2019s social and creative community, and guests including singer Annural Khalid to rekindle the magic of \u201cDil De Bol.\u201d The gathering celebrated a career that spans DJ performances, original productions and collaborations. It also put The Grid in focus as THE venue for live music and entertainment. Born Sarosh Ansar on June 15, 1997, in Rawalpindi, Toshi has built his career as both a DJ and a music producer. The anniversary concert recognised that dual identity, bringing audiences together around his work behind the decks and in the studio. His catalogue includes \u201cBIBA,\u201d \u201cDil De Bol,\u201d \u201cLagda Nahi,\u201d \u201cLove Again,\u201d and \u201cYaar Da Deedar.\u201d His official biography also reports that his music has reached audiences in Pakistan, the UAE, Malaysia, the United Kingdom, Turkey and other European markets.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/02/10-years-of-toshi-pakistans-renowned-dj-lights-up-the-grid-lahore/"}, {"head": "38 Pakistani companies showcase products at 140th Canton Fair in China", "body": "The 140th edition of the China Import and Export Fair, commonly known as the Canton Fair, opened in Guangzhou in early October 2026, drawing more than 25,000 exhibitors from over 200 economies. Among the international participants, 38 Pakistani firms set up booths to display a range of merchandise, marking one of the country's largest collective presences at the biannual event. The fair, which runs for three phases over 12 days, serves as a pivotal platform for manufacturers and service providers to meet buyers, negotiate contracts and gauge market trends across Asia and beyond.\n\nPakistani exhibitors presented products spanning textiles, agricultural commodities, leather goods, and information\u2011technology solutions, reflecting the country's diversified export base. Delegates highlighted the role of the fair in opening new distribution channels and securing orders that could bolster Pakistan's non\u2011oil foreign\u2011exchange earnings. Organisers noted that the Canton Fair continues to be a barometer of global trade sentiment, and the participation of 38 firms underscores Pakistan's intent to deepen commercial ties with Chinese partners and other international buyers attending the exhibition.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistani-companies-140th-canton-fair-2026/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "TUESDAY, NOVEMBER 03, 2026", "headline": "Karam Ceramics Limited -performance and outlook", "deck": "Karam Ceramics Limited was incorporated in Pakistan as a public limited company in 1979. The company is engaged in the manufacturing and sale of wall and floor tiles. Pattern of Shareholding As of June 30, since 2025, KCL has a total of 14.55 million shares outstanding which are ", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40447083/karam-ceramics-limited-performance-and-outlook", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["Karam Ceramics Limited was incorporated in Pakistan as a public limited company in 1979. The company is engaged in the manufacturing and sale of wall and floor tiles. Pattern of Shareholding As of June 30, since 2025, KCL has a total of 14.55 million shares outstanding which are held by 306 shareholders. Local general public has the majority stake of 74.94 percent in the company followed by Company\u2019s Directors, CEO and their children holding 24.81 percent shares. The remaining ownership is distributed among other categories of shareholders. Historical Performance (since 2021-26) KCL\u2019s net sales dropped twice over the period under consideration i.e. since 2022 and since 2025. The company registered gross, operating and net profit only since 2021. In the remaining years under consideration, the company stayed in the negative zone. The detailed performance review of the period under consideration is given below. since 2021 KCL\u2019s net sales improved by 21.53 percent year-on-year to clock in at Rs.1126.65 million. Stronger topline was the result of both higher sales volume as well as increase in the selling prices. Low-cost housing scheme initiated by the government coupled with the real-estate boom greatly strengthened the allied industries including ceramics. To make the most of the demand recovery, KCL produced 2.36 million sq. meters of tiles since 2021, up 31 percent year-on-year. This culminated into capacity utilization of 36 percent since 2021 versus 28 percent in the previous year. The company was able to pass on the effect of cost hike to its consumers, resulting in gross profit of Rs.35.74 million since 2021. This translated into GP margin of 3.17 percent since 2021. This was against the gross loss of Rs. 66.74 million registered since 2020. Selling and administrative expense continued to slide since 2021 due to lower vehicle running and maintenance charges, travelling expense, fee and subscription charges as well as advertising expense incurred since 2021. The company posted operating profit of Rs.80.51 million since 2021 which translated into OP margin of 7.15 percent. This was against the operating loss of Rs.13.76 million recorded since 2020. Despite monetary easing, finance cost surged by 8.64 percent since 2021 on account of increased borrowings. KCL posted net profit of Rs.41.63 million since 2021 with EPS of Rs.2.86 and NP margin of 3.70 percent. This was against the net loss of Rs.43.77 million and loss per share of Rs.3.01 posted since 2020. The topline growth since 2021 was followed by 27.39 percent slump in net sales since 2022. KCL\u2019s net sales were recorded at Rs.818.08 million since 2022. The political and economic headwinds took toll on the infrastructure and construction activities in the country. Low investor confidence on account of deteriorating macroeconomic indicators as well as high discount rate resulted in depressed real-estate activity in the country. KCL\u2019s production marched down by 41 percent year-on-year since 2022 to clock in at 1.392 million sq. meters. This translated into a thin capacity utilization of 21 percent since 2022. Cost of sales couldn\u2019t shrink proportionately owing to escalated cost of raw materials and packaging material, high fuel and power charges as well as sharp depreciation of Pak Rupee. The company incurred gross loss of Rs. 198.04 million since 2022. Selling and administrative expense surged by 14.19 and 15.11 percent respectively since 2022 due to higher payroll expense, fee and subscription charges as well as legal and professional charges. Operating loss was recorded at Rs.199.89 million since 2022. KCL was able to squeeze its finance cost by 34.51 percent since 2022 despite higher discount rate due to increased borrowings from related parties for the retirement of external loan. KCL incurred net loss of Rs.251.76 million with loss per share of Rs.17.30 since 2022. KCL\u2019s topline registered 19.44 percent year-on-year rise to clock in at Rs. 977.13 million since 2023. KCL\u2019s production plummeted by 13 percent year-on-year since 2023 to clock in at 1.216 million sq. meters. This translated into capacity utilization of 19 percent since 2023, the lowest since 2018. This gives a hint that the inclined net sales were primarily the effect of upward revision in prices. The imposition of new taxes on property, dejected macroeconomic indicators, shrunken purchasing power of consumers and high discount rate kept the investors at bay from the real-estate sector. This radically shattered the performance of ceramics industry. Cost of sales mounted by 31.75 percent year-on-year since 2023 on account of massive depreciation of Pak Rupee, high commodity prices as well as hike in electricity tariff. Another reason for high cost of sales since 2023 was due to increased investment in repair and maintenance in order to boost plant efficiency and reduce cost. Gross loss amplified by 82.61 percent since 2023 to clock in at Rs.361.65 million. Selling expense rose exorbitantly by 131.35 percent since 2023 due to exceptionally high freight charges on account of elevated fuel charges. Conversely, administrative expense marched down by 10.48 percent since 2023 as the company replaced its permanent employees with the contractual ones which reduced its payroll expense. Directors\u2019 remuneration also massively plunged since 2023. Other expense surged by 184.11 percent since 2023 due to massive exchange loss. Conversely, other income slipped by 92.17 percent since 2023 due to high base effect as the company earned gain on sales of its fixed assets since 2022. KCL\u2019s operating loss magnified by 111 percent since 2023 to clock in at Rs.421.94 million. Finance cost ticked up by only 8.22 percent since 2023 despite high discount rate as the company considerably reduced its external borrowings. KCL\u2019s gearing ratio drastically fell to 3 percent since 2023 from 64 percent since 2022. The company incurred net loss of Rs.474.96 million since 2023 which translated into loss per share of Rs.32.65. since 2024, KCL recorded year-on-year topline growth of 38 percent. This culminated into net sales of Rs.1348.47 million since 2024. During the year, the company\u2019s production grew by 46 percent to clock in at 1.776 million square meters. This culminated into capacity utilization of 27 percent since 2024. During the year, the company introduced new brand \u201cNOVA\u201d with superior quality and design which was very well received by the market. 145 percent increase in the cost of gas over the year pushed up the cost of sales by 32 percent since 2024. This resulted in gross loss of Rs.418.78 percent since 2024, up 15.8 percent year-on-year. Selling expense inched up by 3.74 percent since 2024 due to higher freight as well as travelling & conveyance charges incurred during the year. Administrative expense ticked up by 3.2 percent since 2024 due to higher fee & subscription as well as utility expense incurred during the year. The company downsized its workforce from 369 employees since 2023 to 309 employees since 2024. This considerably reduced the payroll expense incurred during the year. Other expense tapered off by 84.28 percent since 2024 due to lower exchange loss as Pak Rupee greatly stabilized of-late. Other income slid by 3.52 percent since 2024 as unlike last year, the company didn\u2019t record any gain on sale of its fixed assets since 2024. Operating loss surged by 11.95 percent since 2024 to clock in at Rs.472.37 million since 2024. Finance cost massively dropped by 97.56 percent since 2024 as the company sponsors extended interest fee loans to pay off external financing. This resulted in 9 percent downtick in net loss of KCL which stood at Rs.432.088 million since 2024. Loss per share stood at Rs.29.7 percent since 2024. since 2025, KCL recorded 56.68 percent thinner topline to the tune of Rs.584.21 million. This was on account of wavering investor confidence which kept them away from real-estate investment despite improvement observed in macroeconomic indicators. Market saturation and high competition also slashed the sales during the year. In line with weak demand, KCL\u2019s production plunged by 75 percent to clock in at 0.442 million square meters. Capacity utilization fell to its lowest level of 7 percent since 2025. Cost of sales dropped by 36.85 percent since 2025 which resulted in gross loss of Rs.531.86 million, up 27 percent year-on-year. Higher gas price was the main culprit which drove up gross loss since 2025. Selling expense plummeted by 83 percent since 2025 due to thinner sales volume which pushed down freight charges, salaries of sales force and conveyance charges. Conversely, administrative expense surged by 45.94 percent since 2025 on account of higher payroll expense, repair & maintenance charges as well as legal & professional charges. KCL streamlined its contractual employees from 301 since 2024 to 293 since 2024. Other expense multiplied by a massive 2262.83 percent since 2025 due to provisioning done for refundable taxes. Conversely, other income deteriorated by 76.43 percent since 2025 due to lower profit recognized on saving deposits. KCL recorded operating loss of Rs.610.89 million since 2025, up 29.32 percent year-on-year. Finance cost escalated by 239.88 percent since 2025 despite lower discount rate. This primarily included finance cost on the amount released by the bank under guarantee issued in favor of Sui Southern Gas Company Limited. Net loss mounted by 68.54 percent since 2025 to clock in at Rs.728.226 million. This translated into loss per share of Rs.50.05 since 2025. Recent Performance (2026) In 2026, KCL\u2019s net sales ticked up by 5.70 percent to clock in at Rs.617.48 million. The demand remained largely concentrated in renovation projects and selected public sector projects while private sector construction activity stayed muted in 2026. The company\u2019s investment in the BMR of its machinery helped it reduce gas consumption, improve productivity and enhance product quality in line with the market standards. This resulted in 40.50 percent decline in cost of sales in 2026 with gross loss shrinking by 91.24 percent to clock in at Rs.46.61 million. Distribution expense mounted by 98.43 percent in 2026 likely due to slight demand recovery which might have pushed up freight charges as well as travelling & conveyance charges. Increased payroll expense, repair & maintenance charges as well as legal & professional charges appear to be the main culprits behind 21.38 percent spike in administrative expense during the year. Other income strengthened by 1169 percent in 2026 apparently due to gain recognized on the disposal of fixed assets as well as exchange gain recognized during the year. KCL recorded 85 percent thinner operating loss to the tune of Rs.91.62 million in 2026. Finance cost thinned down by 78.34 percent in 2026 due to lower average borrowing rate and KCL\u2019s heavy reliance on interest-free, on-demand loan from a related party \u2013 Swat Ceramics. Lower finance cost in 2026 may also be justified as since 2025, the company\u2019s finance cost massively increased due to the amount released by the bank under guarantee issued in favor of Sui Southern Gas Company Limited. Net loss shrank by 86.21 percent to clock in at Rs.100.457 million in 2026. This translated into loss per share of Rs.6.90 in 2026. Future Outlook With wavering investor confidence, high excise duties and elevated property taxes, the demand for real-estate may not see any considerable recovery in the near to medium term. Moreover, escalated energy prices, inflated construction costs as well as geopolitical uncertainty will also pose risk to industry demand. Continued reliance on loans from the related parties flag liquidity concerns. On the positive front, the completion of BMR project has created room for margin improvement. The company also plans to expand its product portfolio to cater to changing customer preferences and diversify its sales mix."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "Dams in Balochistan -Senate panel questions rising costs of projects", "body": "ISLAMABAD: A Senate sub-committee has questioned the viability and escalating costs of major dam projects in Balochistan, raising concerns over their impact on local communities and the use of public funds. The Planning Commission informed the sub-committee that a total of 138 projects were being handled under the Aghaz-e-Haqooq-e-Balochistan Package, including more than 133 ongoing projects and seven new schemes, with a total approved cost of Rs1.984 trillion. An allocation of Rs193 billion had been made for Balochistan during the current fiscal year. The portfolio includes 18 water-sector projects involving dams and canals, while 54 projects relate to road infrastructure, 36 of which are being implemented by the Balochistan government. The sub-committee met here on Monday with Senator Jan Muhammad Baloch in the chair. The sub-committee reviewed progress on projects being executed under the Aghaz-e-Haqooq-e-Balochistan Package and examined development initiatives in the water, road infrastructure and employment sectors. The members of the body expressed serious concerns over delays and escalating costs of development projects, questioning their economic viability and potential impact on local communities, while billions of rupees in public funds were being spent on schemes that might fail to deliver tangible benefits to the province\u2019s population. Officials of the Ministry of Water Resources informed the sub-committee that all 18 water-sector projects had been approved, with 13 being executed by the Balochistan government and five by WAPDA under the ministry\u2019s supervision. The projects have a combined cost of Rs369.3 billion, while Rs16.9 billion has been allocated for the current financial year. The officials further said that 51 water-sector projects had been completed in Balochistan since 2010. Regarding the Mangi Dam, the sub-committee was informed that approximately 80 percent of the work had been completed and that water from the reservoir would primarily be used for drinking purposes. The Balochistan Irrigation Department also briefed the sub-committee on 13 dams currently under construction, including the Ghuruk Storage Dam, Awaran Dam, Panjgur Dam, Winder Dam, Shahznak Dam and Gish Kaur Storage Dam. Expressing strong reservations over the Panjgur Dam, Senator Jan Muhammad Baloch warned that blocking the flow of the main river could seriously disrupt the daily lives of local residents and potentially affect the entire population of Panjgur district. He directed the relevant authorities to conduct a comprehensive review of the project and obtain detailed reports from SUPARCO and WAPDA for submission to the Senate committee at its next meeting. Officials maintained that local representatives had been consulted and arrangements would be made to ensure adequate water flows for the traditional karez system. However, the convener observed that communities in other parts of Balochistan had also faced difficulties because of similar dam projects. He also questioned the increase in the Panjgur Dam\u2019s estimated cost from Rs18 billion to Rs23 billion, seeking greater scrutiny of the project\u2019s financial and social implications. The sub-committee also examined the Gish Kaur Storage Dam, where the convener expressed grave concern over a sharp escalation in the revised project cost from Rs11 billion to Rs44 billion. Questioning the project\u2019s economic justification, the Committee chairman said that the massive increase in expenditure raised serious concerns about the potential wastage of national resources. He observed that the scheme did not appear to offer sufficient benefits in proportion to its construction cost, particularly as there was little agricultural land in the surrounding area and some nearby land had already been occupied by housing schemes. He directed the concerned department to reassess the project\u2019s viability and submit its findings to the subcommittee. The department informed the meeting that the prevailing law and order situation had made it difficult to complete several dam projects within their original timelines, necessitating extensions in their completion schedules. The sub-committee subsequently reviewed road infrastructure projects in Balochistan, with National Highway Authority (NHA) officials briefing members on ongoing and completed schemes. Referring to the Prime Minister\u2019s directives regarding road infrastructure development, Senator Jan Muhammad Baloch observed that the Frontier Works Organisation (FWO) generally undertook projects where full funding was available but tended to avoid schemes supported by partial funding arrangements. The sub-committee was informed that a private company was executing the Western Bypass Quetta project, while FWO was working on the Karachi-Khuzdar section of the N-25 highway in three packages. The NHA officials said that 52 percent of the overall funds had been allocated to Balochistan. They added that the Prime Minister had directed the authorities to accord priority to the Karachi-Chaman highway project. Providing updates on individual schemes, officials said 86 percent of the Quetta Bypass had been completed, the RekoDiq-linked access road was nearing completion, while 64 percent of the Awaran-Hoshab Road project had been completed. They stressed that timely release of funds was essential to ensure completion of these projects within their stipulated deadlines. The convener directed the authorities to summon project directors of the Bilida-Prom, Bilida-Balgatar and Bilida-Jalgi link road projects to brief the subcommittee on their progress. He also expressed concern over the road passing through Hub and called for special attention to the Western Quetta Bypass. The sub-committee then reviewed employment opportunities and recruitment initiatives for the people of Balochistan. Officials of the Establishment Division informed the meeting that advertisements had been issued for more than 4,500 vacancies under Balochistan\u2019s provincial quota. They said a dedicated cell had also been established within the division to monitor and facilitate recruitment-related matters concerning the province. The officials explained that although recruitment against Basic Pay Scale (BPS) 1 to 4 positions had generally been restricted and shifted to the private sector, Balochistan had been exempted from this restriction by the federal government. They further informed the committee that candidates from Balochistan had been exempted from technical tests and granted a five-year relaxation in the upper age limit. In addition, a 10 percent quota had been reserved for women and five percent for minorities. The Establishment Division secretary had also issued special instructions to prioritise the matter and facilitate candidates from the province, officials added. Senator Jan Muhammad Baloch, however, expressed concern over the appointment of candidates in Pakistan Railways on a contractual basis and stressed the need to consider their regularisation. He also raised questions over recruitment advertisements issued by the Finance Division, Pakistan Military Accounts Department, Survey of Pakistan and K-Electric, QESCO. Highlighting technical shortcomings in the online recruitment application system, the convener pointed out that despite the five-year age relaxation granted to Balochistan candidates, the recruitment software was preventing overage applicants from submitting their applications. He directed the relevant authorities to immediately rectify the technical glitches to ensure that eligible candidates from Balochistan were not deprived of employment opportunities because of administrative and system-related shortcomings. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447084/dams-in-balochistan-senate-panel-questions-rising-costs-of-projects"}, {"head": "Aurangzeb says reviewing tokenization of Eurobond debt", "body": "ISLAMABAD: Pakistan needs financial innovation that lowers the cost of doing business and brings more people into the formal economy as the country moves from economic stabilisation towards sustainable growth, Finance Minister Muhammad Aurangzeb said. Virtually addressing the \u201cDialogue on Digital Assets and the Future of Banking,\u201d organised by the Pakistan Banks\u2019 Association (PBA) in collaboration with LUMS on Monday, Aurangzeb stressed that the integration of digital assets into the financial system should be guided by practical economic benefits and their ability to facilitate business operations. Aurangzeb said Pakistan\u2019s economic progress requires continued fiscal discipline, higher exports and greater private-sector investment. READ ALSO: Pakistan explores tokenisation of existing Eurobond debt, says Aurangzeb He highlighted the use of deposit tokens for institutional clients on blockchain networks as a practical example of digital financial innovation, explaining that such developments could help improve financial operations. Senator Aurangzeb said the government is holding discussions on the proposed initiative and is seeking Cabinet approval before proceeding with the issuance of a request for proposals (RFP). \u201cWe are reviewing at this point from the Ministry of Finance and Government of Pakistan, is tokenization of our existing Eurobond debt. We are in discussions at this point, and we are looking forward to the Cabinet approval on this, before we move ahead with issuing the RFP on this front,\u201d he added. The finance minister also referred to the Bank for International Settlements\u2019 (BIS) Project Agora, which is examining tokenised bank deposits and exploring the potential for cross-border payments using central bank reserves. The finance minister emphasised that banks remain central to protecting customers\u2019 funds and reducing risks associated with digital technologies. He said banks also have a fundamental role in delivering financial services to consumers, making their involvement important as digital assets become part of the financial system. Aurangzeb noted that risks linked to stablecoins depend on their issuers and the mechanisms through which they are backed and redeemed. He added that the risks associated with unbacked crypto assets vary. Aurangzeb said Pakistan has made progress towards developing a legal and supervisory regime for virtual assets, with the Virtual Assets Act 2026 providing the country\u2019s legal framework. Under the law, the relevant authority is responsible for licensing and supervising virtual asset service providers. He stressed that regulations must distinguish between different categories of digital assets and the economic activities associated with them, rather than applying a single approach to the entire sector. The finance minister identified the State Bank of Pakistan (SBP) and the Securities and Exchange Commission of Pakistan (SECP) as key institutions in shaping the regulatory framework for digital assets. He said effective oversight is essential to ensure that innovation supports economic activity while addressing the different risks posed by stablecoins, other virtual assets and unbacked cryptocurrencies. The finance minister urged banks to play an active role in developing practical proposals around digital financial technologies. \u201cYou bring the customer relationships, operational experience and risk management capabilities that this work requires. Invest in the expertise to assess these technologies and work with relevant regulators on the activities permitted within your mandates and, of course, with the support of your respective boards,\u201d he added. He stressed digital financial innovation must be accompanied by appropriate safeguards, regulatory oversight and cybersecurity measures. \u201cWe all need to acknowledge that we are under attack 24/7 by state and non-state actors, and therefore there is no room for complacency,\u201d he added. Aurangzeb said Pakistan has established a statutory framework through the Virtual Assets Act 2026. He said the next step is to ensure its effective implementation through capable supervision and stronger coordination among institutions. Aurangzeb\u2019s remarks underscored the government\u2019s focus on linking digital financial innovation with Pakistan\u2019s broader economic objectives, including sustainable growth, financial inclusion and a more efficient business environment. -NNI A press release adds: Bilal Bin Saqib, Minister of State and Chairman, PVARA, said Pakistan should help build the new financial infrastructure now taking shape. \u201cWhen the world\u2019s correspondent banking arrangements and major payment networks were taking shape, Pakistan was largely a user of systems designed elsewhere, rather than an architect of those systems. Today, the rules of finance are evolving again. The question before Pakistan is simple: do we want to keep renting our future, or do we want to help build and own it?\u201d He called on banks to become launchpads for innovators, to invest in AI capabilities and to strengthen collaboration with universities such as LUMS. He also identified supervised, bank-led payment arrangements involving major Gulf remittance corridors as an opportunity worthy of examination, subject to regulatory coordination and appropriate safeguards. SaleemUllah, Deputy Governor, SBP, stressed the need to prioritise practical use cases over technology itself, identifying blockchain-enabled remittances and Roshan Digital Accounts as areas worth exploring in Sandbox. He underscored the importance of assessing and mitigating risks, including monetary and financial stability, cybersecurity, AML/KYC compliance and consumer trust, encouraging banks to test relevant solutions through SBP\u2019s regulatory sandbox. ImtiazHaider, Commissioner, SECP, emphasised the need for a clear, value-driven approach to tokenisation. He urged industry stakeholders and regulators to assess who stands to benefit, identify regulatory gaps and evaluate Pakistan\u2019s readiness to adopt emerging technologies. He stressed that the fundamental question is not how assets can be tokenised, but which assets should be tokenised to deliver meaningful economic value. ZafarMasud, Chairman, PBA, said, \u201cPakistan\u2019s banks are not asking to be protected from this change. We are asking for clear regulatory standards that we can build towards. As the ultimate delivery channel, banks must be formally engaged from the outset, particularly while the regulatory framework is being developed. The industry brings the infrastructure, compliance capabilities and public trust needed to translate innovation into practical financial solutions. This Dialogue marks an important step towards developing a coordinated industry position for engagement with SBP, SECP and PVARA.\u201d Dr Ali Cheema, Vice Chancellor, LUMS, highlighted the importance of connecting research, policy and industry practice to assess emerging opportunities, address implementation challenges and build the capabilities required for the future of digital finance. The Dialogue also featured a focused industry workshop led by Umar Farooq of J.P. Morgan, bringing together banking technology leaders, regulators and academia to identify priority use cases, potential pilots and implementation considerations. The discussions will help shape a coordinated banking industry perspective and a potential roadmap for continued engagement with policymakers and regulators, supporting Pakistan\u2019s transition towards a responsible, innovative and future-ready financial ecosystem. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447164/aurangzeb-says-reviewing-tokenization-of-eurobond-debt"}, {"head": "Banks and Regulators Chart Pakistan\u2019s Digital Asset Path at PBA \u2013 LUMS Dialogue", "body": "The Pakistan Banks Association (PBA), in collaboration with the Centre for Digital Asset Research (CeDAR) at LUMS, convened the \u201cDialogue on Digital Assets and the Future of Banking,\u201d bringing together the Ministry of Finance, Pakistan Virtual Assets Regulatory Authority (PVARA), State Bank of Pakistan (SBP), Securities and Exchange Commission of Pakistan (SECP), banking industry leaders and international experts. Held in continuation of the Pakistan Banking Summit 2026, the Dialogue explored the banking sector\u2019s role in advancing digital finance through responsible innovation, regulatory coordination and institutional preparedness. Discussions focused on cross-border payments, tokenisation, programmable payments and the practical application of emerging technologies within Pakistan\u2019s financial ecosystem. The Dialogue featured Senator Muhammad Aurangzeb, Federal Minister for Finance and Revenue, as Chief Guest, alongside Bilal Bin Saqib, Minister of State and Chairman, PVARA; Saleem Ullah, Deputy Governor, SBP; Imtiaz Haider, Commissioner, SECP; and Umar Farooq, Global Co-Head of Payments, J.P. Morgan, as keynote speakers, along with other industry leaders and international experts. Addressing the Dialogue, Senator Muhammad Aurangzeb highlighted the government\u2019s exploration of tokenising Pakistan\u2019s existing Eurobond debt, subject to necessary approvals. He emphasised the importance of collaboration between banks, regulators and technology practitioners to develop practical digital finance solutions aligned with national economic priorities, supported by strong risk management and cybersecurity safeguards. Bilal Bin Saqib, Minister of State and Chairman, PVARA, said, Pakistan should help build the new financial infrastructure now taking shape. \u201cWhen the world\u2019s correspondent banking arrangements and major payment networks were taking shape, Pakistan was largely a user of systems designed elsewhere, rather than an architect of those systems. Today, the rules of finance are evolving again. The question before Pakistan is simple: do we want to keep renting our future, or do we want to help build and own it?\u201d He called on banks to become launchpads for innovators, to invest in AI capabilities and to strengthen collaboration with universities such as LUMS. He also identified supervised, bank-led payment arrangements involving major Gulf remittance corridors as an opportunity worthy of examination, subject to regulatory coordination and appropriate safeguards.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/02/banks-and-regulators-chart-pakistans-digital-asset-path-at-pba-lums-dialogue/"}, {"head": "Govt arranges Rs15 per litre relief on petrol", "body": "ISLAMABAD: The federal government has arranged Rs15 per litre relief on petrol through a Rs15 billion monthly cross-subsidy arrangement with local refineries, Petroleum Minister Ali Pervaiz Malik announced on Monday at a joint press conference with Information Minister Attaullah Tarar. Addressing the media, the ministers said the government had already distributed Rs27 billion in relief to owners of small cars, motorcycles and rickshaws. The petroleum minister thanked domestic refineries for absorbing an anticipated Rs15 per litre increase in petrol prices. He explained that the interim arrangement would keep domestic petrol prices around Rs15 per litre lower than international market rates, with local refineries absorbing a monthly burden of approximately Rs15 billion. The ministry has scheduled a follow-up meeting with refinery representatives on Tuesday to further refine the mechanism. READ ALSO: Petrol subsidy: Govt likely to continue scheme for 10 months The relief initiative comes amid escalating regional conflict, which has severely disrupted global energy supply chains. Malik noted that petrol import premiums had surged from USD5 per barrel before the conflict to USD20 per barrel, while subsequent Pakistan State Oil (PSO) tenders had seen premiums rise to USD25-30 per barrel or higher due to soaring freight, insurance and logistics costs. Local production meets approximately 30 percent of Pakistan\u2019s petrol demand, leaving the country dependent on imports for the remaining 70 percent, he said. Information Minister Attaullah Tarar reassured the public that there was no fuel shortage in the country and that national reserves remained sufficient. Malik also dismissed rumours of an increase in LPG prices, rejecting claims that rates had reached Rs700 per kilogramme. Regarding winter energy arrangements, Malik confirmed that gas supplies for domestic cooking hours were fully secured for November, while comprehensive supply plans for the peak winter months of December through February were being finalised. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447158/govt-arranges-rs15-per-litre-relief-on-petrol"}, {"head": "Pakistan assumes chairmanship of SCO Interbank Consortium for 2026-27", "body": "Pakistan has assumed the chairmanship of the Shanghai Cooperation Organisation Interbank Consortium (SCO-IBC) for 2026-27, the Ministry of Finance said on Monday. HBL Chairman Sultan Ali Allana has taken over as head of the consortium for the period. \u201cThe development coincides with Pakistan\u2019s chairmanship of the SCO for the same period, reflecting the country\u2019s role in promoting regional trade, investment, financial connectivity and economic cooperation\u201d, the statement said. The ministry congratulated Allana on assuming the responsibility and reaffirmed Pakistan\u2019s commitment to strengthening economic partnerships among SCO member states, facilitating cross-border trade and investment, and advancing regional integration and shared prosperity. The SCO-IBC is a key platform for financial collaboration among SCO member states. It aims to promote sustainable development through cooperation with multilateral institutions, enhance regional trade and investment, and explore new mechanisms for developing transnational mega projects. Pakistan is also set to host the next meeting of the SCO Council of Heads of State (CHS) after assuming its chairmanship in September. The development marks another step in the country\u2019s growing engagement with the regional organisation, which has expanded its focus from security cooperation to economic development and regional connectivity. Deputy Prime Minister and Foreign Minister Ishaq Dar has said Pakistan\u2019s membership of the SCO has evolved from observer status to proactive full membership since 2017, reflecting its commitment to multilateralism and regional cooperation. He has also described Pakistan\u2019s upcoming chairmanship as a reflection of the confidence reposed in its regional and international leadership. Pakistan hosted the SCO Council of Heads of Government meeting in Islamabad in since 2024 and is currently chairing the organisation\u2019s Regional Anti-Terrorist Structure since 2025-26. It also holds the permanent chairmanship of an SCO working group on poverty alleviation, which focuses on improving living standards across the region.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2041585/pakistan-assumes-chairmanship-of-sco-interbank-consortium-for-2026-27"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "TUESDAY, NOVEMBER 03, 2026", "headline": "Hackers Can Easily Hijack Systems Running Popular Remote-Control App", "deck": "Pakistan\u2019s National Cyber Emergency Response Team (National CERT) has warned organizations about a high-severity vulnerability in TeamViewer remote-control software that could allow attackers to execute arbitrary code on affected systems. The flaw, tracked as CVE-2026-111585, has", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/11/02/hackers-can-easily-hijack-systems-running-popular-remote-control-app/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Technical Analysis", "body": ["Pakistan\u2019s National Cyber Emergency Response Team (National CERT) has warned organizations about a high-severity vulnerability in TeamViewer remote-control software that could allow attackers to execute arbitrary code on affected systems. The flaw, tracked as CVE-2026-111585, has a CVSS severity score of 8.8 and results from an integer overflow in the software\u2019s processing of remote-control screen data. Successful exploitation could trigger a denial-of-service condition, cause system crashes or potentially enable arbitrary code execution with the privileges of the affected viewer process. The vulnerability affects TeamViewer clients running versions earlier than 15.83 on Windows, Linux and macOS. TeamViewer Portable for Windows and certain versions of the Android remote-control app are also affected, while legacy 14.x and 13.x releases have separate security updates. According to the advisory, TeamViewer version 15.83 or later addresses the vulnerability. Users of the legacy branches should install version 14.7.48868 or 13.2.36231, as applicable. National CERT has urged organizations using TeamViewer for remote access, technical support and system administration to identify vulnerable installations and immediately upgrade to the latest applicable fixed versions."], "quote": "\u201cWhen the Senate demands records in two days, it isn\u2019t just a political gesture\u2014it\u2019s a statutory wake\u2011up call for the FBR to tighten customs, assessment and revenue controls.\u201d", "editorial": {"title": "Statutory Scrutiny Intensifies: Senate Holds FBR to Account Over Massive Imports", "deck": "A Senate sub\u2011committee\u2019s two\u2011day ultimatum on Rs1,120\u202fbillion FATA/PATA imports dovetails with new FBR taxpayer\u2011status tools, underscoring a tightening fiscal regime and heightened demand for transparency in customs and revenue streams.", "paragraphs": ["The headline that dominated the morning wire \u2013 \u201cSenate panel questions FBR over Rs1,120\u202fbillion FATA/PATA imports, demands records within two days\u201d \u2013 signals a decisive shift in parliamentary oversight of customs and revenue administration. The panel\u2019s demand for a complete audit trail within a 48\u2011hour window reflects growing unease about the fiscal leakages that may arise from unchecked border entries, especially in the sensitive FATA/PATA zones where customs duties constitute a critical component of the federal exchequer. By forcing the Federal Board of Revenue (FBR) to produce detailed import ledgers, the Senate is effectively demanding that the statutory machinery of customs valuation, assessment, and duty collection be brought under tighter scrutiny, lest the Rs1,120\u202fbillion in imports erode the nation\u2019s fiscal space.", "In parallel, the FBR\u2019s newly released \u201cFBR ATL 2026: How to check your active taxpayer status online and by SMS\u201d guide offers a technological antidote to the very compliance gaps the Senate panel highlighted. The ATL (Active Taxpayer List) portal, now accessible via both web and mobile channels, enables taxpayers to verify their standing instantly, thereby reducing the lag in assessment and improving the accuracy of tax records. This move aligns with the broader statutory agenda of modernising tax administration, reinforcing the principle that transparent, real\u2011time data is essential for effective revenue collection. By encouraging voluntary compliance through easy\u2011to\u2011use digital tools, the FBR hopes to shore up its fiscal base without resorting to punitive measures, a strategy that could mitigate the risk of future Senate interventions.", "The fiscal reverberations extend beyond customs and tax compliance. The Senate\u2019s inquiry into the \u201cDams in Balochistan \u2013 Senate panel questions rising costs of projects\u201d underscores the interconnectedness of infrastructure spending, reserves, and statutory budgeting. Escalating dam costs threaten to divert funds from the central reserves, pressuring the fiscal deficit and prompting a re\u2011evaluation of project appraisal mechanisms. As the Planning Commission reports a sprawling portfolio of 138 projects under the Aghaz\u2011e\u2011Haqooq\u2011e\u2011Balochistan Package, the need for rigorous cost\u2011benefit assessments and transparent SRO (Statutory Regulatory Orders) becomes paramount. In this climate, the Senate\u2019s dual focus on customs revenue and capital expenditure reflects a holistic approach to safeguarding the nation\u2019s fiscal health."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Germany says lawmakers\u2019 iPhones may have been hacked with spyware", "body": "Apple issued security alerts to a group of German parliamentarians and a documentary filmmaker, indicating that their iPhones may have been compromised by sophisticated spyware capable of extracting messages, location data and microphone audio. The alerts, triggered by anomalous activity detected in the devices' operating system, prompted the recipients to install emergency updates and to reset their passwords. German authorities, including the Federal Office for Information Security, have opened a formal investigation to determine the source of the intrusion and to assess whether the alleged software aligns with known surveillance tools such as Pegasus.\n\nThe incident follows a series of high\u2011profile revelations about state\u2011level cyber\u2011espionage targeting politicians, journalists and activists worldwide. German officials have emphasized the need for heightened digital hygiene among public officials and have urged Apple to share technical details that could aid the forensic analysis. The investigation is expected to examine whether the spyware was deployed by foreign intelligence services or commercial actors, and to evaluate the broader implications for the security of government communications.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/02/germany-says-lawmakers-iphones-may-have-been-hacked-with-spyware/"}, {"head": "UAE state oil company announces OpenAI partnership", "body": "UAE state oil company ADNOC on Monday announced a partnership with OpenAI, saying it would be the world\u2019s first energy firm to deploy OpenAI Frontier, an advanced artificial intelligence platform. The deal was announced as OpenAI CEO Sam Altman attended the UAE\u2019s flagship oil industry event in Abu Dhabi, which has bet heavily on the technology in a bid to diversify its economy away from energy. Gulf countries have been struggling to export oil since Iran began blockading the Strait of Hormuz and targeting tankers in the area, but the US military has been escorting ships through the route. The blockade has caused a spike in oil prices. ADNOC said in a statement that OpenAI\u2019s models will enable it to be \u201cthe first energy company in the world to use this technology to value every barrel while it is still in the ground\u201d. The deal will also see ADNOC and OpenAI partner with G42, and Emirati AI company chaired by the brother of the UAE\u2019s president. The oil-rich UAE is a top AI player in the Middle East and has been seeking to become a dominant force in the field globally. \u201cFrom the moment ChatGPT was born, the world has asked what energy can do for AI, and now together we will find out what AI can do for energy,\u201d said ADNOC\u2019s managing director and CEO Sultan Al Jaber at the ADIPEC oil conference. Altman praised the UAE as having \u201cconsistently been the most forward-looking country in the world for AI adoption\u201d. According to an ADNOC statement, \u201cOpenAI\u2019s advanced reasoning models will integrate decades of data across thousands of wells, multiple stacked reservoirs and hundreds of surface facilities together with capital, cost and commercial considerations, to prepare and optimise full-field development master plans\u201d. \u201cInterconnected AI agents will continuously forecast crude oil supply, demand, prices and margins, predict their impacts before they occur, and weigh the commercial and operational impact of every decision as one integrated process,\u201d the statement said. No financial details of the deal were disclosed. The UAE has been betting heavily on AI since 2017, when it named the world\u2019s first AI minister and became the second country after Canada to unveil a national AI strategy. A year later, G42 was founded with backing from Abu Dhabi-based sovereign wealth fund Mubadala. Chaired by the UAE president\u2019s brother, Sheikh Tahnoon bin Zayed Al Nahyan, it offers a range of AI products and employs more than 23,000 people. Last year, intense lobbying bore fruit when the US approved the export of advanced Nvidia chips to both the UAE and Saudi Arabia. On Sunday, Saudi state oil firm Aramco said it was taking a 49 percent stake in Saudi state-backed AI company Humain, injecting cash and assets as the tech firm tries to scale up to meet rising demand. Aramco, one of the world\u2019s biggest companies by market capitalisation, will inject about 9.9 billion Saudi riyals ($2.6bn) into Humain this year along with AI, compute and digital assets.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2041606/uae-state-oil-company-announces-openai-partnership"}, {"head": "'Like gene editing for neural networks': MIT researchers used GPT-6 Astra to edit Qwen's open weights directly, boosting math performance", "body": "Researchers at the Massachusetts Institute of Technology's Computer Science and Artificial Intelligence Laboratory announced a breakthrough in neural network optimization by employing OpenAI's GPT-6 Astra model to directly edit the weight parameters of an open\u2011source Qwen model. The technique, described as analogous to gene editing, modifies the numerical weights that govern the model's behavior without the need for conventional fine\u2011tuning through gradient descent. By applying this weight\u2011editing process, the team achieved an approximate sixfold increase in the Qwen model's performance on standardized mathematics benchmarks, marking a substantial leap in its problem\u2011solving capability.\n\nThe MIT team highlighted that the method enables rapid, targeted enhancements to existing models, potentially reducing the computational expense and time associated with traditional training cycles. The approach could accelerate the development of specialized AI systems across domains where precise performance gains are critical, while also raising questions about the broader implications of direct weight manipulation for model safety and reproducibility.", "source": "VentureBeat Feed", "url": "https://venturebeat.com/technology/like-gene-editing-for-neural-networks-mit-researchers-used-gpt-6-astra-to-edit-qwens-open-weights-directly-boosting-math-performance"}, {"head": "Anthropic warns that it\u2019s very close to RSI capability, aka self-building AI", "body": "Anthropic, the San Francisco\u2011based AI research firm, announced that its latest generation of language models is approaching the threshold of recursive self\u2011improvement (RSI), a stage where an AI system can autonomously enhance its own architecture and training processes at an accelerating pace. The company said internal benchmarks show the models are beginning to generate novel training data and optimization strategies without external human input, a capability that marks a departure from conventional supervised learning cycles.\n\nIndustry analysts note that reaching RSI could trigger a rapid escalation in AI performance, potentially outpacing existing safety and alignment frameworks. Anthropic emphasized that it is intensifying its research into robust oversight mechanisms and is collaborating with external partners to develop safeguards before the technology reaches a point of irreversible self\u2011propagation. The firm\u2019s caution reflects broader concerns within the AI community about the societal and ethical implications of self\u2011building systems.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/"}, {"head": "Claude\u2019s new rules against game cloning won\u2019t stop the AI copying boom", "body": "Anthropic has written a new set of restrictions against game cloning into the usage rules that govern its Claude assistant, formally barring users from employing the model to churn out close imitations of existing titles. The clause targets a signature practice of the vibe-coding era: a developer prompts a chatbot to recreate a popular game, swaps in fresh art and ships the result within hours. Puzzle games, physics toys and survival hits have been reproduced in this manner at a pace that storefronts have struggled to police, and Anthropic's move brings that cloning economy explicitly within the scope of a mainstream model's terms of service.\n\nThe surrounding boom explains why a policy line is unlikely to bite. Imitation has always been a force in gaming \u2014 match-three puzzlers and battle royales survived countless knock-offs long before machine learning arrived \u2014 but AI coding assistants have collapsed the cost of a working clone to an afternoon and a handful of prompts. App stores, Steam and itch.io have all contended with waves of derivative releases, and storefront moderation has repeatedly trailed the pace of production. Copyright law protects code and artwork but rarely the mechanics underneath, so an imitator typically needs little more than new assets and a new name to reach the market.\n\nStructurally, a usage policy is also a narrow instrument. One assistant's terms cannot bind rival models, open-weight systems or free tiers that impose no such conditions, and a developer deterred by Claude's rules can simply move to another tool. Enforcement ultimately happens at the storefront, where platform holders rather than model makers decide what reaches players. The rule therefore reads less as a dam and more as a signpost: Anthropic is signalling where it wants the technology pointed, even as the tsunami of imitators grows far beyond anything a single model maker can stem.", "source": "Ars Technica Feed", "url": "https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "TUESDAY, NOVEMBER 03, 2026", "headline": "Neve Campbell Confirms Return for \u2018Scream 8\u2019", "deck": "Neve Campbell confirmed that she will reprise her role as the ultimate final girl after Sidney survived her latest run-in with the Ghostface-masked killers in \u201cScream 7.\u201d", "hero_source": "Variety Global Wire", "hero_url": "https://variety.com/2026/film/news/neve-campbell-scream-8-sidney-prescott-1236938043/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Neve Campbell confirmed that she will reprise her role as the ultimate final girl after Sidney survived her latest run-in with the Ghostface-masked killers in \u201cScream 7.\u201d", "The 2025 movie was a major box office success, tallying the 30-year-old franchise\u2019s biggest opening ever ($97.2 million worldwide) and ultimately becoming the series\u2019 highest-grossing installment ($208 million worldwide against a $45 million budget). As a result, Spyglass Media and Paramount Pictures, which distributes the films, quickly began developing \u201cScream 8.\u201d Related Stories Spike Lee Is Praying the Knicks Don\u2019t Visit the Trump White House", "Campbell confirmed her involvement on Monday during an interview with the Associated Press, promoting her role in the Netflix series \u201cBlack Doves.\u201d", "\u201c\u2018Scream 8.\u2019 That\u2019s in the pipeline as well,\u201d Campbell said, listing the meta-horror movie among her upcoming projects. When pressed for further details about what Sidney will face this time around, she demurred. \u201cYou know I can\u2019t tell you anything about Scream 8,\u201d Campbell said, laughing. \u201cI\u2019ll be in it.\u201d", "Campbell has starred in six out of the seven \u201cScream\u201d movies, taking a break for 2023\u2019s \u201cScream 6\u201d following a contract dispute. She returned for \u201cScream 7\u201d after receiving a reported $7 million salary to play Sidney again."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "\u2018Vote for America 2026 -\u2019 Here\u2019s How to Watch Newsmax\u2019s Midterm Election Special Online for Free", "body": "Millions of voters across the United States are heading to the polls on Tuesday for the 2026 midterm elections, and Newsmax has outlined a dedicated programming block titled \u201cVote for America.\u201d The network\u2019s coverage kicks off at 6 p.m. Eastern Time with a special edition of \u201cCarl Higbie Frontline,\u201d hosted by former Navy SEAL Carl Higbie, offering a blend of real\u2011time election updates, policy analysis and interviews with candidates and political commentators. The hour\u2011long segment is positioned as the opening of a broader slate that will continue through the evening, featuring additional panels, voter\u2011information segments and live results as they come in.\n\nViewers can access the entire \u201cVote for America\u201d block at no cost through Newsmax\u2019s official website and its mobile applications, which provide a live stream compatible with most browsers and devices. The platform also offers on\u2011demand replays of individual segments, allowing audiences to catch up on any portion of the coverage they may have missed. By streaming online, the network aims to reach a nationwide audience beyond its traditional cable footprint, ensuring that election night information remains widely accessible.", "source": "Variety Global Wire", "url": "https://variety.com/2026/shopping/news/newsmax-midterm-elections-show-watch-live-online-free-stream-1236938036/"}, {"head": "New Indian Horror Lab Aims to Push Genre Past Ghosts and Comedy Hybrids (EXCLUSIVE)", "body": "An independent initiative, Platoon One Films, has launched a three\u2011month online screenwriting lab dedicated to expanding the scope of Indian horror cinema. The programme, titled the Platoon One Horror Lab, will select fifteen writers to develop original genre scripts that move beyond the prevalent ghost narratives and horror\u2011comedy hybrids that dominate the market. Participants will receive mentorship, structured workshops and peer feedback designed to cultivate new storytelling techniques, atmospheric tension and innovative mythologies within the horror framework.\n\nThe lab\u2019s fully digital format allows writers from across the country to collaborate without geographic constraints, reflecting a broader shift toward virtual creative incubators in the film industry. By concentrating on fresh concepts and diverse narrative structures, the initiative seeks to broaden audience expectations and encourage producers to invest in a wider range of horror projects, potentially reshaping the commercial landscape for Indian genre filmmaking.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/indian-horror-lab-push-genre-past-ghosts-horror-comedies-1236938082/"}, {"head": "Veteran Publicist Bill Harrison and Creative Director Johnny Wujek Join Nonprofit Art of Elysium (EXCLUSIVE)", "body": "Bill Harrison, a veteran publicist with a career spanning more than three decades in film and television promotion, has been appointed chief marketing officer of The Art of Elysium. In his new role, Harrison will direct the organization\u2019s branding, outreach and fundraising communications, expanding its visibility among donors, corporate partners and the broader arts community. The Art of Elysium, a nonprofit that creates immersive artistic experiences and mentorship programs for emerging creators, has been expanding its national footprint, and Harrison\u2019s expertise in high\u2011profile campaigns is expected to accelerate that growth.\n\nJohnny Wujek, an Emmy\u2011winning costume designer and celebrity stylist who has overseen visual concepts for major award shows and film productions, has been named vice president of the nonprofit\u2019s newly formed creative services and talent relations division. Wujek will lead collaborations with artists, performers and industry talent, coordinating projects that blend visual art, performance and community engagement. His appointment signals the organization\u2019s intent to deepen its creative partnerships and broaden the scope of its artist\u2011focused initiatives.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/columns/publicist-bill-harrison-creative-director-stylist-johnny-wujek-art-of-elysium-1236938034/"}, {"head": "Jeremy Renner & Josh Brolin Set For Orlando von Einsiedel\u2019s \u2018A Speck In The Sea\u2019; 193 Launching Sales At AFM", "body": "Two-time Oscar nominee Jeremy Renner and Oscar nominee Josh Brolin have been confirmed as the leads in the upcoming survival thriller A Speck in the Sea. The film is directed by Oscar\u2011winning documentary filmmaker Orlando von Einsiedel, best known for the short documentary White Helmets. The screenplay was written by Jeff Pope, whose recent credits include the Academy\u2011Award\u2011nominated film Philomena. The story follows a small group of characters stranded in open water, confronting the physical and psychological challenges of isolation and the relentless forces of the ocean.\n\nInternational sales for the title will be handled by 193, the sales arm of Legendary, which will launch its campaign at the American Film Market (AFM) later this month. The involvement of high\u2011profile talent and a seasoned sales team signals a strong push to secure worldwide distribution for the project, positioning it for a potential theatrical release and subsequent streaming deals.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/jeremy-renner-josh-brolin-a-speck-in-the-sea-1237211896/"}, {"head": "New Japanese Animation Prize Named Nippon Anime Awards, Sets First Ceremony for November 2027", "body": "A new honours programme for Japanese animation will carry the name Nippon Anime Awards, with its first ceremony scheduled for Nov. 21, 2027, at SGC Hall Ariake in Tokyo's Ariake district. The Association of Japanese Animations (AJA), the industry body standing behind the prize, disclosed the name at an announcement held on Nov. 2 at Tokyo Tatemono Brillia Hall, fixing a definitive title on an awards initiative intended to spotlight achievement in Japanese animation.\n\nThe inaugural edition now carries both a fixed name and a fixed venue: SGC Hall Ariake lies in the Tokyo Bay waterfront district of Ariake, giving the young prize a concrete home for its debut. With the ceremony falling roughly a year after the naming announcement, the schedule establishes a clear runway between the project's christening and its first staging.\n\nFor an industry whose animated films and series command a broad international audience, the AJA's creation amounts to a single, industry-sanctioned marquee honour under one banner, positioned to join the global awards calendar when the Ariake ceremony convenes in November 2027.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/new-japanese-animation-prize-nippon-anime-awards-2027-1236938040/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "TUESDAY, NOVEMBER 03, 2026", "headline": "Trump touts Washington reflecting pool as US midterm battle reaches finale", "deck": "United States President Donald Trump devoted his final public remarks before Tuesday\u2019s midterm elections to touting renovations of the Lincoln Memorial Reflecting Pool, even as Democrats sought to contain a rift in Michigan\u2019s closely fought US Senate race. Polls show Democrats po", "hero_source": "Dawn Latest News", "hero_url": "https://www.dawn.com/news/2041656/trump-touts-washington-reflecting-pool-as-us-midterm-battle-reaches-finale", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["United States President Donald Trump devoted his final public remarks before Tuesday\u2019s midterm elections to touting renovations of the Lincoln Memorial Reflecting Pool, even as Democrats sought to contain a rift in Michigan\u2019s closely fought US Senate race. Polls show Democrats poised to seize the House of Representatives and within reach of the Senate in Tuesday\u2019s vote \u2014 a shift that would impose tight political constraints on the president. In his only public remarks scheduled for Monday, Trump \u2014 a former real-estate developer \u2014 spent more than 20 minutes discussing pipes, joints, caulking, granite resurfacing, algae and leaks at the belated reopening of the Washington reflecting pool. \u201cDoes somebody have those pictures for me?\u201d the president asked his aides before sharing illustrations of the \u201cmiles of joints\u201d that had been replaced. \u201cSo we have a lot of great things planned for Washington, and I could get into the nation, but for that you don\u2019t have enough time,\u201d Trump said, also mentioning the grass at the White House, his new Marine One helipad, a golf course and a triumphal arch that faces a court challenge. He made brief reference to the election, saying: \u201cWhen you vote, remember: a party that hates America cannot be allowed to rule over the people who built our country.\u201d A White House official earlier told AFP that the speech would highlight \u201cthis administration\u2019s achievements to make the country safer and wealthier\u201d while contrasting \u201cthe Republicans\u2019 commonsense America First agenda\u201d with \u201cthe Democrats\u2019 radical, America Last agenda\u201d. The pool \u2014 an iconic landmark where botched repairs came to symbolise the 80-year-old\u2019s chaotic presidency \u2014 is one of the US capital\u2019s historic stages. Martin Luther King delivered his \u201cI Have a Dream\u201d speech in 1963 from the steps of the Lincoln Memorial, overlooking the pool. Trump said on Sunday he picked the site \u201cjust to show how beautiful it is\u201d. But the roughly $15 million renovation left the pool\u2019s lining peeling and its water green with algae. He pointed at vandalism , but federal prosecutors blamed faulty work . Under Trump, it has also become part of a sweeping drive to remake Washington, which has included tearing down part of the White House and threatening to demolish the city\u2019s premier arts centre. Trump has predicted victory in the midterms for his Republicans, but he acknowledged the alternative in an interview released on Monday by the New York Post \u2019s Pod Force One podcast. \u201cI think we\u2019re going to do great \u2014 but if we didn\u2019t win, I veto everything,\u201d he said. \u201cI\u2019ll be vetoing, vetoing. And then they\u2019ll come along and we\u2019ll probably make some deals along the way.\u201d Winning just the House would give Democrats voting power over the federal budget and control of committees able to investigate alleged corruption under Trump, the Epstein files and other explosive issues. A Democratic Senate could also block Trump\u2019s lifetime appointments to the courts, including the Supreme Court. \u2018Ransack, rape and plunder\u2019 Trump warned Republican lawmakers in January that losing the midterms would lead to his impeachment. The loss of total Republican control would push him toward lame-duck status, with high inflation at home and the war against Iran still weighing on his presidency. Democrats, meanwhile, prepared final rallies in battleground states, including in Texas with James Talarico and in Kansas with Adam Hamilton \u2014 two star Senate candidates seeking major upsets. Kansas has not elected a Democratic senator in nearly a century. But a decade into the Trump era, Democrats remain wary of predicting victory. Democratic Senator Raphael Warnock told CNN that the mood was \u201cnauseously optimistic\u201d. Republicans have run a scorched-earth campaign, painting Democrats as communists and branding Abdul El-Sayed , the Muslim Democratic Senate nominee in Michigan, a terrorist. Addressing a crowd in Iowa on Sunday, Trump said Democrats are \u201cextreme and dangerous radicals\u201d who will \u201csteal your wealth\u201d and let in migrants to \u201cransack, rape and plunder\u201d. Democrats have faced late divisions of their own, with left-wing candidates at times clashing with the party establishment. On Sunday, Democratic congresswoman Haley Stevens endorsed El-Sayed\u2019s Republican opponent, Mike Rogers, in Michigan\u2019s pivotal Senate race. Stevens lost a bruising primary to El-Sayed in August despite establishment backing. Senate in play While the House appears highly likely to turn Democratic, the battle for the Senate is far closer. Democrats need a net gain of four seats to take control. Only a third of the 100 seats are being contested, and few of those races initially looked favorable to the party. To win, Democrats must flip seats in states that Trump carried by double digits two years ago. Forecaster Decision Desk HQ has Democrats winning the Senate 52-48 and the House by a comfortable 241-194. The final New York Times/Siena poll, released Sunday evening, showed Democrats leading in all seven of the most competitive Senate races, though five were within the margin of error. Tuesday is election day, but a record 54 million people have already cast ballots . The midterms have also drawn about $11bn in advertising, with large chunks coming from individual mega-donors. Elon Musk, the Trump ally who led the so-called DOGE drive to slash the federal government, has given nearly half a billion dollars to help elect Republicans."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Fridge cyberattack hits supermarkets across Europe", "body": "Grocery stores in at least five European countries saw temperatures in their cold cases soar on Monday, with several confirming they had been hit by a cyberattack similar to one three weeks ago in France. Supermarkets in Belgium, Estonia, Finland, Luxembourg and Sweden were among those affected in the latest hacker attack. Major French retailers said on Oct 12 that hundreds of store refrigeration systems were hit by a cyberattack, which forced them to throw out spoiled food and raised concerns about food security. No one has claimed responsibility for either attack. Carrefour Belgium on Monday reported disruption in about 15 of its 700 stores. \u201cIt\u2019s a cyberattack; there is no other reason,\u201d said spokesman Mich Vergauwen. An Ikea Belgium spokeswoman likewise said a cyberattack hit its store in Mons, southwestern Belgium, causing the temperature of freezers to rise suddenly in the early hours of Monday. Chains Delhaize, Colruyt and Intermarche also experienced technical problems affecting their fridges in Belgium, while Delhaize reported that four of its stores in Luxembourg were also affected. Belgian industrial refrigeration group Sabcobel said it had begun securing its installations after the Oct 12 attack in France, but around 10 per cent were still not fixed, and some were in the shops affected on Monday. \u201cIf Sabcobel hadn\u2019t started this operation \u2026 the impact would have been much more important,\u201d chief executive Stephan Moelans told AFP . In Sweden, chain Coop confirmed six of its around 800 stores had been hit by a cyberattack early Monday. \u201cWe can confirm that it is a cyber incident. The problem has now been resolved, and the fridges and freezers are working as normal,\u201d spokesman Carlos Cancino told AFP . He said Coop did not know who was behind the attack, but noted that the six affected stores had been connected to a 4G mobile network, not the updated 5G system, which made them \u201cmore exposed\u201d to hackers. \u2018Vulnerabilities\u2019 Swedish chain Ica also said \u201ca limited number\u201d of its stores experienced refrigeration problems, but the group could not confirm a cyberattack was the cause. According to Ica spokesperson Helena Johansson, the affected stores were all connected to an external refrigeration control system provided by Danish manufacturer Danfoss \u2014 the same supplier targeted in the Oct 12 cyberattack on French retailers. She referred all queries to Danfoss. It has not responded to AFP \u2019s request for a comment. One Ica store located in Sjobo, in southern Sweden, posted on Facebook that its fridges and freezers had \u201cbeen hacked and they set the temperature at 50 degrees\u201d Celsius. In Finland, irregular temperatures had also been detected in a few smaller grocery stores belonging to the Kesko group. \u201cWe are currently investigating the cause, and interference via the network has not yet been ruled out,\u201d Petri Kayhko, head of Kesko\u2019s corporate security, told AFP . Roni Kokkola, an information security specialist at the National Cyber Security Centre at Finland\u2019s Transport and Communications Agency Traficom, would not rule out cyber interference \u201cas far as Finland is concerned\u201d. \u201cWe\u2019ve seen this in Europe in the past few months, so it spreading beyond France to other countries has been expected,\u201d he told AFP . \u201cNowadays it\u2019s very typical that all kinds of vulnerabilities are being exploited ever more actively and rapidly.\u201d In Estonia, at least one supermarket was attacked by hackers who raised the temperature in the refrigeration units to 50\u00b0C, public broadcaster ERR reported. The units were older models delivered by Danfoss, similar to the ones targeted in the France attack, Jann Mutso, director of Kitman Coldtech, a manufacturer and distributor of advanced refrigeration systems, told ERR . \u201cThe handwriting is the same, but I can\u2019t say more,\u201d Mutso said. Following the attack in France, Danfoss told AFP that most of the affected equipment were \u201clegacy\u201d products which \u201cno longer receive software or security updates\u201d. EU food and agriculture commissioner Christophe Hansen said at the time that \u201cfood security requires more attention at all levels\u201d. The \u201cexploitation of food\u201d was now a \u201creality\u201d, he added.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2041646/fridge-cyberattack-hits-supermarkets-across-europe"}, {"head": "At Kazakhstan forum, Pakistan presents Karachi and Gwadar ports as 'strategic gateways' for Central Asian trade", "body": "ISLAMABAD: Pakistan can serve as an important trade and transit corridor for the landlocked Central Asian countries, providing them with access to international maritime trade routes and global markets, Minister for Board of Investment (BoI) Qaiser Ahmed Sheikh said on Monday. He made the remarks while addressing the opening session of the Second Tianshan Forum for Central Asian Economic and Quality Investment, being held in Kazakhstan\u2019s Almaty. The minister termed Pakistan\u2019s three major seaports \u2014 Karachi Port, Port Qasim and Gwadar Port \u2014 \u201cstrategic gateways that could facilitate regional trade, strengthen transportation links and provide alternative routes for the movement of goods\u201d, according to a press release by the BoI. Sheikh particularly underscored Karachi\u2019s importance as Pakistan\u2019s major industrial and commercial hub, noting that its established industrial base, business infrastructure, financial institutions and port facilities offered significant opportunities for trade, industrial partnerships and foreign investment. He also highlighted Gwadar\u2019s potential to further strengthen regional connectivity and economic cooperation. Regional connectivity was \u201cnot merely about linking roads, ports and markets, but also about connecting economies, creating investment opportunities, generating employment and building shared prosperity across the region\u201d, he remarked. The minister invited regional and international investors to explore opportunities in key sectors, including energy, infrastructure, logistics, transportation, manufacturing and trade. He emphasised that improved connectivity and reliable energy supplies were essential for unlocking the region\u2019s economic potential, the BoI statement said. Highlighting the importance of regional cooperation, the minister acknowledged the contribution of the Central Asia Regional Economic Cooperation ( Carec ) Programme in promoting transport connectivity, facilitating trade and supporting economic integration among participating countries. He observed that Carec provided a valuable platform for strengthening economic partnerships between Pakistan and Central Asian states, the statement said. The minister emphasised that Pakistan\u2019s strategic geographical location, youthful population, industrial capacity and seaport infrastructure positioned the country to play an important role in connecting Central Asian economies with international markets. The Second Tianshan Forum will conclude in Almaty on Tuesday under the theme \u201cStrengthening Resilient Connectivity and Quality Investment in Central Asia\u201d. According to information provided in its official agenda, the two-day forum is a follow-up to the success of the inaugural Tianshan Forum for Central Asia Economic Cooperation, and is aligned with the new Carec Institute Strategy 2026\u20132030, as well as the Carec 2030 Strategy Midterm Review Rolling Implementation Action Plan. \u201cIn 2026, the Carec region continues to face a highly uncertain external environment. Rising geopolitical tensions have raised energy and food prices, disrupted transport and logistics, and weakened the reliability of trade corridors,\u201d the agenda said. At the same time, it added that intra-regional trade remained limited due to similar economic structures, weak production complementarities, and incomplete market opening. Persistent transport and logistics bottlenecks such as uneven infrastructure quality, fragmented asset management, and capacity mismatches kept trade costs high, it added. \u201cNon-physical barriers, including inconsistent customs procedures, weak digitalisation, non-harmonised standards, and inefficient border operations, further constrain cross-border flows. Meanwhile, digital infrastructure \u2014 especially cloud services, data centres, and AI applications \u2014 is expanding rapidly and reshaping connectivity and competitiveness,\u201d it said. It pointed out that Carec countries were progressing unevenly with \u201clarge gaps in backbone infrastructure, digital skills, and regulatory coherence\u201d, calling for these gaps to be bridged to \u201ceffectively support inclusive growth, resilient connectivity, and regional integration\u201d. Senior representatives from multilateral development banks, financial institutions, high-level policymakers, business leaders, local governments, and academia across the Carec countries are attending the forum to discuss policy and operational issues in strategic areas such as transport, trade, logistics, energy, and digital connectivity, and promote pragmatic, sustainable investment in the region.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2041649/at-kazakhstan-forum-pakistan-presents-karachi-and-gwadar-ports-as-strategic-gateways-for-central-asian-trade"}, {"head": "Oil drops 7pc as Iran signals openness to talks", "body": "NEW YORK: Oil prices fell more than 7 percent on Monday as talks between Iranian and Qatari officials lifted hopes for an end to the US-Israeli war with Iran and stabilization of Middle East crude supply. Brent crude futures settled USD8.66, or 7.63 percent, lower to USD104.77 a barrel. US West Texas Intermediate crude was down USD7.66, or 7.36 percent, at USD96.46. The session low for Brent was USD103.28 and for WTI it was USD95.15, with some analysts citing hopes for a diplomatic breakthrough after Iranian President Masoud Pezeshkian said Supreme Leader Ayatollah Mojtaba Khamenei had granted the government certain authorities for peace talks. READ ALSO: Oil drops 6% as Iran signals openness to peace talks Pezeshkian added Tehran \u201cwill try to resolve the problem with dialogue\u201d, without elaborating, according to state media. The country\u2019s negotiators held days of talks with Qatari mediators aimed at ending the war. Brent ended October at its highest in six months on concerns that the Middle East conflict could escalate again after Tuesday\u2019s US midterm elections. US President Donald Trump on Monday said that Iran wants to make a deal to end the war and that such an agreement \u201ccould happen.\u201d On Monday evening, Qatari mediators travelled to Tehran for talks with Iranian Foreign Minister Abbas Araqchi on a potential US-Iran deal. Signs of progress in US-Iran talks pushed oil prices lower, Raymond James analyst Pavel Molchanov said, noting, however, that scepticism is warranted after many \u201cfalse dawns\u201d over the past several months. Brent ended October at its highest in six months on concerns that the Middle East conflict could escalate again after Tuesday\u2019s US midterm elections. \u201cThe oil market is still reacting with extreme sensitivity to every headline out of the Middle East,\u201d UBS analyst Giovanni Staunovo said. \u201cWhile fears of an imminent escalation pushed prices up last week, they have dropped sharply at the start of this week as diplomatic talks between the US and Iran continue,\u201d he added. The talks followed a recent increase in attacks on oil tankers passing the Strait of Hormuz, though there have also been signs of shipments rising from some major exporters. Saudi Arabia\u2019s crude exports increased in October from September, two of three ship-tracking companies said, despite attacks by Iran-aligned Yemeni Houthis on its energy infrastructure. The outbreak of the Iran war at the end of February has depleted oil stocks. The world has drained nearly 1 billion barrels from inventories since the war disrupted shipping through the Strait of Hormuz, said Sultan Al Jaber, chief executive of ADNOC, Abu Dhabi\u2019s state-owned oil company. Oil could rise further, some analysts said. Goldman Sachs on Sunday, citing elevated supply, and said Brent could jump to USD140 in 2027 if Gulf oil output remains 3.5 million barrels per day below its since 2025 average. \u201cIntensified shipping attacks, damage to oil infrastructure, and a more persistent risk premium remain the key triggers of potential upside,\u201d the bank said in a report.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447165/oil-drops-7pc-as-iran-signals-openness-to-talks"}, {"head": "'Over a million' abuse images found on phone of UK man who drugged, raped wife -prosecutor", "body": "A man who drugged and raped his wife over two decades and allegedly invited strangers to participate had \u201cover a million photographs and videos\u201d on his phone cataloguing the abuse, a UK court heard on Monday. The court in Manchester, northwest England, is hearing the trial of nine men accused of various sexual offences against a woman who was abused by her husband \u2014 a man in his 60s who cannot be named to protect the victim\u2019s identity. The husband filmed and shared images of the abuse on the \u201cinternet and social media applications\u201d with \u201cother like-minded men\u201d, prosecutor Louise Oakley told the court. Some of the defendants allegedly \u201chid behind a screen\u201d and conspired with the husband over the years to administer substances to the woman so she could be \u201cused and abused\u201d. And starting since 2023, the prosecutor said, the husband began inviting men around to their home and filmed himself and others raping her while she was unconscious. It is the second case involving a man accused of inviting strangers to take part in abusing his wife currently being heard in Britain. A trial in Winchester in the south involving four men opened last week. Global awareness of the crime, known as organised drug-facilitated sexual assault (DFSA), has grown following the high-profile conviction in France of Dominique Pelicot , who drugged and raped his then-wife Gisele for nearly a decade alongside strangers. Oakley told the jury in Manchester that the husband\u2019s phone, which was seized when he was arrested, was like a \u201cconfession booth\u201d including \u201cbarbaric sexual fantasies\u201d going back to 2004. \u201cThere were over a million photographs and videos cataloguing not only his abuse of his wife but abuse on her committed by others, including those in the dock today,\u201d Oakley said. \u201cThere is no doubt he lived a double life masked in respectability,\u201d the prosecutor said. The husband pleaded guilty in September to some 60 sexual offences against his wife, including administering a substance with intent to stupefy or overpower her. He and 13 other men are accused of conspiring to abuse the woman. Four of the men have since pleaded guilty to various offences. The remaining nine men, aged between 28 and 70, deny various charges including rape, sexual assault and conspiracy to administer a substance with intent. They include a taxi driver, a recruitment agency worker, a building supplies worker and a senior medic.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2041664/over-a-million-abuse-images-found-on-phone-of-uk-man-who-drugged-raped-wife-prosecutor"}, {"head": "China calls for Middle East dialogue in talks with Iran, Saudi Arabia, Oman", "body": "China stepped up diplomatic efforts on Monday to resolve the Middle East crisis, urging a return to the negotiating table in back-to-back meetings with Iranian, Omani and Saudi officials in Beijing. The meetings come days after United States President Donald Trump issued a fresh war threat more than eight months into the conflict , which was triggered by US-Israeli strikes on Iran and has at times spilled over into neighbouring countries. Beijing supports Tehran in \u201csafeguarding its own sovereignty and security\u201d, Foreign Minister Wang Yi told Ali Bagheri Kani, the deputy secretary of Iran\u2019s Supreme National Security Council, according to a Chinese statement. Wang later called for dialogue to end the conflict \u201cwhile safeguarding regional energy security and the safety of shipping lanes\u201d, as he met with Saudi National Security Adviser Musaad bin Mohammad al-Aiban. China, a top economic partner of Iran, has long sought a detente in the months-long conflict that has disrupted global shipping. Trump said on Saturday that the United States had knocked out much of Iran\u2019s military but still has to \u201ctake care of\u201d one or two targets, with Tehran warning of reprisals if attacked. \u201cAll parties should\u2026 in a spirit of reason and pragmatism, focus on a political solution rather than once again resorting to armed conflict,\u201d Wang told Bagheri Kani, according to the statement. China\u2019s foreign ministry had not previously announced the visit by Bagheri Kani to Beijing. President Xi Jinping also met Oman\u2019s sultan for talks in Beijing on Monday \u2014 the first visit to China by the Gulf nation\u2019s head of state since diplomatic ties were established. Xi told Haitham bin Tariq that China was ready to \u201ccontribute to peace, stability and prosperity in the region\u201d. The Chinese leader said that the Middle East should not become a \u201cwrestling ground for major-country rivalry and geopolitical conflicts\u201d, state news agency Xinhua reported. Later this month, Beijing will send its Middle East envoy to Iran, Oman and Saudi Arabia as part of \u201cshuttle diplomacy visits\u2026 aimed at promoting peace talks (and) easing tensions\u201d, a Chinese foreign ministry spokesperson told a news briefing.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2041642/china-calls-for-middle-east-dialogue-in-talks-with-iran-saudi-arabia-oman"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "TUESDAY, NOVEMBER 03, 2026", "headline": "Pakistan fined for slow over-rate in tri-series final", "deck": "Pakistan have been fined five per cent of their match fees for maintaining a slow over-rate during their three-wicket victory over Sri Lanka in the One-day International tri-series final in Lahore on Saturday. The hosts were found to be one over short after time allowances were t", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2041621/pakistan-fined-for-slow-over-rate-in-tri-series-final", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Pakistan have been fined five per cent of their match fees for maintaining a slow over-rate during their three-wicket victory over Sri Lanka in the One-day International tri-series final in Lahore on Saturday. The hosts were found to be one over short after time allowances were taken into consideration by match referee Jeff Crowe of the Emirates ICC Elite Panel, the International Cricket Council said in a statement on Monday. Pakistan captain Shaheen Shah Afridi pleaded guilty to the offence and accepted the proposed sanction, which was imposed under Article 2.22 of the ICC Code of Conduct for Players and Player Support Personnel. The provision stipulates a fine of five per cent of a player\u2019s match fee for every over his side fails to bowl within the allotted time. The charge was levelled by on-field umpires Ahsan Raza and Wayne Knights, third umpire Sharfuddoula Ibne Shahid and fourth umpire Rashid Riaz. Pakistan had conceded 325-8 in the final before chasing down the target of 326 with three wickets and nine balls to spare, securing the tri-series title in front of their home crowd at Gaddafi Stadium. Fakhar Zaman led the successful chase with 127 off 99 balls, hitting 11 fours and six sixes to register his 12th ODI century. His innings helped Pakistan recover from an early collapse and complete a joint-record successful chase in an ODI final."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Who has made Troy's Premier League team of the week?", "body": "Troy Deeney, former Watford striker and current football pundit, publishes a weekly \"team of the week\" after each round of Premier League fixtures. The selection highlights players who have delivered standout performances across the league, ranging from goal\u2011scoring exploits to defensive solidity. Deeney\u2019s choices typically reflect the results of the weekend\u2019s matches, rewarding individuals who have influenced outcomes for their clubs, whether by scoring decisive goals, providing key assists, or maintaining clean sheets. \n\nThe weekly list has become a focal point for fan discussion on social media platforms, with supporters debating the merits of each inclusion and comparing Deeney\u2019s picks to other analysts\u2019 selections. The conversation often extends to statistical analysis, as fans reference metrics such as expected goals (xG), pass completion rates, and defensive actions to argue for or against particular players. This interactive engagement underscores the broader trend of data\u2011driven commentary in modern football coverage.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/c8dx37n11kv2o?at_medium=RSS&at_campaign=rss"}, {"head": "Zero passing yards, one win. Did the Bucs just reinvent the NFL in all the wrong ways?", "body": "In a downpour against the Atlanta Falcons, Tampa Bay decided throwing was for losers. They were proved right I don\u2019t think I\u2019m being cheeky when I say that passing is the most exciting part of football. A solid hit is nice, and a big run can thrill you, but this is a quarterback-centric game. When a QB is bad, teams usually lose and fans get bored. So, Sunday\u2019s performance by Baker Mayfield and the Tampa Bay Buccaneers had me positively gobsmacked. I wouldn\u2019t say their 16-0 win over the Atlanta Falcons was thrill-a-minute, but it certainly was historic. By completing a grand total of zero passes out of a paltry three attempts, Baker Mayfield led the Bucs to the first game with no passing offense since the Buffalo Bills beat the New York Jets 16-12 on 29 September 1974. If you are miraculously old enough to remember the NFL before the advent of the forward pass in 1906, first off, congratulations on being over 120 years of age. Please email me your full diet and exercise regimen. You\u2019re probably on your feet (if standing is still something physically possible), cheering a bit of hard-nosed, classic football. The rest of us young whippersnappers still grinding through our first century are holding our noses. Of course, Mayfield \u2013 a former No 1 overall pick \u2013 can throw. As recently as since 2024 he threw for 41 touchdowns and 4,500 passing yards in a season. But Sunday\u2019s game was played in pouring rain that led to farcical moments like this , and Tampa Bay clearly decided that the ground game was the only way to go. That the Bucs could score at all, let alone 16 points, is a credit to Bucky Irving and Kenneth Gainwell running as though their lives depended on it. Irving finished the day with 170 rushing yards and one touchdown, while Gainwell had 140. Combined with Mayfield, they rushed 56 times for 324 yards \u2013 the most ever in a single game for the Bucs. They more than made up for Mayfield\u2019s borderline irrelevance in the pocket. Mayfield made himself useful blocking for his runners, but otherwise, I probably could have started at QB for the Buccaneers and the game would have been the same, other than the high likelihood of me suffering at least one gruesome injury. Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/nov/02/tampa-bay-buccaneers-zero-passing-yards-nfl-atlanta-falcons"}, {"head": "Everton hold off Newcastle to move into seventh", "body": "Everton secured a narrow victory at St James' Park, with Thierno Barry finding the net for the second time in five days to give the visitors the decisive edge. The goal broke a deadlock and ensured the Toffees walked away with three points, a result that lifted them into seventh place in the Premier League table. Newcastle were unable to respond, leaving the home side to settle for a defeat despite sustained pressure in the closing stages.\n\nThe win marks a significant step forward for Everton, who have been striving to re\u2011establish themselves among the league\u2019s top half. Barry\u2019s recent scoring run, highlighted by his latest strike against Newcastle, underscores his growing influence in the attacking third. Meanwhile, Newcastle\u2019s failure to claim any points at home adds pressure to their campaign, as they look to recover in upcoming fixtures while Everton aim to consolidate their position and push further up the standings.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/videos/cq5ynd70vlx3o?at_medium=RSS&at_campaign=rss"}, {"head": "Who produced the kind of performance Moyes loves? - player ratings", "body": "Newcastle United and Everton have had their players rated and assessed following their Premier League meeting, and the verdicts pose a question that cuts to the heart of squad-building at both clubs: who produced the kind of performance David Moyes loves? Post-match player ratings translate ninety minutes of running, duels, pressing and decision-making into individual marks, and they inevitably reward the qualities on which the Everton manager has built his long reputation \u2014 industry, discipline, organisation and physical courage in every challenge.\n\nMoyes's teams have traditionally succeeded by grinding out territory, winning second balls and defending their box with minimal ornamentation, so any ratings exercise on this fixture ultimately judges both squads against that template. For Newcastle, whose squad blends athletic intensity with attacking flair, the grades weigh creativity against graft; for Everton, they test whether the collective ethos of hard running and defensive resilience is taking hold week by week.\n\nRatings remain subjective by nature, yet they offer supporters of both clubs a ready reckoner of individual contribution and a talking point that endures until the next whistle. For Moyes, the enduring measure of any display stays the same: whether each player delivered the sort of committed, relentless shift that has defined the best sides of his managerial career.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/cmglwjxx45gjo?at_medium=RSS&at_campaign=rss"}, {"head": "Fifa to share confidential World Cup sell-off plan documents", "body": "FIFA announced that members of its council will be required to travel to the organisation's headquarters in Zurich to examine the confidential documents outlining the World Cup sell\u2011off plan. The documents, which detail the strategic approach to commercial and broadcasting rights for upcoming tournaments, will be made available only after council members have signed non\u2011disclosure agreements and undergone a verification process designed to safeguard the information.\n\nThe governing body said the review will be conducted under \"strict review protocols\" that include controlled access to the files, supervised viewing sessions, and a mandatory de\u2011briefing to ensure compliance with confidentiality standards. FIFA officials emphasized that the measures are intended to protect the integrity of the sell\u2011off process and to prevent premature leakage of sensitive commercial data.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/c6vgj0p4ey17o?at_medium=RSS&at_campaign=rss"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
