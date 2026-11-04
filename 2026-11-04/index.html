@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (WEDNESDAY, NOVEMBER 04, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">WEDNESDAY, NOVEMBER 04, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 04, 2026", "headline": "Cigarette Mafia Attacks FBR Office and Recovers Seized Stock", "deck": "Suspects involved in the illegal cigarette trade allegedly attacked an Inland Revenue team of the Federal Board of Revenue (FBR) in Bahawalpur, snatching back part of a seized consignment and threatening the officials with death.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Founder & Senior Counsel", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/11/03/cigarette-mafia-attacks-fbr-team-bahawalpur/", "body": ["Suspects involved in the illegal cigarette trade allegedly attacked an Inland Revenue team of the Federal Board of Revenue (FBR) in Bahawalpur, snatching back part of a seized consignment and threatening the officials with death.", "According to sources, the FBR team had received intelligence that illegal cigarettes were being moved in a vehicle bearing registration number AHE-895. Officials intercepted the vehicle and took possession of the stock.", "During the operation, a group of suspects allegedly resisted violently, assaulted the government personnel and obstructed the raid.", "Sources said they forcibly took away around 15 cartons of the seized cigarettes, comprising the Marvon, Honda and Pine brands.", "On the complaint of the Inland Revenue officials, a case was registered at Saddar Police Station, Bahawalpur. The charges include interference in official duty, assault on government personnel, criminal intimidation and obstruction of lawful proceedings.", "Police records show the case has been registered under Sections 382, 342, 186, 355, 148, 149 and 506-B of the Pakistan Penal Code.", "Fifteen people have been nominated, including Azam, Shahzad, Muhammad Ali, Tariq Ali, Mushtaq Ahmed and Talib Rasool.", "The incident has again raised concerns over resistance from elements in the illegal cigarette trade against enforcement operations by government agencies.", "FBR has been stepping up action against this trade, including sealing an illegal cigarette factory in Karachi , as a large share of the market has slipped into illegal hands .", "Authorities have been urged to take effective action against those involved in the illegal transport and sale of cigarettes and to ensure adequate protection for officials carrying out their lawful duties."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "Govt to Slap Heavy Fines Against Shopkeepers Who Ignore FBR", "body": "The government is preparing to take enforcement measures against retailers who failed to register under its Easy Tax Scheme, with proposed penalties rising to Rs. 50,000 by the third month, Minister of State for Finance Bilal Azhar Kayani told the National Assembly Standing Committee on Finance on Tuesday.\n\nKayani said the registration deadline expired on October 31. The government had initially offered traders the option of joining either the normal tax regime or a simplified tax mechanism.\n\nSome retailers had registered under the scheme, but the government would now take enforcement measures against those who remained unregistered or failed to file their income tax returns.\n\nUnder the proposed penalty mechanism, retailers would face fines of Rs. 10,000 in the first month, Rs. 25,000 in the second month and Rs. 50,000 in the third month.\n\nThe minister said traders had agreed to the penalties for failing to file income tax returns when the scheme was designed in consultation with their representatives. He said the government had accepted all major demands of the business community under the scheme and aimed to bring more people into the tax net.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/03/govt-to-slap-heavy-fines-against-shopkeepers-who-ignore-fbr/"}, {"head": "Senator Accuses FBR Backs Corrupt People, Warns of Money-Laundering Cases", "body": "A Senate subcommittee came down hard on the Federal Board of Revenue (FBR), with its chairman, Senator Saifullah Abro, accusing the tax authority of siding with those involved in corruption and warning that fines and money-laundering cases would follow. Abro went further, alleging that the finance minister himself was unaware of what was happening within his own ministry.\n\nThe outburst came as the Senate Sub-Committee on Interior and Anti-Narcotics raised concerns over alleged tax evasion and misuse of tax exemptions for the former Federally Administered Tribal Areas (FATA) and Provincially Administered Tribal Areas (PATA), questioning the FBR\u2019s handling of records and the recovery of outstanding dues.\n\nThe committee reviewed delays in recovering an estimated Rs800 billion in tax dues and ongoing investigations into imported goods and consumption certificates. Abro criticised the FBR for failing to recover substantial amounts and demanded complete records, warning that negligence in protecting public funds would not be tolerated.\n\nThe committee was informed that imported goods worth approximately Rs1,120 billion under the FATA/PATA tax exemption scheme were under scrutiny. Records and consumption certificates covering goods worth around Rs389 billion had been identified, while questions remained about the remaining imports and potential tax liabilities.\n\nOfficials told the committee that 223 consumption certificates had been issued to 108 companies. The panel questioned why complete details of imports, goods utilization, production and tax payments were not available.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/03/senator-accuses-fbr-backs-corrupt-people-warns-of-money-laundering-cases/"}, {"head": "SHC terms Customs Tribunals judgment dissonant", "body": "A two\u2011judge bench of the Sindh High Court, comprising Justice Agha Faisal and Justice Shah Nawaz Memon, set aside a common judgment of the Customs Appellate Tribunal that had resolved six appeals. The bench, which had earlier heard arguments from Advocate Agha Shahid Majeed Khan in SCRA cases No\u202f264,\u202f265,\u202f266,\u202f267,\u202f268 and\u202f269 of 2026, found the tribunal\u2019s decision inconsistent with established customs law and procedural standards. By overturning the tribunal\u2019s ruling, the High Court reinstated the status quo pending further review, thereby emphasizing the need for uniformity in the interpretation of customs regulations.\n\nThe decision underscores the judiciary\u2019s role in scrutinising appellate tribunal outcomes, particularly where multiple appeals are consolidated into a single judgment. Legal practitioners noted that the High Court\u2019s intervention may prompt the Customs Appellate Tribunal to revisit its approach to aggregating cases, ensuring that each appeal receives a distinct and legally sound assessment.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/03/shc-terms-customs-tribunals-judgment-dissonant/"}, {"head": "SBP launches Mojaloop Accelerator to boost Pakistan\u2019s digital payments ecosystem", "body": "The State Bank of Pakistan (SBP) has inaugurated the Mojaloop Accelerator, a programme designed to accelerate the development of digital payment solutions across the country. The accelerator will offer participating fintech firms access to the open\u2011source Mojaloop platform, technical mentorship, and pathways to pilot projects with financial institutions. By leveraging Mojaloop\u2019s interoperable architecture, the SBP aims to lower entry barriers for startups, expand the range of services available to merchants and consumers, and strengthen the overall resilience of the national payments infrastructure.\n\nThe launch aligns with SBP\u2019s broader strategy to deepen financial inclusion and modernise the payments landscape, building on recent growth in mobile wallets, QR\u2011code transactions, and real\u2011time settlement capabilities. Industry observers note that the initiative could catalyse innovation by encouraging collaboration between banks, telecom operators, and emerging technology providers, ultimately fostering a more competitive and accessible digital economy for users nationwide.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-launches-mojaloop-accelerator-to-boost-pakistans-digital-payments-ecosystem/"}, {"head": "FBR to collect advance tax on property auctions in Tax Year 2027", "body": "The Federal Board of Revenue (FBR) has announced that, beginning with the 2027 tax year, an advance tax will be levied on the proceeds of property auctions across the country. The measure, detailed in an official circular from the Directorate General of Tax Administration, aims to broaden the tax base and improve revenue collection from the real\u2011estate sector, which has historically generated significant informal transactions. The advance tax will be calculated as a percentage of the auction price and payable at the point of sale, with the amount to be credited against the final tax liability of the seller.\n\nThe policy follows a series of reforms intended to enhance compliance and reduce tax evasion in high\u2011value asset markets. The FBR indicated that the new requirement will be integrated into existing auction procedures, with auction houses and registrars instructed to collect the tax and remit it directly to the revenue authority. Implementation guidelines and the exact rate will be released in the coming months, allowing stakeholders to adjust their processes ahead of the 2027 fiscal cycle.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/advance-tax-property-auctions-tax-year-2027/"}, {"head": "Customs Accepts PCDMA Price Certificates, DPL Relief and Valuation Review", "body": "Karachi \u2013 The Customs Department and the Pakistan Chemicals & Dyes Merchants Association (PCDMA) concluded a meeting aimed at easing long\u2011standing challenges faced by commercial importers. Both parties agreed to adopt a framework of mutual consultation and enhanced coordination to address the high cost of ICIS scan pricing, which has been a recurring burden for importers of chemicals and dyes. The agreement also includes the continuation of the DPL (Duty Paid List) waiver, allowing eligible firms to bypass certain duties, and the extension of self\u2011clearance facilities that enable qualified importers to process their own shipments without full customs intervention.\n\nIn addition, the two sides committed to a systematic review of customs valuation rulings to ensure greater transparency and consistency in the assessment of import values. The valuation review will be overseen by a joint technical committee that will examine existing methodologies and propose adjustments where discrepancies are identified. The collaborative approach is expected to streamline clearance procedures, reduce operational costs for the chemical trade sector, and improve overall compliance with customs regulations.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/03/customs-accepts-pcdma-price-certificates-dpl-relief-and-valuation-review/"}, {"head": "SBP launches Mojaloop programme to boost Pakistan\u2019s digital payments", "body": "The State Bank of Pakistan (SBP) has inaugurated a Mojaloform Country Accelerator designed to expand the country\u2019s interoperable digital payment ecosystem. The initiative, built on the open\u2011source Mojaloop platform, seeks to lower barriers for fintech firms, banks and mobile network operators, enabling them to offer low\u2011cost, real\u2011time payment services to a broader segment of the population. By standardising interfaces and promoting shared infrastructure, the programme aims to accelerate the rollout of inclusive financial solutions, particularly in underserved urban and rural areas.\n\nSBP officials highlighted that the accelerator aligns with the central bank\u2019s broader strategy to modernise payment systems and support the digital economy. The launch follows a series of regulatory reforms that have encouraged the growth of mobile wallets and QR\u2011code payments, positioning Pakistan among emerging markets adopting interoperable frameworks to enhance financial inclusion and reduce reliance on cash transactions.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-mojaloop-country-accelerator-digital-payments/"}, {"head": "Pakistan Customs agrees to facilitate commercial importers on key issues", "body": "Pakistan Customs announced a set of measures aimed at easing the operational burden on commercial importers, focusing on streamlining documentation, accelerating clearance times, and expanding the use of electronic filing systems. The authority highlighted that the new protocols will standardise procedures across ports and land border points, allowing importers to submit required paperwork through a unified digital portal and receive real\u2011time updates on the status of their consignments. By reducing manual interventions and clarifying compliance requirements, the reforms are expected to lower transaction costs and improve predictability for businesses engaged in cross\u2011border trade.\n\nThe facilitation initiative is part of a broader effort to modernise the country\u2019s trade infrastructure and align customs practices with international best standards. Officials indicated that the changes will be phased in over the coming months, with training programmes for staff and outreach sessions for the private sector to ensure smooth adoption. Industry observers anticipate that the streamlined processes will enhance supply\u2011chain efficiency, support export\u2011oriented enterprises, and contribute to overall economic resilience.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-customs-facilitation-commercial-importers-pcdma/"}, {"head": "FBR constitutes Independent Case Scrutiny Committee", "body": "The Federal Board of Revenue (FBR) issued a notification on 29 October 2026 establishing a three\u2011member Independent Case Scrutiny Committee to review pending cases and ensure procedural compliance. The committee is chaired by Justice (rtd) Nasim Sikander, with former FBR member Fazal Yazdani Khan and Supreme Court advocate Muhammad Mehtab serving as members. Their mandate is derived from section 196JJ of the FBR Act, which empowers the board to form independent bodies for the examination of complex tax and customs matters.\n\nThe formation of the committee reflects the board\u2019s effort to bolster transparency and expedite the resolution of disputes that have accumulated in the tax and customs domains. By drawing on judicial experience, former administrative insight, and legal expertise, the panel is expected to deliver impartial assessments, streamline case handling, and reinforce confidence among taxpayers and trade stakeholders.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/03/fbr-constitutes-independent-case-scrutiny-committee/"}, {"head": "Pakistan Bans Hiring of Indian, Israeli-Origin Staff At Overseas Missions", "body": "The Ministry of Commerce has introduced a new policy governing the recruitment of locally hired employees at Pakistan\u2019s trade and investment missions abroad, imposing stricter eligibility requirements, mandatory security checks and a standardized selection process. Under the policy, candidates of Indian or Israeli origin will be ineligible for recruitment under any circumstances. Security screening will also be compulsory for applicants and their spouses, while Trade and Investment Officers (TIOs) must obtain prior approval from the ministry before starting any recruitment process. The ministry has circulated detailed guidelines to all TIOs, directing them to prioritize citizens of the host country. Pakistani-origin individuals with valid work permits may also be considered for local positions. Locally hired employees may only be appointed to officially approved positions, with salaries and benefits determined according to pay scales prescribed by the Diplomatic Wing. In exceptional cases, compensation may be determined through a market survey supported by proper justification. Applicants must hold a graduate degree from a recognized university, while candidates with relevant experience in trade-related fields will receive preference. The selection committee will be formed by the concerned TIO after obtaining approval from the ministry.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/03/pakistan-bans-hiring-of-indian-israeli-origin-staff-at-overseas-missions/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 04, 2026", "headline": "SECP Warns Pakistanis Against Fake Investment Schemes", "deck": "The Securities and Exchange Commission of Pakistan (SECP) has issued new regulations to prevent Ponzi and pyramid schemes, introducing restrictions on businesses that promise unusually high returns or recruit new participants in exchange for financial rewards. The regulations pro", "hero_source": "ProPakistani \u00b7 Economy & Policy", "hero_url": "https://propakistani.pk/2026/11/03/secp-warns-pakistanis-against-fake-investment-schemes/", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The Securities and Exchange Commission of Pakistan (SECP) has issued new regulations to prevent Ponzi and pyramid schemes, introducing restrictions on businesses that promise unusually high returns or recruit new participants in exchange for financial rewards. The regulations provide a clear definition of Ponzi and pyramid schemes and prohibit arrangements that rely on recruiting new participants to generate profits. Schemes promising exceptional returns while encouraging people to bring others into the network have also been barred. The new rules cover online marketing schemes based on deception, as well as programs that offer rewards for enrolling additional participants. The SECP said the regulations apply to all companies, including those operating online. The regulator has warned that companies operating illegal schemes will face action under the new framework. The regulations are aimed at curbing business models that rely on recruitment-driven earnings and promises of unusually high profits. The SECP has also urged the public to remain cautious of schemes that guarantee returns or promise unusually high profits. Investors have been advised to verify a company\u2019s credentials and regulatory status before committing their money."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "SECP bans Ponzi and Pyramid schemes under new regulations 2026", "body": "The Securities and Exchange Commission of Pakistan (SECP) has introduced a set of regulations in 2026 that expressly prohibit Ponzi and pyramid schemes. The rules define the hallmarks of such schemes, require any collective investment arrangement to be registered with the commission, and mandate full disclosure of investment structures and returns. The regulatory framework is intended to close loopholes that have previously allowed fraudulent schemes to attract public funds without oversight.\n\nThe new regulations empower the SECP to impose substantial fines, suspend operating licences, and refer cases for criminal prosecution where violations are identified. The commission will work closely with law\u2011enforcement agencies and financial institutions to monitor market activity and enforce compliance. Investors are advised to verify the registration status of any investment opportunity through the SECP\u2019s official portal before committing capital, thereby reducing exposure to fraudulent schemes.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/secp-bans-ponzi-pyramid-schemes-pakistan-2026/"}, {"head": "Institutional restructuring -Govt adopts Ishrat\u2019s reform blueprint", "body": "ISLAMABAD: The government has adopted former State Bank of Pakistan (SBP) governor Dr Ishrat Hussain\u2019s institutional reform blueprint as the foundation of its restructuring agenda, while acknowledging that implementation of the proposed changes across federal ministries and departments will take place in phases. Finance Minister Muhammad Aurangzeb disclosed this on Tuesday while addressing a Sustainable Development Policy Institute (SDPI) ceremony where Dr Ishrat was presented with a Lifetime Achievement Award, saying the government was building on his recommendations rather than discarding previous work and starting from scratch. Aurangzeb said he had personally approached Dr Ishrat to obtain his institutional reforms report and subsequently adopted it as the basis of the government\u2019s restructuring programme. However, the recommendations were being implemented gradually because of the scale of the proposed reforms and the number of ministries and attached departments involved. \u201cThe groundwork was done by you, and we are now leveraging it. However, execution and implementation are taking a little more time,\u201d he told Dr Ishrat, whom he described as a mentor whose integrity, humility and lifetime of public service continued to inspire him. State Bank Governor Jameel Ahmad credited Dr Ishrat with transforming Pakistan\u2019s central bank during his six-year tenure, which began in December 1999 when the country was grappling with international isolation, economic sanctions following the 1998 nuclear tests and a severe balance-of-payments crisis. He said Dr Ishrat prepared a comprehensive strategy paper within months of assuming office and translated his vision into an ambitious programme of institutional reforms, strengthening the SBP\u2019s autonomy, professional capacity and regulatory framework. Ahmad said Dr Ishrat\u2019s emphasis on merit, professional development and continuous learning helped build a generation of central bankers who subsequently assumed leadership positions in the financial sector. He also highlighted Dr Ishrat\u2019s foresight in recognising the importance of technology nearly three decades ago, recalling the establishment of an IT committee to modernise the central bank and the wider banking industry. Dr Ishrat, in his address, urged young Pakistanis to invest in education, embrace resilience and dedicate their professional lives to public service, saying difficult beginnings should never determine an individual\u2019s destination. \u201cYour beginnings need not determine your destination,\u201d he said, recounting how he overcame academic difficulties and social exclusion through perseverance and the guidance of dedicated teachers. He said he had visited 79 universities across Pakistan after retirement to motivate students to overcome economic uncertainty, shrinking opportunities and challenges posed by artificial intelligence. Recalling his 20-year career at the World Bank, Dr Ishrat highlighted his work on economic reforms in Ghana, international assistance for post-conflict Tajikistan and advice to Azerbaijan on establishing a sovereign wealth fund. He said Azerbaijan\u2019s state oil fund had accumulated around USD 75 billion in assets, demonstrating the importance of preserving resource revenues for future generations. Former federal minister and adviser on commerce Abdul Razak Dawood also praised Dr Ishrat\u2019s transformation of the State Bank, describing the Lifetime Achievement Award as well-deserved recognition of his contributions. Habib Bank Limited Chairman Sultan Ali Allana described Dr Ishrat as an institution in himself, highlighting his unusual combination of civil service experience and international financial expertise. Former secretary to the prime minister Nargis Sethi and Dean Emeritus and Professor at Boston University\u2019s Pardee School of Global Studies, Dr Adil Najam also spoke. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447303/institutional-restructuring-govt-adopts-ishrats-reform-blueprint"}, {"head": "Petrol price slashed by Rs5.45, HSD\u2019s by Rs3.68", "body": "ISLAMABAD: Consumers across the country will get relief at the fuel pumps effective for November 4, as the Oil and Gas Regulatory Authority (OGRA) announced a reduction in the ex-depot prices of petrol and High-Speed Diesel (HSD). Under the newly notified rates, the price of petrol has been reduced by Rs5.45 per litre, bringing the retail price down to Rs369.06 per litre. HSD also saw a cut of Rs3.68 per litre, fixing its new rate at Rs391.52 per litre, down from the previous Rs395.20. Under a new pricing mechanism announced a day earlier for 30 days, oil refineries will contribute to the petroleum levy by bearing a cumulative impact of Rs15 billion, according to the government. This would allow Rs14.71 reduction in the petrol price at the consumer end. For HSD, the price drop reflects international market trends, primarily driven by a decline in the global HSD crack spread, which dropped from USD 41.89 to USD 38.00 per barrel. The regulator attributed these adjustments to global developments alongside changes in Platts pricing, premiums, and incidental costs. International benchmark prices of petrol has decreased to USD 115.49 per bbl from USD 118.62 per barrel, however, premium including freight remained as high as USD 25.52 per bbl, while HSD benchmark prices has decreased to USD 112.20 per barrel from USD 114.31 per bbl. Reflecting these global shifts, the ex-refinery price of petrol climbed down to Rs274.41 per litre (previously Rs278.86). While the import cost of HSD decreased to Rs283.59 per litre (previously Rs287.27). Government levies and fixed profit margins for petrol and HSD remain unchanged. Both fuels carry a Petroleum Levy of Rs80 per litre, a Climate Support Levy of Rs5 per litre, and profit margins of Rs9.98 per litre for dealers and Rs7.87 per litre for oil marketing companies. The Inland Freight Equalisation Margin (IFEM) is sustained at Rs7.51 per litre for petrol, and Rs5.08 per litre for HSD. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447306/petrol-price-slashed-by-rs545-hsds-by-rs368"}, {"head": "Private sector turns net borrower", "body": "KARACHI: For the first time in 2026-27, the private sector has shifted from retiring debt to net borrowing from banks. The change appears to be the outcome of the government\u2019s continuous effort to force banks to pump maximum liquidity into the private sector. State Bank data on Monday showed that private-sector net borrowing was Rs87 billion during July 1 to Oct 23 FY27, compared with Rs29bn in debt retirement in the same period last fiscal year. The prime minister once again reiterated that the Ministry of Finance should take action against banks delaying loan disbursements to farmers, small and medium-sized enterprises (SMEs), and applicants under the Prime Minister\u2019s Apna Ghar scheme. However, the banks have yet to provide enough liquidity to stimulate the private sector and push the growth rate above its level of the past four years. SBP data showed that only Islamic branches of conventional banks extended loans, rather than receiving debt retirement, as seen in Islamic and conventional banks. Conventional banks recorded a meagre debt retirement of Rs320 million, compared with Rs117bn retired in the same period last fiscal year. Islamic banks recorded a net debt retirement of Rs63bn, compared with Rs25bn in the last fiscal year. While banks face high risks in lending to the private sector, the private sector is reluctant to borrow and invest, apparently for three reasons: high borrowing costs; political uncertainties, including terrorism in the two provinces; and a looming war in the region. The State Bank last week increased the interest rate by 50 basis points to 12pc, further reducing investors\u2019 chances of borrowing. At the same time, bankers and analysts believe that the State Bank would have to further increase the interest rate in the coming months, since the four-month average inflation is still in double digits. Published in Dawn, November 3rd, 2026", "source": "Dawn Business", "url": "https://www.dawn.com/news/2041700/private-sector-turns-net-borrower"}, {"head": "SBP Governor Makes Important Announcement About Climate Financing", "body": "State Bank of Pakistan (SBP) Governor Jameel Ahmad has called for climate finance to prioritize women, smallholder farmers and small businesses, saying communities most exposed to climate shocks often have the least access to formal financial services. Addressing the inauguration of a four-day joint learning program organized by SBP and the Alliance for Financial Inclusion (AFI) in Islamabad, Ahmad said climate change and financial exclusion were closely linked. The program brought together 38 participants from central banks and financial regulators in 24 countries across four continents to discuss the implementation of inclusive green finance policies. Ahmad said climate finance should go beyond supporting green investments and help communities anticipate risks, strengthen resilience and adapt to climate change. The governor cited the devastating floods since 2022, which caused nearly $15 billion in physical damage and another $15 billion in economic losses. The disaster affected more than 30 million people and damaged 2.2 million homes, underscoring the need for financial systems that are both green and inclusive. Ahmad said Pakistan\u2019s financial inclusion rate had reached 71 percent, while the gender gap in financial inclusion had narrowed to 27 percent. He also noted that Pakistan was sharing its Green Taxonomy and climate risk framework with regulators across the AFI network.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/03/sbp-governor-makes-important-announcement-about-climate-financing/"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "WEDNESDAY, NOVEMBER 04, 2026", "headline": "Binance reveals hackers used fake job interviews, malicious code in $6.3bn heist", "deck": "Binance released on Tuesday a detailed investigation into the $6.3 billion hack of its cryptocurrency platform, showing how attackers used fake job interviews and malicious code to steal the funds. The crypto exchange said it had replenished 98 per cent of the affected assets by ", "hero_source": "Dawn Business", "hero_url": "https://www.dawn.com/news/2041842/binance-reveals-hackers-used-fake-job-interviews-malicious-code-in-63bn-heist", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Technical Analysis", "body": ["Binance released on Tuesday a detailed investigation into the $6.3 billion hack of its cryptocurrency platform, showing how attackers used fake job interviews and malicious code to steal the funds. The crypto exchange said it had replenished 98 per cent of the affected assets by drawing on its own funds, with the remaining amount involving little-traded currencies that are harder to acquire. The attack, carried out over about four hours on Oct 29, was attributed by the US Federal Bureau of Investigation (FBI) to North Korea-affiliated hackers. Pyongyang has denied the allegations, with the powerful sister of leader Kim Jong Un calling the claim \u201cabsurd rhetoric\u201d. Around $2.85bn of the stolen $6.34bn has been frozen, Binance said, meaning that the attackers could not use it or convert it to another currency. Binance is the world\u2019s largest crypto exchange by daily trading volumes. News of the hacking attack, which is thought to be the biggest ever crypto heist , caused the prices of most major cryptocurrencies to fall sharply. According to Binance, attackers took their first steps towards the breach as early as June. First, they targeted a platform engineer by getting them to download a virus-laden version of the widely-known programming software Homebrew. Binance\u2019s cybersecurity teams identified the malware and removed it, but the hackers had already had time to harvest information about the engineer and his colleagues. In September, the attackers approached another Binance engineer through a legitimate job-search platform, offering him an interview for a position in a fictitious company. After building trust with the subject through the sharing of social media photos and videos, they asked the engineer to download a test exercise as part of the interview process. The exercise contained malware that deployed \u201csophisticated obfuscation and evasion techniques,\u201d Binance said, including replacing a legitimate development tool component with a malicious version. That malware was critical to the success of the attack, as it allowed the hackers to establish a connection with Binance\u2019s internal systems. On October 20, the attackers used the access they had gained and an internal AI tool to gain control over software used by two other engineers. Nine days later, they triggered malicious code that initiated the attack. Binance says outflows normalised as North Korea rejects US allegation Asset outflows from Binance have normalised and the company was in \u201cvery strong financial health\u201d, its co-CEO said. The world\u2019s biggest cryptocurrency exchange, whose customers had withdrawn a net $4.72bn as of Monday after the financial heist, has also launched a campaign to stem outflows and woo new users. \u201cIn the first 24 hours, there was a spike in terms of withdrawals, as can be expected. But after that \u2026 it\u2019s pretty much normalised,\u201d Richard Teng told a Hong Kong Fintech Week event on Tuesday. \u201cThe company is in very strong financial health,\u201d he said. \u201cThis is something that we can cover. We are able to do so.\u201d The crypto exchange was seeing \u201chourly deposits exceed withdrawals\u201d, Binance said in an X post earlier on Tuesday, adding that it reflected improving user activity and stabilising flows. The Federal Bureau of Investigation (FBI) said on the weekend that North Korea was responsible for the theft of more than $6bn in crypto assets, a crime that sent shockwaves through the industry. Kim Yo Jong, the influential sister of North Korean leader Kim Jong Un, said the US allegations proved Washington remained hostile towards Pyongyang, according to a report on Tuesday by state news agency KCNA . Pyongyang has not responded to US President Donald Trump\u2019s overtures, made earlier this year, to resume summit diplomacy. In the wake of the US allegations, Kim Yo Jong said North Korea had \u201cissues to reconsider\u201d over what she called US hostility. \u201cThe FBI is trying to brand the DPRK as a \u2018cyber criminal state\u2019, claiming that it obtained information that a hacking organisation \u2018supported\u2019 by the DPRK was involved in the incident,\u201d KCNA quoted Kim Yo Jong as saying. \u201cBut the US assertion is absurd rhetoric and nothing new,\u201d said Kim, a ruling party official. DPRK is short for the Democratic People\u2019s Republic of Korea. \u201cIt is a grave political provocation against the DPRK that the US misleads international public opinion as if all the cyber crimes in different parts of the world are our deeds.\u201d Revenue stream North Korea faces growing scrutiny over cryptocurrency theft , which analysts say is a key source of funds for its weapons programmes. Cybersecurity experts say North Korean hackers are among the world\u2019s most prolific crypto thieves and the proceeds help fund the country\u2019s efforts to develop nuclear weapons and ballistic missiles capable of hitting the United States. North Korea has stolen cryptocurrency worth $7.6bn this year, more than in any previous year, according to estimates by blockchain analytics firm Elliptic. North Korea denies allegations linking it to cryptocurrency theft and other cybercrimes. Analysts in Seoul said Pyongyang\u2019s unusually swift response likely reflected concern that the allegation could lead to tighter efforts to disrupt revenue streams that North Korea is accused of using to finance its weapons. \u201cWith sanctions already in place, cryptocurrency theft has become one of North Korea\u2019s key channels for securing funds for regime maintenance and weapons development,\u201d said Lim Eul-chul, a professor at Kyungnam University\u2019s Institute for Far Eastern Studies. Additional US measures targeting crypto wallets, laundering networks and cryptocurrency exchanges could choke off an important source of revenue, Lim said. South Korea\u2019s central bank estimated North Korea\u2019s gross domestic product at 47.18 trillion won ($35.09bn) since 2025, meaning the Binance theft could be equivalent to about a sixth of its economic output. Blockchain analytics firm Chainalysis estimated 89pc of crypto hack losses in 2026 were linked to North Korea, up from 15pc since 2021. It said the average reported loss per hack rose from $50.65 million since 2021 to $185.65m in 2026. \u201cI guess you could call it big game hunting, where they\u2019re targeting these larger exchanges that may take more time and more complexity to be able to do \u2026 but the payoff can be relatively large,\u201d said Alec Zebrick, senior manager of Asia-Pacific Global Services at Chainalysis. Infographic depicting amount lost every month due to crypto hacks. \u2014 Courtesy Reuters North Korea is one of the world\u2019s most impoverished countries but has poured resources secured through illicit means and activities banned under UN Security Council resolutions into its missile and nuclear programmes. Kim Yo Jong said North Korea would \u201creconsider\u201d unspecified issues in light of the \u201cvery unpleasant US hostile attitude\u201d, without elaborating. North Korea has not publicly responded to Trump\u2019s offers to resume summit diplomacy. Binance withdrawals Binance launched a campaign on Monday offering fee rebates, rewards to eligible users who rack up at least $10,000 in cumulative trading volume, as well as annual percentage rates of up to 10pc on certain yield-generating products. The exchange\u2019s \u201ccommunity appreciation campaign\u201d will run through Nov 21, a post on its website showed. Binance, which froze withdrawals for more than two days after the hack and then started allowing customers to withdraw again on Sunday morning in some assets, reopened withdrawals for more assets on Tuesday. Since the resumption of withdrawals, Binance has seen net outflows amounting to around 3pc of the assets on its platform, it said on Monday, a relatively modest figure that analysts said suggested customer confidence had largely held up. \u201cThe relatively contained price reaction suggests a degree of maturity and resilience,\u201d said Maksym Repa, head of DeFi at Lombard, a Bitcoin finance protocol backed by Franklin Templeton. \u201cInvestors appear to be distinguishing between a security failure at a centralised exchange and a problem with the Bitcoin network itself.\u201d"], "quote": "A seizure that can be snatched back is not enforcement; it is notice to the state that its statutory commands end wherever intimidation begins.", "editorial": {"title": "The Statute Is Only as Strong as the Officer Enforcing It", "deck": "An Inland Revenue team assaulted in Bahawalpur, escalating Easy Tax penalties after the October 31 deadline, and SECP's ban on Ponzi and pyramid schemes \u2014 one news cycle revealing the full lifecycle of a statutory regime.", "paragraphs": ["The most alarming development of the past twenty-four hours is not fiscal but physical. An Inland Revenue team of the Federal Board of Revenue (FBR), acting on intelligence that illegal cigarettes were being moved in a vehicle bearing registration number AHE-895, intercepted the consignment in Bahawalpur \u2014 only for suspects in the illegal trade to attack the officials, snatch back part of the seized stock, and threaten them with death. Every step in that sequence, from intelligence gathering to interception to seizure, is a statutory act performed in service of revenue collection. When a seizure can be physically reversed by the very actors it targets, the enforcement chain that sustains the entire fiscal framework stands exposed.", "The same day, the compliance side of the ledger was on display. Minister of State for Finance Bilal Azhar Kayani told the National Assembly Standing Committee on Finance that retailers who failed to register under the Easy Tax Scheme by the October 31 deadline face proposed penalties rising to Rs. 50,000 by the third month. The contrast is uncomfortable and instructive: the statutory apparatus moves swiftly, through notices and escalating fines, against shopkeepers whose offense is inaction, while the illicit cigarette trade answers taxation with intimidation. If the tax net is to widen credibly, the officers who intercept contraband must be able to do so without fear. Enforcement against the unregistered and protection of the enforcer are two halves of a single statutory design, and neglecting the second hollows out the first.", "Prevention, meanwhile, has its own milestone. The Securities and Exchange Commission of Pakistan (SECP) has issued new regulations for 2026 banning Ponzi and pyramid schemes, providing a clear definition of such arrangements and prohibiting schemes that rely on recruiting new participants, while restricting businesses that promise unusually high returns or dangle financial rewards for recruitment. The commission has also warned Pakistanis against fake investment schemes. A statutory definition matters: it converts a vague financial intuition \u2014 that returns too generous to be true are a danger \u2014 into a bright-line prohibition that regulators can act upon and citizens can cite. In investor protection, clarity of text is the first line of defense; heeding the commission's warning is the second.", "Read together, the three leads trace the full arc of a fiscal regime: enforcement on the ground in Bahawalpur, compulsory registration and escalating fines for the retail trade, and preventive regulation at the entry gate of the capital market. A tax system is judged less by the elegance of its statutes than by whether its officers can execute a seizure and return safely, whether its deadlines carry consequences, and whether its definitions leave no room for the fraudster. The architecture appears sound. What these headlines demand, unmistakably, is that the state concentrate its force where it is thinnest \u2014 shielding the revenue officer in the field, not merely drafting the revenue law."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Researchers warned of North Korean hacking tactics years before record $6.3B Binance heist", "body": "Cybersecurity researchers have long highlighted the persistent and patient nature of North Korea's state\u2011backed hacking campaigns, noting that the regime\u2019s cyber units have refined their methods over more than a decade to exploit weaknesses in digital finance platforms. Their analyses warned that the attackers favoured stealthy infiltration, long\u2011term reconnaissance and the gradual accumulation of access before launching large\u2011scale thefts, a pattern that had been observed in earlier cryptocurrency breaches.\n\nThe warning proved prescient when Binance, the world\u2019s largest cryptocurrency exchange, suffered a record\u2011breaking theft of approximately $6.3\u202fbillion. The breach exposed gaps in the exchange\u2019s defensive posture and underscored the challenges faced by the industry in countering sophisticated, state\u2011sponsored actors. The incident has prompted calls for tighter security standards, greater information sharing among exchanges, and closer collaboration with cybersecurity experts to mitigate the evolving threat landscape.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/"}, {"head": "Anthropic is working on a system to prove AI models\u2019 identity", "body": "Anthropic has announced development of FlashProve, a verification framework designed to authenticate the source of AI-generated text. The system will embed cryptographic signatures within model outputs, enabling downstream users to confirm that a response originates from the claimed Anthropic model rather than a copy or a manipulated version. By exposing a public verification key, FlashProve aims to create a transparent chain of trust that can be checked by developers, enterprises, and end\u2011users without requiring direct access to the model\u2019s internal architecture.\n\nThe initiative arrives amid growing concerns over model impersonation and the spread of synthetic content that can be difficult to attribute. Industry analysts note that a reliable provenance tool could help mitigate risks in regulated sectors such as finance and healthcare, where the source of AI advice carries legal and ethical weight. Anthropic plans to pilot FlashProve with select partners later this year, with broader rollout contingent on feedback and interoperability testing across major AI platforms.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/"}, {"head": "Ted Schlein\u2019s Ballistic Ventures seeks $490M for new funds amid AI-driven cybersecurity boom", "body": "Ballistic Ventures, the venture firm founded by longtime cybersecurity investor Ted Schlein, is seeking to raise $360 million for a new flagship fund alongside a separate $130 million investment vehicle, a combined war chest of $490 million aimed squarely at the technology defending corporate networks. The fundraising push arrives as artificial intelligence redraws the economics of the security industry, arming attackers with cheaper, faster tools while simultaneously stoking demand for defensive software capable of operating at machine speed.\n\nThe effort reflects broader momentum in security venture capital, where AI has become both the accelerant of the threat landscape and the core of the product. Cybersecurity has remained one of enterprise technology's most resilient spending categories, and investors argue that generative models \u2014 capable of automated phishing, synthetic identities and novel malware \u2014 have raised the stakes in every boardroom. Specialist firms dedicated exclusively to the sector have moved to convert that urgency into fundraising capacity, betting that founders building AI-native defences will command outsize returns as security budgets shift toward companies with the most advanced tooling.\n\nFor Ballistic, the new funds would deepen a thesis the firm has pursued since its founding: that cybersecurity merits a dedicated pool of capital rather than a line item inside generalist portfolios. If the targets are met, the combined $490 million would cement its position as one of the sector's most focused backers at precisely the moment AI serves as both the industry's greatest disruptor and its strongest sales pitch.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/"}, {"head": "Ukraine\u2019s drone strikes spur hasty Russian plans for underground data centers", "body": "Ukrainian drone operations have recently targeted several Russian data processing sites, causing temporary outages in services that support both civilian and military networks. The strikes highlighted vulnerabilities in the above\u2011ground infrastructure, prompting Russian officials to accelerate a program aimed at relocating critical servers and networking equipment to subterranean facilities. The initiative seeks to shield digital assets from aerial attacks by leveraging existing underground structures, such as former missile silos and hardened bunkers, and by constructing purpose\u2011built vaults equipped with advanced cooling and power redundancy.\n\nThe move reflects a broader shift in Russia\u2019s approach to cyber\u2011physical resilience, as the country integrates physical security measures with its expanding digital warfighting capabilities. Analysts note that the underground strategy could extend the operational lifespan of key data centers while reducing the risk of disruption to financial transactions, command\u2011and\u2011control systems, and public services that rely on uninterrupted connectivity.", "source": "Ars Technica Feed", "url": "https://arstechnica.com/ai/2026/11/russia-looks-to-hide-data-centers-underground-as-ukrainian-drones-strike-back/"}, {"head": "AI inference startup Fal doubles its valuation to $16B as demand surges", "body": "Fal, a five\u2011year\u2011old AI inference platform, announced a $1.3\u202fbillion financing round led by Bessemer, pushing its post\u2011money valuation to $16\u202fbillion. The capital infusion will fund expansion of its low\u2011latency inference infrastructure, which enables enterprises to deploy large language models and computer\u2011vision workloads at the edge and in cloud data centers. Fal\u2019s technology leverages proprietary model\u2011compression algorithms and a distributed serving mesh that reduces compute costs by up to 40\u202fpercent compared with conventional GPU\u2011only deployments, a claim that has attracted a growing roster of cloud service providers and Fortune\u2011500 customers seeking to scale AI services without prohibitive expense.\n\nThe round comes amid a broader acceleration in AI inference demand, as analysts note that the global market for inference workloads is expanding at a double\u2011digit annual rate, driven by the proliferation of generative AI applications, real\u2011time analytics, and autonomous systems. Industry observers expect that the influx of capital will intensify competition among inference specialists, prompting further innovation in hardware\u2011agnostic acceleration and cost\u2011effective scaling solutions.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 04, 2026", "headline": "\u2018La Bola Negra\u2019 Caliente At Box Office With $43M Worldwide, Becomes Spain\u2019s Top-Grossing Local Pic Of 2026", "deck": "Heading into awards season, it\u2019s always nice for any feature contender to have some juice at the box office, and Spain\u2019s official Oscar entry has exactly that as La Bola Negra has easily become the country\u2019s highest grossing local film year-to-date with $41 million per Rentrak . ", "hero_source": "Deadline Hollywood Wire", "hero_url": "https://deadline.com/2026/11/la-bola-negra-box-office-spain-1237212446/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Heading into awards season, it\u2019s always nice for any feature contender to have some juice at the box office, and Spain\u2019s official Oscar entry has exactly that as La Bola Negra has easily become the country\u2019s highest grossing local film year-to-date with $41 million per Rentrak . In total, La Bola Negra currently counts a running global cume of $43.4M.", "In fact, La Bola Negra beat the year\u2019s top Spanish title, Torrente Presidente ($31.6M) a few weekends ago.", "La Bola Negra is a big win for young indie Spanish distributor Elastica which made Deadline\u2019s annual Disrupters list back in 2022. According to Elastica and Rentrak, La Bola Negra has punched 5.5M admissions to date in Spain, which is the most tickets sold for any film YTD. Watch on Deadline", "Rentrak also reports that La Bola Negra cracked Spain\u2019s all-time top 10 grossing list with a running cume of 36.7M Euros in the No. 10 spot. That list is led by Avatar with 77M Euros at No. 1. Currently, La Bola Negra is the third highest grossing local movie of all-time in Spain behind 2014 comedy Spanish Affair (56.2M Euros) and J.A. Bayona\u2019s English language, 2012 Spanish production The Impossible (42.5M Euros)."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "\u2018Much Ado About Nothing\u2019 Starring Tom Hiddleston Joins Sell Outs \u2018A Few Good Men\u2019, \u2018Other Desert Cities\u2019 & \u2018Hamilton\u2019 \u2013 Broadway Box Office", "body": "Broadway business was off about 13% last week (from the previous week and from last season at this time) \u2013 maybe Halloween Saturday pulled away some attention? \u2013 with total box office for the 33 shows hitting $29,572,284. Attendance for the week ending November 1 was 251,700 , down 4% from the previous week and 9% year-to-year.\n\nMost shows \u2013 26 of the 33 \u2013 reported downturns, some considerable in the six figures. Both & Juliet and The Outsiders were down by more than $300,000 from the previous week (to, respectively, $610,232 and $605,946 ).\n\nOther Desert Cities also topped the ticket price roster, with its average paid attendance at a hefty $301.23 . Only two other productions topped the $200 mark: Much Ado About Nothing ( $238.36 ) and Hamilton ( $218.03 ). The overall average paid admission for the 33 shows was $117.49.\n\nBilly Crystal\u2019s 860 had three heavily comped press performances but still pulled in a strong $1,353,611 for seven performances. Attendance was at 99%.\n\nIn the 23rd week of the 2026-27 season, Broadway has grossed $726,010,709 season-to-date, down about 8% from last year at this time, with total attendance of 5,929,169 down 3% year-to-year.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/broadway-box-office-tom-hiddleston-much-ado-about-nothing-1237212200/"}, {"head": "Midterm Elections -Jon Ossoff Wins Reelection To Georgia U.S. Senate Seat, Networks Project", "body": "Television networks delivered the first major race projection of the 2026 midterm elections on Tuesday evening, calling Georgia's U.S. Senate contest for the incumbent, Jon Ossoff, who will return to Washington for another term. NBC News projected his victory during the 4 p.m. PT/7 p.m. ET hour, and its decision was quickly followed by CBS News and CNN, moving the closely watched Georgia seat onto the board in the opening stretch of election-night coverage.\n\nThe Associated Press added its own projection at around 5 p.m. PT/8 p.m. ET, putting the television networks and the news agency in agreement on the outcome. The win sends Ossoff, first elected to the chamber since 2021, back to Washington for a further six-year term.\n\nThe early timing of the call underscored the prominence attached to Georgia, a state that has featured repeatedly at the center of national election nights in recent cycles. Ossoff's hold on the seat hands his party an early marker in the wider contest over the chamber's composition, with vote counting across the remaining races set to continue late into the night.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/election-2026-latest-1237212469/"}, {"head": "Paramount+ Drama Slate -Series Moving To HBO, Sarah Aubrey & Francesca Orsi Sharing Oversight Among Options Explored Post-Merger \u2013 The Dish", "body": "Almost a month after Paramount completed its acquisition of Warner Bros. Discovery and integrated the combined assets into Skydance, the company is still aligning its Direct\u2011to\u2011Consumer (DTC) operations. The merger has brought the content streams of Paramount+ and HBO/HBO Max under a single leadership structure, with veteran executive Casey Bloys appointed Co\u2011Chair and Chief Content Officer of Skydance DTC. Bloys now oversees the programming strategy for both platforms as the merged entity works to harmonise scheduling, branding and subscriber experience across the two services.\n\nWithin the drama division, senior executives Sarah Aubrey and Francesca Orsi have been assigned joint oversight of the slate, evaluating a range of distribution pathways for upcoming series. The team is reviewing whether particular titles will debut on the newly unified HBO brand, remain on Paramount+, or follow alternative release models. Their assessment reflects the broader effort to streamline content pipelines and maximise audience reach as the merged company finalises its post\u2011merger integration plan.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/paramount-plus-drama-slate-sarah-aubrey-francesca-orsi-1237212518/"}, {"head": "Park Hoon-jung\u2019s \u2018Tristes Tropiques\u2019 Sells To Well Go USA For North America; Swift For France", "body": "Korean sales agency Finecut has secured distribution for Park Hoon-jung\u2019s action\u2011noir film Tristes Tropiques across several key markets. In North America, the rights have been acquired by Well Go USA, which will handle theatrical and digital releases. The film, slated for its Korean theatrical debut on 25 November, will also reach French\u2011speaking territories through Swift Distribution, while Alfa Pictures will distribute it in Spain and Andorra. Additional territories have been added to the sales roster, expanding the film\u2019s global footprint ahead of its home\u2011country launch.\n\nTristes Tropiques marks another genre\u2011bending entry from director Park Hoon-jung, whose previous works have blended gritty storytelling with stylised action. The North American acquisition by Well Go USA positions the film for a staggered release strategy that includes limited theatrical runs followed by streaming availability, aligning with the distributor\u2019s recent focus on high\u2011concept Asian cinema for western audiences.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/well-go-usa-park-hoon-jung-tristes-tropiques-finecut-swift-1237211994/"}, {"head": "Park Hoon-jung\u2019s Assassin Noir \u2018Tristes Tropiques\u2019 Sells to North America, France, Spain", "body": "South Korean director Park Hoon-jung\u2019s latest genre film, the assassin\u2011driven noir titled \u201cTristes Tropiques,\u201d has secured distribution agreements ahead of its domestic release on November 25. Well Go USA has acquired the North American rights, positioning the film for theatrical and digital rollout across the United States and Canada. The acquisition was announced as part of the American Film Market (AFM) line\u2011up, where Finecut, the Korean sales agent, is presenting the title to international buyers.\n\nIn addition to the North American deal, Swift Distribution has taken on sales for the French, Spanish and other European territories, expanding the film\u2019s reach into key markets across the continent. The series of agreements follows the film\u2019s completion of post\u2011production and its inclusion in the AFM market schedule, signaling confidence in Park\u2019s reputation for blending high\u2011concept storytelling with commercial appeal.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/park-hoon-jung-assassin-noir-tristes-tropiques-sales-1236938950/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 04, 2026", "headline": "One dead and another missing in suspected grizzly bear attack in Canada", "deck": "The incident took place in the same province where a grizzly attacked a group of schoolchildren last November", "hero_source": "Guardian World Wire", "hero_url": "https://www.theguardian.com/world/2026/nov/03/grizzly-bear-attack-canada", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["The incident took place in the same province where a grizzly attacked a group of schoolchildren last November", "A mother is dead and her daughter is missing in western Canada after a suspected grizzly bear attack in the same community where a bear attacked a group of schoolchildren earlier in the year.", "On Tuesday, the British Columbia conservation officer service said in a social media post that it had launched a search for the two missing people on the weekend, and that during the search on Sunday an officer found the mother\u2019s body. The search for her 19-year-old daughter is ongoing.", "\u201cOur thoughts are with the families of the victims during this tragic time,\u201d Inspector Jeff Tyre said in a video posted online.", "Jenny Balcarras, an art therapist, and her daughter were reported missing by relatives over the weekend. A family member posted on Facebook about them, later updating it after the conservation service announced the suspected attack to indicate that their vehicle had been found at a trailhead near Bella Coola, British Columbia.", "The suspected attack happened at the Snooka West trail area, about 8km (4.97 miles) east of Bella Coola, on the province\u2019s central coast."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Brazil publishes first global \u2018roadmap\u2019 for phasing out fossil fuels", "body": "Brazil, the host of last year\u2019s UN climate conference, unveiled on Tuesday the world\u2019s first global roadmap for phasing out fossil fuels. The document outlines a series of steps that countries can take to break their dependence on coal, oil and gas, emphasizing that the transition can be pursued without waiting for new technologies or major economic shifts. By linking the decarbonisation agenda to economic growth and poverty alleviation, the roadmap seeks to demonstrate that climate action can be compatible with development objectives.\n\nThe initiative marks a shift from negotiating climate commitments to implementing concrete measures ahead of the upcoming global summit. Brazil\u2019s government says the plan provides a template for nations to accelerate the rollout of renewable energy, improve energy efficiency and re\u2011direct investment toward sustainable industries, thereby creating jobs and lifting communities out of poverty while meeting emissions targets.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/environment/2026/nov/03/brazil-first-global-roadmap-phasing-out-fossil-fuels"}, {"head": "Bangladesh garment workers stage fourth day of wage protests", "body": "Garment workers in Bangladesh staged a fourth day of wage protests on Tuesday, with police firing tear gas to disperse demonstrators as unrest disrupted factory operations and transport links in the country\u2019s vital export sector. The unrest, which began on Saturday, has intensified despite the government\u2019s move to form a six-member wage board to review pay in Bangladesh\u2019s garment sector, the world\u2019s second-largest apparel exporter after China. It comes at a critical time for manufacturers entering the peak production season for spring and summer export orders. The industry employs about 4 million workers, supplies global brands such as H&M, Zara and Gap, and accounts for more than 80 per cent of the country\u2019s export earnings. Clashes were reported across industrial belts around Dhaka, including Ashulia, Gazipur and the capital\u2019s Mirpur area, as workers staged fresh demonstrations and attempted to block major highways. Dozens of people, including several police officers, were injured in the clashes. H&M assessing any potential impact In Ashulia, police fired tear gas and sound grenades after protesters threw bricks and stones at law enforcement personnel, said Mohammad Mominul Islam Bhuiyan, superintendent of Ashulia Industrial Police. Similar crowd-control measures were used in Dhaka\u2019s Mirpur area, police said. Additional security forces were deployed to contain the unrest, police said. Several factories in Gazipur and Ashulia again suspended operations or declared holidays after nearly 700 factories shut a day earlier. A shattered window is seen on the facade of a garment factory building in Dhaka, Bangladesh on November 3, 2026, after workers threw stones during protests demanding higher minimum wages. \u2014 AFP \u201cThere are no major disruptions in our supply chain with only a limited number of factories temporarily closed,\u201d H&M told Reuters . \u201cWe are assessing any potential impact on our overall production and supply chain.\u201d The Swedish company added it wanted adequate compensation for garment workers and remained committed to improving wages and working conditions. Workers demand higher minimum wage Workers are demanding a minimum monthly wage of 30,000 taka ($245), up from the current 12,500 taka, arguing that rising living costs and persistent inflation have eroded their purchasing power. Several factories were also vandalised during the unrest. \u201cIt is crucial that brands act immediately and speak out in support of workers\u2019 demands,\u201d said Anne Bienias, from the Clean Clothes Campaign industry advocacy group. Industry officials warn prolonged closures could delay shipments and damage Bangladesh\u2019s reputation as a reliable sourcing hub as it competes with rivals such as Vietnam and India for global apparel orders. The wage dispute comes amid mounting pressure on workers from rising prices. The government formed the wage board on November 1 to review pay in the garment sector, but the move has yet to calm the protests. Factory owners said they are contending with rising operating costs, uncertainty in energy markets linked to conflict in the Middle East, and softer demand in key export markets. They warn that prolonged unrest could disrupt production schedules and jeopardise export orders, while workers continue to press for higher wages and better working conditions.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2041880/bangladesh-garment-workers-stage-fourth-day-of-wage-protests"}, {"head": "Six members of a family shot dead in Hangu", "body": "HANGU: At least six members of the same family, including two women and three children, were killed in a shooting inside a house in Hangu district of Khyber Pakhtunkhwa, police confirmed Tuesday. According to details, the incident took place in the Sarokhel area, within the jurisdiction of Doaba Police Station, where gunfire inside a residential property claimed the lives of six people. District Police Officer (DPO) Salahuddin Kundi confirmed that the victims included the head of the household, Noor Rehman, two women and three young children. All six died at the scene. Preliminary investigations have identified the suspect as Noor Rehman\u2019s nephew, who is reportedly a drug addict, according to the police. The DPO said an alleged dispute had developed because Noor Rehman used to prevent his nephew from bringing friends who were reportedly involved in drug use into the house. Police have taken custody of the bodies and shifted them to Doaba Hospital for the required legal and medical procedures. DPO Hangu said investigators were examining all possible aspects of the incident to establish the exact circumstances and motive behind the killings. Police have also launched raids to arrest the suspect, who fled after the incident. Further investigation is underway.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447277/six-members-of-a-family-shot-dead-in-hangu"}, {"head": "Bomb threats disrupt Europe flights", "body": "LONDON: About 10 European flights were targeted by bomb threats on Tuesday, forcing the brief closure of a Warsaw airport and the scrambling of air force planes in Rome, authorities said. No explosives were found, despite extensive searches on the ground after the planes all took off and landed safely in different European cities just several hours apart. Irish budget carrier Ryanair appeared to be the worst hit, with four of its flights to different destinations being targeted. Two bomb warnings targeted planes heading to the Polish capital Warsaw, including an SAS Scandinavian Airlines flight from Copenhagen and one from Heathrow operated by Polish airline LOT, Polish airport authorities said. Other Ryanair flights from Lisbon to Rome, Dublin to Rome, and Dublin to the Bulgarian capital of Sofia also received warnings. Italian air force jets were scrambled to escort Ryanair flight FR9611 from Dublin as it landed at Rome-Fiumicino at 10:45 am (0945 GMT), Rome Airport said in a statement. A Wizz Air flight from Bergamo, Italy, was inspected after landing at 0910 GMT in the Bulgarian capital Sofia following an alert, a Bulgarian interior ministry spokesperson told AFP .", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40447302/bomb-threats-disrupt-europe-flights"}, {"head": "How to Get Qatar Free 30-Day Tourist Visa as a Pakistani", "body": "Qatar is offering free tourist visas on arrival to eligible Pakistani passport holders, allowing them to stay in the country for up to 30 days, subject to specific entry requirements. According to Qatar\u2019s Ministry of Interior (MOI), Pakistani citizens can qualify for the facility by presenting a valid passport, a confirmed return ticket, an approved hotel reservation, and health insurance. Pakistani travellers must complete the necessary arrangements before departure, including booking accommodation through Discover Qatar and obtaining insurance from an accredited provider. Other official Qatar immigration guidance also specifies additional requirements involving passport validity, proof of funds, and polio vaccination. Travellers should confirm which conditions apply before departure. The facility is available to Pakistani nationals travelling to Qatar for tourism who meet the country\u2019s immigration requirements.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/03/how-to-get-qatar-free-30-day-tourist-visa-as-a-pakistani/"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 04, 2026", "headline": "Spanish footballer Jesus De Miguel dies after collision with keeper", "deck": "Tenerife striker Jesus de Miguel died on Tuesday as a result of injuries he suffered in a sickening collision with FC Andorra\u2019s goalkeeper in a Spanish second division match. \u201cBroken with pain, with a lump in our throat and unable to believe this is real, CD Tenerife announces th", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2041879/spanish-footballer-jesus-de-miguel-dies-after-collision-with-keeper", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Tenerife striker Jesus de Miguel died on Tuesday as a result of injuries he suffered in a sickening collision with FC Andorra\u2019s goalkeeper in a Spanish second division match. \u201cBroken with pain, with a lump in our throat and unable to believe this is real, CD Tenerife announces the tragic death, at 8:00am (07:00 GMT), of Jesus de Miguel Alameda,\u201d his club Tenerife said in a statement. \u201cNo words can ease the pain, nothing can lessen this great feeling of sadness. Our thoughts are with the family, his close friends and Tenerife fans, who today are grieving over this terrible news.\u201d De Miguel, 30, was fouled in the middle of the pitch by Equatorial Guinea international goalkeeper Jesus Owono, who had raced out of his goal to try and clear the ball. Tenerife\u2019s Jesus de Miguel receives medical attention and gets stretchered off after a collision with FC Andorra\u2019s Jesus Owono during the Spanish La Liga 2 match at Estadio Heliodoro Rodriguez Lopez in Santa Cruz de Tenerife on November 2, 2026. \u2014Reuters Spanish police sources told AFP an investigation into what happened has been opened, under judicial supervision. The incident happened towards the end of the match at the Heliodoro Rodriguez Lopez Stadium, with the teams level at 2-2. Owono was sent off and the match was subsequently abandoned. Spanish media said that De Miguel suffered a cardiac arrest and was resuscitated. The player was taken to hospital and placed in intensive care, with Tenerife later saying that De Miguel\u2019s condition had \u201cworsened neurologically\u201d, before his death. \u201cI am so deeply sorry. Rest in peace, Jesus,\u201d former Barcelona defender Gerard Pique, Andorra\u2019s majority shareholder, wrote on social media. Andorra also sent their \u201cmost sincere condolences\u201d to De Miguel\u2019s family, team-mates and Tenerife. Messages of support Real Madrid, Barcelona, Atletico Madrid and other clubs in Spain also sent messages of condolence, as well as the Spanish football federation (RFEF). \u201cShattered by this sad news, the Royal Spanish Football Federation wishes to express our deepest sorrow at his passing today,\u201d wrote the federation in a statement. The RFEF postponed Tuesday\u2019s matches in the Copa del Rey and Copa de la Reina, \u201cas a gesture of respect and solidarity\u201d. European football governing body UEFA said a minute\u2019s silence would be held before matches this week in the Champions League, Europa League and Conference League. Real Madrid held a minute of silence before their training session on Tuesday. \u201cImmense sadness, there are no words,\u201d Madrid\u2019s French forward Kylian Mbappe wrote on Instagram. Other sports stars, including Rafa Nadal and Lionel Messi also left messages on Instagram. \u201cThere are no words\u2026 rest in peace,\u201d wrote Inter Miami forward Messi. \u201cWhat a terrible sadness\u2026 I\u2019m with you from the bottom of my heart,\u201d wrote Nadal. La Liga side Espanyol also delayed the presentation of their new coach Eder Sarabia until Wednesday while some clubs chose not to train. Top flight chief Javier Tebas and Spanish sports minister Milagros Tolon also posted messages of condolence. \u201cToday we all share the terrible pain of an irreparable loss,\u201d wrote Tebas on X. \u201cWe share in your grief,\u201d wrote Tolon, offering her \u201cdeepest condolences to (De Miguel\u2019s) family and loved ones\u201d, as well as Tenerife, the players and staff. De Miguel had been at Tenerife for just over a season, having joined in the summer since 2025 from Castellon. The striker helped the team gain promotion to the second division. The forward began his career with Leganes at youth level in the Madrid suburbs, playing for a string of teams, including Unionistas de Salamanca, before signing for Castellon since 2023."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Tenerife footballer Jes\u00fas de Miguel dies aged 30 after on-pitch collision", "body": "Police homicide division opens judicial proceedings He was struck in the chest when challenging for ball Spanish football was in shock on Tuesday after the Tenerife striker Jes\u00fas de Miguel died after a collision with the Andorra goalkeeper Jes\u00fas Owono during a match in the second division. The homicide division of the national police has opened judicial proceedings into a possible involuntary manslaughter, a routine procedure after any death not by natural causes. The chief public prosecutor in Santa Cruz de Tenerife told the state news agency EFE that it was \u201cvery difficult\u201d for a case to come to court. Tenerife announced that De Miguel had died at 8am on Tuesday after he had been taken into intensive care on Monday afternoon. He did not regain consciousness after a cardiorespiratory arrest. Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/03/tenerife-footballer-jesus-de-miguel-hospital-collision"}, {"head": "Football world mourns Tenerife striker De Miguel", "body": "Jesus de Miguel, a forward for CD Tenerife, died after sustaining a serious head injury in a collision on the pitch during a La Liga match last week. The incident occurred in the second half when de Miguel collided with an opposing defender while contesting a aerial ball. Medical personnel attended him on the field, but he was later pronounced dead at a nearby hospital. The club confirmed his passing, noting his contributions to the team over several seasons and his reputation as a dedicated professional who had risen through the club's youth ranks to become a regular starter.\n\nOn Tuesday, moments of silence were observed before all Champions League fixtures as clubs, officials and supporters paid tribute to the fallen player. UEFA released a statement expressing condolences to de Miguel's family, teammates and the wider football community, emphasizing the sport's solidarity in times of tragedy. Representatives from several participating clubs, including those competing in the evening matches, wore black armbands and observed a brief pause in play to honor his memory. Fans gathered outside the stadiums and on social media to share messages of support, highlighting de Miguel's impact both on and off the field.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/c6djv011mzlyo?at_medium=RSS&at_campaign=rss"}, {"head": "Novak Djokovic battles through Paris Masters opener", "body": "Novak Djokovic battled from behind to beat Valentin Vacherot 6-7(5/7), 7-5, 6-1 in the first round of the Paris Masters on Tuesday, while Ben Shelton opened his campaign with a comfortable win. For the Serbian 24-time Grand Slam champion, it marked a return to winning ways at ATP 1000-level tournaments for the first time since his run to the fourth round at Indian Wells back in March. Djokovic also exacted his own bit of revenge on Vacherot in just the second meeting between the pair \u2014 the Monegasque downed the 39-year-old on his way to a sensational Shanghai Masters title last season. \u201cI knew that coming into the court it was going to be a very tight match as it was,\u201d Djokovic told reporters. \u201cHe\u2019s very confident, and he\u2019s one of the best servers we have in the game,\u201d he added of Vacherot, who lifted the second title of his career last week in Basel. Victory also kept alive Djokovic\u2019s chances of landing a spot in the season-ending ATP Finals later in November. Djokovic is currently 11th in the race to the eight-man tournament in Turin. However, he insisted his main focus was not the ATP Finals but \u201cto win every match\u201d on his return to the Paris Masters. In his last appearance at the tournament since 2023, he lifted the trophy for the seventh time. In an even opening frame, Vacherot got his nose in front at the end of an error-strewn first-set tie-break as he put together a run of four points to take the lead. After going down a break early in the second set, Djokovic called for a medical timeout for a massage on his right shoulder. The short stoppage seemed to break Vacherot\u2019s concentration as he dropped his serve straight away. On Djokovic\u2019s second break point, the 27-year-old completely misjudged a routine return from his opponent and could only watch in disbelief as the ball bounced on the line right in front of him. Vacherot then received treatment for a foot issue and soon found himself level at one set each as Djokovic displayed his trademark killer instinct to seize his first break opportunity in the 12th game of the set and send the match to a decider. The 10th seed ground down Vacherot in his first service game to get his nose in front before then running away with the match. He will next meet Rinky Hijikata in the second round on Wednesday. Monfils goodbye US Open finalist Shelton, who as third seed enjoyed a bye through the first round, put on a commanding display in the night session with a 6-3, 6-4 win over Cameron Norrie. Ben Shelton of the US serves to Britain\u2019s Cameron Norrie during their Paris Masters round-of-32 match at the Plenitude Arena in Nanterre, on the outskirts of Paris, France, on November 3, 2026. \u2014AFP The world number four needed just 71 minutes to see off the former eighth-ranked Briton, with the only hiccup being a break of his own serve near the end of the second set, which the 24-year-old instantly righted to close in on victory. The American then ceded centre stage to Gael Monfils for a ceremony to honour the career of the hugely popular French player, who retired earlier in the quarter at the age of 40. Rising star Rafael Jodar was last on centre court but fell in straight sets to former world number two Casper Ruud. Norway\u2019s Casper Ruud (L) shakes hands with Spain\u2019s Rafael Jodar after winning his Paris Masters round-of-32 match at the Plenitude Arena in Nanterre, on the outskirts of Paris, France, on November 3, 2026. \u2014Reuters The 20-year-old Spaniard currently sits ninth in the race to Turin, and his defeat meant Italy\u2019s Flavio Cobolli secured his spot in the season-ender despite having to withdraw from the Paris Masters with a leg injury. Elsewhere, Holger Rune, who beat Djokovic in the since 2022 final, exited at the first hurdle this time as he continues his return from a lengthy lay-off. The Dane lost 7-5, 6-4 to Tommy Paul. Matteo Berrettini edged out 14th seed Brandon Nakashima 6-4, 3-6, 7-6(10/8), and Taylor Fritz showed grit to see off Benjamin Bonzi in three sets. New home favourite Moise Kouame was unable to recreate his Roland Garros heroics as the French 17-year-old went down 6-3, 6-1 to lucky loser Nuno Borges. Play continues on Wednesday when world number one Alexander Zverev and seven-time major winner Carlos Alcaraz will both get their tournaments underway at the round-of-32 stage.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2042016/novak-djokovic-battles-through-paris-masters-opener"}, {"head": "PSG hit Villarreal for six as Bayern win and Manchester United fight back", "body": "Bayern Munich and Paris Saint-Germain underlined their Champions League title credentials with victories over Atletico Madrid and Villarreal, respectively, on Tuesday, while Manchester United came from two goals down to snatch a dramatic win over AS Roma. Bayern broke down a stubborn Atletico side in Madrid as second-half goals from Lennart Karl and Konrad Laimer secured victory, while PSG set a record as the fastest team to score four goals in a Champions League match on their way to a 6-0 victory. At Old Trafford, Matheus Cunha struck twice in quick succession after the break as United overturned a two-goal deficit to beat Roma 3-2, the comeback following protests by home supporters. Barcelona eased to a 3-0 home win over Aston Villa after Lamine Yamal opened the scoring in the seventh minute and Raphinha added a second-half double, while Inter Milan were equally convincing, beating Feyenoord 3-0 at De Kuip. PSG remain top of the standings with 12 points, followed by a group of six teams on nine points including Barcelona and Villa. Stadiums across Europe fell silent before kickoff in memory of Tenerife player Jesus de Miguel, who died earlier on Tuesday. At the Metropolitano, Bayern enjoyed the majority of possession but struggled initially to break down a disciplined Atletico side, who finished the first half without a shot on target. That was not a true reflection, however, of the threat the hosts carried on the counter-attack. Bayern\u2019s first clear chance did not come until the 22nd minute when Karl shot wide, before an unmarked Harry Kane volleyed off target from close range four minutes later. A series of well-timed defensive interventions prevented Bayern from building momentum, leaving Atletico goalkeeper Jan Oblak largely untroubled before the break. Karl made the breakthrough after halftime, dispossessing Robin Le Normand inside the Atletico penalty area before finishing neatly. Bayern Munich\u2019s Lennart Karl (R) scores past Atletico Madrid goalkeeper Jan Oblak during their UEFA Champions League first-round match at the Metropolitano Stadium in Madrid, Spain, on November 3, 2026. \u2014AFP Atletico pushed Bayern back after falling behind but created few clear chances, and their determination to play out from defence again proved costly in the 74th minute. Bayern regained possession before Kane\u2019s precise pass released Laimer, who produced an equally assured finish to put the result beyond doubt. United comeback Roma seized control against Manchester United when Matias Soule opened the scoring in the 11th minute, before Donyell Malen doubled their advantage from the penalty spot seven minutes later. The early goals intensified the discontent among the home supporters, who had released hundreds of green and gold balloons as the teams emerged, a reference to United\u2019s original colours, before throwing dozens of yellow tennis balls onto the pitch in the first half. United began their fightback in the 58th minute when captain Bruno Fernandes scored a retaken penalty. Manchester United\u2019s Bruno Fernandes scores from the penalty spot against AS Roma during their UEFA Champions League first-round match at Old Trafford in Manchester, Britain, on November 3, 2026. \u2014Reuters Cunha then transformed the contest, equalising seven minutes from time before scoring again three minutes later to complete the turnaround and spark jubilant celebrations at Old Trafford. His eventful night ended prematurely, however. Booked for removing his shirt and jumping into the stands after his winner, the Brazilian was sent off for a late challenge in stoppage time, completing a chaotic eight-minute spell. At the Camp Nou, Barcelona\u2019s Lamine pounced on a loose Aston Villa pass to open the scoring after seven minutes, although Unai Emery\u2019s side created the clearer openings before the break despite pressure from the hosts. Barcelona\u2019s Raphinha shoots to score against Aston Villa during the UEFA Champions League first-round match at Camp Nou in Barcelona, Spain, on November 3, 2026. \u2014Reuters Raphinha made the closing stages comfortable for Barcelona with a deflected strike before adding his second from an exquisite Joao Cancelo assist. Inter Milan delivered a clinical away performance to defeat Feyenoord. Yann Bisseck scored early with a long-range curler, before Pio Esposito headed home a second before halftime and Piotr Zielinski sealed the victory. Inter Milan\u2019s Piotr Zielinski (second L) celebrates with team-mates after scoring against Feyenoord during their UEFA Champions League first-round match at De Kuip Stadium in Rotterdam, Netherlands, on November 3, 2026. \u2014AFP LASK claimed only their second-ever Champions League win in a 4-0 triumph over Slovan Bratislava, while hosts Bodo/Glimt drew 0-0 with Lille. Earlier, Aleksey Batrakov scored twice as Galatasaray beat VfB Stuttgart 2-0, while Sporting Lisbon defeated Shakhtar Donetsk 1-0 at Stamford Bridge.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2042013/psg-hit-villarreal-for-six-as-bayern-win-and-manchester-united-fight-back"}, {"head": "Australia's Glenn Maxwell calls time on international career", "body": "Explosive batsman Glenn Maxwell announced his international retirement Tuesday after being overlooked for Australia\u2019s upcoming Twenty20 series against England. The mercurial 38-year-old, who had not played a Test since 2017, called time on his one-day career last year but kept the door open for T20s. He has not been picked since the World Cup in Sri Lanka in February, with selectors bypassing him for a series against Bangladesh in June. Maxwell was again overlooked for the squad named Monday to play England in November, with a host of younger players instead preferred. \u201cA little bit sad and a little bit inevitable too, but I\u2019m announcing my retirement from international cricket,\u201d Maxwell said on the Final Word podcast. \u201cWe probably had numerous discussions before and after the T20 World Cup,\u201d he added of talks with selectors. \u201cAnd it was pretty open-ended. \u201cThere wasn\u2019t any pressure from (Australia team management), and we decided to sort of leave the door open. \u201cThere was a couple of series that were coming up (in which) they were going to look to the future, and we saw that in Bangladesh with guys getting their opportunity and performing really well. \u201cThere was a small hope or discussion that I might have been able to potentially get a send-off game at the Melbourne Cricket Ground (against England). \u201cBut I can completely understand the direction they\u2019re going with this squad.\u201d Maxwell played 130 T20 internationals, blasting 2,897 runs with a strike rate of 154.42, leaving as Australia\u2019s third-highest run-scorer after David Warner and Aaron Finch. While he only played seven Tests, he featured in 149 ODIs, crunching 3,990 runs. Maxwell also called time on his first-class career with Victoria, but will continue with the Melbourne Renegades in the Big Bash League. \u201cI\u2019m grateful for the time I was able to play for my country,\u201d he said. \u201cIf you had offered me that career when I first walked into the Victoria change rooms in 2009-ish, I would have bitten your hand off.\u201d", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2041816/australias-glenn-maxwell-calls-time-on-international-career"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
