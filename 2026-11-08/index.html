@@ -643,6 +643,82 @@
     </div>
   </header>
 
+  <!-- Bhawana Tribune Multimodal Broadcast Hub (Audio Overview & 4K Video Canvas) -->
+  <section class="multimodal-broadcast-hub" id="broadcastHub" style="margin-bottom: 32px; background: linear-gradient(180deg, #0d1527 0%, #080d1a 100%); border: 1px solid rgba(217, 119, 6, 0.4); border-radius: 24px; padding: 28px 32px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 18px; margin-bottom: 24px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-size: 26px;">🎙️</span>
+        <div>
+          <h2 style="font-family: 'Cinzel', Georgia, serif; font-size: 22px; font-weight: 800; color: #f8fafc; letter-spacing: 0.5px;">Bhawana Tribune Multimodal Broadcast Hub</h2>
+          <p style="font-size: 13px; color: #fbbf24; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Two-Host Deep Dive (Zara & Kamran) · 16:9 4K Master Video & Studio Overview</p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="display: inline-flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 9999px; letter-spacing: 1px;">
+          <span style="width: 8px; height: 8px; background: #34d399; border-radius: 50%; display: inline-block;"></span>
+          BROADCAST ACTIVE
+        </span>
+        <a href="https://www.youtube.com/@BhawanaTribune/videos" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: #ffffff; text-decoration: none; font-size: 12px; font-weight: 700; padding: 7px 16px; border-radius: 9999px; letter-spacing: 0.5px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          @BhawanaTribune YouTube ↗
+        </a>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; align-items: start;">
+      <!-- Video Player Card -->
+      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 20px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <span style="font-weight: 700; font-size: 14px; color: #f1f5f9; letter-spacing: 0.5px;">📺 16:9 4K Video Overview</span>
+          <div style="display: flex; gap: 8px;">
+            <button id="btnVideoMaster" onclick="switchVideo('master')" style="background: #f59e0b; color: #000; border: none; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">4K Master</button>
+            <button id="btnVideoPresenters" onclick="switchVideo('presenters')" style="background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">AI Presenters</button>
+          </div>
+        </div>
+        <video id="tribuneVideoPlayer" controls preload="metadata" style="width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; border: 1px solid rgba(217, 119, 6, 0.3);" poster="./media/canvas_4k_2026-11-08.png">
+          <source id="tribuneVideoSource" src="./media/Bhawana_Tribune_2026-11-08_YouTube_Master_4K.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p id="videoCaption" style="font-size: 12px; color: #94a3b8; margin-top: 10px; line-height: 1.5;">
+          Official 16:9 4K digital broadsheet canvas synchronized to the Gemini Notebook analytical dialogue.
+        </p>
+      </div>
+
+      <!-- Audio Overview Card -->
+      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 20px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <span style="font-weight: 700; font-size: 14px; color: #f1f5f9; letter-spacing: 0.5px;">🎧 Two-Host Gemini Notebook Deep Dive</span>
+          <span style="font-family: monospace; font-size: 12px; color: #fbbf24; background: rgba(251,191,36,0.1); padding: 2px 8px; border-radius: 4px;">1:38 Native</span>
+        </div>
+        <div style="background: #020617; border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 14px;">
+          <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #d97706, #b45309); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+              🎙️
+            </div>
+            <div>
+              <div style="font-size: 13px; font-weight: 700; color: #f8fafc;">Zara & Kamran (Conversational Personas)</div>
+              <div style="font-size: 11px; color: #fbbf24;">Covering All 6 Canonical Desks · 24-Hour Verified Gazette Ingest</div>
+            </div>
+          </div>
+          <audio controls preload="metadata" style="width: 100%; border-radius: 8px;">
+            <source src="./media/Bhawana_Tribune_2026-11-08_Podcast_Gemini_Notebook.m4a" type="audio/mp4">
+            Your browser does not support audio playback.
+          </audio>
+        </div>
+        
+        <!-- Chapter Index -->
+        <div style="font-size: 11px; color: #94a3b8; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding-top: 6px;">
+          <div><span style="color: #fbbf24; font-weight: bold;">Ch. 1:</span> Customs SRO Invoicing</div>
+          <div><span style="color: #fbbf24; font-weight: bold;">Ch. 2:</span> SRB & PRA Sync Portal</div>
+          <div><span style="color: #fbbf24; font-weight: bold;">Ch. 3:</span> Frontier AI & Cyber Safety</div>
+          <div><span style="color: #fbbf24; font-weight: bold;">Ch. 4:</span> 'Echoes Along Chenab'</div>
+          <div><span style="color: #fbbf24; font-weight: bold;">Ch. 5:</span> PIA European Routes</div>
+          <div><span style="color: #fbbf24; font-weight: bold;">Ch. 6:</span> Rawalpindi 1st Test Preview</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Desk Card Presentation Stage -->
   <main id="deskStage">
     <!-- Rendered dynamically -->
@@ -859,6 +935,27 @@ try {
 } catch (e) {
   console.error("Initialization error:", e);
   renderDesk(1);
+}
+
+function switchVideo(type) {
+  const player = document.getElementById('tribuneVideoPlayer');
+  const source = document.getElementById('tribuneVideoSource');
+  const caption = document.getElementById('videoCaption');
+  const btnM = document.getElementById('btnVideoMaster');
+  const btnP = document.getElementById('btnVideoPresenters');
+  if (!player || !source) return;
+  if (type === 'master') {
+    source.src = './media/Bhawana_Tribune_2026-11-08_YouTube_Master_4K.mp4';
+    if (caption) caption.innerText = 'Official 16:9 4K digital broadsheet canvas synchronized to the Gemini Notebook analytical dialogue.';
+    if (btnM) { btnM.style.background = '#f59e0b'; btnM.style.color = '#000'; }
+    if (btnP) { btnP.style.background = '#1e293b'; btnP.style.color = '#94a3b8'; }
+  } else {
+    source.src = './media/Bhawana_Tribune_2026-11-08_YouTube_Presenters.mp4';
+    if (caption) caption.innerText = 'Dual photorealistic AI presenters studio edition lip-synced to the verified broadsheet overview.';
+    if (btnP) { btnP.style.background = '#f59e0b'; btnP.style.color = '#000'; }
+    if (btnM) { btnM.style.background = '#1e293b'; btnM.style.color = '#94a3b8'; }
+  }
+  player.load();
 }
 </script>
 

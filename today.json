@@ -252,5 +252,28 @@
       "temp": "21°C / 08°C",
       "pop": "100% On-time flights · Doppler Radar Active"
     }
-  ]
+  ],
+  "multimodal": {
+    "audio_overview": {
+      "title": "Two-Host Gemini Notebook Deep Dive (Zara & Kamran)",
+      "duration": "1:38",
+      "format": "m4a",
+      "src": "./media/Bhawana_Tribune_2026-11-08_Podcast_Gemini_Notebook.m4a"
+    },
+    "video_overview_4k": {
+      "title": "16:9 4K Digital Broadsheet Canvas Master",
+      "duration": "1:38",
+      "format": "mp4",
+      "poster": "./media/canvas_4k_2026-11-08.png",
+      "src": "./media/Bhawana_Tribune_2026-11-08_YouTube_Master_4K.mp4"
+    },
+    "video_overview_presenters": {
+      "title": "Dual AI Presenters Studio Overview",
+      "duration": "1:38",
+      "format": "mp4",
+      "poster": "./media/presenter_canvas_2026-11-08.png",
+      "src": "./media/Bhawana_Tribune_2026-11-08_YouTube_Presenters.mp4"
+    },
+    "youtube_channel": "https://www.youtube.com/@BhawanaTribune/videos"
+  }
 }
