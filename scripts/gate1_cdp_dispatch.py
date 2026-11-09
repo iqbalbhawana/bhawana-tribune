@@ -83,10 +83,11 @@ def dispatch_gate1():
     composite_hash = hashlib.sha256(f"{today_hash}:{canvas_hash}:{date_str}".encode()).hexdigest()
     receipt_id = f"BT-GATE1-{date_str}-{composite_hash[:12].upper()}"
 
-    # Extract 6-desk headlines
+    # Extract 6-desk headlines & Page 3 editorial
     h1 = articles[0]["headline"] if len(articles) > 0 else "FBR Advance Digitized Sales Invoicing SRO"
     h2 = articles[1]["headline"] if len(articles) > 1 else "Provincial Single-Return Portal Unification"
-    h3 = articles[2]["headline"] if len(articles) > 2 else "NCCIA Karachi Voice Cloning Raid & Sovereign Gate"
+    h3 = articles[2]["headline"] if len(articles) > 2 else "NCCIA Voice Cloning Raid"
+    ed_title = articles[2].get("editorial", {}).get("title", "Audit, Assessment and the Arithmetic of Revenue") if len(articles) > 2 else "Audit, Assessment and the Arithmetic of Revenue"
     h4 = articles[3]["headline"] if len(articles) > 3 else "Tokyo Film Festival Jury Prize for Chenab Indie"
     h5 = articles[4]["headline"] if len(articles) > 4 else "PIA Direct Flights EU Clearance & Chaman Biometrics"
     h6 = articles[5]["headline"] if len(articles) > 5 else "Rawalpindi 1st Test: Pakistan vs Sri Lanka Underway"
@@ -94,10 +95,10 @@ def dispatch_gate1():
     # Broadsheet copy
     post_text = (
         f"BHAWANA TRIBUNE · {date_str} • Edition #{edition_num} • {volume_str}\n\n"
-        f"• Customs: {h1[:42]}\n"
-        f"• Provincial: {h2[:42]}\n"
-        f"• AI Frontier: {h3[:42]}\n"
-        f"• Sport: {h6[:42]}\n\n"
+        f"• Customs: {h1[:40]}\n"
+        f"• Provincial: {h2[:40]}\n"
+        f"• Editorial: {ed_title[:40]}\n"
+        f"• Sport: {h6[:40]}\n\n"
         f"Read 6-Page Digital Broadsheet:\n"
         f"{CANONICAL_URL}\n"
         f"#BhawanaTribune @iqbalbhawana"
