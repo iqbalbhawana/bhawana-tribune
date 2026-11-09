@@ -172,5 +172,8 @@ def publish_gate3():
     conn.close()
     return {"status": "completed", "message": "Gate 3 AI Talking Presenters broadcast dispatched & verified!"}
 
+from fastapi.staticfiles import StaticFiles
+app.mount("/", StaticFiles(directory=str(REPO_ROOT), html=True), name="static")
+
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=60000, log_level="info")
