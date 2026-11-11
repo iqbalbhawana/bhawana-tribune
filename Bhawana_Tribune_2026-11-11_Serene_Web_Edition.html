@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (WEDNESDAY, NOVEMBER 11, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">WEDNESDAY, NOVEMBER 11, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 11, 2026", "headline": "FBR Allows Late Filers to Join ATL Without Fine", "deck": "The Federal Board of Revenue (FBR) has allowed late tax filers to join the Active Taxpayer List (ATL) without paying the Rs. 25,000 surcharge, provided they agree not to purchase or acquire property for six months.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "ProPakistani \u00b7 Business Desk", "hero_url": "https://propakistani.pk/2026/11/10/fbr-allows-late-filers-to-join-atl-without-fine/", "body": ["The Federal Board of Revenue (FBR) has allowed late tax filers to join the Active Taxpayer List (ATL) without paying the Rs. 25,000 surcharge, provided they agree not to purchase or acquire property for six months.", "It requires individuals filing their income tax returns after the due date or extended deadline to submit an undertaking through Form ATL-U.", "FBR introduced the facility through SRO 2097(I)/2026 issued on Tuesday, amending the Income Tax Rules since 2022.", "Under the undertaking, individuals must agree not to purchase, acquire or obtain ownership or beneficial interest in any property for six months from the date they submit the form.", "Those who meet this condition can have their names included in the ATL without paying the surcharge normally charged for late filing.", "The six-month restriction will begin on the date shown on the electronic acknowledgement issued by FBR\u2019s IRIS system after successful submission of Form ATL-U.", "FBR can verify whether individuals have followed the undertaking using information available with the tax department or obtained from government agencies, property registries, financial institutions and other lawful sources.", "If FBR finds that an individual acquired property during the restricted period, it will first provide an electronic opportunity to explain the matter.", "If the violation is established, the fee waiver will be withdrawn from the date of the breach, and the individual\u2019s ATL status will be governed by the existing rules.", "FBR had previously issued a draft of the scheme on October 6, 2026, through SRO 1619(I)/2026.", "Pro pakostani, better sell adds, and leave informational updates , hatsoff for making website worst that it can be with adds."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "Senate panel summons FBR over alleged Rs1,120 billion FATA/PATA tax exemption misuse", "body": "Senate Sub-Committee orders complete import, consumption certificate and payment records as it investigates an alleged Rs730.797 billion reconciliation gap and demands recovery of taxes.\n\nISLAMABAD, November 10, 2026: A Sub-Committee of the Senate Standing Committee on Interior and Narcotics Control has directed the Federal Board of Revenue (FBR) and other relevant authorities to accelerate investigations into the alleged misuse of tax exemptions granted to businesses operating in the former Federally Administered Tribal Areas (FATA) and Provincially Administered Tribal Areas (PATA).\n\nChaired by Senator Saifullah Abro, the committee expressed serious concern over the alleged revenue losses, discrepancies in import records and delays in identifying companies and individuals involved in the suspected misuse of the exemption scheme.\n\nThe committee directed that its next meeting, scheduled for November 16, 2026, be held in-camera to examine sensitive financial and investigative records.\n\nDuring the meeting at Parliament Lodges in Islamabad, officials from the FBR and Federal Investigation Agency (FIA) briefed members on the ongoing investigation.\n\nThe committee was informed that imports recorded between since 2018 and June 2026 totalled Rs1,120.662 billion, while consumption certificates covered imports worth Rs389.865 billion.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-investigation-fata-pata-tax-exemption-misuse/"}, {"head": "FBR allows late tax filers to join ATL without surcharge under new procedure", "body": "The Federal Board of Revenue has introduced a new procedure that allows taxpayers who missed the deadline for filing their income tax returns to be placed on the Active Taxpayers List without payment of the surcharge that otherwise attaches to late filings. The dispensation removes a cost barrier for individuals and businesses seeking to regularise their status, restoring access to the concessional withholding tax treatment reserved for taxpayers appearing on the government's published list.\n\nPlacement on the Active Taxpayers List carries practical weight across routine financial activity, as persons absent from the list face higher withholding tax rates on banking transactions, property dealings and vehicle-related payments, and are frequently treated as non-filers in day-to-day dealings with banks and other institutions. Under the newly introduced procedure, a late filer need only submit the outstanding return for the relevant tax year to qualify for inclusion, without first discharging the accrued surcharge attached to delayed returns.\n\nThe facilitation is expected to widen the list and pull delinquent filers back into the documented economy, a longstanding objective of the revenue authority as it works to expand the tax net. Salaried individuals, traders and companies that previously stayed off the list because of surcharge liabilities can now align their filings, with entries reflected on the list once the returns are processed.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-atl-surcharge-waiver-late-tax-filers-2026/"}, {"head": "Pakistan\u2019s Power Assets at Risk of Being Stolen", "body": "Pakistan\u2019s Public Accounts Committee (PAC) has raised concerns over the failure to identify and tag Rs. 624 billion worth of assets belonging to power distribution companies (DISCOs), warning that incomplete records and valuations could expose public property to theft and undermine the planned privatization process. During a committee meeting, audit officials stressed that DISCO assets must be properly identified and valued before privatization to ensure transparency and prevent the government from selling public assets below their actual market worth. The Auditor General of Pakistan also warned that proceeding without certified valuations could result in DISCOs being sold using outdated figures from the previous financial year. Power Division officials informed the committee that 40 percent of the asset valuation exercise had been completed, while DISCOs had hired a private firm to undertake asset tagging. Officials also disclos d that the value of land owned by the distribution companies runs into trillions of rupees.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/10/pakistans-power-assets-at-risk-of-being-stolen/"}, {"head": "Suzuki increases GS 150 and GD 110s prices by Rs10,000 in Pakistan", "body": "Pak Suzuki Motor Company has raised the ex-factory prices of its GS 150 and GD 110S motorcycles by Rs10,000 each, an upward revision that touches two of the most recognisable nameplates in the company's two-wheeler line-up. The increase lands on commuter households, delivery riders and small traders for whom the motorcycle remains the default workhorse, and it follows the broader pattern of periodic rate adjustments that Pakistani assemblers pass on as input costs climb.\n\nThe GS 150 sits in the mid-capacity 150cc segment, where it has long served as Suzuki's commuter-plus offering, while the GD 110S addresses the fuel-conscious 110cc class favoured by daily riders watching running costs. Applying an identical Rs10,000 uplift to both displacements points to a uniform pass-through of cost pressures rather than a targeted repositioning of one product, keeping the pricing ladder across the portfolio intact.\n\nMotorcycle pricing in Pakistan tracks the rupee's movement against the dollar, landed freight and the cost of imported components, and assemblers typically revise ex-factory rates once those inputs shift. Ex-factory rates also form the base on which applicable taxes are assessed at the point of sale, so the impact at the dealership counter runs proportionately higher than the headline adjustment. For logistics-dependent businesses, the revision feeds directly into fleet replacement budgets and last-mile delivery economics, making the Rs10,000 step-up a line item that ripples through operating costs.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/suzuki-increases-gs-150-and-gd-110s-prices-by-rs10000-in-pakistan/"}, {"head": "FBR appoints Saadia Sadaf as Chief Investigator of Tax Fraud Investigation Wing", "body": "The Federal Board of Revenue has appointed Saadia Sadaf as Chief Investigator of its Tax Fraud Investigation Wing, placing the officer at the head of the revenue authority's specialised arm for probing serious tax evasion and fraud. The posting consolidates investigative command over the wing's casework in both the Inland Revenue and customs domains, covering offences such as concealment of income, fraudulent refund claims and customs-related contraventions.\n\nThe Tax Fraud Investigation Wing holds a distinct mandate within the board's structure, separating complex fraud investigations from routine assessment and audit work carried out by field formations. Its inquiries typically address evasion schemes built on fake or flying invoices, misuse of exemptions and fraudulent input tax adjustments, with investigators gathering evidence that feeds enforcement, recovery and prosecution proceedings under the tax statutes. The wing also coordinates with field offices and other agencies whenever an inquiry extends beyond tax records alone.\n\nThe appointment comes as the board pursues an enforcement-led approach to narrowing the tax gap, one that places growing weight on evidence-based fraud investigation rather than declaratory litigation. As Chief Investigator, Saadia Sadaf is positioned to oversee case selection, investigation quality and coordination with legal and prosecution channels, functions regarded as central to converting fraud inquiries into successfully concluded proceedings.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-saadia-sadaf-chief-investigator-tax-fraud/"}, {"head": "Pakistan Gets More Time to Pay Back Debt", "body": "Pakistan has extended the average maturity of its public debt to 3.8 years as of June 2026, up from 2.7 years in since 2024, as the government seeks to reduce refinancing risks and spread repayment obligations over longer periods. The Ministry of Finance aims to increase the average maturity further to 4.2 years by June 2028.\n\nThe improvement reflects a shift toward longer term borrowing, diversified financing sources and proactive debt management. However, the country continues to face substantial repayment obligations, with domestic debt principal repayments estimated at Rs. 17 trillion in FY2027, excluding the rollover of Treasury Bills. External principal repayments are projected at another Rs. 4.531 trillion.\n\nThe country\u2019s total public debt increased by Rs. 6.2 trillion to Rs. 86.7 trillion by June 2026. However, the pace of debt accumulation slowed, with the debt stock growing 7.7 percent during FY2026 compared with 12.9 percent in FY2025.\n\nDespite the increase in outstanding debt, the government\u2019s gross financing needs are expected to remain around 20 percent of GDP. The Finance Ministry attributed this to fiscal consolidation and improved debt management, which have helped contain financing requirements.\n\nGovernment interest expenditure declined 22 percent year over year during FY2026, generating savings of Rs. 1.939 trillion compared with the previous fiscal year. Lower interest payments, alongside continued fiscal consolidation, helped Pakistan record a primary surplus of Rs. 2.185 trillion.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/10/pakistan-gets-more-time-to-pay-back-debt/"}, {"head": "Pakistan remittances jump 13.8% to $3.9 billion in October 2026", "body": "Overseas Pakistani workers sent home $3.9 billion in October 2026, an increase of 13.8 per cent over roughly $3.4 billion remitted in the same month a year earlier, extending the sustained upward trend in inflows that has underpinned the country's external accounts. The monthly total reflects continued growth in transfers routed through formal banking channels and exchange companies, which have steadily captured a larger share of diaspora savings as documentation of the economy widens.\n\nRemittances remain the largest single source of foreign exchange for Pakistan, financing import bills, easing pressure on the balance of payments and supporting the rupee. The bulk of the flows originates from Pakistanis living and working in the Gulf states, particularly Saudi Arabia and the United Arab Emirates, with significant additional transfers arriving from the United Kingdom, Europe, North America and other destinations.\n\nThe double-digit expansion points to deeper adoption of official channels, aided by digital payment platforms, expanding branch banking networks and incentives for home remittance senders. Steady growth in these inflows reduces the country's reliance on external borrowing and strengthens the cushion of foreign currency reserves available to meet international obligations.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-workers-remittances-october-2026/"}, {"head": "IHC upholds FBR investigation powers under Section 175, dismisses WATIM petitions", "body": "The Islamabad High Court has upheld the investigative authority of the Federal Board of Revenue under Section 175 of the Customs Act, 1969, dismissing the petitions filed by WATIM that had challenged the exercise of those powers. The court found no merit in the objections raised by the petitioners and endorsed the statutory scheme under which customs officers summon individuals and call for records while conducting enquiries into suspected contraventions of customs law. The verdict leaves the legal framework intact and removes a challenge that had cast uncertainty over the process of formal customs investigation.\n\nSection 175 empowers an officer of customs to summon any person whose attendance is considered necessary, whether to give evidence or to produce a document or other thing, in any inquiry connected with an offence or contravention under the law. A person summoned must attend and answer questions of an officer of customs truthfully, whether in person or through an authorised representative, and non-attendance or refusal to respond is treated as an offence under the legislation. This makes the section a central instrument in the revenue authority's enforcement toolkit and a recurring point of friction between customs investigators and the trade and services community.\n\nThe judgment reinforces the position that customs investigations derive their backing from the Customs Act rather than from discretionary power, clarifying procedural expectations for clearing agents, importers, exporters and other intermediaries who are frequently called upon in enforcement proceedings. For the Federal Board of Revenue, the dismissal consolidates its capacity to pursue enquiries into suspected customs offences, while for practitioners the ruling confirms that compliance with lawful summons under Section 175 carries binding legal obligation.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/ihc-upholds-fbr-investigation-powers-section-175/"}, {"head": "Pakistan Seeks Full $1.7 Billion World Bank Loan Despite Violating Key Conditions", "body": "Pakistan plans to secure the full $1.7 billion World Bank financing package aimed at expanding the tax base, reducing government spending and realigning public expenditure with constitutional responsibilities, despite slow progress in implementing the initial phase and repeated violations of key reform commitments.\n\nThe government has already breached one of the programme\u2019s conditions twice by increasing taxes on imports, first in June and again earlier in the quarter, when the Economic Coordination Committee (ECC) approved additional customs duties to protect a domestic tyre manufacturer.\n\nThe measure runs contrary to the National Tariff Policy, which the government is required to implement under the loan agreement.\n\nThe financing falls under the Public Resource for Inclusive Development programme, structured through the World Bank\u2019s Multiphase Programmatic Approach.\n\nThe package, worth approximately $1.7 billion, will be implemented through four overlapping phases, with $700 million approved in the initial phase last year. Federal and all four provincial governments are expected to benefit from the financing.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/10/pakistan-seeks-full-1-7-billion-world-bank-loan-despite-violating-key-conditions/"}, {"head": "Pakistan expands digital agricultural loans and credit facilities for small farmers", "body": "Pakistan has broadened the reach of digital agricultural finance, extending formal credit to small farmers who have long remained outside the institutional lending net. The expanded facilities cover digitally originated crop loans, seasonal working capital for inputs such as seed, fertiliser and pesticide, and credit products delivered through mobile banking applications and branchless banking agents. Smallholders account for the overwhelming majority of farm households in the country, yet many lack the titled land documentation that commercial lenders traditionally demand, leaving them dependent on informal moneylenders and commission agents who charge punitive rates and recover dues at the point of harvest.\n\nThe digital turn compresses approval timelines by replacing branch paperwork with mobile-based applications, electronic know-your-customer verification and data-driven assessment of repayment capacity aligned to cropping calendars. Regulators and bankers regard prompt disbursal ahead of sowing windows as decisive, since delayed input financing translates directly into depressed yields and thinner margins for already stretched growers. The product range has also widened beyond staple crop loans to include livestock financing, machinery access and credit bundled with crop insurance, offering small cultivators a fuller risk-management toolkit rather than a one-off seasonal advance.\n\nThe expansion sits within a wider financial-inclusion agenda in which agricultural credit flows under central bank supervision, with commercial and microfinance banks carrying indicative farm-lending commitments each year. Analysts view digitisation as a lever to cut intermediation costs, formalise transactions across the rural economy and build repayment histories that allow borrowers to graduate to larger facilities. For a sector that anchors food supply and rural employment, steadier access to affordable credit is increasingly framed as core infrastructure, standing alongside water, seed quality and market linkages in determining farm productivity.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/agricultural-loans-pakistan-sbp-small-farmers/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 11, 2026", "headline": "Govt slashes petrol price by Rs8 per litre, high-speed diesel by Rs7 in another reduction", "deck": "The government on Tuesday slashed the price of petrol by Rs8 per litre and high-speed diesel (HSD) by Rs7, marking another reduction in fuel rates. Following the revision, petrol will retail at Rs338 per litre and HSD at Rs371 from Wednesday, Nov 11, under a notification issued b", "hero_source": "Dawn Business", "hero_url": "https://www.dawn.com/news/2043557/govt-slashes-petrol-price-by-rs8-per-litre-high-speed-diesel-by-rs7-in-another-reduction", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The government on Tuesday slashed the price of petrol by Rs8 per litre and high-speed diesel (HSD) by Rs7, marking another reduction in fuel rates. Following the revision, petrol will retail at Rs338 per litre and HSD at Rs371 from Wednesday, Nov 11, under a notification issued by the Oil and Gas Regulatory Authority (Ogra). The state continues to levy Rs114 per litre in taxes and duties on petrol and Rs100 per litre on diesel. Under an arrangement announced on Nov 2, oil refineries will bear a cumulative impact of Rs15 billion toward the petroleum levy for 30 days, a step that allows a Rs14.71 reduction in the price of petrol at the consumer end.", "The announcement extends the steep descent from the crisis peaks. HSD has come down from a record Rs520.35 on April 3, having climbed from Rs281 per litre after the US-Iran war broke out on Feb 28. Petrol had peaked at Rs458.41 on the same date after beginning its upward trajectory from Rs266 in the first week of March. Since July 17, the government has been revising fuel prices on a near-daily basis to track fluctuations in international markets following renewed hostilities between Iran and the US, and the cabinet decided to give Ogra the responsibility of setting daily rates based on international market trends, replacing the weekly revisions in place since early March.", "Alongside pricing relief, a raft of austerity measures requires markets to close by 9pm and cuts fuel allocations for official vehicles by 50 per cent for three months, while a fuel relief scheme rolled out on Sept 17 subsidises owners of motorcycles, rickshaws and vehicles of up to 800cc. Petrol is mainly used in private transport, small vehicles, rickshaws and two-wheelers, so changes in its price weigh on the middle and lower-middle classes. Diesel, consumed by the heavy transport sector, power plants and large generators, affects the public at large. The two fuels are the major revenue earners, with monthly sales of about 700,000 to 800,000 tonnes against just 10,000 tonnes of monthly demand for kerosene."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "US House blocks bid to impeach Defense Secretary Hegseth", "body": "WASHINGTON: Republicans in the US House of Representatives blocked an effort on Tuesday to impeach Defense Secretary Pete Hegseth, winning a reprieve for the polarizing Pentagon chief before Democrats take control of Congress next year and possibly try again. The vote on a procedural motion came just hours after Hegseth blasted efforts to impeach him as a farce and delivered a defiant defense of his record at the helm of the US military, winning praise from President Donald Trump. The chamber voted 211 to 204 in favor of a motion to refer eight articles of impeachment to the Republican-led House Judiciary Committee, a move that the sponsor of the impeachment push, US Representative Thomas Massie, warned would kill it. READ ALSO: Pentagon chief Hegseth calls moves to impeach him a farce that will fail Massie, an outgoing Kentucky Republican, had hoped to draw votes from Republicans upset with Hegseth\u2019s policies and wary of the unpopularity of the Iran war, but no other Republicans joined him. Democrats had voiced strong support for the impeachment effort. But 11 Democrats, including former House Speaker Nancy Pelosi of California, did not vote. If eight of them had, the procedural measure would have been defeated, paving the way for a full House impeachment vote. Pelosi\u2019s office did not immediately respond to a request for comment on why she missed the vote. Trump cheered the results in a social media post, saying the effort to impeach Hegseth \u201chas miserably FAILED!\u201d In a sign that the impeachment episode may have drawn Trump and Hegseth closer together, Trump added that Hegseth\u2019s performance on Iran, Venezuela and other issues \u201cled to the EXONERATION of a Great American Patriot.\u201d Hegseth would have been the first US defense secretary to be impeached. The last time any civilian leader of the US military was impeached was in 1876, when William Belknap held the title \u201csecretary of war.\u201d Hegseth calls himself secretary of war, part of his effort to rebrand a military he said was too weak and \u201cwoke\u201d when he took office last year. Trump cannot change the name of the Defense Department without approval from Congress. Iran war anger Voter anger over the Iran war, which has settled into an effective stalemate focused on securing the Strait of Hormuz, helped Democrats win control of Congress in last week\u2019s midterm elections. A Reuters/Ipsos poll published on Tuesday found a majority of Americans want the newly elected Democratic-majority US Congress, which takes office in January, to act to end the war with Iran once and for all. Although Vice President JD Vance has publicly questioned the war and blamed it for the Republicans\u2019 midterm rout, he voiced support for Hegseth on Tuesday. \u201cThis isn\u2019t about Iran, this is about the fact that Pete took on the bureaucracy at the Pentagon,\u201d Vance wrote on social media. Before the vote, House Democratic leader Hakeem Jeffries said on Monday: \u201cPete Hegseth has abused his power, undermined America\u2019s national security, and he\u2019s the architect of the reckless and costly failed war of choice in Iran.\u201d Hegseth has repeatedly defended the conflict, calling Trump courageous and saying Iran\u2019s military has been left in ruins. He also said his orders to US forces were lawful, despite Massie\u2019s accusations of \u201chigh crimes and misdemeanors\u201d ranging from the war itself to the US military raid in January to depose Venezuelan President Nicolas Maduro. \u201cHistory will judge the Iran war quite differently than the conventional wisdom right now,\u201d Hegseth said on Tuesday at his first Pentagon briefing in six months. Jeffries said he would talk to members about whether to mount a new impeachment effort in the next Congress. \u201cWe\u2019ll have that conversation at the appropriate time,\u201d he said. A Democratic-led push to impeach Hegseth could be far more intense, with lawmakers calling in top brass to testify, including generals and admirals fired by Hegseth who have remained silent so far. Hegseth, who has railed against diversity efforts at the Pentagon, fired the chairman of the Joint Chiefs of Staff, who is Black, and the Navy\u2019s top admiral, a woman, among others. In such an effort, Democrats could also raise other issues concerning to voters including Pentagon policy toward Ukraine and the US military\u2019s strikes on suspected drug trafficking boats in Caribbean and Pacific waters. Some Republicans say Hegseth\u2019s strained relations with Congress are becoming a political liability as the Trump administration seeks a huge increase in the military\u2019s budget to $1.5 trillion from $950 billion. Massie said he was disappointed by the vote, comparing Republicans to passengers content to go down with the Titanic. \u201cThey know it\u2019s a sinking ship but committed to stay on board,\u201d he said.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448384/us-house-blocks-bid-to-impeach-defense-secretary-hegseth"}, {"head": "UBL, HBL and BAFL earnings estimates revised upward", "body": "KARACHI: Earnings estimates for United Bank Limited (UBL), Habib Bank Limited (HBL) and Bank Alfalah Limited (BAFL) have been revised upward by 11\u201330 percent for 2026 and 2027, following stronger-than-expected balance sheet growth and higher non-funded income across the banking sector. The upward revisions reflect improved deposit growth, higher capital gains and foreign exchange (FX) income, as well as recent quarterly results and the outlook for interest rates. Banks have reported stronger-than-expected balance sheet expansion, while non-funded income has exceeded earlier estimates, primarily due to gains from investments and foreign exchange transactions, according to a banking sector assessment by Topline Research. UBL\u2019s earnings estimates have been raised by 13\u201317 percent to Rs59.5 per share for 2026 and Rs62.6 per share for 2027. The bank is expected to record deposit growth of 32 percent in 2026, following exceptionally strong growth of 96 percent since 2025. Its current account mix improved to 55.9 percent in September 2026 from 49.9 percent in since 2025. Higher current account deposits and growth in non-funded income, excluding capital gains, are expected to remain the key drivers of earnings growth. At its last closing price of Rs425 per share, UBL was trading at 6.8 times its estimated 2027 price-to-earnings (P/E) ratio and 1.8 times its price-to-book (P/B) value, with a dividend yield of 8 percent. For HBL, earnings estimates have been upgraded by 11\u201315 percent to Rs49.9 per share for 2026 and Rs51.7 per share for 2027, mainly due to an improving deposit mix and higher non-funded income. HBL\u2019s non-funded income is expected to grow 12 percent year-on-year to Rs96 billion in 2026, driven largely by higher fee and commission income and foreign exchange earnings. FX income is projected to nearly double to Rs16 billion during the year. However, some moderation in non-funded income growth is expected in 2027, mainly due to lower capital gains. At its last closing price of Rs300 per share, HBL was trading at 5.8 times its estimated 2027 P/E ratio and 0.8 times its P/B value, with a dividend yield of 8 percent. BAFL recorded the largest upward revision among the three banks, with its earnings estimates raised by 24\u201330 percent to Rs12 per share for 2026 and Rs11.6 per share for 2027. The revision reflects stronger average current account growth, higher FX income and improved treasury management. The bank is also expected to maintain cost discipline, with its cost-to-income ratio projected to decline to 62 percent in 2026 from 64 percent since 2025. Higher FX income is another key contributor to the improved earnings outlook, supported by BAFL\u2019s presence in trade-related and foreign exchange transactions. At its last closing price of Rs59 per share, BAFL was trading at 5.1 times its estimated 2027 P/E ratio and 0.9 times its P/B value, with a dividend yield of 10 percent. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448322/ubl-hbl-and-bafl-earnings-estimates-revised-upward"}, {"head": "Sindh governor for affordable cardiac facilities for all", "body": "KARACHI: Sindh Governor Syed Muhammad Nehal Hashmi has said that the treatment of heart patients should not be limited to the provision of medical facilities, but must also include effective measures for their complete recovery and rehabilitation. Addressing a stakeholders\u2019 consultation on \u201cMaking Cardiac Rehabilitation Accessible to All: Shaping the Future in Pakistan\u201d, organised by the Pakistan Institute of Living and Learning (PILL) at Governor House, he said that promising research should be translated into practical initiatives and incorporated into health policies rather than remaining confined to academic discussions. He said that addressing cardiovascular diseases and ensuring patients\u2019 complete recovery required a joint strategy involving the government, medical institutions, researchers, doctors and social organizations, as no single institution could independently overcome these challenges. He said that PILL, in collaboration with the Government of Sindh and the People\u2019s Primary Healthcare Initiative (PPHI), was working at four demonstration sites across Sindh. The consultation brought together medical experts, researchers, policymakers and key representatives from the healthcare sector. Its objective was to formulate practical strategies for promoting affordable, accessible and culturally appropriate cardiac rehabilitation services for heart patients in Pakistan. The meeting was organised in collaboration with the University of Glasgow, National Institute of Cardiovascular Diseases (NICVD), Peshawar Institute of Cardiology and the University of Manchester, with support from the United Kingdom\u2019s National Institute for Health and Care Research (NIHR). Professor Rod Taylor delivered the keynote address, highlighting the global burden of cardiovascular diseases, the benefits of cardiac rehabilitation and the challenges facing the sector. Professor Imran Bashir Chaudhry, Dr Amy Blackmore, Prof Zainab F Zadeh and others also spoke. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448325/sindh-governor-for-affordable-cardiac-facilities-for-all"}, {"head": "Pakistan\u2019s Marketing Services Exports Rise 19% as Agencies Gear Up for Global Growth at Payoneer Connect Lahore", "body": "Pakistan\u2019s exports of advertising and market research services rose 19% year-on-year to $30.7 million in July\u2013September 2026, up from $25.8 million in the same quarter last year, State Bank of Pakistan data shows. The figures set the backdrop for Payoneer Connect Lahore, where more than 40 marketing agencies met to explore how to win clients abroad and scale with them. Hosted by Payoneer, the global financial technology company that helps businesses grow across borders, the event was themed \u2018The Export Era of Global Marketing\u2019. It brought agency leaders together with representatives of the Pakistan Software Houses Association (P@SHA), Google, along with AI practitioners. This services export momentum extends across professional services. Other business services, from the wider State Bank category that also covers public relations, consulting and technical services, recorded exports of $620 million in the same quarter, up 27% year-on-year. Within it, exports of consulting and public relations services rose 22% to $81.2 million. That emphasis on quality over volume also ran through a fireside chat on agentic AI with Ali Imran Memon, founder and CEO of Kitsune AI. The conversation examined whether Pakistan has reached the limits of freelancing and outsourcing, and how agencies can turn their expertise into AI agents and products rather than billable hours. It also weighed whether AI services should be priced by subscription, task or outcome. AI is also lowering the cost of scaling in new markets. Google\u2019s Customer Solutions team showed how localisation using AI tools can greatly expand cross-border business opportunities for Pakistani companies.", "source": "ProPakistani \u00b7 Banking & Fintech", "url": "https://propakistani.pk/2026/11/10/pakistans-marketing-services-exports-rise-19-as-agencies-gear-up-for-global-growth-at-payoneer-connect-lahore/"}, {"head": "Overseas Pakistanis Send Home $3.89 Billion in October, Up 13.8% in a Year", "body": "Overseas Pakistanis sent home $3.892 billion in October 2026, an encouraging 13.8 percent surge from the same month last year, as workers\u2019 remittances continued their upward trajectory and provided much-needed support to the country\u2019s external account. The inflows, reported by the State Bank of Pakistan (SBP), were also 8.5 percent higher than September\u2019s receipts, underscoring renewed momentum in formal transfers as the crucial winter remittance season begins. Saudi Arabia, the United Kingdom and the United Arab Emirates remained the top contributors. Cumulatively, remittances jumped 14 percent to $14.767 billion during the first four months of FY27, compared with $12.956 billion in the corresponding period last year, a timely cushion for foreign exchange reserves at a time when the country faces heavy external debt repayments. Saudi Arabia remained Pakistan\u2019s largest source of remittances, contributing $982 million in October, up 17 percent from $838 million a year earlier and 9 percent from September. Inflows from the country reached $3.668 billion during July to October FY27, representing a 16 percent annual increase. The UAE was the second largest source, sending $816 million in October, up 16 percent year over year from $703 million. Monthly inflows increased 9 percent from September\u2019s $749 million. Cumulative remittances from the UAE reached $3.052 billion in the first four months, compared with $2.689 billion a year earlier, marking 14 percent growth.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/10/overseas-pakistanis-send-home-3-89-billion-in-october-up-13-8-in-a-year/"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "WEDNESDAY, NOVEMBER 11, 2026", "headline": "OpenAI lets you claim your business in ChatGPT and set up a custom agentic AI customer sales rep", "deck": "OpenAI on Tuesday launched a beta program online that lets businesses claim their profiles in ChatGPT, update the information customers see and track how often the chatbot sends people to their websites.", "hero_source": "VentureBeat Feed", "hero_url": "https://venturebeat.com/technology/openai-lets-you-claim-your-business-in-chatgpt-and-set-up-a-custom-agentic-ai-customer-sales-rep", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Editor-in-Chief, Senior Member Pakistan Customs Service (Retd.)", "body": ["OpenAI on Tuesday launched a beta program online that lets businesses claim their profiles in ChatGPT, update the information customers see and track how often the chatbot sends people to their websites.", "Eligible U.S. online retailers and service businesses can also publish a Business Agent that answers customer questions about their own products and policies.", "That means a shopper who starts by asking ChatGPT to compare several brands can open a profile for one of them and start a separate conversation with an AI representative of that specific business.", "They might ask whether a particular model will fit their space or whether the retailer accepts returns on sale items. The business supplies the information and sets guidelines for the agent. ChatGPT labels the conversation so shoppers can tell when they\u2019ve switched from the general assistant to one representing the seller.", "OpenAI\u2019s setup guide describes publishing a single Business Agent from a claimed profile. The company hasn\u2019t specified whether that\u2019s a hard limit or whether a business with multiple eligible profiles can publish a separate agent for each.", "The change gives marketing and ecommerce teams a direct way to correct stale information in a service that OpenAI says reaches 1.2 billion people a week."], "quote": "An undertaking no registry verifies and no penalty backstops is not an undertaking \u2014 it is paperwork pretending to be a tax.", "editorial": {"title": "Clemency With Conditions: The Only Fiscal Mercy Worth Extending", "deck": "SRO 2097's surcharge waiver, the FATA/PATA exemption reckoning and this week's fuel-price relief all test one principle: statutory relief that verifies and disciplines enlarges the tax net; relief that does neither is leakage wearing the garb of benevolence.", "paragraphs": ["The Federal Board of Revenue's decision, through SRO 2097, to admit late filers back to the Active Taxpayer List under section 182A of the Income Tax Ordinance without the Rs25,000 surcharge \u2014 conditional on an undertaking in Form ATL-U to abstain for six months from purchasing or acquiring property \u2014 deserves, on its statutory merits, a more serious reading than the word waiver invites. The late-filer surcharge was never a revenue instrument; at Rs25,000 it collects pocket change while pricing out exactly the re-entry the tax-gap arithmetic demands. Its true function was coercive, and the Board has now recalibrated it as a bargaining tool: clemency in exchange for behavioural restraint. The chosen restraint is telling. Real estate has long been the terminal destination of undocumented wealth in this economy, an asset class where the gap between registry valuations and FBR-prescribed tables invites systematic underdeclaration. The six-month bar functions as a soft quarantine \u2014 the freshly restored filer cannot immediately migrate questioned income into property while the return remains open to assessment and audit. That is conditional relief done properly, a philosophy the Board should generalise. Where the design falters is enforcement: an undertaking is only as strong as the machinery that polices it. Unless ATL-U submissions are transmitted to provincial land registries and registration authorities, and unless breach carries an express consequence \u2014 ejection from the Active Taxpayer List and restoration of the enhanced withholding differentials \u2014 the condition risks being ornamental.", "The summons to the FBR before a Senate panel over the alleged Rs1,120 billion misuse of the FATA/PATA exemptions teaches the complementary lesson from the opposite direction. Territorial relief crafted for genuinely underdeveloped districts becomes, absent entitlement verification, a subsidy captured by outsiders routing income through paper addresses \u2014 a textbook case of exemption erosion in which the exchequer forgoes revenue without conferring benefit on the intended population. The constitutional answer is not the abolition of relief but its bounding: sunset clauses, verified domicile and registration filters, and audit trails that make the claim of territorial entitlement testable. The oversight process now in motion is the accountability loop functioning as the framers intended, but the durable correction must be written into the taxing statutes themselves, for fiscal prudence is a property of design, not of interrogation.", "The fuel-price reduction \u2014 petrol down Rs8 and high-speed diesel Rs7 per litre under the OGRA-recommended, government-notified mechanism \u2014 completes the day's ledger on relief. Its macroeconomic reading is favourable: diesel dominates freight and agriculture, so the cut travels quickly through transport costs into a disinflationary impulse and releases household liquidity toward consumption. The fiscal question is one of composition, not direction. A cut financed by pass-through of softer international prices costs the exchequer little; one absorbed by trimming the petroleum levy under the 1961 Ordinance trades consumer relief against a revenue line that anchors annual targets. Inflation expectations and capital flows both benefit, but the Board must watch the levy line with the same discipline it now demands of its taxpayers.", "The common thread across these measures is that relief, like assessment, is an act of attribution \u2014 it must rest on verification, carry consequences and expire on schedule. From customs valuation to income-tax withholding, the revenue architecture functions only when concession and control are drafted as one instrument. SRO 2097, whatever its drafting flaws, gestures at that unity. The FATA/PATA experience is what happens when the gesture is absent."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "OpenAI, Anthropic face new oversight as New York\u2019s AI safety law takes effect", "body": "New York has begun enforcing one of the most sweeping artificial intelligence laws in the United States, placing frontier model developers such as OpenAI and Anthropic under a formal state oversight regime. Under the statute, companies building large-scale AI systems must register with state authorities, disclose their safety and security practices, and report critical incidents involving their models. Developers that fail to meet these obligations face fines, giving New York regulators direct leverage over some of the most influential firms in the global AI industry.\n\nThe requirements mark a shift from voluntary industry commitments to binding, enforceable obligations. Major laboratories, many based on the West Coast but serving users across the country and worldwide, will now have to maintain documentation of how they test and safeguard their most capable systems. The law arrives as American states move to fill a regulatory vacuum left by the absence of comprehensive federal AI legislation, with New York now among the front-runners on model safety and transparency.\n\nFor OpenAI and Anthropic, compliance is likely to reshape how safety information is produced and shared, since disclosures filed with New York regulators could come under scrutiny from courts, researchers and competitors. Enforcement in the months ahead will show whether the statute becomes a template for other states or prompts a broader industry pushback against a growing patchwork of state-level rules. Either way, New York has planted itself at the centre of the debate over how advanced AI systems are built, tested and policed.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/"}, {"head": "OpenAI acquires Odessia, travel startup created by Sonder founder", "body": "OpenAI has acquired Odessia, a travel startup created by Francis Davidson, the entrepreneur best known for co-founding hospitality company Sonder. The maker of ChatGPT has not yet said what its plans are for the future of travel, leaving open how Odessia's product and team will fit within a company whose energies have been concentrated on language models, agents and consumer software.\n\nDavidson is a well-known figure in the travel industry, having built Sonder into a business that turned apartment buildings into professionally managed short-stay accommodation, combining leases, interior design and technology under one operation. Such grounding in hospitality makes for an unusual acquisition at an organisation best known for frontier models, suggesting OpenAI sought sector experience rather than solely engineering talent.\n\nThe purchase lands as OpenAI works to make ChatGPT the starting point for more of daily life, from search and shopping to everyday software use. Travel, with its research-heavy itineraries and high-value bookings, is widely regarded as a natural arena for AI assistants, and the presence of Sonder's founder at the centre of the deal hints that the company is serious about the space. Whether Odessia is folded into ChatGPT or kept as a separate venture remains to be seen.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/"}, {"head": "All 7 Anthropic founders will each cash out about $250M in IPO", "body": "All seven co-founders of Anthropic plan to sell exactly the same number of shares in the company's initial public offering, a disposal that would put roughly $250 million in cash into each of their hands at the midpoint of the offering's price range. The symmetry of the sell-down does not come at the cost of power: the founding group would still be left in control of the company once its shares begin trading.\n\nEqual treatment of that kind is unusual in a listing where insider sales typically cluster around executives with the largest stakes while other early shareholders sell more modestly. By moving in lockstep, Anthropic's founders are framing the IPO as a shared, partial monetisation of the equity they built rather than an exit by any single individual, while preserving the collective grip on governance that has defined the company since its founding.\n\nAnthropic, the artificial intelligence developer best known for its Claude assistant, is among the most closely watched prospective listings in the AI sector, where public investors so far have had limited access to frontier labs. A structure that leaves the founders in command despite a sizeable cash-out will test how much concentrated insider control the market is prepared to accept in exchange for exposure to the technology at the centre of the AI boom.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/"}, {"head": "OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google", "body": "OpenAI has rolled out new business profiles for ChatGPT, a package of features designed to give companies a structured presence inside the chatbot's answers. The addition forms part of a deliberate push to turn ChatGPT into a more robust consumer discovery engine \u2014 a destination where users can find, evaluate and choose businesses rather than simply pose questions. By allowing companies to curate how they appear in responses, OpenAI is building connective tissue between its assistant and the commercial world its users increasingly consult.\n\nThe update takes ChatGPT a step closer to territory long occupied by Google, whose search listings, map entries and business panels have shaped online discovery for two decades. As conversational AI becomes a default starting point for product research, travel planning and local recommendations, the way a business is represented in a model's answer carries growing commercial weight. Profiles offer firms a formal channel to supply accurate details about themselves, reducing reliance on whatever the model has absorbed from the open web and giving users cleaner, more authoritative replies.\n\nThe move also hints at an emerging economy of visibility inside AI assistants. Just as search engine optimisation became a fixture of digital marketing, businesses now have reason to optimise for how chatbots describe them \u2014 and the platform controlling that representation holds a powerful lever over commerce. For OpenAI, business profiles deepen engagement, keep users inside the chat, and could open a path toward monetisation that both mirrors and departs from the search advertising model that built Google's empire.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google/"}, {"head": "Google Gemini 4 Carbon is now publicly available \u2014 and it undercuts Claude Fable 5.2 and Opus 5.5 on API price", "body": "Google has made Gemini 4 Carbon publicly available, unveiling the latest addition to its frontier model lineup. The name is a pointed flourish: carbon is the bedrock of all organic life, and the elemental branding arrives alongside a commercial pitch that may prove more consequential than any metaphor. Gemini 4 Carbon enters the market with API pricing that undercuts Claude Fable 5.2 and Opus 5.5, Anthropic's rival frontier offerings, giving Google a direct cost advantage at the very point where enterprise budgets are settled.\n\nPricing has become one of the sharpest levers in the contest for developer adoption. As companies move from experimentation to production, the cost of serving tokens through an interface can outweigh marginal differences in benchmark scores, especially for applications running at sustained volume. By undercutting its rivals at the point of access, Google positions Carbon as a compelling default for high-throughput workloads and forces competitors to justify any premium with demonstrable gains in reasoning, reliability or speed.\n\nThe release also reflects how the frontier model race has matured. Capability announcements now arrive hand in hand with pricing strategies aimed at enterprise procurement, and general availability has become the decisive test of whether a model can convert attention into real-world usage. For developers, the question is whether Carbon's performance warrants a switch; for the industry, the clearer signal is that Google intends to compete on cost as aggressively as it competes on capability.", "source": "VentureBeat Feed", "url": "https://venturebeat.com/technology/google-gemini-4-carbon-is-now-publicly-available-and-it-undercuts-claude-fable-5-2-and-opus-5-5-on-api-price"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 11, 2026", "headline": "Broadway Box Office: \u2018Much Ado About Nothing\u2019 Hits $2.3 Million As Industry Rebounds", "deck": "Much Ado About Nothing, starring Tom Hiddleston and Hayley Atwell , shot up to $2.3 million in its first week of eight performances, making it the third highest grossing show of the week, and suggesting it will be a top earner going forward. Capacity was at 100 percent for the sh", "hero_source": "Hollywood Reporter Feed", "hero_url": "https://www.hollywoodreporter.com/lifestyle/arts/broadway-box-office-much-ado-about-nothing-1236752199/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Much Ado About Nothing, starring Tom Hiddleston and Hayley Atwell , shot up to $2.3 million in its first week of eight performances, making it the third highest grossing show of the week, and suggesting it will be a top earner going forward. Capacity was at 100 percent for the show, which is set to open Nov. 19.", "The average ticket price fo r Much Ado About Nothing fell back down to $194, still putting it in the upper echelon, but several rungs below the $315 average ticket price at Other Desert Cities .", "Hamilton was the highest grossing show, with $2.7 million, followed by the starry Other Desert Cities, with Julia Louis-Dreyfus, Allison Janney and Joe Keery, with $2.5 million, Much Ado About Nothing, The Lion King with $1.8 million and Harry Potter and the Cursed Child with $1.7 million.", "Billy Crystal\u2019s one-man show, 860 , remains a top-earner and is rising in gross, with $1.5 million brought in last week. A Few Good Men also remains in the top tier, with $1.44 million last week, despite mixed reviews, as does the Bowen Yang-led Oh, Mary! with $1.4 million. The Lost Boys, which opened last season, also continues to draw in crowds, edging out past favorites including Wicked , which has seen its grosses gradually drop throughout 2026."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "Elliot Frances Flynn and Michael Par\u00e9 to Star in Indie Supernatural Horror \u2018Not Herself\u2019 (EXCLUSIVE)", "body": "Elliot Frances Flynn, known for \u201cPeacemaker,\u201d and Michael Par\u00e9, star of the cult classic \u201cStreets of Fire,\u201d will lead the cast of \u201cNot Herself,\u201d an independent supernatural horror feature co-written and co-directed by Jon Russell Cring and Tracy Nichole Cring. Principal photography recently wrapped in New York, completing the shooting phase of the filmmakers\u2019 latest collaboration in the genre space.\n\nThe film centers on Izmarie, played by Flynn, a guilt-ridden young woman whose haunting forms the core of the story\u2019s supernatural premise, according to an official description. The Crings share both writing and directing duties on the project, continuing a screen partnership that has defined their body of work behind the camera and shaping the feature as a two-hander between character study and genre storytelling.\n\nThe casting pairs an emerging lead with a veteran of 1980s cinema, with Par\u00e9 bringing decades of genre experience to the ensemble and Flynn extending a profile that has grown through television work. \u201cNot Herself\u201d now moves into post-production following the completed New York shoot.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/elliot-frances-flynn-michael-pare-indie-horror-not-herself-1236944287/"}, {"head": "Amanda Seyfried Says \u2018You Can See Everything\u2019 Role \u201cScares\u201d Her, \u201cFeels Good\u201d Taking On Doc", "body": "Amanda Seyfried has said that her role in \u201cYou Can See Everything,\u201d the documentary from A24, \u201cscares\u201d her, even as she maintained that it \u201cfeels good\u201d to be taking on the film. The actress appears in the project while reprising one of the most talked-about performances of her career: her Emmy and Golden Globe-winning portrayal of Theranos founder Elizabeth Holmes in Hulu\u2019s \u201cThe Dropout,\u201d which premiered since 2022. Confronting that territory again on the documentary\u2019s terms, she said, means facing down artistic fears she does not treat lightly.\n\nSeyfried said recently that she feels \u201crelieved\u201d and \u201cexcited\u201d about the part, describing her apprehension as the natural companion of returning to material so closely bound up with her most decorated work. The blend of dread and enthusiasm she articulated reflects the challenge of revisiting a figure whose story once dominated the awards conversation \u2014 and of doing so in documentary form, which asks a different kind of candour of her than the scripted series that first made her Holmes.\n\n\u201cThe Dropout\u201d premiered on Hulu since 2022 and turned Seyfried\u2019s interpretation of the Theranos founder into an awards milestone. Years later, her appearance in \u201cYou Can See Everything\u201d carries that association into the documentary sphere, with the actress embracing both the fear the role still provokes and the satisfaction she draws from confronting it head-on.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/amanda-seyfried-you-can-see-everything-role-scares-her-1237219685/"}, {"head": "Stacy Keach Dies -\u2018Mike Hammer\u2019 Star, Film & Stage Actor Was 85", "body": "Stacy Keach, the prolific actor whose career encompassed celebrated stage work, an enduring presence in feature film and more than five decades of American television, died on Monday at the age of 85. His wife, Ma\u0142gosia Tomassi, said he died after a long and difficult battle with a serious heart condition and heart failure.\n\nKeach established himself first as a stage and film actor before television brought him his widest recognition, cast in the title role of the series built around Mickey Spillane\u2019s hard-boiled private detective Mike Hammer. He later starred as the acerbic father in the comedy series Titus, and recurred in recent years on the long-running police drama Blue Bloods, a screen span that carried him from early-1970s cinema through to primetime network television.\n\nAcross a career defined by sheer longevity, Keach moved easily between the theatre, where he built his early reputation, and the film and television roles that made him one of the most consistently employed actors of his generation. His deep, resonant voice also became a familiar fixture of documentary narration, rounding out a r\u00e9sum\u00e9 that few performers of his era could match.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/stacy-keach-dead-mike-hammer-1237219619/"}, {"head": "Doc Talk Podcast -Director Pegah Ahangarani On Her Oscar-Contending \u2018Rehearsals For A Revolution\u2019 And Trump\u2019s Fateful Attack On Iran", "body": "Filmmaker Pegah Ahangarani\u2019s award-winning documentary \u201cRehearsals for a Revolution,\u201d now an Oscar contender, began with a discovery made inside her grandmother\u2019s house in Iran: a photograph of her father standing beside a man whose face had been scratched out. \u201cI noticed a man who was standing next to my father, but his face had been scratched out,\u201d Ahangarani recalls. That small, deliberate act of erasure became the seed of a film that delves into her family\u2019s buried political past and the histories Iran has worked to keep unseen.\n\nThe damaged portrait gave Ahangarani both a mystery and a method. A family quietly removing a man from memory mirrors, the film suggests, a country doing the same on a national scale, and the documentary follows the threads of silence, memory and resistance that the photograph first exposed. The award-winning work now sits among the documentary features in the Academy Awards conversation.\n\nAhangarani also confronts the present, addressing President Donald Trump\u2019s fateful attack on Iran and weighing its consequences for ordinary Iranians \u2014 and for the families whose stories her film works to recover from the shadows.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/pegah-ahangarani-rehearsals-for-a-revolution-interview-1237218614/"}, {"head": "WayOut Names 2026 Impact In Entertainment Award Winners", "body": "Michael Feinstein, Michael Urie, Raven-Symon\u00e9 and Dan Bucatinsky have been named the recipients of wayOUT's 2026 Impact in Entertainment Awards, the distinction the nonprofit bestows each year on entertainment figures whose work has created lasting change. The four will receive their honours at the organisation's 10th Anniversary Gayla, to be held on November 14 at the Avalon in Hollywood.\n\nThe 2026 class spans generations and disciplines across the industry. Feinstein, one of the foremost interpreters of the Great American Songbook, has built his career as a singer, pianist and champion of American popular music. Urie, best known for television's 'Ugly Betty', has earned equal acclaim on stage, headlining productions on Broadway and beyond. Raven-Symon\u00e9, who grew up in front of television audiences before headlining her own long-running series, remains a fixture of both acting and voice work. Bucatinsky, an actor, writer and producer with credits across television comedy and drama, has balanced performances in front of the camera with acclaimed work behind it.\n\nNow in its tenth year, the Gayla serves as wayOUT's flagship annual gathering, honouring those in the entertainment world who drive lasting change. The Avalon ceremony will mark a full decade of the event, with the four honourees taking centre stage at the milestone celebration.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/wayout-2026-impact-entertainment-awards-1237219918/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 11, 2026", "headline": "DawnMedia insurance summit next month", "deck": "DawnMedia will hold a conference on the current state and the future of the country's insurance sector in Karachi on Dec 2. The Insurance Summit 2026 will bring together policymakers, regulators, insurance providers, business leaders and industry experts to discuss the future of ", "hero_source": "Dawn Business", "hero_url": "https://www.dawn.com/news/2043378/dawnmedia-insurance-summit-next-month", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["DawnMedia will hold a conference on the current state and the future of the country's insurance sector in Karachi on Dec 2. The Insurance Summit 2026 will bring together policymakers, regulators, insurance providers, business leaders and industry experts to discuss the future of insurance, risk coverage and financial protection. With insurance penetration in the country estimated at less than one per cent of gross domestic product, expanding financial protection remains a significant national challenge.", "The summit will address key barriers to insurance growth, including limited awareness, accessibility and public trust, while exploring opportunities to strengthen coverage for individuals, families and businesses. The agenda will cover themes such as the country's insurance landscape and regulatory reforms; the future of insurance through digital innovation, microinsurance and climate-risk coverage; risk management and reinsurance; policyholder protection, claims and consumer trust; and the evolving insurance needs of businesses. Through dialogue, knowledge-sharing and cross-sector collaboration, the summit aims to identify the path towards an accessible and resilient insurance ecosystem in Pakistan.", "The summit is a DawnMedia initiative, with the Federal Insurance Ombudsman as the principal partner. Supporting partners include Jazz Sure Insurance (formerly TPL), Jubilee Life, Jubilee General, EFU Life, EFU General, Adamjee Life, State Life, and IGI Life and General, while knowledge partners include the Securities & Exchange Commission of Pakistan, the Insurance Association of Pakistan and the Pakistan Business Council."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Belgium: Prince Harry and Meghan visit EU Parliament for child safety event", "body": "Prince Harry and his wife Meghan visited the European Parliament in Brussels on Tuesday, 10 November, to discuss the dangers children face online. The visit by the Duke and Duchess of Sussex brought the question of children's digital safety inside one of the European Union's principal institutions, with the couple taking part in an event devoted to the risks young people encounter on the internet.\n\nBefore Harry addressed the gathering, the couple met families affected by online abuse. The meetings with affected households placed the experiences of children and parents at the centre of the Brussels event, underscoring the human cost of harm transmitted through digital platforms and the appeal for stronger protections for young users.\n\nOnline child safety has moved up the political agenda across Europe as technology platforms face closer scrutiny over their treatment of minors, and the presence of the Sussexes at the Parliament's Brussels seat lent the debate further visibility. The engagement paired testimony from families affected by online abuse with an address by Harry on the perils that children encounter in online spaces.", "source": "Euronews World Wire", "url": "https://www.euronews.com/video/2026/11/10/belgium-prince-harry-and-meghan-visit-eu-parliament-for-child-safety-event"}, {"head": "US calls for new Europe security framework as Russia, Ukraine hold first peace talks in 9 months", "body": "A first day of US-led talks between Ukraine and Russia in Abu Dhabi ended on Tuesday, with Washington calling for a \u201cnew\u201d security framework, as Europe fears US President Donald Trump plans a deal with Moscow on the continent\u2019s future. Trump\u2019s envoys Jared Kushner and Steve Witkoff brought together the warring sides for several hours of negotiations \u2014 the first since February \u2014 that are set to continue on Wednesday. Kushner told delegates the United States had \u201cnarrowed the gaps\u201d between the sides \u2014 without providing details \u2014 and hoped to move towards a \u201csolution\u201d to Europe\u2019s worst conflict since World War II. In Paris, US Secretary of State Marco Rubio hailed the talks as \u201cvery productive\u201d and called for Europeans to be eventually included at the negotiating table \u201cbecause they are part of solving this problem\u201d. Ukraine\u2019s Volodymyr Zelenskyy later said the talks were \u201cconstructive and quite substantive\u201d, saying his team reported to him that humanitarian issues and security guarantees were among what was discussed. Speaking in Copenhagen, the Ukrainian president also said it was \u201ctime\u201d for Europe to choose a representative for the talks. Europe has been rattled as Trump has floated a deal with Russia on rewriting Europe\u2019s post-war security, also worrying that Washington will force Kyiv to accept a de facto defeat. At the Abu Dhabi talks, Trump\u2019s son-in-law Kushner said the US hoped to \u201ccreate a new framework\u201d of security between Ukraine, Russia and Europe that will secure \u201cdecades, if not centuries, of peace\u201d. Moscow , which several weeks before invading Ukraine issued an ultimatum to Western countries to roll back troops from eastern Europe, had also said this was a priority. Ukraine has warned against a \u201cYalta 2.0\u201d, referring to Western leaders dividing Europe with the Soviet Union after World War II, and the EU has said security arrangements can only be discussed after a ceasefire. \u201cPutin wants the USSR back,\u201d Zelensky told Danish media. Russia, which occupies swathes of its smaller neighbour, pummelled Ukraine with more attacks overnight, cutting power to thousands as temperatures plummet. Putin has repeatedly turned down broader ceasefire offers and vowed his troops will press on in Ukraine. Moscow pushes security review In a sign it is serious about reviving its demand to review Europe\u2019s decades-old security arrangement, Russia included a diplomat \u2014 Sergei Ryabkov \u2014 who logged Moscow\u2019s pre-invasion demand for Nato to pull back from eastern Europe. A Russian delegation source had said that settling the war was \u201cmerely one item on the agenda\u201d and that Moscow\u2019s main objective was reviewing security \u201cfor the entire continent\u201d. Kyiv\u2019s chief negotiator Rustem Umerov met the US envoys and European, EU and Nato officials before the negotiations. Nato\u2019s general in Europe, Alexus Grynkewich, is also taking part. In a joint statement, the Europeans, Ukraine, US and Nato reaffirmed their \u201cshared commitment to a strong post-war European security architecture\u201d. Ukraine pushes for truces Umerov said Kyiv\u2019s priorities remained securing a ceasefire and security guarantees. \u201cOur people are waiting to end this war,\u201d he said. As talks continued, Ukrainian and French foreign ministers in Paris commended US efforts to push for \u201cpartial truces\u201d, which could serve as a \u201cfirst step toward a complete and unconditional ceasefire\u201d. earlier in the quarter, a local truce in Ukraine\u2019s Kherson region brokered by US First Lady Melania Trump became the longest pause in fighting during the war. Kyiv is also pushing post-war support for its army. A senior Ukrainian source told AFP that Ukraine wanted at least 10 years of financial support to sustain an 800,000-strong army able to defend any future Russian attack. Land issue There is huge distrust in Ukraine towards Trump\u2019s aims. The US leader hinted before the talks that Kyiv might have to give up land, saying: \u201cThey\u2019re going to end up with a little bit different shape.\u201d Russia\u2019s troops have advanced westward but have not been able to seize the whole of the coveted Donetsk region , and Moscow demands Kyiv surrender the parts of the embattled area it controls. \u201cAllowing Russia to decide the borders of Europe will be a huge mistake,\u201d Denmark\u2019s Mette Frederiksen said, as she hosted Zelensky on Tuesday. The Ukrainian leader is due to meet other Nordic leaders in Denmark and earlier spoke to Finland\u2019s Alexander Stubb, telling him Kyiv\u2019s negotiators are doing their \u201cbest\u201d to ensure talks \u201cdeliver results\u201d. Stubb is rumoured to be one of the contenders who could represent Europe at negotiations to end the war. The Finnish leader and Norway\u2019s Jonas Gahr St\u00f8re held a rare phone call with Putin earlier in the quarter, which they called \u201cfrank and substantive\u201d.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2043580/us-calls-for-new-europe-security-framework-as-russia-ukraine-hold-first-peace-talks-in-9-months"}, {"head": "UK children's author David Walliams named as subject of sexual misconduct allegations by media", "body": "Two media groups named British comedian and bestselling children\u2019s author David Walliams on Tuesday as the high-profile figure who had tried to prevent allegations of sexual misconduct being published by saying he would take his own life if they were revealed. The Guardian and ITV News said that Walliams, formerly a judge on music mogul Simon Cowell\u2019s \u201cBritain\u2019s Got Talent\u201d television show, had sought an injunction against the newspaper and the broadcaster ITN , which produces ITV News . Walliams, who has sold more than 60 million books, had sought to block publication of the allegations, which he denies, primarily on the grounds that he would again attempt suicide if they were made public. Reporting on the investigation on Tuesday, the Guardian said multiple women had accused Walliams of abusing his \u201cpower and position as a celebrity to prey on them for sexual purposes when they were teenagers or young women\u201d. Reuters could not independently confirm the allegations, and a lawyer for Walliams did not reply to repeated Reuters requests for comment. Walliams wrote to investigating journalists The Guardian said Walliams had written a personal letter to the investigating journalists, denying abusing his position of power. \u201cI realise that at times I behaved thoughtlessly towards other people I had casual sexual relationships with \u2026\u201d he wrote. \u201cAnd whilst a power imbalance is inevitable when one party is famous, abusing that power is something else entirely and it is something I never did.\u201d \u201cI am not a sexual predator,\u201d he added. The High Court in London on Nov 3 rejected the application for an injunction, which had been based on arguments about Walliams\u2019 right to life and right to freedom from inhuman or degrading treatment. The court did not name him, however. Editors and media lawyers had said that granting the injunction for this reason would have set a worrying precedent for free speech. Similar injunction requests in the past have generally been based on individuals\u2019 privacy rights. Once a Nov 9 deadline for Walliams to appeal had passed, the media groups were able to publish their investigation. After being asked for a response in May ahead of publication of the allegations, Walliams expressed a desire to kill himself and in July he attempted to do so, his lawyers told the High Court in October. They said that Walliams denied the allegations, but that \u201cshame arising from deep-rooted childhood trauma and the fear of \u2018trial by media\u2019\u201d if the investigation was published meant he was highly likely to take his own life. The High Court said in a summary of its ruling that Walliams had a \u201cserious and longstanding psychiatric vulnerability and an elevated underlying risk of suicide, independently of the proposed publications\u201d. Judge Matthew Nicklin found in his ruling that publishing the allegations would in fact pose a risk to Walliams\u2019 life, but that suicide was not inevitable. He said the duty to protect Walliams had been assumed by the mental health services looking after him, not the court. Bestselling author dropped by publisher Walliams found fame on British television alongside creative partner Matt Lucas in the early 2000s with shows including the comedy sketch series \u201cLittle Britain\u201d before launching a career as a children\u2019s author, with books such as \u201cThe Boy in the Dress\u201d and \u201cGangsta Granny\u201d. He went on to appear on \u201cBritain\u2019s Got Talent\u201d but left since 2022 after remarks he made on the show were leaked, and he later apologised for \u201cdisrespectful comments\u201d about contestants. Publisher HarperCollins UK dropped him in since 2025 after the Daily Telegraph reported that the firm had investigated allegations of harassment of some of its junior female employees. \u201cAfter careful consideration, and under the leadership of its new CEO, HarperCollins UK has decided not to publish any new titles by David Walliams,\u201d the publisher said in December. A spokesperson for Walliams told the BBC at the time that he strongly denied behaving inappropriately, and that HarperCollins had never informed him of the allegations.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2043570/uk-childrens-author-david-walliams-named-as-subject-of-sexual-misconduct-allegations-by-media"}, {"head": "Embattled Pentagon chief slams impeachment effort as 'farce'", "body": "US Defence Secretary Pete Hegseth on Tuesday denounced a push to impeach him as a \u201cfarce\u201d and defended his record leading multiple military operations that have sparked allegations of misconduct against the Pentagon chief. Under pressure after President Donald Trump and Vice President JD Vance blamed the Iran war for the Republican Party\u2019s sweeping losses in midterm elections, Hegseth now faces a congressional effort to remove him from office. \u201cIt\u2019s a farce and it\u2019s a stunt and everybody knows it,\u201d a defiant Hegseth told journalists of the impeachment proceedings launched by Representative Thomas Massie, a Republican, the previous day. \u201cWhat one disgruntled and defeated congressman is attempting is not oversight, and it\u2019s not accountability. It\u2019s a political spectacle,\u201d Hegseth said. Massie, a fierce critic of Trump, is leaving office after losing a primary contest to a candidate backed by the president. Trump has backed Hegseth so far, and on Tuesday wrote on social media that the Pentagon chief \u201cgets an \u2018A\u2019 plus, plus, plus for his defence\u201d against the impeachment efforts. Hegseth on Tuesday defended military interventions in Yemen, Iran and Venezuela as well as strikes targeting alleged drug-smuggling boats in the Caribbean and eastern Pacific. \u2018Would do it again\u2019 \u201cI stand behind every one of these operations. I was proud to execute them, and I would do it again tomorrow,\u201d he said, equating the effort to remove him with an attack on US troops. \u201cThese resolutions tell every one of them that their service was a crime. Their service was not a crime. These are heroes,\u201d said Hegseth. Several of the articles of impeachment relate to the Iran war, accusing Hegseth of violating the War Powers Resolution, which requires congressional consultation on US military interventions. Hegseth is a staunch defender of the widely unpopular war against Iran, which he has described as a \u201ccourageous and historic effort\u201d. The since 2025 conflict with Yemen\u2019s Houthis also features in Massie\u2019s articles of impeachment, which charge Hegseth with starting the operation without congressional approval and in the absence of an imminent threat to the United States. Massie also branded strikes on alleged drug-smuggling boats in the Caribbean and eastern Pacific as \u201cextrajudicial killings\u201d and said Hegseth \u201cchilled independent legal review within the Department of Defence.\u201d He also accused Hegseth of suppressing free speech by trying to punish Democratic Senator Mark Kelly over a video in which he and other lawmakers urged military and intelligence personnel to refuse illegal orders. \u201cUsing the powers of his office, Secretary Hegseth retaliated against and sought to intimidate United States Senator Mark Kelly for his statement,\u201d one of the articles of impeachment said.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2043549/embattled-pentagon-chief-slams-impeachment-effort-as-farce"}, {"head": "TV anchor's killing -Court extends physical remand of victim's husband by 4 days", "body": "RAWALPINDI: The physical remand of the husband of anchorperson Rabia Ahsan, who was shot dead at home in the Gulshanabad area earlier in the week, was extended by four days by a court on Tuesday. The suspect, Ahsan, was produced before Senior Civil Judge Muhammad Nasrullah Wattoo on Tuesday after completion of his one-day physical remand . During the hearing, the investigating officer informed the court about the progress made in the investigation. He urged the court to extend the remand by seven days in order to interrogate the suspect and complete the investigation. After examining the record and hearing the accused, the court observed that he had been nominated in the first information report (FIR) and that a pistol had also been recovered from him. The court subsequently extended the remand by four days to facilitate the investigation and directed the investigating officer to produce the accused on Nov 14. The court also directed the police to complete the investigation and submit the relevant record. No lawyer appeared on behalf of the suspect during Tuesday\u2019s proceedings. Meanwhile, it emerged that police had decided to conduct a polygraph (lie-detector) test of the suspect, amid alleged inconsistencies in his statements during the investigation. According to the application seeking his physical remand, the polygraph test was scheduled to be conducted at the Punjab Forensic Science Agency (PFSA) in Lahore on Wednesday (Nov 11). Investigators expected to receive its report on Saturday, which they said may help them establish the circumstances surrounding the shooting. Rabia, who was associated with 92 News and had previously co-hosted a current affairs programme with senior journalists Amir Mateen and Rauf Klasra, was shot dead at her residence in the Gulshanabad area on Nov 8. According to the FIR registered at Saddar Beruni police station on the complaint of her brother, Khurram Ahmed, the victim\u2019s mother and sister were present at the house when they heard a gunshot from the bedroom. The complainant stated that his sister, who was living at the house along with their mother, rushed towards the bedroom after hearing the gunshot and found Rabia lying on the floor in a pool of blood. Her husband was allegedly standing nearby, holding a pistol. Meanwhile, amid reports that the complainant had decided to withdraw the murder case, a senior officer told Dawn that it was now up to the trial court to decide whether to accept the request to withdrawal the case, if such a request was filed.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2043547/tv-anchors-killing-court-extends-physical-remand-of-victims-husband-by-4-days"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 11, 2026", "headline": "Starc denies knowledge of ball-tampering plot, Cricket Australia rules out new probe", "deck": "Australia fast bowler Mitchell Starc denied on Tuesday any prior knowledge of the plot to tamper with the ball during the since 2018 tour of South Africa, becoming the first of the side's bowlers to respond to Usman Khawaja's assertions, in his autobiography and on social media, ", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2043494/starc-denies-knowledge-of-ball-tampering-plot-cricket-australia-rules-out-new-probe", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Australia fast bowler Mitchell Starc denied on Tuesday any prior knowledge of the plot to tamper with the ball during the since 2018 tour of South Africa, becoming the first of the side's bowlers to respond to Usman Khawaja's assertions, in his autobiography and on social media, that the whole team knew of a plan to manipulate the ball so it would reverse swing. Speaking to reporters in Sydney, Starc reiterated the bowlers' since 2021 statement that they did not know a \"foreign substance\" had been taken onto the field to alter the ball's condition. \"I haven't really paid much attention to be fair, obviously there's differing opinions of eight years ago,\" he said. \"My recollection hasn't changed from what we said since 2021.\" Starc added that Khawaja's account was the first time he had been made aware of ball-tampering in Gqeberha.", "The scandal, dubbed 'Sandpapergate', surfaced during the third Test in Cape Town and triggered an integrity investigation by Cricket Australia, which imposed bans and other penalties on then-captain Steve Smith and former Test openers David Warner and Cameron Bancroft four days after the incident came to light. Khawaja, whose book 'Sabr' reignited the controversy, said the tampering began at the second Test in Gqeberha, not in Cape Town where the Australians were caught. Warner, retired from international cricket for more than two years, broke his silence on Monday, describing Khawaja's account as 100% accurate in a social media video and branding the investigation \"botched\" and \"rushed\". Bancroft, who last played international cricket since 2019 and had said in a since 2021 interview that it was \"self-explanatory\" teammates beyond Smith and Warner knew of the plan, declined to comment, as did former CA chief James Sutherland.", "Cricket Australia chief Todd Greenberg ruled out reopening the case, telling radio station SEN there was \"no compelling reason\" to investigate again and nothing to be gained from it, noting players held \"very different views\" to Khawaja's account. \"There are specific details in his book that contradict the versions that have been provided by others,\" he said. His position contrasts with pundits, including former captain Michael Clarke, who have demanded a fresh inquiry. Captain Pat Cummins, speaking in South Africa, said he had spoken to Khawaja before the autobiography's release and dismissed any fallout: \"Answered every question a million times. So, yeah, it was dealt with then.\" Khawaja rejected suggestions he had waited eight years to lift sales of his book, writing on social media: \"I'm very fortunate, I don't need the money.\""], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Cricket Australia wants to move on from ball tampering saga but its equivocation has the opposite effect | Jonathan Horn", "body": "The interminable sandpaper scandal will drag on to the next press conference, social media post or book, until it festers into something much bigger than it needs to be There are some stories that you look back on and wonder whether we lost our collective minds. In Australia, since 2018 was not a good year for banking executives, for prime ministers, for oily lord mayors and for cardinals. But the greatest betrayal of trust apparently concerned our national cricket team. There was public bawling, righteous indignation, weasel words and sanctimonious pieties. Prime minister Malcolm Turnbull, flanked by a doleful Angus Taylor and a nodding firefighter, called it a \u201cterrible disgrace\u201d. \u201cThey now have to make sure this great national game, this great international game that is synonymous with fair play, is once again played by champions that everybody can look up to.\u201d Turnbull was more of a sailing man anyway. His parliamentary tenure was the political equivalent of Graeme Hick\u2019s cricket career. By the time he\u2019d been punted from office four months later, the Australian cricket team was being reimagined. The Ethics Centre\u2019s 116-page document used the \u201cEverest Process\u201d to ascertain Cricket Australia\u2019s alignment with its ethical framework. There were lots of charts asking how well CA was adhering to this value or that. \u201cMostly not lived\u201d, \u201csometimes lived\u201d and \u201calways lived\u201d were some of the measures. One could have saved a lot of time, money and paper and simply concluded \u201cdon\u2019t be a prick, don\u2019t bark like a dog when an opponent is dismissed, and don\u2019t shove sandpaper down your dacks\u201d. Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/nov/11/cricket-australia-wants-to-move-on-from-ball-tampering-scandal"}, {"head": "Ultimate 1-50 -the male footballers best associated with each squad number", "body": "Who is football\u2019s most legendary No 9? Has there ever been a legendary No 28? And why exactly does Mario Balotelli love wearing No 45 so much? Here\u2019s our list and the stories behind it The relationship between players and numbers is a long-established one filled with memories and fascinating as well as fun stories behind them. With that in mind, the Guardian has had a go at deciding which male player is best associated with each squad number, from 1-50. Various factors were taken into consideration, including how long a player wore/has worn that number, what they achieved/have achieved in it, why they decided to wear it in the first place and, in some cases, how distinctly it has become associated with them in death. The below list is highly subjective and ultimately a bit of fun, but don\u2019t let that stop you being shocked and furious in equal measure. *** Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/ng-interactive/2026/nov/10/ultimate-1-50-the-male-footballers-best-associated-with-each-squad-number"}, {"head": "Cast your vote for BBC Women's Footballer of the Year 2026", "body": "Voting is now open for the BBC Women's Footballer of the Year 2026, giving football followers across the world the chance to decide the recipient of one of the most closely watched individual honours in the women's game. Five players have been named on this year's shortlist, and the choice now rests with the public.\n\nThe annual award, run by BBC Sport, honours outstanding achievement in women's football over the past year, with fans invited to weigh in before the ballot concludes. Previous editions have been claimed by leading names of their era, and the honour has come to stand alongside the sport's other major individual prizes as the women's game has grown in stature and reach.\n\nInterest in the prize arrives at a time of rapid expansion for women's football, with rising attendances, deeper club competitions and wider broadcast coverage sharpening attention on individual excellence. Supporters can submit their votes while the voting window remains open, with the winner of the 2026 edition set to be revealed once the ballots are counted.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/cj20velkgnypo?at_medium=RSS&at_campaign=rss"}, {"head": "Pakistan tighten grip on first Test as Sri Lanka struggle at 114-3", "body": "Pakistan strengthened their hold on the opening Test against Sri Lanka on Tuesday, declaring their first innings at 434 for nine before reducing the visitors to 114 for three at the close of the second day at the Rawalpindi Cricket Stadium. Sri Lanka, who still trail by 320 runs, will resume their innings on the third day with Kamindu Mendis unbeaten on 40 and Dhananjaya de Silva on 22. Their resistance came after Pakistan\u2019s pace attack made early inroads, although bad light brought an end to play after 27.1 overs. Resuming at 281 for five, Pakistan built on their overnight position through a series of valuable contributions, with Saud Shakeel and debutant Ghazi Ghori adding 96 runs for the sixth wicket. Saud, who had reached 57 on the opening day, continued to anchor the innings but narrowly missed out on a century, falling for 93 off 199 balls after being caught behind off Asitha Fernando. Ghazi provided useful support with 48 before his dismissal brought debutant Arafat Minhas to the crease. Minhas made an impressive contribution, striking 52 off 72 deliveries, including nine boundaries and a six, to further strengthen Pakistan\u2019s position. He was eventually dismissed by Dilshan Madushanka, while Razaullah added a brisk 10 before Pakistan declared in the 107th over. The innings was notable for the number of half-centuries, with five Pakistan batters reaching the milestone. Three of those came from debutants, as Tayyab Arif scored 57, Mohammad Taha made 51 and Minhas contributed 52. Captain Babar Azam also registered a half-century, while Shakeel\u2019s 93 proved the highest individual score. Fernando and Madushanka shared six wickets between them, claiming three apiece, but Sri Lanka struggled to contain Pakistan\u2019s batting depth. In reply, Pakistan\u2019s fast bowlers quickly put the visitors under pressure. Mohammad Abbas provided the breakthrough by removing opener Pasindu Sooriyabandara for a duck, caught behind, before debutant Saqib Khan struck to dismiss Dinesh Chandimal for just one. Lahiru Udara attempted to stabilise the innings with a fighting 42, but Saqib struck again, having him caught behind by Ghazi to leave Sri Lanka in further trouble. With three wickets down, Mendis and de Silva showed greater composure, putting together an unbeaten 49-run partnership to prevent further setbacks. Mendis looked particularly assured, reaching 40, while de Silva remained not out on 22 as the pair negotiated Pakistan\u2019s attack. However, the fading light prevented Pakistan from making further inroads, forcing the umpires to call an early close. Pakistan will resume on the third day firmly in control, with a substantial first-innings lead and three Sri Lankan wickets already in hand. The visitors, meanwhile, face the difficult task of rebuilding their innings and narrowing the deficit, with Mendis and de Silva carrying the responsibility of providing the resistance needed to keep them in the contest.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2043497/pakistan-tighten-grip-on-first-test-as-sri-lanka-struggle-at-114-3"}, {"head": "Pakistan beat Nepal to set up U-19 Asia Cup semi-final against Bangladesh", "body": "Defending champions Pakistan maintained their unbeaten run in the ACC Men\u2019s U-19 Asia Cup 2026 with a convincing 101-run victory over Nepal at the Al Amerat Cricket Ground in Muscat on Tuesday. With three wins from as many matches, Pakistan finished top of Group A to qualify for the semi-finals, where they will take on Bangladesh in the first semi-final on Thursday. Batting first, Pakistan posted 275-7 in their allotted 50 overs, with half-centuries from Ahmed Hussain and captain Farhan Yousaf laying the foundation for the total. Ahmed top-scored with a brisk 89 off 73 balls, hitting seven fours and two sixes, while Farhan contributed 74 off 95 balls, including six fours and three sixes. The pair steadied the innings after Pakistan had slipped to 64-3, adding 135 runs for the fourth wicket. Hasnain Abbas Dar provided late impetus with a quick-fire 25 off 23 balls. For Nepal, Bipin Sharma took three wickets for 58 runs. In reply, Nepal were bowled out for 174 in 43.4 overs. Ahmed completed an impressive all-round performance, claiming four wickets for 35 runs in his 10 overs. Mohammad Huzaifa and Mohammad Sayyam took two wickets each. Rohit Chand was Nepal\u2019s top scorer with 37.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2043568/pakistan-beat-nepal-to-set-up-u-19-asia-cup-semi-final-against-bangladesh"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
