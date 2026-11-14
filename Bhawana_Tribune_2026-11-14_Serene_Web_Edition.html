@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (SATURDAY, NOVEMBER 14, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">SATURDAY, NOVEMBER 14, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 14, 2026", "headline": "FBR Splits Sales Tax and FED Wing From Income Tax With 54 Officers", "deck": "Dr. Muhammad Sarmad Qureshi named Member Sales Tax & FED Technical as functional field bifurcation starts", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "ProPakistani \u2022 FBR Restructuring Desk", "hero_url": "https://propakistani.pk/2026/11/13/fbr-separates-sales-tax-from-income-tax/", "body": ["ISLAMABAD: The Federal Board of Revenue (FBR) on Friday formally separated the administrative command of sales tax and Federal Excise Duty (FED) from income tax, stationing 54 Inland Revenue Service (IRS) officers from BS-17 to BS-21 inside a newly created functional wing at headquarters.", "Under the Friday restructuring notification, senior Grade-21 IRS officer Dr. Muhammad Sarmad Qureshi stepped into the newly carved post of Member, Sales Tax and FED (Technical), following Board-in-Council approval of a revised organizational chart and reporting architecture for indirect domestic taxation.", "Official briefings indicate the phased rollout is designed to endow consumption and excise levies with autonomous policy supervision, dedicated audit pipelines, and specialized sales tax field zones rather than combining all domestic assessments under general territorial circles.", "However, FBR has not yet notified a parallel post of Member, Income Tax (Technical). Consequently, direct-tax assessments and taxpayer matters remain anchored under Member Inland Revenue (Operations) and the existing field machinery during the initial transition.", "Tax policy observers say decoupling indirect turnover audits from corporate income-tax litigation marks Pakistan's deepest structural overhaul within the Inland Revenue Service in over a decade, testing coordination across automated refund clearing, invoicing compliance, and provincial sales tax harmonization."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "SHC Voiding of Per Incuriam Tribunal Order Under Article 189", "body": "KARACHI: A Customs Appellate bench of the High Court of Sindh comprising Justice Agha Faisal and Justice Dr. Shah Nawaz Memon set aside an impugned Customs Appellate Tribunal ruling in a reference filed by the Collector of Customs (Appraisement) Port Muhammad Bin Qasim against Global Trading Lahore.\n\nAdvocate Sardar Zafar Hussain submitted that the Tribunal relied upon an earlier 2018 SHC judgment in SCRA 744/2016 that had already been overturned by the Supreme Court of Pakistan, rendering the Tribunal's order per incuriam and contrary to the binding constitutional command of Article 189. Agreeing with the department, the bench decided the reference mutatis mutandis in favor of the applicant collectorate.", "source": "CustomsNews.pk Legal Desk", "url": "https://customnews.pk/2026/11/13/shc-sets-aside-per-incuriam-order-of-custom-appellate-tribunal/"}, {"head": "PSW and Alibaba.com Roll Out API Trade Data Confirmation Service", "body": "ISLAMABAD: Pakistan Single Window (PSW) and Alibaba.com signed a cooperation agreement to launch a digital Trade Data Confirmation Service connecting Pakistan's automated trade clearance platform with global business-to-business buyers.\n\nUnder the protocol, verification occurs via structured API requests and responses without transferring underlying confidential trader documents. PSW CEO Syed Aftab Haider and Alibaba.com Pakistan Head Summer Gao said automated validation would boost importer trust and lower onboarding friction for verified Pakistani exporters.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448877/psw-amp-alibabacom-to-roll-out-trade-data-confirmation-service"}, {"head": "Lahore Traders Push for Cost-True Section 25A Customs Valuation", "body": "LAHORE: Industrial importers and exporters urged Customs Valuation authorities at a Lahore Chamber of Commerce and Industry (LCCI) session chaired by President Ali Hussam Asghar to anchor statutory rulings on verified global commodity indices and genuine transaction records.\n\nDirector Customs Valuation Lahore Saima Aftab assured traders that inclusive consultations will continue to balance domestic manufacturing and commercial imports, as LCCI leaders Sardar Usman Ghani and peers cited inflated internet listings on specialized steel grades and called for stronger Lahore appeal facilitation.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448878/businessmen-seek-realistic-customs-valuation-system"}, {"head": "Pakistan Customs Places Anti-Smuggling Squads Under Direct Officer Command", "body": "KARACHI: Following recurring complaints from goods transporters and bus terminals alleging unauthorized roadside checks and extortion, FBR's Chief Collector of Customs Enforcement ordered immediate supervision of all Anti-Smuggling Organizations (ASOs) directly under Assistant or Deputy Collectors.\n\nIssued by Collector (Headquarters) Riaz Hussain to 10 enforcement collectorates\u2014including Karachi, Lahore, Islamabad, Quetta, Hyderabad, Multan, Gaddani, and Sargodha\u2014the directive requires officer sign-off on all roadblocks, immediate seizure reporting, reassignment of superintendents to legal/auction duties, and seven-day compliance filings.", "source": "CustomsNews.pk", "url": "https://customnews.pk/2026/11/13/pakistan-customs-overhauls-oversight-of-anti-smuggling-units-citing-complaints-of-extortion/"}, {"head": "FBR Sets November 17 Lahore Capability Review Amid Appraisal Debate", "body": "ISLAMABAD: The Federal Board of Revenue will conduct its Lahore training needs assessment for BS-17 and above Inland Revenue officers next Tuesday, November 17, after concluding rounds in Islamabad and Karachi.\n\nSenior FBR officials dismissed viral social-media claims alleging only 15 of 150 sales tax officers and 14 of 143 income tax officers passed adjudicatory benchmarks in Karachi as unauthenticated and unstamped, clarifying the case-study exercises identify training gaps rather than serving as formal written competency exams under service rules.", "source": "Business Recorder \u2022 ProPakistani", "url": "https://www.brecorder.com/news/40448881/fbr-to-assess-irs-officials-capabilities-on-17th"}, {"head": "Official Data Highlights 9.55pc Female Share Across FBR Workforce", "body": "ISLAMABAD: Disaggregated establishment figures show women hold 1,772 of 18,549 reported male-and-female positions\u20149.55 percent overall\u2014compared with 16,777 male personnel across FBR pay scales BPS-1 through BPS-22.\n\nRepresentation improves in senior officer cadres BPS-17 to BPS-22, where 523 women account for 16.4 percent of 3,198 filled posts\u2014including three of eight BPS-22 officers\u2014whereas women represent 7.6 percent across BPS-1 to BPS-16 support ranks.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448879/data-shows-gender-workforce-disparity-in-fbr"}, {"head": "Digital Civil Servant Asset Declarations Extended Until November 30", "body": "ISLAMABAD: The Establishment Division issued a prime-ministerial relaxation under Rule 12(6) of the Civil Servants (Conduct) Rules, 2026, extending the FY2025-26 digital asset filing deadline on the FBR portal to November 30.\n\nAll federal ministries and Cadre Administrators have been instructed to ensure timely electronic submission by officials, while error-correction filings signed off by departmental heads remain open through December 31.", "source": "ProPakistani", "url": "https://propakistani.pk/2026/11/13/govt-extends-civil-servants-asset-declaration-deadline-november-30/"}, {"head": "PHMA Welcomes Exclusive Rs300bn Pak EXIM Export Finance Reserve for SMEs", "body": "KARACHI: The Pakistan Hosiery Manufacturers and Exporters Association (PHMA) welcomed the federal decision earmarking Rs300 billion exclusively for small and medium exporters under the Pak EXIM-administered Export Finance Scheme (E-EFS) for FY2026-27.\n\nPHMA Chairman Syed Zia Alamdar Hussain noted that insulating SME credit lines from large-corporate crowding under Finance Minister Senator Muhammad Aurangzeb's financing framework will strengthen working capital across value-added apparel clusters.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448883/phma-welcomes-rs300bn-export-finance-reserve-for-smes"}, {"head": "PIDE Roundtable Urges Export-Led Overhaul of Regional Trade Accords", "body": "ISLAMABAD: Addressing a Pakistan Institute of Development Economics (PIDE) conference titled 'From Signing to Exporting,' trade researchers including Dr. Amjad Masood and Dr. Uzma Zia reported that imports from Pakistan's regional trade partners have outpaced exports steeply since 2000.\n\nDelegates from WTO, PBC, APTMA, EXIM Bank, and PSW\u2014alongside former WTO ambassador Dr. Ahmad\u2014called for renegotiating reciprocal market access and non-tariff barriers, noting Pakistan's recent framework with Turkiye must benchmark measurable export gains.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448885/pide-holds-moot-speakers-for-export-oriented-approach-to-trade-accords"}, {"head": "Karachi Customs Enforcement Seizes Rs36.62m Indian-Origin Hookah Stock", "body": "KARACHI: Acting on a directive from Collector Customs Enforcement Farid Ahmed Khan Salarzai, an intelligence-and-operations team supervised by Additional Collector Yasar Wahab Kalwar raided a warehouse near Exhibition Chowrangi.\n\nLed by Assistant Collector Taufiq Ahmed and Superintendent Danish Kaleem, officers confiscated contraband Indian-origin Afzal and Al Fakher hookah flavors, Pasha and Malaki assortments, shisha bowls, hot plates, and accessories valued at Rs36.62 million ($130,000).", "source": "CustomsNews.pk", "url": "https://customnews.pk/2026/11/13/pakistani-customs-seize-indian-origin-shisha-hookah-products-in-karachi-crackdown/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 14, 2026", "headline": "Pakistan 1QFY27 Fiscal Surplus Shrinks 40pc to Rs1.274tr as Debt Costs Surge", "deck": "Consolidated revenues dip to Rs6.004tr on lower SBP profits while mark-up servicing jumps 23pc to Rs1.699tr under the IMF $7bn EFF monitor", "hero_source": "Business Recorder \u2022 Dawn Finance Desk", "hero_url": "https://www.brecorder.com/news/40448853/1qfy27-fiscal-surplus-plunges-40pc-yoy", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["ISLAMABAD: Pakistan's consolidated federal and provincial fiscal surplus dropped 40 percent year-on-year in the July\u2013September quarter of FY2026-27 to Rs1.2737 trillion, representing 0.9 percent of GDP versus 1.7 percent (Rs2.12 trillion) a year earlier, according to Finance Division accounts released ahead of the weekend.", "Total consolidated revenues slipped to Rs6.004 trillion (4.2 percent of GDP) from Rs6.2 trillion previously, squeezed primarily by a drop in State Bank of Pakistan profit transfers to Rs1.933 trillion from Rs2.43 trillion last year. Overall tax receipts reached Rs3.387 trillion\u2014comprising Rs3.086 trillion collected by FBR and Rs301 billion by the provinces\u2014while non-tax inflows contributed Rs2.617 trillion, or roughly 44 percent of receipts.", "Non-tax diversification featured Rs382 billion from the petroleum levy alongside Rs22.257 billion from the carbon levy and Rs9.302 billion via the NEV adoption levy. Nevertheless, provincial cash surpluses narrowed 23 percent and Balochistan posted a quarterly shortfall.", "On the expenditure side, consolidated outlays rose 15 percent to Rs4.730 trillion, dominated by Rs1.699 trillion in public debt mark-up\u2014split between Rs1.493 trillion in domestic interest and Rs207 billion on external obligations\u2014pulling the primary surplus down from 2.8 percent to 2.1 percent of GDP (Rs2.9735 trillion) against the IMF's -3.5 percent full-year fiscal balance target."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "SOVEREIGN BALANCE SHEET \u2022 SBP DEBT RELEASE", "body": "KARACHI: Central bank balance-sheet figures show total federal domestic debt fell by Rs1.636 trillion during July\u2013September FY27 to settle at Rs57.757 trillion on September 30, down from Rs59.393 trillion at the end of June.\n\nCommercial-bank Treasury retirement surged to Rs1.847 trillion in July\u2013October FY27 compared with just Rs45 billion in the prior year, underscoring tighter cash management after FY26's two-decade-low 2.6 percent full-year deficit. [SBP data confirms net scheduled-bank debt retirement accelerated sharply to Rs1.847tr across July\u2013October FY27 vs Rs45bn a year earlier.]", "source": "Dawn \u2022 State Bank of Pakistan", "url": "https://www.dawn.com/news/2044371/domestic-debt-falls-to-rs577tr-in-july-sept"}, {"head": "Mari Energies Announces Copper-Gold Discovery at East SiahDiq in Chagai", "body": "ISLAMABAD: Managing Director Faheem Haider unveiled a major porphyry copper-gold strike at the East SiahDiq (ESD-1) target located roughly 50 km east of Reko Diq and 25 km northwest of Nokkundi.\n\nExecuted via subsidiary Mari Minerals across 25,000 metres of drilling down to 500 metres, Phase-1 work covers 1.4 sq km beneath 100m overburden, with SGS Pakistan Phase-2 assays due Q1 2027 and 1,000m deeper step-out holes planned.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448859/mari-energies-announces-copper-gold-discovery-in-chagai"}, {"head": "NRL Logs Copper-Gold Deposits Across Eight Chagai Sites Near Tang Kaur", "body": "ISLAMABAD: National Resources Limited Chairman Muhammad Ali Tabba reported copper-gold mineralisation at eight Chagai targets spanning 5.6 sq km in Darigwan under licence EL214, highlighted by a 295m intercept grading 0.43pc copper and 0.13g/t gold\u2014including 132m at 0.83pc copper.\n\nBacked by joint-venture partners Fatima Fertilisers, Liberty Mills, and Lucky Cement Ltd with a $100m exploration commitment, NRL targets environmental and geotechnical studies in 2027 ahead of a bankable feasibility study.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2044284/copper-gold-deposits-identified-at-eight-sites-in-balochistans-chagai-district-mining-company"}, {"head": "Barrick Eyes Mineral Processing Hubs in Karachi and Gwadar", "body": "ISLAMABAD: Leading a visiting delegation for meetings with the Prime Minister, Barrick Mining Corporation Chairman John Thornton expressed strong investor interest in establishing downstream mineral processing plants in Karachi and Gwadar.\n\nBoth sides highlighted domestic smelting and coastal export readiness alongside Islamabad's Pakistan Minerals Investment Forum roadmap.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2044302/barrick-mining-expresses-interest-in-mineral-processing-industries-in-karachi-gwadar"}, {"head": "Petrol Lowered Rs2 to Rs330 per Litre While High-Speed Diesel Holds at Rs360", "body": "ISLAMABAD: Marking a ninth consecutive downward adjustment, OGRA lowered motor spirit (petrol) by Rs2 per litre to Rs330/L effective November 14\u201316 while retaining high-speed diesel unchanged at Rs360/L.\n\nTaxes and duties remain Rs114/L on petrol and Rs100/L on diesel, partially cushioned by a 30-day Rs15 billion refinery petroleum-levy offset arrangement announced on November 2.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2044318/petrol-price-cut-by-by-rs2-high-speed-diesel-price-remains-unchanged"}, {"head": "Weekly Short-Term SPI Inflation Hits 11.21pc on Perishables and LPG", "body": "ISLAMABAD: Pakistan Bureau of Statistics figures for the week ending November 12 put year-on-year Sensitive Price Indicator (SPI) inflation at 11.21 percent across 51 essential goods tracked in 50 markets across 17 cities.\n\nPrices increased for 19 items (37.25pc)\u2014amplified by steeper LPG rates\u2014fell for nine commodities, and held stable for 23 staples, even as sequential petrol easing awaits next week's pass-through.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2044292/short-term-inflation-clocks-in-at-1121pc"}, {"head": "Punjab Revenue Authority Rolls Out QR Payment Prize Drive Across Hospitality", "body": "LAHORE: Chaired by PRA Chief Moazzam Iqbal Sipra, a digital compliance review approved a consumer reward draw for diners settling hospitality and restaurant bills via QR-code e-payments.\n\nAuthorities warned that registered food and hotel outlets refusing digital QR settlement will face statutory enforcement action to curb uninvoiced cash evasion.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448811/pra-promoting-digital-payments"}, {"head": "Punjab PDWP Clears 19 Development Schemes Totaling Rs126.67bn", "body": "LAHORE: Chaired by P&D Board head Dr. Naeem Rauf, Punjab's 13th PDWP cleared Rs126.668 billion across 19 projects led by Rs18.862bn for Punjab University of Technology Rasul and Rs10.143bn for Rawalpindi Children Hospital.\n\nMunicipal sewerage and stormwater packages span Ferozewala (Rs11.49bn), Daska-Sialkot (Rs11.34bn), Mailsi (Rs7.89bn), and Kot Abdul Malik (Rs7.57bn), plus MPA Hostel Phase-II (Rs6.88bn), Aquaculture Malls (Rs3.98bn), and Qurban Police Lines traffic command (Rs3.25bn).", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448810/pdwp-approves-19-schemes-worth-rs126668bn"}, {"head": "Sindh Approves One-Window Builder Facilitation Desk at ABAD House", "body": "KARACHI: Opening the ABAD In-House Construction Exhibition, Sindh Local Government Minister Syed Nasir Hussain Shah pledged a single-window approval office hosted at ABAD House in coordination with the Sindh Building Control Authority (SBCA).\n\nDigitised permitting aims to accelerate residential approvals alongside provincial upgrades covering more than 150 urban and intercity roads.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2044370/sindh-plans-one-window-for-builders-at-abad-house"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "SATURDAY, NOVEMBER 14, 2026", "headline": "Nvidia Board Sounds Out Arm Chief Rene Haas Amid Post-Huang Succession Storm", "deck": "Interim chief Colette Kress steers chipmaker through governance crisis, export-control probes, and VC startup jitters after 105 annual AI deals", "hero_source": "Financial Times \u2022 Dawn \u2022 TechCrunch", "hero_url": "https://www.dawn.com/news/2044316/nvidia-approached-arm-ceo-haas-to-succeed-huang-ft-reports", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Editor-in-Chief, Senior Member Pakistan Customs Service (Retd.)", "body": ["SAN JOSE / LONDON: Nvidia's board of directors has approached British chip-architecture designer Arm Holdings CEO Rene Haas as a prospective permanent successor to co-founder Jensen Huang, who resigned on Thursday after 33 years following disclosures regarding personal relationships and regulatory scrutiny tied to Megaspeed.", "Haas brings deep familiarity with Santa Clara's GPU architecture, having served seven years at Nvidia rising to vice president and general manager of computing products before joining Arm in 2013 and steering its 2023 Nasdaq debut. Finance chief Colette Kress remains interim CEO while board deliberations proceed without any formal offer finalized.", "Simultaneously, US export-control scrutiny over how restricted Blackwell-class accelerators reached leading Chinese open-weight frontier labs\u2014alongside public friction between US Treasury and Commerce enforcement arms\u2014weighed heavily on sentiment, knocking Arm shares down over 5 percent and Nvidia over 3 percent in Friday trading.", "In Silicon Valley venture circles, Nvidia's abrupt leadership vacuum has unsettled capital deployment: PitchBook data shows the chipmaker participated in 105 startup financings this year alone, often anchoring cloud and compute rounds whose syndication timelines now face near-term uncertainty."], "quote": "Predictable revenue is built neither on arbitrary valuation rulings nor fragmented hierarchies, but on constitutional finality under Article 189, transaction-true Section 25A data, and accountable command.", "editorial": {"title": "Separating the Ledger Without Splitting the State", "deck": "Dedicated sales tax zones, Section 25A valuation clarity, and Article 189 judicial discipline must move together if structural tax reform is to outlast a press release", "paragraphs": ["Friday's notification reassigning 54 Inland Revenue Service officers from BS-17 to BS-21 to establish a dedicated Member Sales Tax and Federal Excise Duty (Technical) wing marks an overdue recognition inside the Federal Board of Revenue that consumption taxation and corporate profit assessment obey entirely different operational rhythms. Sales tax lives along real-time invoices, supply-chain input adjustments, and zero-rated exporter refunds; income tax demands forensic balance-sheet scrutiny across fiscal cycles. Leaving Member Income Tax (Technical) unnotified during phase one leaves the architecture half-built, however, risking coordination friction unless both technical pillars gain parallel accountability alongside Member Operations.", "The fiscal numbers on Page Two explain why institutional precision is no longer discretionary. While domestic debt declined by Rs1.636 trillion in the first quarter to Rs57.757 trillion\u2014backed by aggressive bank retirement\u2014the consolidated fiscal surplus shrank 40 percent year-on-year to Rs1.2737 trillion because interest servicing climbed 23 percent to Rs1.699 trillion while State Bank profits normalised lower. In an economy transferring nearly Rs1.7 trillion each quarter to creditors, revenue leakage through mismatched field jurisdictions or protracted refund disputes imposes a direct macroeconomic penalty.", "Equally instructive are two developments in Lahore and Karachi that anchor customs and indirect-tax administration in law rather than discretion. At the Lahore Chamber, manufacturers rightly pressed the Directorate General of Customs Valuation to abandon ad-hoc internet retail snapshots in favor of verifiable international transaction data under Section 25A for industrial raw materials such as specialty steels. Simultaneously, the High Court of Sindh's reminder in Port Qasim vs. Global Trading that Tribunal orders relying on overturned precedent are per incuriam under Article 189 of the Constitution underscores a foundational rule: predictable assessment begins with respecting settled supreme judicial law.", "Whether integrating Pakistan Single Window API verification with global platforms like Alibaba.com or placing Anti-Smuggling Organizations directly under Assistant and Deputy Collectors after transporter complaints of unauthorized roadblocks, modern revenue administration succeeds when command accountability, trade facilitation, and constitutional legality align. Carving out specialized technical wings can accelerate fair compliance\u2014provided the state reinforces due process, sound valuation science, and clear field supervision from top to bottom."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "ENTERPRISE CLOUD RELIABILITY \u2022 POST-MORTEM", "body": "REDMOND: Microsoft reported broad service recovery across Outlook and Microsoft 365 on Friday after an almost 48-hour global disruption triggered by a technical fault introduced during an earlier network capacity upgrade that surfaced after a recent change.\n\nIn an apology to enterprise customers, engineers confirmed neither malicious hackers nor AI agents caused the failure, adding that phased health-check restoration slowed mail-flow catch-up while preserving cluster stability ahead of a formal post-incident report. [Company rules out cyberattack or AI agents, blaming failed network-capacity upgrade telemetry following a routing change.]", "source": "The Verge \u2022 Ars Technica", "url": "https://www.theverge.com/tech/1032862/microsoft-outlook-down-outage"}, {"head": "OpenAI Launches Biometric ChatGPT Wallet for Agentic Checkout", "body": "SAN FRANCISCO: OpenAI introduced ChatGPT Wallet, enabling users' Dots shopping agents to propose autonomous retail purchases while shielding underlying credit card credentials from direct model access.\n\nEvery checkout action requires explicit user confirmation coupled with biometric Face ID or fingerprint validation before payment settlement executes.", "source": "The Verge", "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet"}, {"head": "LangChain Doubles Valuation to $3bn in CapitalG-Led Series C", "body": "SAN FRANCISCO: Agent orchestration specialist LangChain closed a $300 million Series C round at a $3 billion valuation led by CapitalG, joined by Singapore's GIC, DFJ Growth, IVP, and Sapphire Ventures.\n\nThe milestone more than doubles LangChain's $1.25 billion valuation from a year ago as enterprises standardize agent tooling, API invocation, and evaluation pipelines.", "source": "TechCrunch", "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"}, {"head": "Amazon Drafts World Product Graph to Catalog Global E-Commerce", "body": "SEATTLE: According to internal planning documents reviewed by Reuters targeting an October 2027 horizon, Amazon is exploring a cross-web 'World Product Graph' indexing specifications for goods even when sold outside its marketplace.\n\nDesigned to capture product-research traffic from Reddit, Google, and AI agents while improving Alexa for Shopping accuracy and lowering inference costs, Amazon cautioned the document represents a non-binding draft.", "source": "The Verge \u2022 Reuters", "url": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search"}, {"head": "Drogue Raises $20m to Deploy Ocean-Thermal Floating Data Centres", "body": "WASHINGTON: Founded six months ago by former US Navy E-2D pilot Sam Sipe, startup Drogue secured $20 million from XYZ Venture Capital, Toyota Ventures, Tamarack Global, and peers to harvest ocean heat differentials for offshore compute.\n\nEngineering plans target an initial multi-megawatt vessel prototype deploying to sea by early 2028 to tap ocean thermal reservoirs absorbing 5.8 million terawatt-hours annually.", "source": "TechCrunch", "url": "https://techcrunch.com/2026/11/13/this-young-startup-wants-to-power-floating-data-centers-with-the-oceans-heat-and-investors-are-already-on-board/"}, {"head": "CodeNinja and Paranine Launch Sovereign AI OS Stack in Lahore", "body": "LAHORE: Enterprise AI builder CodeNinja partnered with domestic inference infrastructure provider Paranine to deliver Sovereign AI Operating Systems running open-weight models wholly on hardware located inside Pakistan.\n\nTargeting heavily regulated banking, healthcare, and public-sector clients requiring strict data residency, the combined stack integrates organizational ontology workflows with local GPU clusters.", "source": "ProPakistani", "url": "https://propakistani.pk/2026/11/13/codeninja-and-paranine-partner-to-bring-sovereign-ai-operating-systems-to-pakistan/"}, {"head": "FBI Ties North Korean AI Deepfake Video Calls to $400m Crypto Theft", "body": "WASHINGTON: US federal investigators reported that state-backed North Korean operators stole over $400 million using realistic AI-generated fake video calls and impersonated identities to breach corporate and digital-asset targets.\n\nWhile Pyongyang denied separate FBI allegations regarding a $6 billion Binance compromise, cyber officials warned automated social engineering now underpins multi-billion-dollar illicit weapons financing.", "source": "Dawn Tech \u2022 FBI", "url": "https://www.dawn.com/news/2044296/north-korean-hackers-stole-400m-using-fake-video-calls-fbi"}, {"head": "Uber Discloses Driver Licence Exposure Following Fireworks AI Vendor Breach", "body": "SAN FRANCISCO: Uber notified thousands of drivers and state attorneys general that driver's licence and personal data were compromised after hackers breached third-party model host Fireworks AI in October.\n\nNotified on October 9 of stolen internal credentials\u2014an incident Notion also confirmed affected its customer tenant data\u2014Fireworks acknowledged unauthorized access while withholding victim totals.", "source": "TechCrunch", "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"}, {"head": "Export-Banned Nvidia Silicon Scrutiny Deepens Amid Venture Uncertainty", "body": "SAN JOSE: New reporting linking restricted Nvidia Blackwell accelerators to leading Chinese open-weight AI training runs has sharpened Washington compliance risks just as Nvidia reshuffles executive leadership.\n\nWith Colette Kress managing operations after participation in 105 annual venture deals, cloud founders warn corporate diligence and export enforcement now dominate sector risk modeling.", "source": "TechCrunch", "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 14, 2026", "headline": "New Regency Sues Michael Mann Over Original Heat Screenplay Ahead of Sequel", "deck": "Producer challenges copyright termination notice before January Heat 2 shoot, arguing 1995 crime classic script was work made for hire", "hero_source": "Variety Culture Desk", "hero_url": "https://variety.com/2026/film/news/michael-mann-new-regency-heat-screenplay-lawsuit-1236947532/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["LOS ANGELES: Producer New Regency filed suit on Friday seeking a declaratory ruling to block director Michael Mann from reclaiming copyright over his landmark 1995 crime thriller screenplay Heat, only weeks before Heat 2 is scheduled to roll cameras in January.", "Earlier this year, Mann's legal representatives served statutory copyright termination notices invoking statutory recapture windows after three decades. New Regency\u2014which produced the Al Pacino and Robert De Niro classic\u2014counters that Mann drafted the shooting script as a work made for hire, exempting it from unilateral reversion.", "The legal confrontation creates high-stakes uncertainty around chain of title for derivative theatrical projects just as Heat 2 enters pre-production logistics. Intellectual property specialists note studio work-for-hire challenges have emerged as a defining battleground over 1990s auteur catalog rights.", "While neither camp disclosed immediate settlement talks, industry observers expect swift pre-trial motion practice given January principal photography commitments."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "WEEKEND BOX OFFICE \u2022 PARAMOUNT LEADS", "body": "HOLLYWOOD: Paramount's Ebenezer opened strongly with $7.1 million across Thursday previews and Friday play, pacing toward a $20 million-plus domestic weekend alongside the benchmark levels of Johnny Depp's Black Mass ($22.6m) and Public Enemies ($25.2m).\n\nRunner-up The Cat in the Hat pulled $2.9 million on its second Friday across 4,003 theatres toward a projected $12 million three-day hold, off a resilient 40 percent. [Paramount's non-franchise drama leads charts ahead of second-frame The Cat in the Hat ($12m weekend outlook across 4,003 screens).]", "source": "Deadline Box Office", "url": "https://deadline.com/2026/11/box-office-ebenezer-1237222749/"}, {"head": "Rock Hall Ceremony Set in Los Angeles With Phil Collins and Wu-Tang Clan", "body": "LOS ANGELES: Rehearsals wrapped ahead of Saturday night's Rock & Roll Hall of Fame induction ceremony at the Peacock Theater, where organizers promised a flagship live broadcast celebrating Phil Collins, Wu-Tang Clan, Billy Idol, Luther Vandross, and Joy Division/New Order.\n\nAlthough inductees Oasis, Sade, and Iron Maiden are sitting out the ceremony, show producers confirmed a full slate of live collaborative tributes across genres.", "source": "Hollywood Reporter", "url": "https://www.hollywoodreporter.com/music/music-news/rock-roll-hall-of-fame-to-proceed-flights-grounded-1236755204/"}, {"head": "Jamie Miller's Babydoll Extends UK Singles Reign to Fourth Consecutive Week", "body": "LONDON: Jamie Miller notched a fourth week atop the Official UK Singles Chart with 'Babydoll,' tallying 66,487 chart units composed of 62,820 sales-equivalent streams, 3,334 downloads, and 333 physical sales.\n\nMiller expanded his winning gap over the field from 80.03 percent to 84.57 percent as Ashe's 'Stop The Wedding!' climbed 10.8 percent week-on-week to No. 2 with 36,023 units.", "source": "Music Week", "url": "https://www.musicweek.com/analysis/read/charts-analysis-babydoll-increases-its-substantial-lead-at-singles-summit/095483"}, {"head": "Blackpink's LISA Opens Historic Las Vegas Viva La Lisa Residency", "body": "LAS VEGAS: Becoming the first K-pop artist to headline a Las Vegas residency, LISA launched her six-show 'Viva La Lisa' run on November 12 in dramatic theatrical fashion, descending in an aerial hoop surrounded by golden lotus staging.\n\nDrawing on Alter Ego and Press Play, she handed live debuts to 'Tarantino,' 'V12,' 'BADGRRRL,' and 'Sweat' before closing her opening suite with 'Rockstar.'", "source": "Billboard", "url": "https://www.billboard.com/lists/lisa-las-vegas-opening-night-review-best-moments/"}, {"head": "Venezuelan Newcomer Sara Schell Claims Latin Grammy Songwriter Crown", "body": "LAS VEGAS: Six years after leaving high school in Venezuela, 23-year-old newcomer Sara Schell captured the Latin Grammy Award for Songwriter of the Year on November 12, prevailing over veteran contenders including 82-time nominee Edgar Barrera.\n\nJudges cited her multi-genre catalog spanning tracks recorded by Fonseca, Rawayana, Kany Garcia, and J Balvin collaborators.", "source": "Billboard", "url": "https://www.billboard.com/music/latin/meet-sara-schell-latin-grammy-songwriter-of-the-year-nominee-1236379607/"}, {"head": "Canada Bolsters Federal Music Fund With $67m ADISQ Gala Commitment", "body": "MONTREAL: Speaking at the ADISQ Gala, Canadian Identity and Culture Minister Marc Miller announced a $67 million federal injection into the renewed Canada Music Fund.\n\nRunning under the sector's 2028 mandate, the funding supports domestic recording artists, independent labels, and francophone/anglo touring ecosystems.", "source": "Billboard", "url": "https://www.billboard.com/pro/canada-music-fund-67m-boost-canada-news/"}, {"head": "VisionQuest Finale Delivers Marvel's Biggest Disney+ Debut Since 2023", "body": "BURBANK: Marvel Television closed the WandaVision trilogy in force as the Tuesday finale of VisionQuest drew 3.7 million global views within its first 24 hours on Disney+.\n\nMarking a 44 percent leap over the penultimate installment and Marvel's strongest finale showing in three years, the series also climbed to No. 6 on Nielsen streaming originals.", "source": "Deadline", "url": "https://deadline.com/2026/11/visionquest-finale-viewership-record-marvel-1237223483/"}, {"head": "Isla Fisher and Blake Ritson Join Al Pacino in Kidnapping Drama Captivated", "body": "LOS ANGELES: Isla Fisher and The Gilded Age actor Blake Ritson joined Al Pacino in Captivated, dramatizing the 1973 kidnapping of John Paul Getty III.\n\nProduced by 32Red Entertainment's Michael Mammoliti and Manasvi Mamgai alongside Sweetheart Entertainment and Cassian Elwes, the project draws upon personal family perspectives on the Rome abduction.", "source": "Deadline", "url": "https://deadline.com/2026/11/al-pacino-captiviated-isla-fisher-blake-ritson-1237223529/"}, {"head": "Tony Leung Ka Fai Takes Top Acting Prize at China's Golden Rooster Awards", "body": "XIAMEN: Hong Kong veteran Tony Leung Ka Fai claimed his maiden Golden Rooster Best Actor trophy Tuesday inside the Xiamen Strait Grand Theater for portraying the antagonist in Larry Yang's thriller The Shadow's Edge.\n\nGathering stars from Zhang Yimou to Jackson Yee, China's flagship film celebration highlighted strong coastal theatrical craft and action thrillers.", "source": "Hollywood Reporter", "url": "https://www.hollywoodreporter.com/movies/movie-news/takeaways-china-golden-rooster-hundred-flowers-film-festival-1236755329/"}, {"head": "Jordan Brand Unveils YouTube Studio With Space Jam 30th Docuseries", "body": "BEAVERTON: Rebranding its YouTube outlet as Jordan TV, the Nike-owned athletic label debuts six-part series Beyond the Jam this Sunday with Warner Bros. marking 30 years since Space Jam.\n\nFeaturing rare commentary from Michael Jordan alongside Jayson Tatum, Teyana Taylor, J Balvin, and late Bugs Bunny voice star Eric Bauza, the venture targets direct-to-consumer sneaker storytelling.", "source": "Hollywood Reporter", "url": "https://www.hollywoodreporter.com/business/digital/beyond-the-jam-space-jam-youtube-docuseries-jordan-brand-1236755122/"}, {"head": "James Gunn Rebuts Rumors of Skydance Edits on Man of Tomorrow Cut", "body": "HOLLYWOOD: Following leadership transition announcements at DC Studios with Peter Safran amid the Skydance\u2013Warner consolidation, filmmaker James Gunn dismissed claims that Skydance executives viewed or requested edits to Superman sequel Man of Tomorrow.", "source": "Deadline", "url": "https://deadline.com/2026/11/james-gunn-skydance-man-of-tomorrow-1237223531/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 14, 2026", "headline": "Heavy Snowfall Halts Traffic at Khunjerab Pass and Seals Upper Kaghan Arteries", "deck": "Slick roads strand tourists, China-bound freight, and GB Tourism Minister on KKH while Mansehra-Naran-Jalkhad route closes beyond Batakundi", "hero_source": "Dawn \u2022 Gilgit-Baltistan & Hazara Dispatches", "hero_url": "https://www.dawn.com/news/2044384/snowfall-strands-passengers-cargo-at-khunjerab", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["GILGIT / MANSEHRA: Sustained early-winter snowfall and icy rainfall paralyzed high-altitude corridors across Gilgit-Baltistan and Hazara division over the past 24 hours, stranding travellers, tourist vehicles, and loaded freight containers along the Karakoram Highway near Khunjerab Pass.", "Police confirmed three cargo trucks skidded off slick stretches between Dhee Headquarters and Khunjerab Top\u2014though all drivers were rescued safely\u2014while dozens of containers transporting imported goods from China and Gilgit-Baltistan Tourism Minister Naiknaam Karim remained stranded for hours amid continuing snow.", "In neighbouring Upper Kaghan valley, Mansehra District Police Officer Mohammad Waqas Khan permanently closed winter checkposts at Gattidas and Bassal for traveller safety while sealing the Mansehra\u2013Naran\u2013Jalkhad Road to all vehicles beyond Batakundi for the second straight day.", "Snowfall blanketed Upper Kaghan alongside Siren, Konsh, Kandia, and Spat valleys as landslides severed village feeder links across Hazara, Lower Kohistan, Torghar, and Kolai-Palas, leaving travellers pressing for faster mountain recovery support and prompting police advisories deferring non-essential high-pass journeys."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "INDIAN OCEAN AVIATION \u2022 DESTINATION STRATEGY", "body": "MALE: Explaining the Maldives' revised 2.5-million-visitor growth target after 54 years of island hospitality, Tourism and Civil Aviation State Minister Dr. Abdulla Niyaz outlined terminal expansion plans and a long-horizon pipeline of roughly 50 additional island resorts while preserving coral lagoons and reef seclusion.\n\nTo insulate island properties from Middle East airspace bottlenecks\u2014where peak connecting frequencies dropped from roughly 20 flights to 15 before steadying\u2014flag carrier Maldivian has deployed wide-body jets opening routes to Australia alongside roadshows across three Chinese cities, Russia, and South Asia. [State Minister Dr. Abdulla Niyaz underscores direct Maldivian wide-body reach to China, South Asia, and Australia to cut Gulf-hub exposure.]", "source": "Breaking Travel News", "url": "https://www.breakingtravelnews.com/news/article/maldives-targets-2.5-million-visitors-as-tourism-enters-its-next-phase-of-g/"}, {"head": "Indonesia Sees 16.3m Foreign Arrivals in 2026 Beyond Bali Hub", "body": "JAKARTA: Indonesian Tourism Minister Widiyanti Putri Wardhana projected 2026 international arrivals will surpass the 16-million pre-pandemic peak to reach 16.3 million, building on 12.01 million visitors welcomed between January and September (+5.01pc YoY) after reaching 15.39 million visitors (+10.8pc) last year.\n\nEven as higher long-haul fares temper Europe volumes, Jakarta is expanding regional connectivity across Asia-Pacific and Australia while promoting gastronomy, cultural heritage, and wellness circuits well beyond Bali.", "source": "TravelMole", "url": "https://travelmole.com/news/widiyanti-putri-wardana-minister-of-tourism-indonesia-we-are-confident-to-surpass-pre-pandemic-levels-in-arrivals-in-2026"}, {"head": "Winter Solitude Beckons Across Scotland's Isle of Skye and Cairngorms", "body": "EDINBURGH: British winter travel dispatches celebrate off-season wilderness across Camasunary Bay on Skye's Strathaird peninsula, where low tides reveal wild coastal foraging otters beside quiet sandy shores and dramatic ridge silhouettes.\n\nElsewhere in the Highlands, long-distance winter hikers walking the Cape Wrath Trail from Strathcarron south to Fort William report crisp mountain panoramas and rare seasonal solitude.", "source": "Guardian Travel", "url": "https://www.theguardian.com/travel/2026/nov/13/readers-favourite-wild-escapes-scotland-skye-cairngorms"}, {"head": "Margalla Avenue Extension Crosses 36pc Completion for Airport-Motorway Link", "body": "ISLAMABAD: Capital Development Authority Chairman and Chief Commissioner Sohail Ashraf inspected engineering crews along the Margalla Avenue Extension connecting N-5 to the M-1 Motorway via the Sangjani Interchange, reaching 36 percent overall completion.\n\nOnce commissioned, the western arterial link will relieve transit bottlenecks for domestic flyers, northern valley tour operators, and freight moving between Islamabad International Airport and the federal capital.", "source": "ProPakistani", "url": "https://propakistani.pk/2026/11/13/islamabad-airport-and-m-1-motorway-connectivity-to-improve/"}, {"head": "FAA Ends Nationwide Ground Stop After Communications Fault Disrupts 15,000 Flights", "body": "WASHINGTON: The US Federal Aviation Administration lifted a rare nationwide ground stop Friday after an air traffic control communications outage canceled more than 4,700 flights and delayed over 10,000 departures across major North American hubs.\n\nData compiled by FlightRadar24 showed roughly 700 Saturday services remained preemptively canceled as airlines realigned aircraft rotations and flight crews.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448889/us-lifts-nationwide-flight-shutdown-caused-by-communications-failure"}, {"head": "UNDP Chief Warns COP31 Early El Nino Action ($36bn) Prevents $73bn Crisis", "body": "ANTALYA: Speaking at the COP31 UN climate summit in southern Turkiye, UNDP Administrator Alexander De Croo warned wealthy capitals that preemptive hedging against upcoming El Nino droughts and floods costs $36 billion now\u2014whereas delayed emergency recovery pushes the global bill past $73 billion.\n\nDe Croo urged the IMF and major industrial economies to unlock rapid adaptation buffers before climate-vulnerable farming regions absorb severe harvest shocks.", "source": "Dawn World \u2022 Antalya", "url": "https://www.dawn.com/news/2044363/act-now-on-el-nino-or-pay-double-later-undp-chief-warns"}, {"head": "China Rules Out Hosting 2028 COP33 Summit Despite Clean-Tech Ascendancy", "body": "BEIJING / ANTALYA: Chinese policymakers opted against bidding to host the 2028 COP33 climate conference under UN regional Asian rotation, disappointing former envoys and climate analysts hoping Beijing would assume formal summit stewardship.\n\nThe decision contrasts with China's clean-energy shift, where renewable power capacity now exceeds coal and electric vehicles represent nearly two-thirds of monthly passenger-car sales, driving over 90 percent of last year's investment expansion.", "source": "The Guardian", "url": "https://www.theguardian.com/environment/2026/nov/12/china-rules-out-hosting-cop33-climate-summit-in-2028"}, {"head": "Turkiye and Qatar Finalize Defence Accord After Erdogan\u2013Emir Summit", "body": "ISTANBUL: Turkish President Recep Tayyip Erdogan and Qatari Emir Sheikh Tamim bin Hamad Al Thani signed a bilateral defence cooperation agreement on Friday following talks in Istanbul.\n\nThe Qatari leader travelled directly to the Bosphorus summit from Antalya after participating in COP31 climate deliberations, cementing regional defence and economic ties.", "source": "Dawn World", "url": "https://www.dawn.com/news/2044322/turkiye-qatar-sign-defence-agreement-turkish-presidency"}, {"head": "Storm Charles Floods Southern Europe While British Columbia Sees Coastal Deluge", "body": "MADRID / ROME: Destructive Storm Charles unleashed intense rainfall, coastal gale warnings, flooding, and widespread airport cancellations across Portugal and southern Spain before driving northeast through southern France and northern Italy.\n\nAtlantic winds and saturated river basins disrupted rail and air timetables across Mediterranean hubs, as forecasters also tracked heavy Pacific storms flooding parts of coastal British Columbia in Canada.", "source": "Guardian World", "url": "https://www.theguardian.com/environment/2026/nov/13/storm-charles-floods-flight-cancellations-southern-europe-weather"}, {"head": "EU Foreign Policy Chief Presses United Stance at Dublin Leaders Summit", "body": "DUBLIN: Addressing European heads of government ahead of weekend diplomatic consultations, High Representative Kaja Kallas warned against Moscow setting conversational traps designed to muddy territorial aggression with symmetrical European security demands.\n\nKallas stressed clear accountability in peace diplomacy so negotiations preserve Europe's collective security architecture and sovereign borders.", "source": "The Guardian", "url": "https://www.theguardian.com/world/2026/nov/13/russia-ukraine-talks-kaja-kallas-eu-foreign-policy-dublin-summit"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 14, 2026", "headline": "Cricket: Beardman Bags 6-24 on ODI Debut as Australia Crush England in Perth", "deck": "21-year-old surfing speedster skittles tourists for 131 in 33.4 overs before skipper Mitchell Marsh hammers 29-ball 50 in seven-wicket rout", "hero_source": "BBC Sport \u2022 Sky Sports \u2022 ESPNcricinfo", "hero_url": "https://www.bbc.co.uk/sport/cricket/articles/c6vg2dkyxp00o", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["PERTH: Twenty-one-year-old fast bowler Mahli Beardman wrote himself into Australian cricket history on home turf Friday, dismantling England for 131 inside 33.4 overs with figures of 6-24\u2014the best ODI bowling return ever recorded by an Australian on debut.", "Having starred in the 2024 Under-19 World Cup final before arriving on the international stage with only 26 professional matches under his belt, the carefree Western Australian quick paired hostility and seam movement with Spencer Johnson's 3-42 to expose poor English shot selection at Optus Stadium.", "Chasing 132 under lights, captain Mitchell Marsh raced to a blistering 29-ball half-century featuring four boundaries and four sixes, steering Australia home by seven wickets while hailing Beardman as a blueprint for the era beyond Pat Cummins, Mitchell Starc, and Josh Hazlewood.", "England head coach Brendon McCullum and skipper Harry Brook blamed the heavy defeat squarely on their batters' failure to adapt rapidly to Perth's drop-in bounce ahead of the remaining series fixtures."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "PRO BONO CUSTOMS & TAXPAYER LEGAL ADVISORY DESK", "body": "KARACHI / LAHORE: Yesterday's two Sindh High Court customs rulings underscore core statutory safeguards available to compliant traders without protracted commercial disruption. First, where the Customs Appellate Tribunal follows an earlier High Court judgment already vacated by the Supreme Court, aggrieved parties\u2014and revenue collectorates\u2014can invoke Article 189 of the Constitution in Special Customs Reference Applications to vacate per incuriam findings.\n\nSecond, in perishable agro-commodity detentions involving quarantine or aflatoxin testing, consent orders modeled on CP No. 1339/2026 allow supervised re-sampling alongside Plant Protection quarantine opinions before destructive forfeiture proceeds. [Importers and taxpayers facing Tribunal orders inconsistent with Supreme Court precedent or arbitrary product destruction hold direct High Court reference and re-sampling remedies.]", "source": "Bhawana Legal Pro Bono Charter \u2022 SHC Case Law", "url": "https://customnews.pk/2026/11/13/shc-sets-aside-per-incuriam-order-of-custom-appellate-tribunal/"}, {"head": "Rugby: France Snap Springboks Run With 21-19 Nations Championship Win in Paris", "body": "PARIS: Inspired by captain Antoine Dupont, France scored three dazzling first-half tries through Aaron Grandidier-Nkanang, Theo Attissogbe, and Louis Bielle-Biarrey to edge reigning world champions South Africa 21-19 at Stade de France.\n\nAlthough Springboks replacement Cobus Reinach and hooker Malcolm Marx battered back after Jasper Wiese's 20-minute red card, Manie Libbok missed the decisive late conversion as Les Bleus topped northern standings.", "source": "BBC Sport \u2022 Sky Sports", "url": "https://www.bbc.co.uk/sport/rugby-union/articles/cqm2j810r2m2o"}, {"head": "Tearful Pochettino Leaves USA to Take Manchester United Helm on 2.5-Year Deal", "body": "MANCHESTER: Mauricio Pochettino choked back tears confirming his departure from the United States national team to become Manchester United head coach on a two-and-a-half-year contract succeeding Michael Carrick.\n\nOld Trafford triggered a release clause around \u00a37.4 million plus backroom compensation, with the 54-year-old Argentine set to lead the USA against Haiti on November 14 and 18 before starting in England.", "source": "BBC Sport \u2022 Sky Sports", "url": "https://www.bbc.co.uk/sport/football/articles/cmd61qne8352o"}, {"head": "Svitolina Knocks Out Sabalenka 6-3, 3-6, 6-1 to Reach WTA Finals Semis", "body": "WTA FINALS: Former 2018 champion Elina Svitolina won the final six games in a decisive third set to defeat Aryna Sabalenka 6-3, 3-6, 6-1 and end the Belarusian's bid to reach the semi-finals for the first time since 2021.\n\nRunner-up to group winner Mirra Andreeva, 32-year-old Svitolina meets Czech Linda Noskova in the last four while Andreeva faces Jessica Pegula.", "source": "BBC Sport \u2022 Sky Sports", "url": "https://www.bbc.co.uk/sport/tennis/articles/cw30gl912vq9o"}, {"head": "Cummins Brands Khawaja's 'Sandpapergate' Autobiography Claims 100pc Wrong", "body": "PERTH: Australian Test skipper Pat Cummins devoted an hour-long news conference to rejecting former team-mate Usman Khawaja's new memoir allegation that the entire 2018 Cape Town squad knew of ball-tampering plans.\n\nBacked by then-coach Darren Lehmann, batting coach Graeme Hick, and Mitchell Starc, Cummins called the accusations nonsense while David Warner and Chadd Sayers expressed support for Khawaja.", "source": "BBC Sport \u2022 ESPNcricinfo", "url": "https://www.bbc.co.uk/sport/cricket/articles/cq1k97y4e1rxo"}, {"head": "Shakeel's Fighting 97 and Bad Light Carry Pakistan to Draw vs Sri Lanka", "body": "RAWALPINDI: Saud Shakeel backed up a first-innings 93 with a defiant 97 alongside Ghazi Ghori (35) in a 92-run sixth-wicket stand as Pakistan reached 284-8 (a 272-run lead) before bad light sealed a draw in the rain-curtailed first Test.\n\nHaving lost 117 overs across four days after Pakistan's 434-9d and Sri Lanka's 446 (featuring debutant Saqib Khan's 7-130), both captains shook hands after Lahiru Kumara bowled Shakeel.", "source": "ESPNcricinfo \u2022 Dawn Sport", "url": "https://www.dawn.com/news/2044279/pakistan-bad-weather-hold-sri-lanka-to-draw-in-first-test"}, {"head": "Lahore Named Host for Expanded 10-Team 2027 FIH Hockey Nations Cup", "body": "ISLAMABAD: Ending a 24-year wait to stage a flagship International Hockey Federation tournament, FIH President Tayyab Ikram and interim PHF President Mohyuddin Ahmad Wani signed hosting papers in Islamabad for Lahore to hold the fifth Nations Cup from February 19\u201328, 2027.\n\nExpanded from eight teams to ten\u2014with Pakistan pursuing Pro League 2027-28 promotion after finishing 2024-25 runners-up\u2014the event marks a major revival milestone.", "source": "Dawn Sport", "url": "https://www.dawn.com/news/2044320/pakistan-set-to-host-fih-hockey-nations-cup-in-lahore-next-year"}, {"head": "Starship Flight 15 Reaches Earth Orbit After Booster Catch Abort", "body": "BOCA CHICA: SpaceX's 407-foot Starship Flight 15 roared skyward at 16:45 local time (22:45 GMT) Friday on an ambitious double-catch test, placing its 171-foot upper stage on a 14-orbit (~22-hour) trajectory.\n\nRoughly 6.5 minutes after liftoff, flight directors diverted the Super Heavy booster away from the Starbase chopsticks arms to an ocean splashdown in flames while evaluating a Saturday upper-stage tower catch.", "source": "BBC Science \u2022 The Guardian", "url": "https://www.theguardian.com/science/2026/nov/13/spacex-starship-megarocket-blasts-off-earth-orbit"}, {"head": "AI Unlocks Hundreds of Hidden Theorems Inside Kurt Godel's 1940s Notebooks", "body": "HELSINKI: Finnish logician Jan von Plato revealed that deploying AI assistance to decode Austrian thinker Kurt Godel's 16 dense 1940s notebooks\u20141,009 pages penned in obsolete German Gabelsberger shorthand\u2014accelerated translation from one page weekly to a complete digest within days.\n\nThe archive uncovered hundreds of unpublished proofs plus dozens of discoveries anticipating 1970s\u20131980s logic and 14 entirely unexplored mathematical themes.", "source": "The Guardian Science", "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths"}, {"head": "Landsat Multi-Decade Survey Documents Post-2010 Global Mangrove Rebound", "body": "WASHINGTON: Satellite ecology research published in Science utilizing Landsat imagery from 1984 to 2023 reveals mangrove forests turned a global corner around 2010, expanding by nearly 2,000 sq km after suffering 3,000 sq km in prior losses.\n\nLed by gains across Asia\u2014notably Palaw Township in Myanmar\u2014alongside Australia and South America, Tulane scientist Zhen Zhang noted two-thirds of recovery reflects colonization of newly stabilized coastlines.", "source": "NASA Earth Observatory", "url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/"}, {"head": "Earth's Upper Atmosphere Fueled May Super Geomagnetic Storm Intensity", "body": "TOKYO / WASHINGTON: First direct ring-current particle composition measurements from May 2024's intense 'Gannon' or 'Mother's Day' solar storm show Earth's own ionosphere supplied heavier charged particles that dominated the magnetic disturbance far more than incoming solar wind.\n\nPublished in Science Advances, the finding bolsters plans for a dedicated Japanese space weather mission studying atmospheric ion outflow.", "source": "ScienceDaily \u2022 Science Advances", "url": "https://www.sciencedaily.com/releases/2026/11/261111005905.htm"}, {"head": "Gershkovich Prison Memoir Tops Weekend Reviews Alongside Seasonal Paperbacks", "body": "LONDON: Wall Street Journal reporter Evan Gershkovich's new memoir 'This Cursed Beautiful Land' earns acclaim for its taut account of his arrest in Russia on bogus espionage allegations and months in Lefortovo detention.\n\nMeanwhile, November\u2013December literary paperback picks spotlight Benjamin Myers's studio portrait of Klaus Kinski alongside fresh editions by Jeanette Winterson and John Updike.", "source": "Guardian Books", "url": "https://www.theguardian.com/books/2026/nov/13/this-cursed-beautiful-land-by-evan-gershkovich-review-jailed-in-putins-russia"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "14 Nov (Sat)", "cond": "Light Drizzle", "temp": "24\u00b0C / 13\u00b0C", "pop": "49%"}, {"date": "15 Nov (Sun)", "cond": "Light Rain", "temp": "22\u00b0C / 12\u00b0C", "pop": "61%"}, {"date": "16 Nov (Mon)", "cond": "Clear Sky", "temp": "22\u00b0C / 13\u00b0C", "pop": "0%"}, {"date": "17 Nov (Tue)", "cond": "Overcast", "temp": "22\u00b0C / 12\u00b0C", "pop": "0%"}, {"date": "18 Nov (Wed)", "cond": "Sunny Clear", "temp": "22\u00b0C / 11\u00b0C", "pop": "0%"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
