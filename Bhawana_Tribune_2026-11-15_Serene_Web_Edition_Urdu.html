@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بھوانہ ٹریبیون — سرین ویب میگزین ایڈیشن (اتوار، ۱۵ نومبر ۲۰۲۶ء)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.3;
+  }
+
+  .brand-tagline {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 4px;
+    line-height: 1.8;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 26, 54, 0.8);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    padding: 4px;
+    border-radius: 9999px;
+  }
+
+  .lang-btn {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active {
+    background: #d97706;
+    color: #ffffff;
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  /* Desk Navigation Pills */
+  .desk-pills {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .desk-pill {
+    background: #0b1328;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    line-height: 1.8;
+  }
+
+  .desk-pill:hover {
+    border-color: #d97706;
+    color: #fbbf24;
+    background: rgba(217, 119, 6, 0.08);
+  }
+
+  .desk-pill.active {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    border-color: #f59e0b;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+  }
+
+  /* Main Presentation Stage */
+  .desk-card {
+    background: linear-gradient(180deg, #090f20 0%, #070c18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 28px;
+    padding: 48px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .tag-pill {
+    background: #d97706;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fbbf24;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    line-height: 1.8;
+  }
+
+  .date-text {
+    color: #64748b;
+    font-size: 13px;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  .hero-headline {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-deck {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 2.3;
+    color: #ffffff;
+    margin-bottom: 32px;
+    padding-right: 20px;
+    border-right: 4px solid #d97706;
+    background: rgba(217, 119, 6, 0.05);
+    border-radius: 0 8px 8px 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .hero-body p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2.4;
+    color: #f8fafc;
+    margin-bottom: 22px;
+    text-align: justify;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Quote Box */
+  .quote-box {
+    background: linear-gradient(135deg, rgba(15, 26, 54, 0.9) 0%, rgba(8, 14, 30, 0.95) 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 32px 36px;
+    margin: 36px 0;
+    position: relative;
+  }
+
+  .quote-box::before {
+    content: "«";
+    font-family: 'Amiri', serif;
+    font-size: 55px;
+    color: rgba(217, 119, 6, 0.35);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-size: 19px;
+    color: #fde68a;
+    line-height: 2.2;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-author {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 14px;
+    display: block;
+    line-height: 1.8;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 26px;
+    color: #fbbf24;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .editorial-special-deck {
+    font-size: 18px;
+    color: #e2e8f0;
+    margin-bottom: 24px;
+    line-height: 2.1;
+    border-right: 3px solid #fbbf24;
+    padding-right: 16px;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 18px;
+    font-size: 17.5px;
+    line-height: 2.3;
+    color: #f8fafc;
+    text-align: justify;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fbbf24;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.6;
+  }
+
+  .secondary-heading::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d97706;
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(15, 23, 42, 0.9);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 15px;
+    color: #e2e8f0;
+    line-height: 2.2;
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 8px;
+    line-height: 1.8;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-right: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+    font-size: 20px;
+    color: #fbbf24;
+    font-weight: 800;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.6;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 14px;
+    line-height: 2.2;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    line-height: 1.8;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 1.8;
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    direction: ltr;
+    display: inline-block;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    line-height: 1.8;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons (Urdu) */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-right: 6px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(-2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar (Urdu) */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    direction: rtl;
+  }
+  .weather-bar-title {
+    font-family: 'Amiri', serif;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+    text-align: right;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: 'Noto Nastaliq Urdu', serif;
+  }
+  .weather-temp {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.5;
+    font-family: 'Noto Nastaliq Urdu', serif;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">روزنامہ بھوانہ ٹریبیون</h1>
+          <div class="brand-tagline">سرین ویب میگزین ایڈیشن (اردو نستعلیق) • بانی و مدیرِ اعلیٰ: محمد اقبال بھوانہ</div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <a href="./index.html" class="lang-btn inactive" id="engSwitchLink" title="Read in English">English</a>
+          <span class="lang-btn active">اردو</span>
+        </div>
+        <div class="edition-badge">اتوار، ۱۵ نومبر ۲۰۲۶ء</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar (Urdu) -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> علاقائی موسمیاتی و پورٹ لاجسٹکس پیشگوئی · ۵ روزہ تصدیق شدہ مشاہدات
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>بھوانہ ٹریبیون • عالمی ڈیجیٹل ماسٹر ایڈیشن • مصدقہ گزٹ و قانونی جریدہ</div>
+    <div>۱۰۰٪ مصنوعی ذہانت سے خودکار انداز میں مرتب کردہ ریسرچ ایڈیشن</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "ڈیسک ۱: کسٹمز، وفاقی ٹیکس و قانونی اصلاحات", "category": "کسٹمز ویلیوایشن و تجارتی خسارہ", "readTime": "۴ منٹ مطالعہ", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "ایف بی آر نے ٹیکس سال 2027ء کے انکم ٹیکس گوشواروں کو حتمی شکل دینے کیلیے 31 جنوری کی ڈیڈ لائن مقرر کر دی", "deck": "انکم ٹیکس رولز 2002ء میں کی جانے والی ترامیم کے تحت ٹیکس گوشواروں کے فارمز کی تیاری، مشاورت اور نوٹیفکیشن کیلیے مرحلہ وار شیڈول نافذ؛ ڈرافٹ فارمز یکم دسمبر 2026ء اور حتمی فارمز 31 جنوری 2027ء تک لازم قرار۔", "author": "محمد اقبال بھوانہ", "authorRole": "بانی و سینئر ممبر پاکستان کسٹمز سروس (ریٹائرڈ)", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/fbr-income-tax-return-forms-timeline-tax-year-2027/", "body": ["انکم ٹیکس رولز 2002ء میں کی جانے والی ترامیم کے تحت ٹیکس گوشواروں کے فارمز کی تیاری، مشاورت اور نوٹیفکیشن کیلیے ایک مرحلہ وار ٹائم لائن مقرر کر دی گئی ہے، جس کے تحت مسودہ فارمز یکم دسمبر 2026ء اور حتمی فارمز 31 جنوری 2027ء تک جاری کیے جائیں گے۔", "فیڈرل بورڈ آف ریونیو (ایف بی آر) نے ٹیکس سال 2027ء کے انکم ٹیکس ریٹرن فارمز کی تیاری، تزویراتی مشاورت اور حتمی نوٹیفکیشن کا تفصیلی شیڈول وضع کیا ہے، جس میں اپنے آئی آر آئی ایس (IRIS) پورٹل پر حتمی فارمز کی دستیابی کیلیے 31 جنوری 2027ء کی حتمی تاریخ مقرر کی گئی ہے۔", "ایف بی آر نے انکم ٹیکس رولز 2002ء جاری کیے ہیں، جنہیں 15 ستمبر 2026ء تک اَپ ڈیٹ کر کے ٹیکس سال 2027ء کیلیے نافذ کیا گیا ہے، جس کا دائرہ کار یکم جولائی 2026ء سے 30 جون 2027ء کے عرصے پر محیط ہے۔", "رول 34A کے تحت ریونیو اتھارتی نے انکم ٹیکس ریٹرن فارمز کی تیاری اور نوٹیفکیشن کے مختلف مراحل کیلیے قطعی ڈیڈ لائنز مقرر کی ہیں، جن میں قانونی ترامیم کی نشاندہی، سافٹ ویئر ڈیولپمنٹ، یوزر ٹیسٹنگ اور اسٹیک ہولڈرز کے ساتھ باضابطہ مشاورت شامل ہے۔", "اس ضابطے کے مطابق، رول 34 کے تحت وضع کردہ مسودہ ریٹرن فارم یکم دسمبر 2026ء تک عوامی آراء اور تجاویز کیلیے نوٹیفائی کیا جانا لازم ہے۔", "انلینڈ ریونیو پالیسی ونگ کو 31 اگست 2026ء تک ریٹرن فارمز میں درکار قانونی ترامیم کی نشاندہی مکمل کرنا ہوگی۔ دوسری جانب، انلینڈ ریونیو پالیسی ونگ اور انفارمیشن ٹیکنالوجی ونگ، پاکستان ریونیو آٹومیشن لمیٹڈ (PRAL) کے ساتھ باہمی مشاورت کے بعد 15 ستمبر تک تبدیلی کی درخواست کا فارم (CRF) حتمی شکل میں تیار کریں گے۔", "چیف انکم ٹیکس پالیسی اور چیف بزنس ڈومین ٹیم تبدیلی کی اس درخواست کی 16 ستمبر تک باقاعدہ جانچ پڑتال کر کے اسے حتمی منظوری کیلیے ممبر انلینڈ ریونیو پالیسی کو پیش کریں گے۔", "پاکستان ریونیو آٹومیشن لمیٹڈ (PRAL) کو 31 اکتوبر 2026ء تک منظور شدہ ترامیم کی تشکیل اور متعلقہ سافٹ ویئر ڈیولپمنٹ کا عمل مکمل کرنا ہوگا۔", "مزید برآں، ترمیم شدہ فارمز کا یوزر ایکسیپٹنس ٹیسٹنگ (UAT) عمل 15 نومبر تک مکمل کیا جائے گا، جس میں انلینڈ ریونیو پالیسی اور انفارمیشن ٹیکنالوجی ونگز نتائج کو حتمی منظوری کیلیے پیش کرنے سے قبل PRAL سے تفصیلی مشاورت کریں گے۔", "رول 34A کی رو سے، انکم ٹیکس گوشواروں کے مسودہ فارمز 7 جنوری 2027ء تک ایف بی آر کے پورٹل پر عوامی تجاویز اور آراء کی وصولی کیلیے دستیاب رہیں گے۔"], "quote": "ریونیو اسیسمنٹ ایک قانونی اور عدالتی عمل ہے، نہ کہ انتظامی اختیارات کے بل بوتے پر تاجروں پر یکطرفہ قیمتیں تھوپنے کا نام۔ — محمد اقبال بھوانہ", "secondary_title": "کسٹمز، ٹیرف اور ریونیو اسیسمنٹ ڈسپیچز", "secondary_items": [{"head": "مالی سال 2027ء کی پہلی سہ ماہی میں ریونیو وصولیوں میں اضافے کے باوجود ایف بی آر کا ٹیکس تا جی ڈی پی تناسب گر کر 2.1 فیصد پر آ گیا", "body": "پاکستان کی ٹیکس وصولیاں 3.09 ٹریلین روپے تک پہنچ گئیں، لیکن معیشت کے بڑھتے ہوئے حجم نے فیڈرل بورڈ آف ریونیو کے ٹیکس تا جی ڈی پی تناسب کو سال بہ سال بنیاد پر نیچے دھکیل دیا۔\n\nمالی سال 2026-27ء کی پہلی سہ ماہی کے دوران پاکستان کا ٹیکس تا جی ڈی پی تناسب کم ہو کر 2.1 فیصد پر آ گیا، جو گزشتہ سال کے اسی عرصے میں 2.27 فیصد تھا، جس سے ریونیو متحرک کرنے کے عمل میں درپیش ساختی چیلنجز عیاں ہوتے ہیں۔\n\nوزارت خزانہ کے جاری کردہ اعداد و شمار کے مطابق، فیڈرل بورڈ آف ریونیو (ایف بی آر) نے جولائی تا ستمبر 2026ء کے دوران 3.086 ٹریلین روپے اکٹھے کیے، جبکہ مالی سال 2025-26ء کی اسی مدت میں یہ حجم 2.884 ٹریلین روپے رہا تھا۔\n\nٹیکس محصولات میں اضافے کے باوجود اس تناسب میں تنزلی اس لیے واقع ہوئی کیونکہ ملکی مجموعی قومی پیداوار (جی ڈی پی) گزشتہ سال کے 126.87 ٹریلین روپے سے بڑھ کر 143.61 ٹریلین روپے پر پہنچ گئی۔\n\nبراہ راست ٹیکسوں کی وصولی پہلی سہ ماہی کے دوران بڑھ کر 1.440 ٹریلین روپے ہو گئی، جو پچھلے سال کی اسی مدت میں 1.364 ٹریلین روپے ریکارڈ کی گئی تھی۔\n\nبالواسطہ محصولات کے شعبے میں، سیلز ٹیکس وصولیاں 1.019 ٹریلین روپے سے بڑھ کر 1.137 ٹریلین روپے ہو گئیں، جبکہ کسٹمز ڈیوٹی سے حاصل ہونے والا ریونیو 310.58 ارب روپے کے مقابلے میں 312.17 ارب روپے تک جا پہنچا۔\n\nیہ اعداد و شمار بتاتے ہیں کہ ٹیکس محصولات میں اضافہ بہتر ٹیکس تا جی ڈی پی تناسب میں تبدیل نہیں ہو سکا، کیونکہ اقتصادی نمو کی رفتار ایف بی آر کے محصولات میں اضافے سے کہیں زیادہ تیز رہی۔\n\nاس تناسب میں کمی حکومت کیلیے ٹیکس کی بنیاد وسیع کرنے اور بنیادی ریونیو اکٹھا کرنے کے نظام کو مضبوط تر بنانے کے مستقل چیلنج کی غمازی کرتی ہے۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-tax-to-gdp-ratio-falls-1qfy27/"}, {"head": "ایف بی آر نے ٹیکس سال 2027ء کیلیے انکم ٹیکس ریٹرن فائلنگ کے قواعد جاری کر دیے", "body": "فیڈرل بورڈ آف ریونیو نے ٹیکس سال 2027ء کیلیے انکم ٹیکس ریٹرن فائلنگ رولز جاری کر دیے ہیں، جن میں وہ فارمز، اینیکزرز اور تصدیقی شرائط مقرر کی گئی ہیں جن پر ٹیکس دہندگان کو اپنی سالانہ فائلنگ کی ذمہ داریاں ادا کرتے وقت عمل کرنا ہوگا۔ یہ فریم ورک، جو انکم ٹیکس آرڈیننس 2001ء کے قواعد سازی کے اختیارات کے تحت نوٹیفائی کیا گیا ہے، ٹیکس دہندگان کے تمام طبقات پر لاگو ہوتا ہے جن میں کمپنیاں، ایسوسی ایشنز آف پرسنز (AOPs) اور افراد بشمول تنخواہ دار ملازمین شامل ہیں، اور اس سے آنے والے فائلنگ سیزن کے آغاز سے کافی پہلے قانونی و طریقہ کار کا ڈھانچہ تشکیل پا گیا ہے۔\n\nیہ قواعد بورڈ کے مکمل ڈیجیٹل ریٹرن ایڈمنسٹریشن کے سلسلے کو آگے بڑھاتے ہیں، جنہیں آئرس (Iris) ای فائلنگ پورٹل کے ذریعے تیار اور جمع کرایا جانا ہے، جن کے حساب کتاب میں آمدنی کے گوشواروں، منبع پر کٹوتی شدہ ٹیکس، ایڈوانس ٹیکس ادائیگیوں اور ایڈجسٹ ایبل لیویز کا ریکارڈ لیا جائے گا جو پہلے سے ریونیو اتھارتی کے نظام میں موجود ہے۔ مقررہ گوشوارے آمدنی، اثاثوں اور ٹیکس کریڈٹس کے انکشافات کو باہم یکجا کرتے ہیں، جس سے فائلرز کو قابل ٹیکس آمدنی اور مالکان، بینکوں اور دیگر ودہولڈنگ ایجنٹس کے ذریعے منہا کی جانے والی رقوم کا باقاعدہ تقابل کرنے میں مدد ملتی ہے۔\n\nقبل از وقت نوٹیفکیشن جاری ہونے سے آجروں، ودہولڈنگ ایجنٹس، ٹیکس ماہرین اور ریٹرن فارم سافٹ ویئر ڈویلپرز کو اپنے سسٹمز کو اپ ڈیٹ کرنے اور قانونی مقررہ تاریخوں کے مطابق اپنے شیڈول ترتیب دینے کیلیے مناسب مہلت مل جاتی ہے۔ بروقت فائلنگ فعال ٹیکس دہندہ (ایکٹو ٹیکس پیئر) کا درجہ حاصل کرنے کا بنیادی زینہ ہے، جو موجودہ نظام کے تحت ودہولڈنگ کی کم شرحوں اور ایکٹو ٹیکس پیئرز لسٹ میں شامل فائلرز کو حاصل دیگر مراعات کی اہلیت کا تعین کرتی ہے۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-income-tax-return-filing-rules-tax-year-2027/"}, {"head": "صدر آصف زرداری نے فلسطین کیلیے پاکستان کی غیر متزلزل حمایت کا اعادہ کیا", "body": "اسلام آباد: صدر آصف علی زرداری نے فلسطینی صدر محمود عباس اور فلسطینی عوام کو ان کے اعلانِ آزادی کی 38ویں سالگرہ پر مبارکباد پیش کرتے ہوئے ان کے حق خودارادیت کیلیے پاکستان کی غیر متزلزل حمایت کا اعادہ کیا ہے۔ صدر محمود عباس کے نام لکھے گئے ایک خط میں صدر نے فلسطینی عوام کے حق خودارادیت کی اصولی حمایت پر زور دیا اور ریاست فلسطین کے اعلانِ آزادی کے 38 سال مکمل ہونے پر دلی مبارکباد پیش کی۔ انہوں نے کہا کہ پاکستان اور فلسطین کے مابین مشترکہ تاریخ، باہمی اعتماد، یکجہتی اور یکساں امنگوں پر مبنی گہرے برادرانہ تعلقات قائم ہیں۔ انہوں نے واضح کیا کہ پاکستان کے عوام فلسطینیوں کو انتہائی قدر کی نگاہ سے دیکھتے ہیں اور دونوں ممالک کے مابین دوستی اور اخوت کے رشتوں کو مزید مضبوط بنانے کیلیے پرعزم ہیں۔ صدر زرداری نے اقوام متحدہ کی متعلقہ قراردادوں کے مطابق، 1967ء سے پہلے کی سرحدوں پر مبنی، القدس الشریف دارالحکومت کے ساتھ ایک آزاد، خودمختار اور قابل عمل فلسطینی ریاست کے قیام کیلیے پاکستان کی مستقل حمایت کا اعادہ کیا۔ انہوں نے فلسطینی عوام کے مصائب کے پیش نظر ان سے مکمل یکجہتی کا اظہار کیا اور پائیدار امن، آزادی اور خودداری کی ان کی امنگوں کی مکمل تائید کی۔ کاپی رائٹ بزنس ریکارڈر، 2026ء", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448995/asif-reaffirms-pakistans-support-for-palestine"}, {"head": "پاکستان تاریخ میں پہلی بار سیف چیمپئن شپ کے فائنل میں پہنچ گیا", "body": "ڈھاکہ کے نیشنل اسٹیڈیم میں سنسنی خیز سیمی فائنل میں میزبان بنگلہ دیش کو 1-0 سے شکست دے کر پاکستان نے اپنی تاریخ میں پہلی بار سیف چیمپئن شپ کے فائنل میں جگہ بنا لی ہے۔ عبد الصمد ارشد نے 86ویں منٹ میں فیصلہ کن گول کر کے قومی فٹ بال ٹیم کیلیے تاریخی فتح حاصل کی۔ پاکستان نے میچ کا جارحانہ آغاز کیا اور ابتدائی منٹوں میں ہی دو بہترین حملے کیے۔ بنگلہ دیشی گول کیپر مہدی حسن سرابون نے شروع میں اہم بچاؤ کیا، جس کے بعد میزبان ٹیم نے رفتہ رفتہ گیند پر کنٹرول سنبھال لیا۔ بنگلہ دیش اس وقت برتری حاصل کرنے کے قریب پہنچا جب راکب حسین کے زوردار شاٹ کو پاکستانی گول کیپر نے روکا اور گیند پول سے ٹکرا گئی۔ پاکستان نے بھی پہلے ہاف میں ایک بڑا موقع گنوایا جب عبد الصمد کو پنالٹی ایریا میں جگہ ملی، لیکن ان کا شاٹ پول سے ٹکرا گیا۔", "source": "ProPakistani · National Desk", "url": "https://propakistani.pk/2026/11/14/pakistan-qualify-for-saff-championship-final-for-first-time-in-history/"}, {"head": "اسٹیٹ بینک کے منافع میں 20.4 فیصد کمی، پاکستان کا نان ٹیکس ریونیو پہلی سہ ماہی میں 14 فیصد گر گیا", "body": "مالی سال 2027ء کی پہلی سہ ماہی میں اسٹیٹ بینک آف پاکستان کی جانب سے وفاقی خزانے کو منتقل کیے جانے والے منافع میں 20.4 فیصد کی نمایاں کمی واقع ہوئی، جس کے نتیجے میں جولائی تا ستمبر کی مدت کے دوران حکومت کا مجموعی نان ٹیکس ریونیو 14 فیصد تک گر گیا۔ تاریخی طور پر مرکزی بینک کا سرپلس وفاقی غیر ٹیکس محاصل کا سب سے بڑا واحد جزو رہا ہے، اور اس کی تیز رفتار گراوٹ کے باعث دیگر مدات بشمول پیٹرولیم لیوی، سرکاری اداروں کے منافع منقسمہ (ڈیویڈنڈز)، ریگولیٹری سرچارجز اور متفرق آمدن اس خلا کو پُر کرنے میں ناکام رہیں۔ یہ اعداد و شمار مالی سال 2027ء کے بجٹ میں نان ٹیکس تخمینوں کی کمزور شروعات کو ظاہر کرتے ہیں اور مالی سال کے باقی ماندہ مہینوں میں وصولیوں کیلیے حساسیت بڑھا دیتے ہیں۔\n\nمرکزی بینک کی آمدنی اپنی ساخت کے اعتبار سے غیر مستحکم ہوتی ہے: یہ ملکی پالیسی ریٹس، زرمبادلہ کے ذخائر کے حجم و قدر، اور منی مارکیٹ میں اضافی لیکویڈیٹی کو سنبھالنے کے اخراجات کے ساتھ گھٹتی بڑھتی رہتی ہے۔ جب یہ عوامل ناموافق ہو جائیں تو قومی خزانے کو ہونے والی منتقلی مختلف سہ ماہیوں کے دوران ڈرامائی اتار چڑھاؤ کا شکار ہو جاتی ہے، اور چونکہ وفاقی بجٹ جاری اخراجات پورے کرنے کیلیے اس واحد مد پر بہت زیادہ انحصار کرتا ہے، اس لیے اس کا کوئی فوری متبادل دستیاب نہیں ہوتا۔ چنانچہ ایک کمزور پہلی سہ ماہی مالیاتی گنجائش کو محدود کر دیتی ہے اور ریونیو کا زیادہ تر بوجھ فیڈرل بورڈ آف ریونیو کے ٹیکس نیٹ پر منتقل کر دیتی ہے۔\n\nیہ کمی غیر ٹیکس آمدنی کی بنیاد کی نزاکت اور مالیاتی توازن پر پڑنے والے دباؤ کو واضح کرتی ہے۔ دوسری سہ ماہی میں مرکزی بینک کے فنڈز کی بہتر منتقلی، مستحکم ڈیویڈنڈز اور پیٹرولیم لیوی کی مستقل وصولی ناگزیر ہوگی تاکہ پورے مالی سال کیلیے نان ٹیکس اہداف اور مالیاتی خسارے کو قابو میں رکھنے کی حدود کو برقرار رکھا جا سکے۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-profit-decline-non-tax-revenue-1qfy27/"}, {"head": "پاکستان نے دسمبر اور جنوری کیلیے دو ایل این جی کارگوز کیلیے پیشکشیں طلب کر لیں", "body": "پاکستان ایل این جی لمیٹڈ (PLL) نے بین الاقوامی سپلائرز سے مائع قدرتی گیس (LNG) کے دو کارگوز کی فراہمی کیلیے بولیاں طلب کی ہیں جو دسمبر 2026ء اور جنوری 2027ء میں موصول ہوں گی، کیونکہ ملک سردیوں میں گیس کی بڑھتی ہوئی طلب کی تیاری کر رہا ہے۔ جمعرات کو جاری کردہ ایک ٹینڈر نوٹس کے مطابق، سرکاری کمپنی پورٹ قاسم، کراچی پر ڈیلیورڈ ایکس شپ (DES) کی بنیاد پر کارگوز کی فراہمی چاہتی ہے۔ پہلا جہاز 14 سے 16 دسمبر تک پہنچنا شیڈول ہے، جبکہ دوسرا 9 سے 11 جنوری 2027ء کے درمیان متوقع ہے۔ وفاقی حکومت کی ملکیت میں پی ایل ایل ملک کی گیس کی ضروریات پوری کرنے کیلیے ایل این جی خریدنے کی مجاز ہے۔ پاکستان نے سردیوں کی کھپت اور آبنائے ہرمز میں کشیدگی کے باعث عالمی سپلائی چینز کو لاحق خطرات کے پیش نظر موجودہ طویل مدتی معاہدوں کے تحت قطر سے رعایتی نرخوں پر گیس حاصل کرنے کی کوششیں بھی تیز کر دی ہیں۔", "source": "ProPakistani · Business Web Desk", "url": "https://propakistani.pk/2026/11/13/pakistan-seeks-2-lng-cargoes-for-december-january/"}, {"head": "سپر پاور آرچی 150 پاکستان میں 380,000 روپے کی قیمت پر نئے فیچرز کے ساتھ لانچ", "body": "موٹر سائیکل اسمبلر 'سپر پاور' نے پاکستان میں اپنی نئی آرچی 150 موٹر سائیکل 380,000 روپے کی خوردہ قیمت پر متعارف کرائی ہے، جس سے ملک کے تیزی سے ترقی پاتے ہوئے درمیانے انجن والے دو پہیہ گاڑیوں کے شعبے میں ایک نیا اضافہ ہوا ہے۔ اس پیشکش کے ذریعے کمپنی ان خریداروں کو متوجہ کرنا چاہتی ہے جو 70cc اور 125cc والی روزمرہ موٹر سائیکلوں سے نکل کر زیادہ طاقتور 150cc کلاس کی طرف بڑھ رہے ہیں، جہاں بڑھتی ہوئی آمدنی، بائیک فنانسنگ کی سہولت اور آرام دہ سواری کی ترجیح کے باعث مانگ میں تسلسل دیکھا جا رہا ہے۔\n\nآرچی 150 پرانے ماڈل کے مقابلے میں کئی جدید فیچرز سے آراستہ ہے، اور کمپنی کو توقع ہے کہ یہ موٹر سائیکل مارکیٹ میں موجود جاپانی برانڈز کی 150cc گاڑیوں کا مؤثر مقابلہ کرے گی۔ اس طبقے کے خریدار ایندھن کی بچت کے ساتھ ساتھ اسٹائل، نشست کے آرام اور پائیداری کو جانچتے ہیں، اور انہی ترجیحات نے مارکیٹ کے اندر حالیہ ڈیزائننگ کو متاثر کیا ہے۔\n\nکرنسی کے اتار چڑھاؤ اور پیداواری لاگت میں اضافے کے باعث گھریلو موٹر سائیکل انڈسٹری میں قیمتوں پر نظرثانی معمول بن چکی ہے، ایسے میں 380,000 روپے کی قیمت آرچی 150 کو ایک پریمیم کیٹیگری میں کھڑا کرتی ہے۔ اس کا مارکیٹ میں آنا خریداروں اور کارپوریٹ فلیٹ آپریٹرز کیلیے ایک نیا انتخاب ہے اور یہ ظاہر کرتا ہے کہ مقامی اسمبلرز اب روایتی چھوٹے انجن والے ماڈلز سے آگے نکل رہے ہیں۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/super-power-archi-150-launched-in-pakistan-at-rs380000-with-new-features/"}, {"head": "پاکستان نے زرمبادلہ کے ضوابط میں اہم تبدیلیوں کی منظوری دے دی", "body": "پاکستان نے فارن ایکسچینج ریگولیشن (ترمیمی) بل 2026ء کے تحت ترامیم منظور کرتے ہوئے اپنے زرمبادلہ کے ضوابط میں بنیادی اصلاحات کی ہیں، جس سے ملک میں ایکسچینج کنٹرول کے قانونی ڈھانچے کو جدید خطوط پر استوار کیا گیا ہے۔ ان ترامیم کے ذریعے فارن ایکسچینج ریگولیشن ایکٹ 1947ء میں ترامیم کی گئی ہیں، جو گزشتہ تقریباً آٹھ دہائیوں سے سرحد پار غیر ملکی کرنسی کی خرید و فروخت، ملکیت اور ترسیل کو کنٹرول کرتا آ رہا تھا، اور اب اسے ڈیجیٹل ادائیگیوں اور سرحد پار ای کامرس کے دور کے تقاضوں سے ہم آہنگ کر دیا گیا ہے۔\n\nمنظور شدہ پیکیج کا مقصد سرحد پار سرمائے کے بہاؤ پر سخت نگرانی رکھنا، بیرون ملک رقوم کی غیر قانونی منتقلی کے راستے مسدود کرنا اور تمام لین دین کو مجاز بینکنگ چینلز اور لائسنس یافتہ ایکسچینج کمپنیوں کے ذریعے یقینی بنانا ہے۔ ریگولیٹڈ ٹرانزیکشنز کی واضح تعریف اور اسٹیٹ بینک آف پاکستان سمیت وفاقی تحقیقاتی اداروں کے اختیارات کو وسیع کر کے، ان ترامیم کا مقصد حوالہ اور ہنڈی جیسے غیر دستاویزی متوازی نظام کی بیخ کنی کرنا، اینٹی منی لانڈرنگ اور دہشت گردی کی مالی معاونت کی روک تھام کے تقاضوں کو مستحکم کرنا اور ملکی قوانین کو عالمی معیارات کے مطابق بنانا ہے۔\n\nبرآمد کنندگان، درآمد کنندگان، سمندر پار پاکستانیوں اور لائسنس یافتہ فارن ایکسچینج ڈیلرز کیلیے اس کا فوری اثر یہ ہوگا کہ تعمیل کا ماحول زیادہ سخت اور کرنسی کے لین دین کی دستاویز کاری کے قواعد بالکل واضح ہو جائیں گے۔ یہ اصلاحات ایسے وقت میں کی گئی ہیں جب حکام بیرونی کھاتوں کو مستحکم کرنے، بینکنگ چینلز کے ذریعے ترسیلاتِ زر کو فروغ دینے اور روپے کی قدر کو سہارا دینے کی کوشش کر رہے ہیں، اور ترمیم شدہ قانون ان کوششوں کیلیے مضبوط قانونی بنیاد فراہم کرے گا۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/foreign-exchange-regulation-amendment-bill-2026/"}, {"head": "نشاط گروپ کی پاکستان کے نئے پورٹ پروجیکٹ میں بڑی سرمایہ کاری پر نظریں", "body": "پاکستان کی سمندری اور بندرگاہی انفراسٹرکچر کو وسعت دینے کی کوششوں نے ملک کے سب سے بڑے کاروباری گروپوں میں سے ایک کی توجہ حاصل کر لی ہے، جہاں نشاط گروپ کے چیئرمین میاں محمد منشا نے حکومت کے مجوزہ بندرگاہی منصوبے میں سرمایہ کاری کے مواقع تلاش کرنے پر اتفاق کیا ہے۔ وفاقی وزیر برائے بحری امور محمد جنید انوار چوہدری نے جمعہ کے روز میاں منشا سے ملاقات کے بعد اس پیش رفت کا انکشاف کیا، جس میں ملک کی پورٹ صلاحیت کو بڑھانے کیلیے نجی شعبے کی سرمایہ کاری پر تفصیلی بات چیت کی گئی۔ میاں منشا نے مجوزہ منصوبے میں گہری دلچسپی ظاہر کی اور سرمایہ کاری کے امکانات کا جائزہ لینے پر آمادگی ظاہر کی، جو ملکی بحری انفراسٹرکچر میں پبلک پرائیویٹ پارٹنرشپ کی جانب ایک اہم قدم ہے۔ اس نئی بندرگاہ سے برآمدی صنعتوں کو سہولت ملنے اور برآمدی صلاحیت میں اضافے کی توقع ہے۔ وفاقی وزیر نے کہا کہ ایک اور بندرگاہ کے قیام سے معاشی ترقی، روزگار کی فراہمی اور خطے میں لاجسٹکس ہب کے طور پر پاکستان کی پوزیشن مضبوط ہوگی۔", "source": "ProPakistani · Business Desk", "url": "https://propakistani.pk/2026/11/14/nishat-group-eyes-major-investment-in-pakistans-new-port-project/"}, {"head": "پاکستان نے 1.27 ٹریلین روپے کے سرپلس کے ساتھ پہلی سہ ماہی کے خسارے کا 23 سالہ ریکارڈ توڑ دیا", "body": "پاکستان نے رواں مالی سال کی پہلی سہ ماہی کا اختتام 1.27 ٹریلین روپے کے مالیاتی سرپلس کے ساتھ کیا ہے، جس سے جولائی تا ستمبر کی سہ ماہی میں مسلسل 23 سال سے چلے آنے والے مالیاتی خسارے کی روایت ختم ہو گئی ہے۔ یہ نتیجہ ایک طویل موسمی رجحان کے خاتمے کی علامت ہے جس میں مالی سال کے ابتدائی مہینوں میں خسارہ پیدا ہوتا تھا، جبکہ وفاقی محاصل روایتی طور پر سال کے دوسرے حصے میں ہی رفتار پکڑ پاتے تھے۔\n\nابتدائی سہ ماہی کے خسارے وفاق کے مالی کھاتوں کی ایک ساختہ خصوصیت رہے ہیں۔ ٹیکس محاصل کا عروج مالی سال کے اختتام پر ہوتا ہے، جبکہ قرضوں کی ادائیگی، تنخواہوں، پنشن اور این ایف سی ایوارڈ کے تحت صوبوں کو منتقلی کے معمول کے اخراجات پورے سال یکساں رہتے ہیں۔ چونکہ صوبائی منتقلی کے بعد وفاق کے پاس قابل تقسیم محاصل کا بہت محدود حصہ بچتا ہے، اس لیے پہلی سہ ماہی میں ہمیشہ پیدا ہونے والا خلا بینکنگ نظام سے قلیل مدتی قرض لے کر پُر کیا جاتا تھا۔\n\n1.27 ٹریلین روپے کا یہ سرپلس سال کے بقیہ حصے کیلیے قرض لینے کی ضروریات کو نمایاں طور پر کم کرتا ہے اور وزارت خزانہ کو ان اخراجاتی دباؤ سے نمٹنے کی گنجائش فراہم کرتا ہے جو عموماً آخری مہینوں میں پیدا ہوتے ہیں۔ پہلی سہ ماہی میں یہ مثبت توازن مالیاتی نظم و ضبط کے وسیع ایجنڈے کو بھی تقویت دیتا ہے، جہاں قرضوں کے بوجھ میں کمی اور معاشی استحکام کیلیے بنیادی سرپلس کو بنیادی ستون مانا جاتا ہے۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-fiscal-surplus-q1fy27-rs1-27-trillion/"}]}, {"id": 2, "desk": "ڈیسک ۲: صوبائی محصولات، بینکنگ و بین الاقوامی منڈیاں", "category": "فنٹیک سینڈ باکس و ترسیلاتِ زر", "readTime": "۴ منٹ مطالعہ", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "اقوام متحدہ کے اہلکار کا ایران اور امریکہ سے کھاد کو آبنائے ہرمز سے گزرنے دینے کا مطالبہ", "deck": "انطالیہ: اقوام متحدہ کے ایک اعلیٰ اہلکار نے ہفتے کے روز ایران اور امریکہ پر زور دیا ہے کہ وہ فوری طور پر کھاد کے جہازوں کو آبنائے ہرمز سے گزرنے کی اجازت دیں، اور خبردار کیا کہ اس اہم آبی گزرگاہ کا بحران لاکھوں افراد کو غربت کی دلدل میں دھکیل سکتا ہے۔", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40448984/un-official-urges-iran-us-to-let-fertilizers-through-hormuz-strait", "author": "صوبائی ریونیو و بینکاری ڈیسک", "authorRole": "مالیاتی تجزیہ", "body": ["انطالیہ: اقوام متحدہ کے ایک اعلیٰ عہدیدار نے ہفتے کے روز ایران اور امریکہ پر زور دیا کہ وہ فوری طور پر کھاد کی ترسیل کو آبنائے ہرمز سے گزرنے کی اجازت دیں، اور متنبہ کیا کہ اس اہم بحری راستے پر تعطل کے باعث دنیا بھر میں لاکھوں افراد شدید غربت کا شکار ہو سکتے ہیں۔ اقوام متحدہ کے دفتر برائے پروجیکٹ سروسز کے سربراہ جارج موریرا دا سلوا نے ترک تفریحی مقام انطالیہ میں کوپ 31 (COP31) ماحولیاتی مذاکرات کے دوران کہا کہ کھاد کی نایابی دنیا کے پسماندہ ترین ممالک پر تباہ کن اثرات مرتب کر رہی ہے۔ فروری کے اواخر میں ایران کے خلاف مشترکہ امریکی و اسرائیلی حملے کے بعد ایران کی طرف سے راستے کی ناکہ بندی نے خطے اور اس سے باہر جہاز رانی کو مفلوج کر دیا ہے، جبکہ ایرانی بندرگاہوں پر امریکی پابندیوں نے صورتحال کو مزید پیچیدہ بنا دیا ہے۔", "دا سلوا، جو اس بحران میں کھاد کی محفوظ ترسیل کیلیے قائم اقوام متحدہ کی ٹاسک فورس کے سربراہ ہیں، نے کہا کہ انہوں نے تہران اور واشنگٹن دونوں کو ایک ہی پیغام پہنچایا ہے جہاں دونوں ممالک تنازع ختم کرنے کیلیے بات چیت کر رہے ہیں۔ انہوں نے کہا، \"وہ جامع ڈیل پر مذاکرات جاری رکھیں، لیکن اس معاہدے کو کھاد کیلیے فوری، خصوصی، محدود اور وقتی حل کی راہ میں رکاوٹ نہیں بننا چاہیے۔ بنیادی طور پر ہمیں کھاد کے پانچ بحری جہاز روزانہ نکالنے کی ضرورت ہے۔\" انہوں نے واضح کیا کہ تنازع سے قبل دنیا کی ایک تہائی کھاد آبنائے ہرمز سے گزرتی تھی، اور ناکہ بندی شروع ہونے کے بعد اس کی قیمتوں میں 30 فیصد اضافہ ہو چکا ہے۔", "انہوں نے زور دیا کہ کھاد کی قلت کمزور ترین معیشتوں پر انتہائی غیر متناسب اثر ڈال رہی ہے۔ سوڈان کے وزیر خزانہ نے حال ہی میں انہیں بتایا کہ وہاں چھ ماہ میں خوراک کی قیمتیں دوگنی ہو گئی ہیں، جبکہ نیپال کے حکام کا کہنا ہے کہ کسان اب کھاد خریدنے کی سکت نہیں رکھتے۔ انہوں نے بتایا کہ موزمبیق، کینیا، سوڈان، صومالیہ، نیپال، بنگلہ دیش اور سری لنکا جیسے ممالک اس تعطل کی وجہ سے شدید خطرات سے دوچار ہیں۔", "انہوں نے خبردار کیا کہ اس کے نتائج تباہ کن ہو سکتے ہیں۔ \"اگر ہم نے دنیا کے مختلف حصوں میں فصلوں کی بوائی کا سیزن ضائع کر دیا تو 45 ملین افراد شدید غذائی عدم تحفظ کا شکار ہو سکتے ہیں، جبکہ 30 ملین افراد خط غربت سے نیچے جا سکتے ہیں۔\" انہوں نے مزید کہا کہ اقوام متحدہ کے پاس ایسا مربوط طریقہ کار تیار ہے جو سات سے دس دنوں کے اندر کھاد کی ترسیل دوبارہ بحال کر سکتا ہے۔"], "quote": "دو طرفہ کراس بارڈر فوری بینکاری راہداریاں مزدور طبقے کی محنت کی کمائی کو تحفظ فراہم کرتی ہیں اور غیر رسمی مالیاتی راستوں پر انحصار ختم کرتی ہیں۔ — اسٹیٹ بینک مارکیٹ تجزیہ", "secondary_title": "مرکزی بینکنگ، ڈیجیٹل سینڈ باکس اور اسٹاک مارکیٹ جائزہ", "secondary_items": [{"head": "بینک آف انگلینڈ کی جانب سے 2027ء میں شرح سود میں مزید اضافے کا امکان", "body": "لندن: فنانشل ٹائمز میں ہفتے کے روز شائع ہونے والے انٹرویو کے مطابق، بینک آف انگلینڈ کے چیف اکانومسٹ ہیو پِل نے کہا ہے کہ افراط زر پر قابو پانے کیلیے دسمبر میں متوقع اضافے کے علاوہ 2027ء میں بھی شرح سود میں مزید اضافہ کرنا پڑے گا۔ برطانیہ کے مرکزی بینک نے نومبر کے اجلاس میں شرح سود 3.75 فیصد سے بڑھا کر 4 فیصد کر دی تھی، جو 2023ء کے بعد پہلا اضافہ تھا۔ پِل نے اخبار کو بتایا کہ یہ اضافہ مانیٹری پالیسی کو بہتر پوزیشن میں لانے کی سمت ایک اہم قدم تھا لیکن ابھی ہمیں مزید آگے جانا ہے۔ انہوں نے آئندہ سال مزید اضافے کی ضرورت کا ذکر کرتے ہوئے کہا کہ توانائی کی بلند قیمتوں کے دوسرے مرحلے کے اثرات کے پیش نظر میرا خیال ہے کہ ہمیں مزید شواہد ملیں گے جو پالیسی سخت کرنے کا تقاضا کریں گے، اور ہم مہنگائی کو 2 فیصد کے ہدف پر لانے کیلیے ہر ضروری اقدام کریں گے۔ ایران جنگ کے باعث اجرتوں پر پڑنے والے ثانوی اثرات سے پیدا ہونے والی برطانوی مہنگائی اگلے سال کے وسط تک تقریباً 5 فیصد تک پہنچ سکتی ہے، جو مرکزی بینک کے ہدف سے دگنی ہے۔ انہوں نے کہا کہ منڈیاں فی الوقت 2027ء کے اختتام تک 90 بیسس پوائنٹس کے اضافے کا تخمینہ لگا رہی ہیں جس سے شرح سود 5 فیصد کے قریب پہنچ سکتی ہے۔ رپورٹ کے مطابق پِل نے اشارہ دیا کہ وہ ستمبر 2027ء میں اپنی موجودہ مدت ختم ہونے پر چیف اکانومسٹ کے طور پر تیسری مدت کیلیے کام جاری نہیں رکھیں گے۔", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448986/boe-likely-to-raise-rates-further-in-2027"}, {"head": "مائیکروسافٹ کی خدمات بحال، عالمی تعطل کا خاتمہ", "body": "واشنگٹن: ٹیکنالوجی کمپنی مائیکروسافٹ نے ہفتے کے روز اعلان کیا ہے کہ اس نے صارفین کیلیے تمام سروسز بحال کر دی ہیں، جس سے اس بڑے عالمی تعطل کا باقاعدہ خاتمہ ہو گیا ہے جس نے دنیا بھر میں سرکاری خدمات اور کاروباری نظام کو مفلوج کر دیا تھا۔ امریکی کمپنی نے سوشل میڈیا پلیٹ فارم ایکس (X) پر جاری کردہ بیان میں کہا کہ ہم نے واقعے کی بنیادی تکنیکی وجوہات کو دور کر دیا ہے اور متاثرہ صارفین اور خطوں کو خدمات فراہم کر دی گئی ہیں۔ مائیکروسافٹ نے آؤٹ لک ای میل اور دیگر سہولیات کی بحالی کا اعلان کرتے ہوئے تصدیق کی کہ یہ خرابی کسی سائبر حملے یا مصنوعی ذہانت کے نظام کی وجہ سے نہیں بلکہ داخلی تکنیکی بگاڑ اور سسٹم پر حد سے زیادہ بوجھ کے باعث پیش آئی تھی۔ مانیٹرنگ ویب سائٹ ڈاؤن ڈیٹیکٹر کے مطابق، اس خرابی نے جمعرات کو پوری دنیا کو لپیٹ میں لے لیا تھا اور 74 سے زائد ممالک میں کمپنی کی مصنوعات بند ہو گئی تھیں، جس سے آؤٹ لک، مائیکروسافٹ ٹیمز اور کو پائلٹ اے آئی اسسٹنٹ شدید متاثر ہوئے۔ مائیکروسافٹ نے سروسز بحالی کے دوران صارفین کو جعلی ای میلز کے ذریعے متنبہ کرتے ہوئے متحرک فشنگ مہم سے خبردار بھی کیا ہے۔", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448991/microsoft-announces-service-restored-global-outage-over"}, {"head": "تین ماہ کے دوران پاکستان کے اندرونی قرضوں میں 1.6 ٹریلین روپے سے زائد کی کمی", "body": "پاکستان کے ملکی قرضوں میں جولائی تا ستمبر کی سہ ماہی کے دوران 1.636 ٹریلین روپے کی نمایاں کمی ریکارڈ کی گئی، جس کے بعد ستمبر کے اختتام تک مجموعی اندرونی قرضہ کم ہو کر 57.757 ٹریلین روپے پر آ گیا۔ اسٹیٹ بینک آف پاکستان نے رپورٹ دی کہ گزشتہ مالی سال کے اختتام پر 30 جون کو اندرونی قرضہ 59.393 ٹریلین روپے پر تھا، جو مالی سال 2027ء کے ابتدائی مہینوں میں حکومتی قرضہ جاتی حکمت عملی میں ایک نمایاں مثبت تبدیلی کی تصدیق کرتا ہے۔ اسٹیٹ بینک کے اعداد و شمار سے ظاہر ہوتا ہے کہ رواں مالی سال جولائی تا اکتوبر کے دوران شیڈول بینکوں کے قرضوں کی خالص ریٹائرمنٹ 1.847 ٹریلین روپے تک پہنچ گئی، جبکہ پچھلے سال اسی مدت میں یہ حجم محض 45 ارب روپے تھا۔ اس سے عیاں ہوتا ہے کہ مذکورہ مدت میں قرضوں کی ادائیگی نئے قرضے لینے کے مقابلے میں کہیں زیادہ رہی۔ طویل مدتی پاکستان انویسٹمنٹ بانڈز (PIBs) کے ذریعے قرضہ جات 1.756 ٹریلین روپے کی کمی کے بعد ستمبر کے آخر تک 33.543 ٹریلین روپے پر آ گئے۔ اسی طرح قلیل مدتی مارکیٹ ٹریژری بلز (T-Bills) کے ذریعے قرضے بھی پہلی سہ ماہی میں 1.163 ٹریلین روپے گر کر 9.640 ٹریلین روپے پر آ گئے، جو مختلف نوعیت کے مالیاتی آلات میں ملکی ادھار کے حجم میں عمومی کمی کو ظاہر کرتا ہے۔", "source": "ProPakistani · Business Desk", "url": "https://propakistani.pk/2026/11/14/pakistans-domestic-debt-drops-by-over-rs-1-6-trillion-in-3-months/"}, {"head": "پاکستان کے فارن ایکسچینج قوانین میں بڑی ترامیم کی منظوری", "body": "وفاقی کابینہ کی قانون سازی سے متعلق قائمہ کمیٹی نے پاکستان کے فارن ایکسچینج قوانین میں ترامیم، مسلح افواج کی قبل از ریٹائرمنٹ رخصت کے قواعد میں تبدیلیاں، اور پلانٹ پروٹیکشن کے امور ایک نئی ریگولیٹری اتھارٹی کو منتقل کرنے کے قانونی پیکیج کی منظوری دے دی ہے۔ کابینہ کمیٹی برائے قانونی مقدمات (سی سی ایل سی) کا اجلاس جمعہ کے روز وفاقی وزیر برائے قانون و انصاف سینیٹر اعظم نذیر تارڑ کی زیر صدارت منعقد ہوا۔ منظور شدہ تجاویز اب حتمی کارروائی کیلیے متعلقہ فورمز کو ارسال کی جائیں گی۔ کمیٹی نے فارن ایکسچینج ریگولیشن (ترمیمی) بل 2026ء کی باقاعدہ منظوری دی، جس کے تحت زرمبادلہ کے ضوابط کی خلاف ورزیوں پر سزاؤں اور مالی جرمانوں کے قانونی فریم ورک پر نظرثانی کی گئی ہے۔ اس کے علاوہ سیکیورٹیز اینڈ ایکسچینج کمیشن آف پاکستان (SECP) کے زیر انتظام قوانین میں وفاقی حکومت کے اختیارات متعلقہ مجاز حکام کے سپرد کرنے کی توثیق بھی کی گئی۔ کمیٹی نے مسلح افواج کے اہلکاروں کی قبل از ریٹائرمنٹ رخصت (LPR) اور غیر استعمال شدہ رخصت کے عوض ادائیگیوں سے متعلق تجاویز بھی منظور کر لیں۔", "source": "ProPakistani · Business Desk", "url": "https://propakistani.pk/2026/11/14/pakistans-foreign-exchange-rules-set-for-major-changes/"}, {"head": "موبلنک بینک نے اپنا مائیکرو فنانس بینک میں 82.51 فیصد حصص کے حصول کا معاہدہ کر لیا", "body": "موبلنک بینک نے اپنا مائیکرو فنانس بینک میں 82.51 فیصد ایکویٹی حصص حاصل کرنے کے باضابطہ معاہدے پر دستخط کر دیے ہیں، جس سے یہ ڈیجیٹل مائیکرو فنانس ادارہ ملک کے روایتی مائیکرو فنانس بینکنگ شعبے میں مزید گہرائی تک پھیل جائے گا۔ یہ سودا، جو بینک کے موجودہ اسپانسرز کے ساتھ شیئر پرچیز ایگریمنٹ کی صورت میں طے پایا ہے، موبلنک بینک کو اکثریتی انتظامی کنٹرول فراہم کرے گا، جو ویون (VEON) گروپ کے جاز ایکو سسٹم کا بینکاری بازو ہے۔\n\nاس معاہدے کی تکمیل تمام ریگولیٹری منظوریوں بشمول اسٹیٹ بینک آف پاکستان اور کمپیٹیشن کمیشن آف پاکستان کی کلیئرنس سے مشروط ہے۔ اپنا مائیکرو فنانس بینک ملک بھر میں شاخوں کا ایک وسیع نیٹ ورک چلاتا ہے جو کم آمدنی والے گھرانوں، چھوٹے تاجروں اور دیہی کاروباریوں کو خدمات فراہم کرتا ہے، اور یہ نیٹ ورک موبلنک بینک کے ڈیجیٹل فنانسنگ پلیٹ فارمز کو گراؤنڈ پر مستحکم بنانے میں مدد دے گا۔\n\nیہ پیش رفت پاکستان کے مائیکرو فنانس بینکنگ سیکٹر میں ضم ہونے کے رجحان کے دوران سامنے آئی ہے، جہاں ڈیجیٹل ادارے اپنے قرضوں کے حجم اور برانچ نیٹ ورک کو وسعت دینے کیلیے چھوٹے بینکوں کو حاصل کر رہے ہیں۔ موبلنک کیلیے یہ اقدام مالی شمولیت کے ایجنڈے بالخصوص خواتین اور پسماندہ طبقات تک رسائی کو فروغ دے گا، جبکہ اپنا بینک کے صارفین کو جدید ٹیکنالوجی اور اضافی سرمایہ دستیاب ہو سکے گا۔", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/mobilink-bank-acquisition-apna-microfinance-bank/"}]}, {"id": 3, "desk": "ڈیسک ۳: خودمختار اداریہ اور جدید ترین مصنوعی ذہانت", "category": "ٹیکس ٹربیونلز ریفارمز و اے آئی ایجنٹس", "readTime": "۵ منٹ مطالعہ", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "ذاتی مالیاتی معلومات کے تجزیے کیلیے گوگل والیٹ کا جیمنی سے الحاق", "deck": "گوگل نے جیمنی کے پرسنل انٹیلی جنس فیچر میں والیٹ کا اضافہ کر دیا، جس سے صارفین اے آئی مکالمات کے ذریعے اپنے اخراجات کا جائزہ لینے، سبسکرپشنز ٹریک کرنے اور بجٹ تیار کرنے کے قابل ہو گئے ہیں۔", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/google-wallet-connects-to-gemini-for-personalised-financial-insights/", "author": "محمد اقبال بھوانہ / اے آئی سسٹمز ڈیسک", "authorRole": "بانی و ایڈیٹر انچیف، سینئر ممبر پاکستان کسٹمز سروس (ریٹائرڈ)", "body": ["گوگل نے جیمنی کے پرسنل انٹیلی جنس فیچر میں والیٹ کا اضافہ کر دیا ہے، جس کے ذریعے صارفین مصنوعی ذہانت پر مبنی گفتگو کے ذریعے اخراجات کی عادات کا تجزیہ، سبسکرپشنز کی نگرانی اور بجٹ سازی کر سکتے ہیں۔", "گوگل نے اپنے گوگل والیٹ کو ان ایپلیکیشنز کی فہرست میں شامل کر دیا ہے جو پرسنل انٹیلی جنس کے ذریعے جیمنی اے آئی اسسٹنٹ سے منسلک ہو سکتی ہیں۔ اس انضمام سے صارفین کو اپنے اخراجات کے اعداد و شمار پر مبنی مالیاتی تجاویز اور بجٹ مشاورت حاصل ہو سکے گی۔", "یہ فیچر جی میل، گوگل فوٹوز، یوٹیوب اور گوگل سرچ کے موجودہ الحاق کے بعد پیش کیا گیا ہے، جس سے اس ڈیٹا بیس میں وسعت آئی ہے جسے جیمنی ذاتی نوعیت کے جوابات فراہم کرنے کیلیے بروئے کار لاتا ہے۔", "صارفین اختیاری طور پر پلیڈ (Plaid) کے ذریعے اپنے کریڈٹ کارڈز اور بینک اکاؤنٹس کو گوگل والیٹ سے جوڑ سکتے ہیں تاکہ زیادہ جامع مالیاتی تفصیلات حاصل کی جا سکیں۔ ایک بار منسلک ہونے کے بعد، وہ جیمنی چیٹ میں @Google Wallet کو ٹیگ کر کے اپنے نجی مالیات سے متعلق کوئی بھی سوال پوچھ سکتے ہیں۔", "گوگل کے مطابق، جیمنی پچھلے مہینوں یا سہ ماہیوں کے اخراجات کا باریک بینی سے جائزہ لے سکتا ہے اور گفتگو کے دوران ہی کیش فلو، اثاثوں کی تقسیم اور بجٹ کی تقسیم کو ظاہر کرنے والے چارٹس تشکیل دے سکتا ہے۔", "مثال کے طور پر، صارفین چیٹ بوٹ سے پچھلی سہ ماہی کے اخراجات کا تفصیلی تجزیہ کرنے اور اگلے تین مہینوں میں $1,000 بچانے کا جامع منصوبہ بنانے کو کہہ سکتے ہیں۔ جیمنی دستیاب مالیاتی ڈیٹا کو استعمال کرتے ہوئے اخراجات میں کمی کے راستے تجویز کر سکتا ہے اور اہداف کی پیش رفت پر نظر رکھنے میں مدد دے سکتا ہے۔"], "quote": "اپیل کا حق کوئی انتظامی رعایت نہیں بلکہ آئین کے آرٹیکل 10 اے کے تحت بنیادی آئینی حق ہے۔ — محمد اقبال بھوانہ", "editorial": {"title": "سیلز ٹیکس اور فیڈرل ایکسائز: دیر آید درست آید", "deck": "", "paragraphs": ["سیلز ٹیکس اور فیڈرل ایکسائز کی انتظامیہ کو انکم ٹیکس سے الگ کرنے کا اقدام ایک خوش آئند پیش رفت ہے، اگرچہ یہ فیصلہ اس وقت سے بہت دیر بعد سامنے آیا ہے جب اسے نافذ ہو جانا چاہیے تھا۔ پاکستان برسوں سے ایک ایسے انتظامی تجربے کے منفی نتائج بھگت رہا ہے جس کے تحت یہ اہم محصولات کسٹمز سے چھین کر انلینڈ ریونیو کے فریم ورک کے حوالے کر دیے گئے تھے۔", "پرافٹ (Profit) کی رپورٹ کے مطابق، فیڈرل بورڈ آف ریونیو نے ری اسٹرکچرنگ کے تحت ممبر سیلز ٹیکس اور فیڈرل ایکسائز ڈیوٹی کا عہدہ تخلیق کیا ہے اور انلینڈ ریونیو کے 54 افسران کے تبادلے کیے ہیں۔ جنوری 2027ء سے الگ کمشنرز کی تعیناتی متوقع ہے۔ یہ اقدام لائق تحسین ضرور ہے، لیکن محض ایک نیا عہدہ اور موجودہ افسران کی رد و بدل اکیلے اس غلطی کا مداوا نہیں کر سکتی جو اپنی ماہیت میں ایک ادارہ جاتی خامی تھی۔", "سیلز ٹیکس اور فیڈرل ایکسائز کو کبھی بھی کسٹمز سے الگ نہیں کیا جانا چاہیے تھا۔ سابقہ کسٹمز اینڈ ایکسائز گروپ کے افسران نے کسٹمز ڈیوٹی کے ساتھ ساتھ ان محصولات کے انتظام و انصرام میں دہائیوں کا عملی تجربہ حاصل کیا تھا۔ ان کا پیشہ ورانہ کام درآمدات، صنعتی مینوفیکچرنگ، ویلیوایشن، دستاویزات اور مال کی ترسیل کے فہم پر استوار تھا۔ اس عملی تجربے کو ایک خصوصی انتظامیہ کی بنیاد بننا چاہیے تھا، نہ کہ اسے ایک غیر فطری ادغام کے ذریعے منتشر کر دیا جاتا۔", "سنہ 2009ء میں انلینڈ ریونیو سروس کے قیام نے سیلز ٹیکس اور فیڈرل ایکسائز کو انکم ٹیکس ایڈمنسٹریشن کے ساتھ اکٹھا کر دیا۔ اس وقت کسٹمز اینڈ ایکسائز گروپ اور انکم ٹیکس گروپ دونوں کے افسران کو نئی سروس میں شمولیت کا اختیار دیا گیا تھا۔ میرے تجزیے کے مطابق، ان بالکل مختلف ذمہ داریوں کو ایک جگہ گڈمڈ کرنا منصوبہ بندی کی ایک سنگین غلطی تھی۔ موجودہ اصلاحات کو اس پرانی غلطی کی مکمل اور جامع درستی کا نقطہ آغاز ہونا چاہیے۔", "بہترین اور قرین قیاس راستہ یہ ہے کہ سیلز ٹیکس اور فیڈرل ایکسائز کو کسٹمز کے حوالے واپس کر دیا جائے۔ اگر حکومت کوئی دوسرا راستہ اختیار کرنا چاہتی ہے، تو اسے انلینڈ ریونیو سروس سے باہر ایک الگ سیلز ٹیکس اور فیڈرل ایکسائز سروس تشکیل دینی چاہیے، جس کی اپنی الگ پیشہ ورانہ شناخت، واضح قانونی اختیارات اور جوابدہ قیادت ہو۔", "پاکستان کسٹمز کے تجربہ کار افسران کی ایک خاطر خواہ تعداد کو مستقل بنیادوں پر اس نئی سروس میں شامل کیا جانا چاہیے۔ خاص طور پر گریڈ 20 کے قابل افسران کو سینیئر آپریشنل اور قائدانہ ذمہ داریوں کیلیے ترجیح دی جانی چاہیے۔ ان کی تکنیکی معلومات کو نئی انتظامیہ کے مرکز میں رکھا جائے، نہ کہ انہیں رسمی اور ثانوی حیثیت دی جائے۔", "انکم ٹیکس کے افسران کو، وقت کے ساتھ، ایک قانونی اور منظم طریقہ کار کے ذریعے اس سروس سے مرحلہ وار نکال کر واپس براہ راست ٹیکس کے کام پر مامور کیا جائے تاکہ ان کے سروس رائٹس کا تحفظ ہو۔ ان کی توجہ قابل ٹیکس آمدنیوں کی نشاندہی، ٹیکس نیٹ کو وسیع کرنے اور قانون کے غیر جانبدارانہ نفاذ پر مرکوز ہونی چاہیے۔ سیلز ٹیکس اور فیڈرل ایکسائز مکمل طور پر اپنی الگ اور مخصوص انتظامی مہارت کا تقاضا کرتے ہیں۔", "ماضی کی اصلاحات کی تاریخ کا بھی دیانتداری سے احتساب ہونا چاہیے۔ ریاض احمد ملک 2001ء سے 2004ء تک سینٹرل بورڈ آف ریونیو کے چیئرمین رہے۔ ورلڈ بینک کے ایک کیس اسٹڈی کے مطابق، انہیں اصلاحاتی پروگرام تیار کرنے کی ذمہ داری سونپی گئی تھی اور اس کے ابتدائی خاکوں میں ورلڈ بینک، آئی ایم ایف، انکٹاڈ (UNCTAD) اور ایک غیر ملکی مشاورتی فرم کی آراء شامل تھیں۔ 2003ء کی حکمت عملی میں ملکی ٹیکس انتظامیہ کے باہمی انضمام کا تصور پیش کیا گیا تھا؛ انلینڈ ریونیو سروس بعد میں 2009ء میں قائم کی گئی۔ میری نگاہ میں، اصلاحاتی پروگرام کی مسٹر ملک کی ابتدائی قیادت نے اس تقسیم کی بنیادیں رکھنے میں مدد دی جو بعد میں واقع ہوئی۔ ان کے ذاتی کردار، اس عمل کے دوران ڈالے گئے دباؤ، اور بین الاقوامی مالیاتی اداروں کے اثر و رسوخ کی مکمل اور غیر جانبدارانہ تحقیقات ہونی چاہیے۔ کسٹمز اور ایکسائز کے افسران نے خود الزام لگایا تھا کہ ورلڈ بینک کے عملے نے انلینڈ ریونیو سروس کے قیام کیلیے غیر ضروری دباؤ ڈالا تھا۔ ورلڈ بینک کے انسپیکشن پینل نے اس الزام پر حتمی فیصلہ نہیں دیا، لیکن اس کی رپورٹ میں درج ہے کہ بینک انتظامیہ نے اصلاحاتی منصوبے کی ممکنہ توسیع کو بعد کے تنظیم نو کے منصوبے پر عملدرآمد سے مشروط کیا تھا۔", "حکومت کو اس سلسلے میں تمام متعلقہ مشاورت، خط و کتابت، فیصلوں اور معاہدوں کو عوام کے سامنے لانا چاہیے۔ ایک آزاد انکوائری کے ذریعے مسٹر ملک، ان کے قریبی ساتھیوں، بعد کے فیصلہ سازوں اور بین الاقوامی اداروں کے کردار کے ساتھ ساتھ ریونیو انتظامیہ اور ٹیکس دہندگان پر اس کے اثرات کا باریک بینی سے جائزہ لیا جانا چاہیے۔ جہاں بدعنوانی یا اختیارات کا ناجائز استعمال ثابت ہو، وہاں قانون کے تحت کارروائی ہونی چاہیے۔ احتساب ٹھوس شواہد پر مبنی ہونا چاہیے، اور متعلقہ افراد کو صفائی کا منصفانہ موقع ملنا چاہیے۔", "براہ راست ٹیکسوں کے ریکارڈ کی بھی اسی طرح سخت جانچ پڑتال کی ضرورت ہے۔ ایف بی آر کے عارضی اعداد و شمار ظاہر کرتے ہیں کہ براہ راست ٹیکس کی خالص وصولی 2024-25ء میں 5.79 ٹریلین روپے سے بڑھ کر 2025-26ء میں 6.59 ٹریلین روپے تک پہنچ گئی۔ تاہم 2025-26ء کے انکم ٹیکس کے اعداد و شمار یہ بھی بتاتے ہیں کہ ودہولڈنگ ٹیکس کے ذریعے 3.65 ٹریلین روپے جمع کیے گئے، جبکہ ڈیمانڈ نوٹس کے ذریعے حاصل کردہ رقم محض 465 ارب روپے تھی۔ اگرچہ نوٹسز کے ذریعے وصولی میں بھی اضافہ ہوا، مگر ودہولڈنگ پر انحصار کا حجم اب بھی تشویشناک حد تک زیادہ ہے۔ اعداد و شمار کے نام نہاد اضافے سے خود بخود یہ ثابت نہیں ہوتا کہ ٹیکس نیٹ منصفانہ طور پر وسیع ہو گیا ہے یا ٹیکس چوری کے پیچیدہ مقدمات کی مؤثر پیروی کی جا رہی ہے۔", "ودہولڈنگ ٹیکس وصولی کا ایک طریقہ کار ہے، اور اس کا بڑا حصہ دفتری طور پر براہ راست ٹیکس کے زمرے میں شمار کیا جاتا ہے۔ اس کے باوجود بعض لین دین پر مبنی لیویز لوگوں کی حقیقی آمدنی سے قطع نظر ان پر لاگو ہو جاتی ہیں یا اشیاء کی قیمتوں میں منتقل ہو کر عوام پر منتقل ہو جاتی ہیں۔ سیلز ٹیکس اور فیڈرل ایکسائز کا بوجھ بھی غریب طبقے پر زیادہ پڑتا ہے، کیونکہ وہ اپنی آمدنی کا بڑا حصہ اشیائے صرف پر خرچ کرتے ہیں۔ ایک منصفانہ ٹیکس نظام کو چاہیے کہ وہ ایسے شعبوں اور آمدنیوں کو ٹیکس نیٹ میں لائے جو ٹیکس ادا نہیں کر رہے، بجائے اس کے کہ ان لوگوں پر بار بار بوجھ ڈالا جائے جن تک پہنچنا سب سے آسان ہے۔", "ریفنڈز کی انتظامیہ بھی اتنی ہی توجہ کی متقاضی ہے۔ برآمد کنندگان اور صنعت کار جائز کلیمز کی بروقت ادائیگی کے حقدار ہیں، جبکہ جعلی اور فراڈ کلیمز کی فوری نشاندہی اور وصولی لازم ہے۔ آڈیٹر جنرل نے فیصل آباد میں سیلز ٹیکس ریفنڈ کے 249 کیسز میں آٹومیٹڈ پروسیسنگ اور نگرانی کے نظام میں کمزوریوں کی نشاندہی کی جن میں 4.34 ارب روپے شامل تھے۔ محکمہ کا مؤقف تھا کہ ان مقدمات کو ریفنڈ کے بعد آڈٹ کیلیے منتخب کیا گیا تھا۔ ان نتائج کا باریک بینی سے جائزہ لینا ضروری ہے؛ لیکن اس سے یہ ثابت نہیں ہوتا کہ ہر کلیم جعلی تھا۔", "آئی ایم ایف کے 2025ء کے گورننس اسسمنٹ نے سیلز ٹیکس اور انکم ٹیکس ریفنڈ کے نظام میں بدعنوانی اور ناجائز مراعات حاصل کرنے کے خطرات کی واضح نشاندہی کی تھی۔ ریفنڈز کی منظوری کے عوض کمیشن مانگے جانے کے الزامات کی آزادانہ تحقیقات ہونی چاہیے، جس میں شکایت کنندگان کو تحفظ فراہم کیا جائے، ریکارڈ کی جانچ پڑتال ہو اور جو بھی ملوث پایا جائے اس کے خلاف سخت کارروائی کی جائے۔ ثابت شدہ بدعنوانی کی صورت میں نہ تو عہدہ کسی کیلیے ڈھال بننا چاہیے اور نہ ہی کسی سروس کی وابستگی۔", "پاکستان کسی ایسی نام نہاد اصلاح کا متحمل نہیں ہو سکتا جو صرف باہر کا سائن بورڈ تبدیل کر دے اور اندرونی بیماری کو جوں کا توں چھوڑ دے۔ سیلز ٹیکس اور فیڈرل ایکسائز کو ایک الگ پیشہ ورانہ انتظامیہ، اہم پوزیشنز پر کسٹمز کے باصلاحیت افسران، ٹیکس دہندگان سے منصفانہ برتاؤ اور ریفنڈز کے شفاف فیصلوں کی ضرورت ہے۔ حکومت کے پاس اب دہائیوں پرانی غلطی کو درست کرنے کا ایک نادر موقع موجود ہے۔ اس کے پاس اس اصلاح کو انجام تک پہنچانے کا عزم اور ارادہ ہونا چاہیے۔"]}, "secondary_title": "فرنٹیئر کمپیوٹنگ، الگورتھمز اور اوپن ویٹس ڈیٹا", "secondary_items": [{"head": "ایلون مسک کا انتباہ: جینسن ہوانگ کے بغیر نویڈیا اہم کاروباری ڈیلز سے محروم ہو جائے گی", "body": "ایلون مسک نے ہفتے کے روز کہا کہ چپ ساز کمپنی نویڈیا (Nvidia) اپنے برطرف کیے گئے چیف ایگزیکٹو آفیسر (سی ای او) جینسن ہوانگ کے بغیر انتہائی اہم کاروباری معاہدوں سے ہاتھ دھو بیٹھے گی۔ ہوانگ جمعرات کو ماورائے ازدواج تعلقات کے انکشاف کے بعد مستعفی ہو گئے تھے، جن میں مبینہ طور پر ایک مشتبہ چینی انٹیلی جنس اثاثہ بھی شامل تھی، جس سے یہ کمپنی بحران کا شکار ہو گئی ہے۔ ایکس پر ایک پوسٹ میں مسک نے کہا کہ اگرچہ ہوانگ نے نویڈیا میں سپلائی چین کو شاندار انداز میں سنبھالا، لیکن ان میں سے کئی ڈیلز تحریری معاہدوں کے بجائے جینسن کے ساتھ ذاتی مفاہمت پر مبنی تھیں، اور ان کے بغیر نویڈیا یہ اہم سودے کھو دے گی۔ اسپیس ایکس کے سربراہ نے کہا کہ جب بھی جینسن نے کمپیوٹر پروسیسنگ یا پارٹس کی فراہمی کا وعدہ کیا تو انہوں نے ہمیشہ اسے پورا کیا۔ مسک نے نویڈیا میں ہوانگ کی بحالی کی پٹیشن پر دستخط کرنے کی توثیق بھی کی۔ 63 سالہ ہوانگ کے خلاف الزامات سامنے آئے تھے کہ ان کے تعلقات سنگاپور کی کمپنی میگا اسپیڈ کی سابق عہدیدار ایلس ہوانگ کے ساتھ تھے، جن کی امریکی حکام تحقیقات کر رہے تھے۔ نویڈیا کا بورڈ اب نئے سی ای او کی تلاش کر رہا ہے جبکہ مالیاتی سربراہ کولیٹ کریس عبوری سی ای او کے طور پر فرائض انجام دے رہی ہیں۔", "source": "Dawn Business", "url": "https://www.dawn.com/news/2044511/musk-says-nvidia-will-lose-critical-deals-without-jensen-huang"}, {"head": "جینسن ہوانگ کی ماحولیاتی غفلت نے نویڈیا کو ماحولیاتی کٹہرے میں لا کھڑا کیا", "body": "ماحولیاتی تنظیم گرین پیس نے جینسن ہوانگ کے استعفے کے بعد نویڈیا پر زور دیا ہے کہ وہ اپنی مینوفیکچرنگ سپلائی چین میں کاربن کے اخراج میں فوری کمی لائے۔ گروپ نے عبوری سی ای او کولیٹ کریس سے مطالبہ کیا کہ وہ قابل تجدید توانائی میں سرمایہ کاری کریں اور کمپنی کے صاف ستھری بجلی کے وعدوں کو چپ فراہم کرنے والے سپلائرز تک وسعت دیں۔ محقق کیتن جوشی اور گرین پیس کے تجزیے کے مطابق، 2020ء کی سطح کے مقابلے میں نویڈیا کی سپلائی چین کے اخراج میں 725 فیصد کا خوفناک اضافہ ہوا ہے۔ دی ورج نے رپورٹ دی کہ یہ اضافہ تقریباً 9.4 ملین میٹرک ٹن کاربن ڈائی آکسائیڈ کے مساوی ہے۔ نویڈیا چپ ڈیزائن کرتی ہے اور پیداوار کیلیے ٹی ایس ایم سی (TSMC) جیسے کنٹریکٹرز پر انحصار کرتی ہے۔ رپورٹ کے مطابق اے آئی چپس کی بڑھتی ہوئی مانگ نے ان کارخانوں کے قیام کو تیز کر دیا ہے جنہیں چلانے کیلیے پانی اور کیمیکلز کی بہت بڑی مقدار درکار ہوتی ہے، جبکہ ڈیٹا سینٹرز سے نکلنے والے کچرے اور بجلی کی کھپت پر شدید تحفظات پیدا ہو چکے ہیں۔", "source": "ProPakistani · National Desk", "url": "https://propakistani.pk/2026/11/14/jensen-huangs-reckless-environmental-legacy-puts-nvidia-in-the-climate-spotlight/"}, {"head": "نویڈیا کے سی ای او کی برطرفی کے پیچھے اعلیٰ امریکی حکومتی عہدیدار کا ہاتھ نکلا", "body": "دی واشنگٹن پوسٹ کے مطابق نویڈیا کے سی ای او کے طور پر جینسن ہوانگ کے 33 سالہ دور اقتدار کا خاتمہ کرنے والے واقعات امریکی وزیر خارجہ مارکو روبیو کی کارروائی سے شروع ہوئے تھے۔ روبیو نے صدر ڈونلڈ ٹرمپ کو ایک یادداشت بھیجی جس میں ہوانگ کے ایک ایسی خاتون سے تعلقات سے متعلق خبردار کیا گیا تھا جس پر امریکی انٹیلی جنس کو چینی انٹیلی جنس اثاثہ ہونے کا شبہ تھا۔ یہ میمو سی آئی اے کی ایک رپورٹ پر مبنی تھا لیکن روبیو نے اس کے نتائج کو انتہائی سخت اور حتمی انداز میں پیش کیا۔ بعد میں اس میمو کی تفصیلات میڈیا میں لیک ہو گئیں جس سے ان واقعات کا آغاز ہوا جس کے نتیجے میں ہوانگ کا نویڈیا میں کیریئر ختم ہو گیا۔ ہوانگ نے ان تعلقات کا اعتراف کیا اور بورڈ نے سیکیورٹی خطرات کی تحقیقات شروع کیں، جس کے بعد ہوانگ نویڈیا میں اپنے ماتحت سے ایک اور اسکینڈل سامنے آنے پر مستعفی ہو گئے۔", "source": "ProPakistani · Business Desk", "url": "https://propakistani.pk/2026/11/15/rubio-behind-jensen-huang-nvidia-exit/"}, {"head": "نویڈیا کی انٹرنل سیکیورٹی ٹیم اس دوران کہاں تھی؟", "body": "نویڈیا کو اگست میں اپنے چیف سیکیورٹی آفیسر کی خاموش رخصتی کے بعد داخلی سلامتی سے متعلق تیکھے سوالات کا سامنا ہے۔ یہ رخصتی اس وقت زیادہ توجہ حاصل نہ کر سکی لیکن بعد کے انکشافات کے تناظر میں اب مرکزی سوال بن چکی ہے۔ چیف ایگزیکٹو جینسن ہوانگ کے ایک ایسی خاتون سے تعلقات پر مستعفی ہونے کے بعد، جس کی کمپنی پر چین کو چپس اسمگل کرنے کا شبہ ہے، دباؤ مزید بڑھ گیا ہے۔ ایک سابق انٹیلی جنس افسر نے بتایا کہ کارپوریٹ سیکیورٹی ٹیمیں تکنیکی خطرات کو پکڑنے کی تربیت تو رکھتی ہیں لیکن عام گفتگو، ڈنر پر ہونے والے تعارف اور انسانی رابطوں سے اثرانداز ہونے والی جاسوسی کو پکڑنے کی ان میں صلاحیت نہیں ہوتی۔ یہ صورتحال اس چپ ساز کمپنی کیلیے بڑی آزمائش ہے جو دنیا کے جدید اے آئی نظام کا محور ہے۔", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/"}, {"head": "ایلون مسک اور دیگر ٹیکنالوجی سربراہان نے جینسن ہوانگ کی نویڈیا میں بحالی کی پٹیشن پر دستخط کر دیے", "body": "ایلون مسک اور متعدد معروف ٹیکنالوجی ایگزیکٹوز نے ایک عوامی پٹیشن پر دستخط کیے ہیں جس میں نویڈیا کے بورڈ سے مطالبہ کیا گیا ہے کہ جینسن ہوانگ کو دوبارہ بحال کیا جائے۔ ہفتے کی دوپہر تک اس پٹیشن پر 115,000 سے زیادہ افراد دستخط کر چکے تھے اور انڈسٹری کی ممتاز شخصیات کی حمایت سے اس میں مسلسل اضافہ ہو رہا ہے۔ ہوانگ نے 1993ء میں کمپنی کی بنیاد رکھی اور اسے پی سی گرافکس کارڈ بنانے والے ادارے سے دنیا کے اہم ترین آرٹیفیشل انٹیلی جنس پروسیسرز تیار کرنے والے ادارے میں تبدیل کیا۔ اس تحریک نے اب نویڈیا کے بورڈ کو شدید دباؤ میں ڈال دیا ہے اور سرمایہ کار اب اس مہم پر کمپنی کے باضابطہ ردعمل کے منتظر ہیں۔", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"}]}, {"id": 4, "desk": "ڈیسک ۴: سنیما، موسیقی، کری ایٹرز اور تخلیقی معیشت", "category": "ہالی ووڈ انضمام و باکس آفس اصل اعداد و شمار", "readTime": "۴ منٹ مطالعہ", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "کرس پریٹ کی ڈی سی سے اخراج کے بعد جیمز گن کے ہمراہ ایک اور ’گارڈینز آف دی گلیکسی‘ بنانے کی شدید خواہش", "deck": "اگرچہ جیمز گن کا مین آف اسٹیل کے ساتھ سفر اختتام پذیر ہو چکا ہے، تاہم کرس پریٹ پرامید ہیں کہ وہ جلد ہی اسٹار لارڈ کے ہمراہ ایک اور مہم کا آغاز کریں گے۔", "hero_source": "Deadline Hollywood Wire", "hero_url": "https://deadline.com/2026/11/chris-pratt-would-love-james-gunn-another-guardians-galaxy-1237224237/", "author": "تخلیقی معیشت و سنیما ڈیسک", "authorRole": "انڈسٹری اینالسٹ", "body": ["اگرچہ جیمز گن کا مین آف اسٹیل کے ساتھ سفر تمام ہو چکا ہے، لیکن کرس پریٹ پرامید ہیں کہ وہ جلد ہی اسٹار لارڈ کے کردار میں ایک نئی ایڈونچر فلم کریں گے۔", "گارڈینز آف دی گلیکسی کے اسٹار نے اعتراف کیا کہ وہ ڈیوڈ ایلیسن کے اسکائی ڈانس انتظام کے بعد ڈی سی اسٹوڈیوز سے گن اور پیٹر سیفران کی علیحدگی کے بعد، ایم سی یو (MCU) فرنچائز میں گن کے ساتھ چوتھی فلم بنانا پسند کریں گے۔", "انہوں نے مووی زین کو بتایا، \"یہ بہت شاندار ہوگا۔ مجھے جیمز کے ساتھ کام کرنا بے حد پسند ہے۔ وہ ایک کمال انسان ہیں۔ اس خبر کے سامنے آنے کے بعد مجھے ابھی ان سے بات کرنے کا موقع تو نہیں ملا، لیکن جب بھی ایسی کوئی بات نکلتی ہے تو وہ فوری طور پر شہ سرخی بن جاتی ہے۔\"", "پریٹ نے مزید کہا، \"میں صرف اتنا کہوں گا کہ میں جیمز سے محبت کرتا ہوں۔ انہوں نے تینوں حصوں کی ہدایت کاری کی، اور اس قسم کی ٹرائیلوجی میں شاذ و نادر ہی ہوتا ہے کہ ایک ہی ڈائریکٹر تینوں فلمیں بنائے۔ اس لیے اگر وہ واپس آنا چاہیں اور اسے دوبارہ شروع کریں تو مجھے بے حد خوشی ہوگی۔\"", "اس ہفتے کے اوائل میں ڈیڈلائن نے رپورٹ دی تھی کہ گن اور سیفران چار سال بعد ڈی سی اسٹوڈیوز کے شریک سی ای اوز اور چیئرمین کے عہدوں سے دستبردار ہو گئے ہیں، البتہ وہ مختلف ڈی سی پروجیکٹس پروڈیوس کرتے رہیں گے۔ دوسری جانب، مارول کے سابق ایس وی پی پروڈکشن جرمی لیچم کو اسکائی ڈانس کے تحت ڈی سی کا نیا صدر اور چیف کریئیٹو آفیسر نامزد کیا گیا ہے۔"], "quote": "وارنر برادرز کا بطور خودمختار اسٹوڈیو اختتام ہالی ووڈ کی ایک صدی پر محیط تاریخ کا ایک عہد ساز اور ڈرامائی موڑ ہے۔ — ورائٹی اینالسس", "secondary_title": "فلمی صنعت، ٹیلی ویژن پریمیئرز اور اسٹریمنگ رجحانات", "secondary_items": [{"head": "’ٹائے اسٹوری 5‘ کی پروڈیوسر نے جدید اینیمیشن ٹیکنالوجی کی پیچیدگیوں پر روشنی ڈالی – کونٹینڈرز ایل اے", "body": "پکسر کی تجربہ کار پروڈیوسر لنڈسے کولنز نے کونٹینڈرز ایل اے پینل کے دوران کھلے دل سے تسلیم کیا کہ ٹائے اسٹوری کی فلموں کو اینیمیشن ٹیکنالوجی کے اعتبار سے بے پناہ تکنیکی پیچیدگیوں کا سامنا کرنا پڑتا ہے۔ ان کا مؤقف تھا کہ فرنچائز کو اسکرین پر دکھائے جانے والے جدید کھلونوں اور گیجٹس کے ساتھ ہم آہنگ ہونا چاہیے۔ کولنز، جن کے کیریئر میں اے بگز لائف، رتاتوی، فائنڈنگ نیمو اور ٹرننگ ریڈ جیسی شاہکار فلمیں شامل ہیں، نے 1995ء کی تاریخی ٹائے اسٹوری سے لے کر اب تک کے تکنیکی ارتقاء کا خاکہ پیش کیا، جس میں اب بلیز نامی کردار کیلیے گھنگھریالے بالوں کا خصوصی ٹول تخلیق کرنے جیسے جدید ماڈلز استعمال ہو رہے ہیں۔ ان کے مطابق اصل چیلنج بصری چمک دمک کے بجائے کہانی اور کرداروں کی سادگی اور جاندار پیشکش میں توازن قائم رکھنا ہے۔", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/toy-story-5-producer-interview-1237224163/"}, {"head": "’دی وائلنسٹ‘ کے موسیقار رکی ہو کو سینٹرل سوناٹا کے ابتدائی چار سُر لکھنے میں دو ماہ لگے – کونٹینڈرز ایل اے", "body": "ایوارڈز کے سیزن میں جنگِ عظیم دوم کے پس منظر پر بنی اینیمیٹڈ فلم ’دی وائلنسٹ‘ کی موسیقی سب کی توجہ کا مرکز بنی ہوئی ہے۔ فلم ایک ایسی خاتون کے گرد گھومتی ہے جو جنگ کے دوران اپنے بچھڑے ہوئے محبوب کی تلاش میں نکلتی ہے، اور چونکہ مرکزی کردار ایک وائلن نواز ہے، اس لیے اس کی موسیقی پس پردہ دھن کے بجائے کہانی کا بنیادی محرک بن جاتی ہے۔ موسیقار رکی ہو، جنہوں نے ازابیل لاٹورے کے ساتھ مل کر فلم کا اسکور ترتیب دیا، نے کونٹینڈرز ایل اے ایوارڈز تقریب میں انکشاف کیا کہ انہوں نے فلم کی مرکزی دُھن ’سینٹرل سوناٹا‘ کے ابتدائی چار نوٹس لکھنے پر دو ماہ کا وقت صرف کیا، جس پر بعد میں پوری کمپوزیشن کھڑی کی گئی۔ یہ محنت اینیمیٹڈ فلموں میں موسیقی کے گہرے داستانی اثر کو ثابت کرتی ہے۔", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/the-violinist-composer-interview-1237224216/"}, {"head": "پال بیٹنی کا انکشاف: ’ویژن کویسٹ‘ میں وانڈا کی مکمل واپسی پر غور ہوا مگر شو کو اپنے پیروں پر کھڑا رکھنے کا فیصلہ کیا گیا", "body": "پال بیٹنی نے، جو سنتھیزوئیڈ ویژن کا کردار دوبارہ نبھا رہے ہیں اور ڈزنی پلس سیریز کے ایگزیکٹو پروڈیوسر بھی ہیں، انکشاف کیا ہے کہ ’ویژن کویسٹ‘ کی تیاری کے دوران الزبتھ اولسن کے کردار وانڈا میکسی موف کو نمایاں طور پر شامل کرنے پر سنجیدہ غور ہوا تھا۔ تاہم، مارول اسٹوڈیوز کے سربراہ کیون فیگی کے ساتھ طویل مشاورت کے بعد انہوں نے شو کو روایتی دباؤ سے ہٹ کر اس کے اپنے بل بوتے پر کھڑا رکھنے کو ترجیح دی۔ اس کے باوجود وانڈا سیریز کے کریڈٹ سین میں ایک مختصر جھلک کے طور پر نظر آتی ہیں، جس سے کردار کے مستقبل کے امکانات برقرار رہتے ہوئے بھی سیریز کا مرکزی فوکس ویژن کی شناخت اور یادداشت کے بحران پر مرکوز رہتا ہے۔", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/paul-bettany-questions-bringing-wanda-back-visionquest-1237224196/"}, {"head": "ہال آف فیم ایوارڈ یافتہ پیٹر فیریلی کی ’آئی پلے راکی‘، ’ڈمب اینڈ ڈمبر‘ اور اپنے کیریئر پر تفصیلی گفتگو", "body": "معروف ڈائریکٹر، اسکرین رائٹر اور پروڈیوسر پیٹر فیریلی نے ڈیڈلائن کے کونٹینڈرز فلم تقریب میں شرکت کی جہاں انہیں ہال آف فیم ایوارڈ سے نوازا گیا۔ مائیک فلیمنگ جونیئر کے ساتھ گفتگو میں انہوں نے اپنی نئی فلم ’آئی پلے راکی‘ کے تخلیقی سفر کے ساتھ ساتھ ماضی کی مشہور کامیڈی فلموں ڈمب اینڈ ڈمبر اور دیئرز سمتھنگ اباؤٹ میری کے یادگار مناظر کا احاطہ کیا۔ انہوں نے بتایا کہ کس طرح نوجوان سلویسٹر اسٹالون نے تمام تر مشکلات کے باوجود راکی کا کردار خود ادا کرنے پر اصرار کیا تھا۔ یہ ایوارڈ ان کے طنز و مزاح سے لے کر اکیڈمی ایوارڈ یافتہ گرین بک تک کے فلمی سفر کا شاندار اعتراف ہے۔", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/peter-farrelly-interview-i-play-rocky-1237224102/"}, {"head": "ڈینی بوائل کا اعلان: برطانوی سنسر شدہ سرخیاں نیٹ فلکس ڈراما ’انک‘ کے امریکی ورژن میں مکمل دکھائی جائیں گی", "body": "ڈائریکٹر ڈینی بوائل نے ہفتے کے روز تصدیق کی کہ دی سن اخبار کی وہ سرخیاں جنہیں ان کے نیٹ فلکس ڈراما ’انک‘ (Ink) کے برطانوی ورژن سے حذف کر دیا گیا تھا، امریکی سنیما اور اسٹریمنگ ریلیز میں مکمل دکھائی جائیں گی۔ کونٹینڈرز فلم ایونٹ میں بات کرتے ہوئے انہوں نے وضاحت کی کہ برطانیہ اور امریکہ میں ہتکِ عزت کے قوانین میں واضح فرق ہے؛ برطانیہ کے برعکس امریکی قوانین پبلشرز کے خلاف دعووں کو نسبتاً محدود کرتے ہیں، جس کی وجہ سے برطانوی قانونی احتیاط امریکی مارکیٹ پر لاگو نہیں ہوتی۔ فلم برطانوی مقبول صحافت کے متنازع اور تیز رفتار ارتقاء کا احاطہ کرتی ہے۔", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/ink-tabloid-headlines-uncensored-in-united-states-1237224129/"}]}, {"id": 5, "desk": "ڈیسک ۵: سیاحت، شمالی وادیاں، ورثہ اور عالمی سفارت کاری", "category": "سہ فریقی دفاعی معاہدہ و ثقافتی روڈ میپ", "readTime": "۴ منٹ مطالعہ", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "گریس ہاسپیٹلٹی کے بیسٹ ویسٹرن پریمیئر کالام کے افتتاح کے ساتھ وادی سوات میں پہلے بین الاقوامی ہوٹل کا خیرمقدم", "deck": "وادی سوات کو بیسٹ ویسٹرن پریمیئر کالام کے افتتاح کے ساتھ اپنا پہلا بین الاقوامی برانڈڈ ہوٹل مل گیا ہے، جو سیاحتی مقام کالام میں گریس ہاسپیٹلٹی گروپ کی جانب سے قائم کیا گیا ہے۔", "hero_source": "ProPakistani · National Desk", "hero_url": "https://propakistani.pk/2026/11/14/swat-valley-welcomes-its-first-international-hotel-with-the-arrival-of-best-western-premier-kalam-by-grace-hospitality/", "author": "عالمی سفارت کاری و تاریخی ورثہ ڈیسک", "authorRole": "سفارتی تجزیہ نگار", "body": ["وادی سوات نے اپنے پہلے بین الاقوامی برانڈڈ ہوٹل کا خیرمقدم کیا ہے جس کا آغاز کالام کے پرفضا مقام پر گریس ہاسپیٹلٹی کے 'بیسٹ ویسٹرن پریمیئر کالام' کے افتتاح سے ہوا ہے۔ سوات کے بالائی علاقوں میں عالمی شہرت یافتہ بیسٹ ویسٹرن پریمیئر کے پرچم کی آمد اس خطے کیلیے سنگِ میل ہے جہاں کی رہائشی مارکیٹ طویل عرصے سے بین الاقوامی طور پر منظم ہوٹلوں کے بجائے مقامی گیسٹ ہاؤسز اور موسمی قیام گاہوں تک محدود تھی۔", "بلند و بالا پہاڑوں، سرسبز وادیوں اور دریائی مناظر کے درمیان واقع یہ ہوٹل گرمیوں کے موسم میں پاکستان کے شاندار قدرتی ماحول میں بین الاقوامی معیار کی سہولیات، آرام اور معیاری سروس فراہم کرنے کیلیے تیار کیا گیا ہے۔ گریس ہاسپیٹلٹی کے مطابق یہ منصوبہ پیشہ ورانہ انتظام والی قیام گاہوں کی بڑھتی ہوئی مانگ کو پورا کرے گا، جس کا ہدف اندرونِ ملک سے آنے والے سیاحوں کے ساتھ ساتھ وہ غیر ملکی مسافر ہیں جو شمالی پاکستان میں اعلیٰ معیار کے مہمان نوازی کے تجربات کے خواہاں ہیں۔", "یہ پیش رفت سوات کی سیاحتی معیشت کے عمومی ارتقاء کی عکاسی کرتی ہے۔ دلکش قدرتی مناظر، خوشگوار موسم اور شاندار ثقافتی ورثے کی وجہ سے سوات میں حالیہ برسوں میں سیاحوں کی دلچسپی میں نمایاں اضافہ ہوا ہے، جس سے اس امر کی ضرورت شدت سے محسوس کی جا رہی تھی کہ خطے کے انفراسٹرکچر کو مستحکم مقامات کے مساوی لایا جائے۔ کمپنی کا کہنا ہے کہ یہ ہوٹل کالام میں سروس ڈیلیوری کو عالمی برانڈز کے تقاضوں سے ہم آہنگ کرنے کی جانب ایک بڑا قدم ہے۔", "اس ہوٹل کے قیام سے نہ صرف کالام کا سیاحتی تشخص مستحکم ہوگا بلکہ یہ پاکستان کے دیگر روایتی شمالی سیاحتی روٹس کے مقابلے میں مسابقت کی صلاحیت بھی حاصل کرے گا۔ مقامی سیاحتی صنعت کیلیے ایک بین الاقوامی ہوٹل کا آغاز سوات کے پرکشش مستقبل پر تجارتی برادری کے گہرے اعتماد کی علامت ہے۔"], "quote": "مکہ جوائنٹ ڈیفنس الائنس علاقائی خودمختاری، سمندری سلامتی اور مشترکہ صنعتی ترقی کی ایک مضبوط ضمانت ہے۔ — ریاض مشترکہ اعلامیہ", "secondary_title": "علاقائی سلامتی، سیاحتی راہداریاں اور تاریخی ورثہ", "secondary_items": [{"head": "کوپ 31 مذاکرات کے وسط میں ماحولیاتی انصاف کیلیے انطالیہ میں ہزاروں افراد کا مظاہرہ", "body": "انطالیہ: ترکیہ کے ساحلی شہر میں ہفتے کے روز ہزاروں مظاہرین سڑکوں پر نکل آئے اور ماحولیاتی تباہی کے شکار افراد کو انصاف فراہم کرنے میں ناکامی پر عالمی ماحولیاتی سربراہی اجلاس (COP31) کے خلاف شدید احتجاج کیا۔ یہ مظاہرہ ایسے وقت میں ہوا جب 200 کے قریب ممالک کے مذاکرات کار حتمی سمجھوتے کیلیے سرتوڑ کوششیں کر رہے ہیں۔ مظاہرین نے فوسل فیول کے استعمال پر پابندی اور غریب ممالک کی مالی مدد کیلیے فوری اقدامات کا مطالبہ کیا۔ بارش کے دوران 7,000 سے زائد افراد نے سخت پولیس سیکیورٹی میں ریلی نکالی۔ دوسری طرف کوپ 31 میں پاکستانی پویلین میں پارلیمانی سیکرٹری برائے اطلاعات و نشریات بیرسٹر دانیال چوہدری نے ایک اعلیٰ سطحی مکالمے سے خطاب کرتے ہوئے کہا کہ دنیا کو ماحولیاتی بے عملی کے معاشی نقصانات کا اعتراف کرنا ہوگا۔ انہوں نے کہا کہ مالیاتی استحکام کے اقدامات ماحولیاتی تحفظ پر اثرانداز نہیں ہونے چاہئیں اور قرضوں میں جکڑے ماحولیاتی خطرات کے شکار ممالک کیلیے پانچ نکاتی پارلیمانی سفارشات پیش کیں جن میں کلائمیٹ پروفنگ مالیاتی پالیسیاں، قابل تجدید توانائی کی حفاظت، موسمیاتی ایڈاپٹیشن کو اخراجات کے بجائے سرمایہ کاری سمجھنا اور ڈیٹ فار کلائمیٹ سواپس شامل ہیں۔", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2044520/thousands-rally-in-antalya-to-demand-climate-justice-as-cop31-talks-hit-midpoint"}, {"head": "ماسکو کا بیان: یوکرین مذاکرات میں یورپی یونین کے وفد کی شرکت کی راہ میں رکاوٹ نہیں بنیں گے", "body": "روس نے یوکرین جنگ کے خاتمے سے متعلق مذاکرات میں شرکت کے معاملے پر اپنے مؤقف میں نرمی پیدا کرتے ہوئے کہا ہے کہ وہ مستقبل کے مذاکراتی عمل میں یورپی یونین کے وفد کی شمولیت کی مخالفت نہیں کرے گا۔ یہ اعلان روسی حکمت عملی میں ایک واضح تبدیلی کی نشاندہی کرتا ہے، کیونکہ ماسکو اس سے قبل یورپی نمائندوں کے مذاکراتی میز پر بیٹھنے کی مخالفت کرتا آیا تھا اور اس کا اصرار تھا کہ صرف تنازع کے براہ راست فریقین ہی کمرے میں ہونے چاہئیں۔ یہ پیش رفت ایسے وقت میں سامنے آئی ہے جب ممکنہ معاہدے، سیکیورٹی ضمانتوں اور یوکرین کی فوج کے مستقبل پر سفارتی سرگرمیاں تیز ہو چکی ہیں، جبکہ یورپی دارالحکومتوں کا مسلسل یہی مؤقف رہا ہے کہ یورپ کی شراکت کے بغیر کوئی بھی پائیدار تصفیہ ممکن نہیں ہے۔", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/11/14/moscow-says-it-will-not-dictate-eu-delegations-participation-in-ukraine-talks"}, {"head": "کینیڈا اور فلپائن کے مابین آزاد تجارتی معاہدے پر مذاکرات مکمل، مارک کارنی کا اعلان", "body": "کینیڈین وزیر اعظم مارک کارنی نے اعلان کیا ہے کہ کینیڈا اور فلپائن نے آزاد تجارتی معاہدے (ایف ٹی اے) پر مذاکرات کامیابی سے مکمل کر لیے ہیں، اور انہوں نے اسے بحر الکاہل کے دونوں اطراف برآمد کنندگان اور سروس فراہم کرنے والے اداروں کیلیے بڑی پیش رفت قرار دیا۔ کارنی نے صحافیوں کو بتایا کہ یہ زراعت، ایرو اسپیس، مصنوعی ذہانت، کان کنی، توانائی اور خدمات کے شعبوں سے وابستہ کینیڈین اداروں کیلیے بہترین خبر ہے۔ مذاکرات کے اختتام کے بعد اب دونوں دارالحکومت اپنے متعلقہ اداروں سے توثیق کرانے سے قبل قانونی دستاویزات کو حتمی شکل دیں گے۔ کینیڈین زرعی اجناس کیلیے فلپائن ایک بڑی ابھرتی ہوئی مارکیٹ ہے، جبکہ منیلا کو اپنی مینوفیکچرنگ اور خدمات کی برآمدات میں وسعت کے ساتھ ساتھ روزگار اور سرمایہ کاری کے نئے مواقع حاصل ہوں گے۔", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/11/14/canada-and-the-philippines-conclude-talks-on-free-trade-deal-mark-carney-says"}, {"head": "ہاکی بائیکاٹ کے تناظر میں روس کا آئی آئی ایچ ایف سے ورلڈ جونیئرز ٹورنامنٹ کینیڈا سے منتقل کرنے کا مطالبہ", "body": "روس نے انٹرنیشنل آئس ہاکی فیڈریشن (IIHF) پر زور دیا ہے کہ وہ کینیڈا سے ورلڈ جونیئر چیمپئن شپ منتقل کرے، کیونکہ کینیڈین حکام نے 26 دسمبر سے البرٹا میں شروع ہونے والے 10 ملکی ٹورنامنٹ میں روسی کھلاڑیوں کے داخلے پر پابندی لگا دی ہے۔ یہ اپیل انڈر 20 ایونٹ سے چند ہفتے قبل سامنے آئی ہے جس نے کھیلوں کے حلقوں میں سوالات کھڑے کر دیے ہیں۔ کینیڈا کا یہ مؤقف ایسٹونیا، فن لینڈ اور ناروے کی جانب سے یوکرین جنگ کے خاتمے تک روسی کھلاڑیوں کے بائیکاٹ کے سلسلے کی کڑی ہے۔ اس مرحلے پر ٹورنامنٹ کی منتقلی لاجسٹک، کمرشل اور معاہداتی پیچیدگیوں کی حامل ہوگی، جبکہ البرٹا میں انعقاد روسی ٹیم کے اخراج کو مستقل کر دے گا۔", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/11/14/russia-urges-iihf-to-move-canada-world-juniors-as-hockey-boycotts-spread"}, {"head": "این سی سی آئی اے کی نوجوانوں کو پرکشش تنخواہوں کے لالچ میں غیر قانونی کال سینٹرز سے دور رہنے کی وارننگ", "body": "اسلام آباد: نیشنل سائبر کرائم انویسٹی گیشن ایجنسی (NCCIA) نے ہفتے کے روز خبردار کیا ہے کہ موجودہ نظام کی خامیوں سے فائدہ اٹھا کر غیر قانونی کال سینٹرز، آن لائن بیٹنگ اور بین الاقوامی فراڈ نیٹ ورکس منی لانڈرنگ اور شہریوں کو بلیک میل کرنے کا مکروہ دھندا چلا رہے ہیں۔ اسلام آباد اور راولپنڈی کے ایڈیشنل ڈائریکٹر محمد شعیب خان نے پریس کانفرنس میں انکشاف کیا کہ جعلی کمپنیاں بنا کر ان کے کھاتے لون ایپس اور گیمنگ پورٹلز سے جوڑے جا رہے ہیں۔ انہوں نے تعلیم یافتہ نوجوانوں اور ان کے والدین کو خبردار کیا کہ پرکشش تنخواہوں کے نام پر چلنے والے ان جرائم پیشہ کال سینٹرز کا حصہ نہ بنیں، ورنہ گرفتاری پر درج ہونے والی ایف آئی آر ان کا مستقبل اور کردار کا سرٹیفکیٹ تباہ کر سکتی ہے۔ انہوں نے بتایا کہ گزشتہ تین دنوں میں راولپنڈی اور اسلام آباد میں دو کال سینٹرز پر چھاپے مار کر 154 افراد کو گرفتار کیا گیا ہے جو بین الاقوامی فراڈ، جعلی پولیس سیٹ اپ اور قابل اعتراض ویڈیوز کے ذریعے بلیک میلنگ میں ملوث تھے۔", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2044498/nccia-warns-youth-against-joining-illegal-call-centres-for-lucrative-salaries"}]}, {"id": 6, "desk": "ڈیسک ۶: کھیل، سائنسی دریافتیں، کتب اور بلامعاوضہ قانونی مشاورت", "category": "یوئیفا نیشنز لیگ، فارمولا ون و قانونی رہنمائی", "readTime": "۵ منٹ مطالعہ", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "انڈر 19 ایشیا کپ کے سنسنی خیز فائنل کی آخری گیند پر بھارت نے پاکستان کو ایک وکٹ سے ہرا دیا", "deck": "مسقط کے الامارات کرکٹ گراؤنڈ پر کھیلے گئے اے سی سی انڈر 19 ایشیا کپ کے فائنل کی آخری گیند پر بھارت نے اپنے اعصاب پر قابو رکھتے ہوئے پاکستان کے خلاف ایک وکٹ کی سنسنی خیز فتح حاصل کر لی، اور 338 رنز کا ہدف حاصل کر کے دفاعی چیمپئن کو ٹائٹل کے دفاع سے محروم کر دیا۔", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2044502/india-stun-pakistan-by-one-wicket-in-last-ball-u-19-asia-cup-final-thriller", "author": "اسپورٹس، سائنس و قانونی مشاورتی ڈیسک", "authorRole": "کھیل و قانونی تجزیہ نگار", "body": ["مسقط کے الامارات کرکٹ گراؤنڈ پر کھیلے گئے اے سی سی انڈر 19 ایشیا کپ کے فائنل میں بھارت نے اپنے اعصاب پر قابو رکھتے ہوئے آخری گیند پر پاکستان کے خلاف ایک وکٹ کی سنسنی خیز جیت حاصل کی اور 338 رنز کا پہاڑ جیسا ہدف عبور کر کے پاکستان کو ٹائٹل کے دفاع سے روک دیا۔ آخری اوور میں فتح کیلیے آٹھ رنز درکار تھے اور موہت الوا نے احمد حسین کی آخری گیند پر وننگ چوکا لگایا۔ الوا 26 گیندوں پر 5 چوکوں اور 3 چھکوں کی مدد سے 49 رنز بنا کر ناقابل شکست رہے، جبکہ ایشان سود کی جگہ شامل ہونے والے چگوروپتی وینکٹا 8 گیندوں پر 11 رنز بنا کر ناٹ آؤٹ رہے، جس کی بدولت بھارت نے 50 اوورز میں 9 وکٹوں پر 339 رنز بنائے۔", "بھارت 42ویں اوور میں 252 رنز پر آٹھ وکٹیں گنوانے کے بعد بظاہر شکست کے دہانے پر تھا، مگر الوا اور منال چوہان نے نویں وکٹ کیلیے 57 رنز کی پارٹنرشپ قائم کر کے میچ کا رخ بدل دیا۔ چوہان نے 32 گیندوں پر 47 رنز بنائے اور 48ویں اوور میں 309 کے اسکور پر آؤٹ ہوئے، جس کے بعد آخری 16 گیندوں پر 29 رنز درکار تھے۔ الوا اور وینکٹا نے آخری وکٹ کیلیے 30 رنز کی ناقابل شکست شراکت داری قائم کی۔ اس سے قبل بھارتی کپتان لکشیا رائے چندانی نے 101 گیندوں پر 80 اور آریہ ویر سہواگ نے 61 گیندوں پر 58 رنز بنا کر پہلی وکٹ کیلیے 95 رنز جوڑے تھے۔", "اس سے قبل پاکستان نے ٹاس جیت کر پہلے بیٹنگ کا فیصلہ کیا اور 9 وکٹوں کے نقصان پر 337 رنز کا مجموعہ ترتیب دیا۔ پاکستان نصف اننگز میں 2 وکٹوں پر 204 رنز بنا کر 350 سے زائد کے مجموعے کی طرف بڑھ رہا تھا لیکن بھارتی باؤلرز نے آخری اوورز میں گرفت مضبوط کر لی۔ عثمان خان نے 111 گیندوں پر 107 رنز کی شاندار اننگز کھیلی جس میں 11 چوکے اور 3 چھکے شامل تھے، جو ٹورنامنٹ میں ان کی دوسری سنچری تھی۔ حائم خان نے 21 رنز بنائے جبکہ دونوں کے درمیان اوپننگ کیلیے 62 رنز کا اضافہ ہوا۔ عبد القادر نے جارحانہ انداز اپناتے ہوئے 54 گیندوں پر 8 چھکوں کے ساتھ 80 رنز کی اننگز کھیلی اور عثمان خان کے ساتھ دوسری وکٹ کیلیے 135 رنز جوڑے۔ کپتان فرحان یوسف نے 60 گیندوں پر 63 رنز اسکور کیے۔", "بھارت کی جانب سے کاویا پاریش پٹیل نے 68 رنز دے کر 4 وکٹیں حاصل کیں جبکہ وینکٹا نے 40 رنز دے کر 3 کھلاڑیوں کو آؤٹ کیا۔ پاکستان کی جانب سے رضوان اللہ 3 اور نقاب شفیق 2 وکٹوں کے ساتھ نمایاں رہے۔ موہت الوا کو میچ وننگ اننگز پر میچ کا بہترین کھلاڑی جبکہ آریہ ویر سہواگ کو ٹورنامنٹ کا بہترین کھلاڑی قرار دیا گیا۔"], "quote": "قانونی آگاہی اور بروقت اپیل کا حق ہر ٹیکس دہندہ کا بنیادی ہتھیار ہے، بلاجواز بینک ضبطیوں کے خلاف فوری قانونی چارہ جوئی لازمی ہے۔ — محمد اقبال بھوانہ", "secondary_title": "اتوار کی نیشنز لیگ، سیپانگ ایف ون اور بلامعاوضہ قانونی مشورہ", "secondary_items": [{"head": "رونالڈو کے بغیر پرتگال کو نیشنز لیگ میں ڈنمارک کے ہاتھوں 4-1 کی شرمناک شکست", "body": "براگا: کرسٹیانو رونالڈو کے انٹرنیشنل فٹ بال سے ریٹائرمنٹ کے بعد پہلے میچ میں پرتگال کو ڈنمارک کے ہاتھوں 4-1 کی شرمناک شکست کا سامنا کرنا پڑا۔ براگا کے میونسپل اسٹیڈیم میں کھیلے گئے نیشنز لیگ کے میچ میں راسموس ہولنڈ نے دو شاندار گول کر کے اپنی ٹیم کو گروپ A4 میں دوسرے نمبر پر پہنچا دیا۔ ڈینش ٹیم پانچ میچوں میں نو پوائنٹس پر ہے جبکہ پرتگال 12 پوائنٹس کے ساتھ پہلے ہی کوارٹر فائنل کیلیے کوالیفائی کر چکا ہے۔ میچ سے قبل پرتگال کی ٹیم نے رونالڈو کو خراج تحسین پیش کیا جن کی جرسیوں پر 7 نمبر اور رونالڈو کا نام درج تھا۔ پیئر ایمائل ہوبیرگ نے 43ویں منٹ میں پنالٹی پر ڈنمارک کو برتری دلائی جس کے بعد ہولنڈ نے دو خوبصورت گول داغے۔ برنارڈو سلوا کا گول بھی پرتگال کے شائقین کے غم و غصے کو کم نہ کر سکا۔", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2044621/ronaldo-less-portugal-suffer-nations-league-hammering-at-hands-of-denmark"}, {"head": "پرتگال نے قومی لیجنڈ کو خراج تحسین پیش کرتے ہوئے کرسٹیانو رونالڈو کی 7 نمبر کی جرسی کو امر کر دیا", "body": "پرتگال نے اپنے عظیم ترین فٹ بالر کرسٹیانو رونالڈو کی خدمات کے اعتراف میں 7 نمبر کی جرسی کے اصل ڈیزائن کو مستقل طور پر محفوظ کر کے انہیں شاندار خراج تحسین پیش کیا ہے۔ اس اقدام کا مقصد یہ یقینی بنانا ہے کہ یہ نمبر ہمیشہ اس لیجنڈری کھلاڑی سے منسوب رہے جس نے قومی ٹیم کیلیے 246 میچوں میں شرکت کی اور 146 گول داغے۔ رونالڈو نے کوچ جارج جیسس کے ساتھ اختلافات کے بعد 5 نومبر کو اپنے 23 سالہ بین الاقوامی کیریئر کے خاتمے کا اعلان کیا تھا۔ پرتگالی شائقین کیلیے یہ اقدام اس حقیقت کی باضابطہ توثیق ہے کہ پرتگال کی تاریخ میں 7 نمبر صرف اور صرف رونالڈو کا ہے۔", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/14/portugal-immortalise-cristiano-ronaldos-no-7-shirt-in-tribute-to-national-legend"}, {"head": "نیشنز لیگ راؤنڈ اپ: ناروے نے ویلز کو پچھاڑ دیا، پرتگال ڈنمارک کے ہاتھوں بے بس", "body": "پرتگال کو براگا میں ڈنمارک کے ہاتھوں 4-1 کی دردناک شکست کا سامنا کرنا پڑا جو رونالڈو کے بعد کے دور میں ایک بڑا صدمہ ہے۔ راسموس ہولنڈ کے دو گولز نے ڈنمارک کو نیشنز لیگ کے کوارٹر فائنل کے انتہائی قریب پہنچا دیا ہے۔ دوسری طرف اوسلو میں ناروے نے ویلز کو 3-1 سے ہرا کر اس کی کوالیفائنگ امیدوں کو زبردست دھچکا پہنچایا۔ ناروے کی جانب سے انتونیو نوسا اور ایرلنگ ہالینڈ کے پنالٹی گول نے فتح میں اہم کردار ادا کیا۔ اس شکست نے کریگ بیلامی کی ویلش ٹیم کو گروپ کے پیندے میں دھکیل دیا ہے جہاں ان پر ریلیگیشن کا خطرہ منڈلا رہا ہے۔", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/14/clinical-norway-dent-wales-nations-league-top-tier-hopes-with-victory-in-oslo"}, {"head": "ہسپانوی امتحان سے عیاں ہوگا کہ ٹوخل اور انگلینڈ نے ورلڈ کپ کے اسباق سیکھے یا نہیں", "body": "عالمی چیمپئن اسپین کے خلاف انگلینڈ کا آئندہ مقابلہ ہیڈ کوچ تھامس ٹوخل کی مدت کا سب سے کڑا امتحان ثابت ہوگا۔ بی بی سی کے تجزیہ کار فل میک نلٹی کے مطابق یہ میچ ثابت کرے گا کہ آیا انگلش اسکواڈ نے موسم گرما کے تلخ اسباق سے کچھ سیکھا ہے یا نہیں۔ اگرچہ انگلینڈ نے اپنے ورلڈ کپ کوالیفائرز کے آٹھوں میچز بغیر کوئی گول کھائے جیتے ہیں، لیکن اسپین کا اعلیٰ تکنیکی مڈفیلڈ اور لامین یامال جیسے باصلاحیت نوجوان کھلاڑی انگلش دفاع کی حقیقی خامیوں کو بے نقاب کرنے کی صلاحیت رکھتے ہیں۔ ٹوخل کیلیے یہ میچ محض نتائج سے زیادہ کھیل پر حاوی ہونے کے ثبوت کا امتحان ہے۔", "source": "BBC Sport & Sky Sports", "url": "https://www.bbc.co.uk/sport/football/articles/cq2d9l3e313zo?at_medium=RSS&at_campaign=rss"}, {"head": "ڈبلیو ٹی اے فائنلز: آندریوا کا فائنل میں سویٹولینا سے مقابلہ، سبلینکا نے معافی مانگ لی", "body": "روسی ٹینس اسٹار میرا آندریوا نے انڈین ویلز ٹینس گارڈن میں کھیلے گئے ڈبلیو ٹی اے فائنلز کے سیمی فائنل میں پانچویں سیڈ جیسیکا پیگولا کو 6-3 اور 6-4 سے آؤٹ کلاس کر کے فائنل میں جگہ پکی کر لی جہاں ان کا سامنا یوکرین کی ایلینا سویٹولینا سے ہوگا۔ 19 سالہ آندریوا نے پورے ٹورنامنٹ میں ایک بھی سیٹ ہارے بغیر شاندار کارکردگی کا مظاہرہ کیا اور نمبر ون سیڈ ارینا سبلینکا کو بھی بدترین شکست سے دوچار کیا۔ دوسری جانب سوشل میڈیا پر ہنگامے کے بعد سبلینکا نے عوامی سطح پر معافی نامہ جاری کر دیا ہے۔", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/nov/14/mirra-andreeva-jessica-pegula-wta-finals-semi-final-indian-wells"}]}];
+const FORECAST_DATA = [{"date": "کراچی پورٹ", "cond": "معتدل و صاف", "temp": "۳۴°C / ۲۵°C", "pop": "پورٹ کراچی: جہاز رانی و کارگو کلیئرنس معمول پر"}, {"date": "پورٹ قاسم", "cond": "صاف موسم", "temp": "۳۵°C / ۲۴°C", "pop": "ٹرن اراؤنڈ ۱۸ گھنٹے سے کم · میرین ٹیلی میٹری فعال"}, {"date": "لاہور ڈرائی پورٹ", "cond": "خشک و خوشگوار", "temp": "۳۲°C / ۲۰°C", "pop": "ریلوے فریٹ کارگو آپریشنل · کسٹمز کلیئرنس جاری"}, {"date": "اسلام آباد", "cond": "صاف مطلع", "temp": "۳۰°C / ۱۷°C", "pop": "ایف بی آر آئرس ۳.۰ فعال · بین البینک زرمبادلہ مستحکم"}, {"date": "سکردو و گلگت", "cond": "خوشگوار خزان", "temp": "۲۱°C / ۰۸°C", "pop": "۱۰۰٪ پروازیں وقت پر · ڈوپلر ریڈار فعال"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || ''}</span>
+          <span style="color: #fbbf24;">${it.cond || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || ''}</div>
+        <div class="weather-pop">${it.pop || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildUrduDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="اصل ماخذ دیکھیں">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="اصل رپورٹ پڑھیں">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        ماخذ: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">${d.quote}</p>
+        <cite class="quote-author">— ${d.author} (${d.authorRole})</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          قانونی انتباہ، ادارتی وضاحت و لا محدودیتِ ذمہ داری (Disclaimer)
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>مکمل طور پر مصنوعی ذہانت سے تیار کردہ:</b> روزنامہ <i>بھوانہ ٹریبیون</i> ایک غیر تجارتی، علمی و تحقیقی اشاعت ہے جو مکمل طور پر خودکار ملٹی ایجنٹ اے آئی پائپ لائنز کے ذریعے بغیر کسی انسانی ترمیم، حذف و اضافے یا پیشگی ادارتی سنسرشپ کے تیار کی جاتی ہے۔
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>ماخذ کی تصدیق و احتیاطی انتباہ:</b> تمام خبروں، ریگولیٹری فیصلوں، قانونی گزٹ اور سائنسی رپورٹس کے اصل ماخذ کو دیانتداری کے ساتھ براہ راست تصدیق شدہ ہائپر لنکس کے ذریعے شامل کیا گیا ہے۔ کسی بھی خبر، اعداد و شمار یا ایس آر او پر عمل درآمد سے قبل قارئین اور متعلقہ تجارتی اداروں کو ہدایت کی جاتی ہے کہ وہ آفیشل سرکاری گزٹ سے اس کی آزادانہ تصدیق فرما لیں۔
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>غیر تجارتی و عوامی آگاہی اسٹیٹس:</b> یہ اشاعت خالصتاً عوامی آگاہی، قانونی تعلیم، اور جدید ٹیکنالوجی کے تحقیقی مقاصد کے لیے جاری کی جاتی ہے۔
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 17px;">
+            پرو بونو کسٹمز و ٹیکس پیئر ایڈوائزری ڈیسک · محمد اقبال بھوانہ
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>مفت قانونی و ٹیکس رہنمائی:</b> کوئی بھی ٹیکس دہندہ، درآمد کنندہ، برآمد کنندہ، صنعت کار یا کلیئرنگ ایجنٹ جسے پاکستان کسٹمز یا وفاقی و صوبائی ٹیکس معاملات (بشمول شوکاز نوٹسز، ڈیمانڈ نوٹسز، ویلیو ایشن تنازعات، ان پٹ ایڈجسٹمنٹ یا قانونی اپیلوں) میں کسی قسم کا مسئلہ درپیش ہو، وہ رہنمائی کے لیے بلا جھجھک محمد اقبال بھوانہ سے براہِ راست رابطہ کر سکتا ہے۔
+          </p>
+          <div class="advisory-gratis-pill">۱۰۰٪ بلا معاوضہ · خالصتاً پرو بونو · کبھی کوئی فیس یا معاوضہ طلب نہیں کیا جاتا</div>
+          <div class="legal-contacts-row">
+            <span><b>واٹس ایپ:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>ای میل:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>مقصد:</b> شفاف ٹیکس نظام، آئینی بالادستی اور عوامی قانونی آگاہی کے لیے وقف۔</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← پچھلا ڈیسک (ڈیسک ۰${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          اگلا ڈیسک (ڈیسک ۰${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const engLink = document.getElementById('engSwitchLink');
+    if (engLink) {
+      engLink.href = `./index.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          ${item.desk.split(':')[0]} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ تمام ۶ صفحات (مکمل ایڈیشن)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildUrduDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildUrduDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in Urdu renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error in Urdu:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>

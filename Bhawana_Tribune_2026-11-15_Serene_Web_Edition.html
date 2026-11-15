@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (SUNDAY, NOVEMBER 15, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">SUNDAY, NOVEMBER 15, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "FBR sets January 31 deadline to finalise income tax return forms for Tax Year 2027", "deck": "Updated Income Tax Rules 2002 establish a step-by-step schedule for preparing, consulting on and notifying tax return forms, with draft forms due by December 1, 2026, and final forms by January 31, 2027.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/fbr-income-tax-return-forms-timeline-tax-year-2027/", "body": ["Updated Income Tax Rules 2002 establish a step-by-step schedule for preparing, consulting on and notifying tax return forms, with draft forms due by December 1, 2026, and final forms by January 31, 2027.", "The Federal Board of Revenue (FBR) has prescribed a detailed timeline for preparing, consulting on and notifying income tax return forms for tax year 2027, setting January 31, 2027, as the deadline for making final forms available on its IRIS portal.", "The FBR issued the Income Tax Rules, 2002, updated up to September 15, 2026, for tax year 2027, covering the period from July 1, 2026, to June 30, 2027.", "Under Rule 34A, the tax authority has established deadlines for different stages of preparing and notifying income tax return forms, including legal amendments, software development, testing and stakeholder consultations.", "According to the rule, the draft return form prescribed under Rule 34 must be notified for public suggestions by December 1, 2026.", "The Inland Revenue Policy Wing must identify legal amendments required in the return forms by August 31, 2026. Meanwhile, the Inland Revenue Policy Wing and Information Technology Wing, in consultation with Pakistan Revenue Automation Limited (PRAL), must finalise the Change Request Form (CRF) by September 15.", "The Chief Income Tax Policy and Chief Business Domain Team will scrutinise the change request by September 16 and submit it to the Member Inland Revenue Policy for approval.", "PRAL must complete configuration and software development of the approved changes by October 31, 2026.", "The amended forms must undergo User Acceptance Testing (UAT) by November 15, with the Inland Revenue Policy and Information Technology wings consulting PRAL before submitting the results for approval.", "Under Rule 34A, the draft income tax return forms will remain available on the FBR portal for public suggestions until January 7, 2027."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR tax-to-GDP ratio drops to 2.1% despite higher revenue collection in 1QFY27", "body": "Pakistan\u2019s tax collection rises to Rs3.09 trillion, but the expanding economy pushes the Federal Board of Revenue\u2019s tax-to-GDP ratio lower year-on-year.\n\nPakistan\u2019s tax-to-GDP ratio declined to 2.1% during the first quarter of fiscal year 2026-27, compared with 2.27% in the corresponding period last year, highlighting challenges in improving revenue mobilisation.\n\nAccording to data released by the Ministry of Finance, the Federal Board of Revenue (FBR) collected Rs3.086 trillion during July-September 2026, against Rs2.884 trillion in the same period of FY2025-26.\n\nDespite the increase in tax receipts, the ratio declined as the country\u2019s gross domestic product (GDP) expanded to Rs143.61 trillion from Rs126.87 trillion a year earlier.\n\nDirect tax collection increased to Rs1.440 trillion during the first quarter, compared with Rs1.364 trillion in the corresponding period last year.\n\nWithin indirect taxation, sales tax collection increased to Rs1.137 trillion from Rs1.019 trillion, while customs duty revenue reached Rs312.17 billion compared with Rs310.58 billion.\n\nThe figures indicate that higher tax collection has not translated into an improved tax-to-GDP ratio, as economic growth outpaced the increase in FBR revenue.\n\nThe declining ratio underscores the government\u2019s continuing challenge of broadening the tax base and strengthening revenue collection.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-tax-to-gdp-ratio-falls-1qfy27/"}, {"head": "FBR issues income tax return filing rules for Tax Year 2027", "body": "The Federal Board of Revenue has issued the income tax return filing rules for Tax Year 2027, prescribing the forms, annexures and verification requirements that taxpayers must observe when discharging their annual filing obligations. The framework, notified under the rule-making powers of the Income Tax Ordinance, 2001, applies to all classes of taxpayers \u2014 companies, associations of persons and individuals, including salaried filers \u2014 and puts the procedural architecture of the coming filing cycle in place well ahead of the season in which returns will fall due.\n\nThe rules carry forward the board's fully digital administration of returns, which are to be prepared and submitted through the Iris e-filing portal, with computations drawing on declarations of income, tax deducted at source, advance tax payments and adjustable levies already recorded in the revenue authority's systems. The prescribed schedules consolidate disclosures of income, assets and tax credits, enabling filers to reconcile taxable income with the withholding and advance payments flowing through employers, banks and other withholding agents.\n\nEarly notification gives employers, withholding agents, tax practitioners and return-form software developers lead time to update systems and align compliance calendars with the statutory due dates. Timely filing remains the gateway to active taxpayer status, which under the existing regime determines eligibility for reduced withholding rates and other benefits available to filers on the active taxpayers list.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-income-tax-return-filing-rules-tax-year-2027/"}, {"head": "Asif reaffirms Pakistan\u2019s support for Palestine", "body": "ISLAMABAD: President Asif Ali Zardari has congratulated Palestinian President Mahmoud Abbas and the people of Palestine on the 38th anniversary of their Declaration of Independence, reaffirming Pakistan\u2019s support for their right to self-determination. In a letter addressed to President Mahmoud Abbas, the President extended warm felicitations to President of the State of Palestine Mahmoud Abbas and the people of Palestine on the occasion of the 38th Anniversary of the Declaration of Independence of the State of Palestine, reaffirming Pakistan\u2019s unwavering support for the legitimate rights of the Palestinian people, particularly their right to self-determination. He said Pakistan and Palestine enjoy close fraternal relations rooted in shared history, mutual trust, solidarity and common aspirations. He said the people of Pakistan hold the Palestinian people in the highest esteem and remain deeply committed to further strengthening the bonds of friendship and brotherhood between the two countries. President Zardari reiterated Pakistan\u2019s firm and principled support for the establishment of an independent, sovereign, viable and contiguous State of Palestine, based on the pre-1967 borders, with Al-Quds Al-Sharif as its capital, in accordance with relevant United Nations resolutions. He also reaffirmed Pakistan\u2019s solidarity with the Palestinian people in the face of their continued suffering and expressed support for their aspirations for lasting peace, freedom and dignity. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448995/asif-reaffirms-pakistans-support-for-palestine"}, {"head": "Pakistan Qualify for SAFF Championship Final for First Time in History", "body": "Pakistan have reached the SAFF Championship final for the first time in their history after defeating hosts Bangladesh 1-0 in a closely contested semifinal at the National Stadium in Dhaka. Abdul Samad Arshad scored the decisive goal in the 86th minute, securing a historic victory for the national football team. Pakistan started the match strongly, creating two attacking opportunities in the opening minutes. Bangladesh goalkeeper Mehedi Hasan Srabon made an important early save before the hosts gradually gained control of possession. Bangladesh came close to opening the scoring when Rakib Hossain\u2019s powerful shot was saved by Pakistan\u2019s goalkeeper before hitting the post. Pakistan also missed a major opportunity in the first half when Abdul Samad found space inside the penalty area, but his shot struck the post.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/14/pakistan-qualify-for-saff-championship-final-for-first-time-in-history/"}, {"head": "SBP profit plunges 20.4% as Pakistan\u2019s non-tax revenue falls 14% in 1QFY27", "body": "Profit transferred by the State Bank of Pakistan to the federal exchequer plunged 20.4 percent in the first quarter of fiscal year 2027, dragging the government\u2019s overall non-tax revenue down 14 percent for the July-September period. The central bank\u2019s surplus is historically the largest single component of federal non-tax receipts, and its steep contraction left the remaining heads \u2014 petroleum levy, dividends from state-owned enterprises, regulatory surcharges and miscellaneous income \u2014 unable to bridge the gap. The figures mark a weak opening to the budget\u2019s non-tax projections for FY27 and raise the stakes for collections over the remainder of the fiscal year.\n\nCentral bank income is inherently volatile: it moves with domestic policy rates, the size and valuation of foreign exchange reserves, and the cost of sterilising surplus liquidity in the money market. When those levers turn unfavourable, the transfer to the exchequer can swing sharply between quarters, and because the federal budget leans heavily on this single line item to finance current expenditure, it has little immediate substitute. A lean opening quarter therefore narrows the fiscal cushion and shifts a greater share of the revenue burden onto the Federal Board of Revenue\u2019s tax net.\n\nThe shortfall underscores the fragility of the non-tax base and the pressure it places on fiscal consolidation. A rebound in central bank transfers, steadier dividends and firmer petroleum levy collections in the second quarter will be needed to keep the full-year non-tax target and the wider deficit trajectory within reach.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-profit-decline-non-tax-revenue-1qfy27/"}, {"head": "Pakistan Seeks 2 LNG Cargoes for December-January", "body": "Pakistan LNG Limited (PLL) has invited international suppliers to bid for two liquefied natural gas (LNG) cargoes scheduled for delivery in December 2026 and January 2027 as the country prepares for higher winter gas demand. According to a tender notice issued on Thursday, the state-owned company is seeking delivery of the cargoes on a Delivered Ex Ship (DES) basis at Port Qasim, Karachi. The first shipment is scheduled for December 14 to 16, while the second is expected between January 9 and 11, 2027. PLL, which is owned by the federal government, is responsible for procuring LNG to meet the country\u2019s gas requirements. Pakistan has also intensified efforts to secure discounted LNG supplies from Qatar under existing long term contracts amid concerns over winter demand and disruptions in the Strait of Hormuz, which threaten global energy supply chains.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/11/13/pakistan-seeks-2-lng-cargoes-for-december-january/"}, {"head": "Super Power Archi 150 launched in Pakistan at Rs380,000 with new features", "body": "Two-wheeler assembler Super Power has launched its new Archi 150 motorcycle in Pakistan with a retail price of Rs 380,000, adding a fresh model to the country's fast-growing mid-displacement two-wheeler segment. The introduction positions the assembler to court buyers graduating from the 70cc and 125cc commuter bikes that dominate national volumes toward the heavier 150cc class, where demand has been building on the back of rising incomes, expanding bike financing and a growing preference for comfort-oriented machines.\n\nThe Archi 150 carries a set of new features over the outgoing model, which the company is banking on to set it apart in a competitive field that also includes the 150cc offerings of established Japanese-backed assemblers. Buyers in this bracket typically evaluate fuel economy alongside styling, seating comfort and durability, considerations that have shaped the segment's recent product refreshes across the market.\n\nWith price revisions becoming routine across the domestic motorcycle industry amid currency pressure and rising input costs, the Rs 380,000 tag places the Archi 150 firmly in the premium commuter bracket. Its arrival adds further choice for retail buyers and fleet operators alike, and it underscores the continued expansion of local assemblers beyond the small-displacement models that have long defined Pakistan's two-wheeler trade.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/super-power-archi-150-launched-in-pakistan-at-rs380000-with-new-features/"}, {"head": "Pakistan approves major changes to foreign exchange regulations", "body": "Pakistan has approved major changes to its foreign exchange regulations, adopting amendments under the Foreign Exchange Regulation (Amendment) Bill, 2026 that update the legal foundation of exchange control in the country. The changes revise the Foreign Exchange Regulation Act, 1947, the statute that has governed how foreign currency is bought, sold, held and remitted across Pakistan's borders for nearly eight decades, and reframe it for a financial system now dominated by digital payments and cross-border e-commerce.\n\nThe approved package is aimed at tightening oversight of cross-border money flows, closing avenues for the illegal transfer of currency abroad and pushing transactions through licensed banking channels and exchange companies. By sharpening the definition of regulated dealings and strengthening the enforcement powers available to the State Bank of Pakistan and federal investigative authorities, the amendments seek to curb unregulated parallel networks such as hawala and hundi, reinforce anti-money-laundering and counter-terrorist-finance compliance and align the regime with international standards followed by peer jurisdictions.\n\nFor exporters, importers, overseas Pakistanis and licensed foreign exchange dealers, the immediate effect is a firmer compliance environment and clearer rules for the documentation of foreign currency dealings. The overhaul lands as authorities work to stabilise the external account, encourage documented remittances through official channels and defend the rupee, with the amended law expected to provide the legal backbone for those efforts in the period ahead.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/foreign-exchange-regulation-amendment-bill-2026/"}, {"head": "Nishat Group Eyes Major Investment in Pakistan\u2019s New Port Project", "body": "Pakistan\u2019s efforts to expand its maritime infrastructure have attracted potential investment from one of the country\u2019s largest business conglomerates, with Nishat Group Chairman Mian Muhammad Mansha agreeing to explore opportunities in a government-proposed port project. Federal Minister for Maritime Affairs Muhammad Junaid Anwar Chaudhry disclosed the development after meeting Mansha on Friday, where discussions focused on private sector investment in expanding the country\u2019s port capacity. Mansha expressed interest in the proposed project and agreed to explore investment opportunities, signaling the potential for public-private collaboration in developing Pakistan\u2019s maritime infrastructure. The proposed port is expected to facilitate export-oriented industries and help the country tap its export potential. Chaudhry said developing another port could create new opportunities for economic growth, generate employment, and strengthen Pakistan\u2019s position as a regional trade and logistics hub.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/14/nishat-group-eyes-major-investment-in-pakistans-new-port-project/"}, {"head": "Pakistan ends 23-year Q1 deficit trend with Rs1.27 trillion surplus", "body": "Pakistan has closed the first quarter of the ongoing financial year with a fiscal surplus of Rs1.27 trillion, bringing to an end a 23-year streak in which the July\u2013September quarter consistently finished in deficit. The outturn marks a clean break from a long-standing seasonal pattern in which the opening months of the fiscal year produced a shortfall, with federal receipts traditionally gathering pace only in the second half.\n\nEarly-quarter deficits have been a structural feature of the federation's accounts. Tax revenue collections peak toward the close of the fiscal year, while recurring outlays \u2014 debt servicing, salaries, pensions and transfers to provinces under the National Finance Commission award \u2014 fall due evenly throughout the year. Because the federation retains only a thin share of the divisible pool after provincial transfers, the first quarter has historically left a gap that was bridged through short-term borrowing from the banking system.\n\nThe Rs1.27 trillion surplus materially eases that borrowing requirement for the remainder of the year and provides the treasury with headroom against expenditure pressures that typically mount in the closing months. A positive opening-quarter position also reinforces the broader fiscal consolidation agenda, in which a sustained primary surplus is treated as the anchor for debt sustainability and macroeconomic stability.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-fiscal-surplus-q1fy27-rs1-27-trillion/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "UN official urges Iran, US to let fertilizers through Hormuz Strait", "deck": "ANTALYA: A senior United Nations official on Saturday urged Iran and the United States to immediately allow fertiliser shipments through the Strait of Hormuz, warning that the crisis gripping the vital waterway could push millions of people into poverty. Jorge Moreira da Silva, h", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40448984/un-official-urges-iran-us-to-let-fertilizers-through-hormuz-strait", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["ANTALYA: A senior United Nations official on Saturday urged Iran and the United States to immediately allow fertiliser shipments through the Strait of Hormuz, warning that the crisis gripping the vital waterway could push millions of people into poverty. Jorge Moreira da Silva, head of the UN Office for Project Services, told the COP31 climate talks in the Turkish resort city of Antalya that the lack of fertilisers was bearing down on some of the world's most vulnerable countries. The Iranian blockade of the waterway, imposed after the joint US-Israeli attack against Iran in late February, has choked shipping in the region and beyond, while the US blockade of Iranian ports has further complicated matters.", "Da Silva, who heads the UN task force dedicated to facilitating the safe passage of fertilisers during the crisis, said he carried the same message to both capitals as Iran and the United States continue trying to negotiate an end to the conflict. \"They should continue their negotiations about the comprehensive deal \u2014 but that deal should not avoid an immediate, exceptional, limited, and time-bound solution for the fertilisers,\" he said. \"Basically what we need is five vessels a day with fertilisers.\" Before the conflict, a third of the world's fertilisers passed through the Strait of Hormuz, and their prices have risen by 30 percent since the blockades began, he said.", "He stressed that the shortage was having a disproportionate impact on the most vulnerable countries. Sudan's finance minister recently told him that the price of food there had doubled in six months, while authorities in Nepal said farmers could no longer afford to buy fertilisers. Countries such as Mozambique, Kenya, Sudan, Somalia, Nepal, Bangladesh and Sri Lanka, he said, were facing a very significant impact from the disruption.", "The consequences, he warned, could be catastrophic. \"If we continue missing the planting seasons in different parts of the world we may have 45 million people facing severe and acute food insecurity,\" he said. \"We may have 30 million people being forced into poverty.\" The United Nations, he added, had a system ready to get fertiliser shipments moving within seven to 10 days."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "BOE likely to raise rates further in 2027", "body": "LONDON: The Bank of England will probably need to raise interest rates further in 2027, over and above an increase at the next meeting in December, to combat inflation, Bank of England Chief Economist Huw Pill told the Financial Times in an interview published on Saturday. Britain\u2019s central bank raised interest rates to 4 percent from 3.75 percent in its November meeting, the first rise since since 2023. Pill told the FT that hike was a \u201csignificant step\u201d towards getting monetary policy into a better place, but that \u201cwe have further to go.\u201d \u201cMy view would be we will see evidence that motivates further rises\u201d Pill told the newspaper, referring to the need for rate hikes next year, given the risks of second-round effects from elevated energy costs. \u201cWe will do what is necessary to get inflation back to 2 percent through time.\u201d British inflation, driven by second-round effects on wages caused by the Iran war, is likely to rise to around 5 percent in the middle of next year, according to the BoE, which is more than double the central bank\u2019s target. Pill considered an end to the US-Israeli conflict with Iran and a fall in energy prices to be a \u201cvery low probability,\u201d signalling that he is set to vote for another quarter-point increase next month, the FT said. \u201cMy bias, for what it\u2019s worth, is that I worry about the inflationary impact being magnified by second-round effects,\u201d he told the newspaper, adding that he believed that the central bank should have acted sooner to combat inflation. \u201cIn my view, we waited too long.\u201d Markets currently price in 90 basis points of tightening by end 2027, implying rates could get close to 5 percent in 2027. Pill said these expectations were \u201cnot outrageous.\u201d Because of the delays in hiking borrowing costs, \u201cthe ability to be modest [in the scale of rate rises] has diminished,\u201d he told the FT. Pill signalled that he would not seek a third term as the bank\u2019s chief economist when his current term ends in September 2027, according to the report.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448986/boe-likely-to-raise-rates-further-in-2027"}, {"head": "Microsoft announces service \u2018restored,\u2019 global outage over", "body": "WASHINGTON: Tech giant Microsoft said Saturday it has \u201crestored service\u201d to customers, effectively drawing a close to a massive outage that caused chaos and disrupted public services and business around the world. \u201cWe have completed our efforts to address the underlying issue of the incident and restored service to the remaining impacted customers and regions,\u201d the US-based company said in an X post. Microsoft had already reported a \u201cbroad recovery\u201d for Outlook email and other services the day before, stating the major disruption was due to a technical issue and \u201cnot related to cyber or AI/agents.\u201d The outage swept the globe on Thursday, taking the company\u2019s products offline in at least 74 countries and territories across the Americas, Europe, Asia and Africa, according to the monitoring site Downdetector. Microsoft had attributed the disruption to \u201celevated load\u201d on its infrastructure. It said the stoppage affected its Outlook email service, as well as Microsoft\u2019s Teams communication platform and the company\u2019s Copilot AI assistant. Microsoft warned Saturday of an \u201cactive phishing campaign\u201d to exploit the disruption, with fake emails imitating its service notifications. The emails, detected on Friday, instructed users that messages blocked during the outage would be deleted if the recipient does not click to restore them.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40448991/microsoft-announces-service-restored-global-outage-over"}, {"head": "Pakistan\u2019s Domestic Debt Drops by Over Rs. 1.6 Trillion in 3 Months", "body": "Pakistan\u2019s domestic debt recorded a quarterly decline of Rs. 1.636 trillion in July to September, bringing the outstanding stock down to Rs. 57.757 trillion by the end of September. The State Bank of Pakistan reported that domestic debt had stood at Rs. 59.393 trillion at the close of the previous fiscal year on June 30, indicating a significant reversal in the government\u2019s borrowing pattern during the opening months of FY27. State Bank data showed that the government\u2019s net retirement of scheduled bank debt reached Rs. 1.847 trillion during July to October FY27, compared with Rs. 45 billion in the corresponding period last year. This indicates that repayments exceeded fresh borrowing during the period. Borrowing through long-term Pakistan Investment Bonds (PIBs) declined by Rs. 1.756 trillion to Rs. 33.543 trillion by the end of September. The government has traditionally emphasized long-term bonds over short-term borrowing. The government\u2019s borrowing through short-term Treasury bills also fell by Rs. 1.163 trillion to Rs. 9.640 trillion during the first quarter of FY27, indicating a broader reduction in domestic borrowing across different debt instruments.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/14/pakistans-domestic-debt-drops-by-over-rs-1-6-trillion-in-3-months/"}, {"head": "Pakistan\u2019s Foreign Exchange Rules Set for Major Changes", "body": "The federal cabinet\u2019s legislative review committee has approved amendments to Pakistan\u2019s foreign exchange laws, changes to Armed Forces retirement leave arrangements, and a legal package transferring plant protection functions to a new regulatory authority. The Cabinet Committee for Disposal of Legislative Cases met on Friday under the chairmanship of Law and Justice Minister Senator Azam Nazeer Tarar. The approved proposals will now be forwarded to the relevant forums for further proceedings. The committee approved the Foreign Exchange Regulation (Amendment) Bill 2026, which seeks to revise the legal framework governing penalties and financial fines for violations of foreign exchange regulations. It also approved replacing references to the federal government in various laws administered by the Securities and Exchange Commission of Pakistan (SECP) with the names of the relevant competent authorities. The committee cleared a proposal concerning leave prior to retirement for Armed Forces personnel. The proposal also provides for payments in lieu of the portion of retirement leave that personnel do not use.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/14/pakistans-foreign-exchange-rules-set-for-major-changes/"}, {"head": "Mobilink Bank signs deal to acquire 82.51% stake in Apna Microfinance Bank", "body": "Mobilink Bank has signed an agreement to acquire an 82.51 per cent equity stake in Apna Microfinance Bank, moving the digital microfinance lender deeper into mainstream microfinance banking in Pakistan. The transaction, structured as a share purchase agreement with the target bank's existing sponsors, will transfer majority control to Mobilink, the banking arm that anchors financial services within the Jazz ecosystem of the VEON group.\n\nThe deal remains conditional on the receipt of all regulatory approvals, including clearances from the State Bank of Pakistan and the Competition Commission of Pakistan, before the share transfer can complete. Apna Microfinance Bank runs a nationwide branch network serving low-income households, small traders and microentrepreneurs, a physical presence that complements Mobilink's digital lending and payments platforms and extends the combined group's reach into underserved districts.\n\nThe acquisition lands during a consolidation phase in Pakistan's microfinance banking sector, where digital-first institutions are absorbing smaller players to scale up branch coverage and loan book size. For Mobilink, the added network strengthens its financial-inclusion agenda, particularly outreach to women borrowers and rural customers, while giving Apna's franchise access to greater capital and technology as the sector works to expand small-ticket lending to households and microbusinesses.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/mobilink-bank-acquisition-apna-microfinance-bank/"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "Google Wallet connects to Gemini for personalised financial insights", "deck": "Google is adding Wallet to Gemini\u2019s Personal Intelligence feature, allowing users to analyse spending habits, track subscriptions and create budgets through AI-powered conversations.", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/google-wallet-connects-to-gemini-for-personalised-financial-insights/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Editor-in-Chief, Senior Member Pakistan Customs Service (Retd.)", "body": ["Google is adding Wallet to Gemini\u2019s Personal Intelligence feature, allowing users to analyse spending habits, track subscriptions and create budgets through AI-powered conversations.", "Google has added Google Wallet to the list of applications that can connect to its Gemini AI assistant through Personal Intelligence. The integration allows users to receive financial insights and budgeting suggestions based on their spending information.", "The feature joins existing integrations with Gmail, Google Photos, YouTube and Google Search, expanding the information Gemini can use to provide personalised responses.", "Users can optionally connect their credit cards and bank accounts to Google Wallet through Plaid to access more detailed financial insights. Once connected, they can tag @Google Wallet in a Gemini conversation and ask questions about their personal finances.", "Google says Gemini can review spending from previous months or quarters and generate charts showing cash flow, asset allocation and budget breakdowns directly within a conversation.", "For example, users can ask the chatbot to analyse their previous quarter\u2019s spending and create a plan to save $1,000 over the next three months. Gemini can use the available financial information to suggest adjustments to spending and help users monitor their progress."], "quote": "Sales Tax and Federal Excise require a distinct professional administration, experienced Customs officers in positions of responsibility, fair treatment for taxpayers and transparent decisions on refunds.", "editorial": {"title": "Sales Tax and Federal Excise: Better Late Than Never", "deck": "", "paragraphs": ["The move to separate Sales Tax and Federal Excise administration from Income Tax is a welcome development, though it comes far later than it should have. For years, Pakistan has lived with the consequences of an administrative experiment that took these important functions away from Customs and placed them within the Inland Revenue framework.", "According to Profit, the Federal Board of Revenue has created a Member for Sales Tax and Federal Excise Duty and transferred 54 Inland Revenue officers as part of the restructuring. Separate commissioners are expected from January 2027. The step deserves recognition, but a new designation and the redistribution of existing officers cannot, on their own, remedy a mistake that was institutional in character.", "Sales Tax and Federal Excise should never have been separated from Customs. Officers of the former Customs and Excise Group had developed experience in these levies alongside Customs duties. Their work drew on knowledge of imports, manufacturing, valuation, documentation and the movement of goods. That experience should have formed the foundation of a specialised administration, instead of being dispersed through a merger.", "In 2009, the creation of the Inland Revenue Service brought Sales Tax and Federal Excise together with Income Tax administration. Officers from both the Customs and Excise Group and the Income Tax Group were given the option to join the new service. In my judgment, combining these distinct responsibilities was a serious error of planning. The present reform should be the beginning of a thorough correction.", "The preferable course is to return Sales Tax and Federal Excise to Customs. If the government chooses a different route, it should establish a separate Sales Tax and Federal Excise Service outside the Inland Revenue Service, with its own professional identity, clear authority and accountable leadership.", "A substantial number of experienced Pakistan Customs officers should be permanently inducted into that service. Particular consideration should be given to capable officers in Grade 20 for senior operational and leadership responsibilities. Their knowledge should be placed at the centre of the new administration, rather than treated as an afterthought.", "Income Tax officers should, over time, be phased out of the new service and reassigned to direct-tax work through a lawful transition that protects their service rights. Their attention should be directed towards identifying taxable incomes, broadening the tax base and enforcing the law fairly. Sales Tax and Federal Excise demand their own specialised administrative expertise.", "The history of the earlier reform must also be examined honestly. Riaz Ahmad Malik was chairman of the Central Board of Revenue from 2001 to 2004. A World Bank case study records that he was tasked with preparing a reform programme and that its early drafts received input from the World Bank, the IMF, UNCTAD and a foreign consulting firm. The 2003 strategy envisaged the functional integration of domestic tax administration; the Inland Revenue Service was created later, in 2009.  In my assessment, Mr Malik\u2019s early leadership of the reform programme helped lay the foundations for the separation that followed. The extent of his personal role, the pressures applied during the process, and the influence of international institutions deserve a full and independent examination. Customs and Excise officers themselves alleged that World Bank staff had exerted pressure for the creation of the Inland Revenue Service. The Bank\u2019s Inspection Panel did not determine that allegation, but its report records that Bank management linked a possible extension of the reform project to implementation of the later reorganisation plan.", "The government should make the relevant advice, correspondence, decisions and agreements public. An independent inquiry should examine the roles of Mr Malik, his close associates, subsequent decision-makers and international institutions, as well as the consequences for revenue administration and taxpayers. Where wrongdoing is established, action should follow under the law. Accountability must rest on evidence, and those concerned must have a fair opportunity to respond.", "The record on direct taxation likewise requires scrutiny. FBR\u2019s provisional figures show that net direct-tax collection rose from Rs 5.79 trillion in 2024 - 25 to Rs 6.59 trillion in 2025 - 26. Yet its Income Tax figures for 2025 - 26 also show Rs 3.65 trillion collected through withholding, compared with Rs 465 billion collected on demand. Collection on demand rose too, but the scale of reliance on withholding remains striking. An increase in nominal revenue does not, by itself, establish that the tax base has been broadened fairly or that difficult cases of evasion are being pursued effectively.", "Withholding is a method of collection, and much of it is officially classified as direct taxation. Some transaction-based levies can nevertheless fall on people irrespective of their actual income or be passed on in prices. Sales Tax and Federal Excise can also weigh heavily on poorer households, which spend a greater share of their income on consumption. A fair tax system must bring undertaxed incomes into the net instead of repeatedly placing pressure on those easiest to reach.", "Refund administration demands equal attention. Exporters and manufacturers are entitled to prompt payment of legitimate claims, while fraudulent claims must be detected and recovered. The Auditor-General reported weaknesses in the automated processing and monitoring of 249 Sales Tax refund cases in Faisalabad involving Rs 4.34 billion. The department said the cases had been selected for post-refund audit. These findings require examination; they do not establish that every claim was fraudulent.", "The IMF\u2019s 2025 governance assessment identified vulnerability to rent-seeking in Sales Tax and Income Tax refund administration. Allegations that commissions are demanded for sanctioning refunds must be investigated independently, with protection for complainants, scrutiny of records and action against anyone found responsible. Neither rank nor service affiliation should shield proven misconduct.", "Pakistan cannot afford another reform that changes the signboard while leaving the underlying problem intact. Sales Tax and Federal Excise require a distinct professional administration, experienced Customs officers in positions of responsibility, fair treatment for taxpayers and transparent decisions on refunds. The government now has an opportunity to correct a long-standing error. It should have the resolve to see the correction through."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Musk says Nvidia will lose 'critical' deals without Jensen Huang", "body": "Elon Musk said on Saturday that chipmaker Nvidia would lose \u201ccritical\u201d deals without its now-ousted chief executive officer (CEO) Jensen Huang. Huang stepped down on Thursday after revelations of extramarital affairs, including one involving a suspected Chinese spy, plunging the chipmaker into crisis and sending shockwaves across an AI industry he helped bankroll. In a post on X, Musk said that while Huang drove the supply chain \u201cbrilliantly\u201d at Nvidia, many such deals were \u201ca handshake with Jensen, not a written contract\u201d. \u201cWithout Jensen, at least some of those critical deals will be lost.\u201d The SpaceX boss went on to praise the former Nvidia CEO: \u201cIf Jensen gave me his word about compute delivery or I asked for components to be accelerated, he always came through. \u201cSure, we\u2019d put together a purchase order at some point later, but I never for a second thought it wouldn\u2019t happen.\u201d The billionaire has separately said on X that a petition was underway to reinstate Huang and that he would sign it. It was not immediately clear whether Musk was referring to the internal effort reported by Wired . Nvidia declined to comment on the Wired report as well as Musk\u2019s post. Reuters could not independently verify the reports. Pressure had mounted on Huang after reports said the 63-year-old, who is married, had an affair with Alice Huang , an unrelated former executive of Singapore-based company Megaspeed, who US authorities had been investigating. Nvidia then said its board was probing whether its then-CEO \u201chas been the target of a foreign intelligence effort\u201d. On Thursday, CNN reported that the US intelligence community was still working to understand the relationship between Alice Huang and the Chinese government, with multiple sources telling CNN that the intelligence collected on her to date does not prove that she was acting as a spy for Beijing. The report said there was \u201cdisagreement among US officials about the strength of the evidence that Alice Huang was recruited by the Chinese Ministry of State Security (MSS)\u201d to spy on Jensen Huang. Insiders and tech titans in the running Huang\u2019s exit plunges the $4 trillion company into uncertainty and threatens to disrupt an AI ecosystem that he helped bankroll by pouring Nvidia\u2019s swelling cash pile back into cloud providers, suppliers and the industry\u2019s biggest labs. Nvidia\u2019s board has approached British chipmaker Arm Holdings CEO Rene Haas in its search for a potential successor to Jensen Huang, the Financial Times reported on Friday, citing people familiar with the matter. Haas\u2019s name has been making the rounds among analysts since Huang\u2019s exit. He spent seven formative years at Nvidia, rising to vice president and general manager of its computing products business, before joining Arm since 2013. Nvidia\u2019s finance chief Colette Kress is currently interim CEO. Nvidia\u2019s board said it was in the process of selecting a search firm for the CEO role and had not formally engaged any potential candidates. Some analysts expect the next CEO to break from Huang\u2019s three-decade reign as the hands-on \u201cchief conductor\u201d who personally steered engineering roadmaps, geopolitical negotiations over exports to China and massive investments across the AI ecosystem. A potential shift toward a more institutional leadership structure would come as Nvidia faces heightened regulatory scrutiny and a growing consensus among US lawmakers to further restrict the company\u2019s chip exports to China. Analysts view Kress as a steady financial authority, while veteran engineer Ian Buck is seen as a top candidate after leading development of CUDA, the software platform that powers Nvidia\u2019s AI chips. Apart from Haas, external names discussed by analysts include AMD chief Lisa Su, who has navigated the key China market, and Micron chief Sanjay Mehrotra, whose memory chips power Nvidia servers. Other candidates cited by industry watchers include Marvell head Matt Murphy and Apple hardware chief Johny Srouji, who oversaw the iPhone maker\u2019s in-house silicon development. Former Apple chief Tim Cook was floated by US President Donald Trump, as Nvidia\u2019s board evaluates whether to prioritise financial continuity, deep technical expertise, or experience running a global tech heavyweight.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2044511/musk-says-nvidia-will-lose-critical-deals-without-jensen-huang"}, {"head": "Jensen Huang\u2019s Reckless Environmental Legacy Puts Nvidia in the Climate Spotlight", "body": "Greenpeace is urging Nvidia to cut emissions across its manufacturing supply chain after Jensen Huang resigned as CEO. The group called on interim CEO Colette Kress to invest in renewable power and extend Nvidia\u2019s clean electricity commitments to the suppliers that make its chips. Nvidia\u2019s supply-chain emissions rose 725% from 2020 levels, according to a September analysis of company disclosures by researcher Ketan Joshi and environmental groups including Greenpeace and Climate Action Against Disinformation. The Verge reported that the increase amounted to about 9.4 million metric tons of carbon dioxide equivalent. Nvidia\u2019s sustainability report lists 10.7 million metric tons of indirect emissions for fiscal 2026, including 9.3 million tons from purchased goods and services. The company reported 9,822 tons of direct emissions from its own operations. Nvidia designs chips and relies on suppliers such as TSMC to manufacture them. The Verge reported that demand for AI chips has spurred construction of factories that require large amounts of water and chemicals. Running the chips adds to electricity demand on local grids, and rapid hardware upgrades raise concerns about how much discarded equipment data centers will generate. Joshi and his co-authors separately estimated that running Nvidia\u2019s chips could have generated about 21 million metric tons of emissions since 2025. That estimate is based on chip power consumption. Nvidia\u2019s reported emissions total does not include that category.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/14/jensen-huangs-reckless-environmental-legacy-puts-nvidia-in-the-climate-spotlight/"}, {"head": "Top US Govt Official Behind Nvidia CEO\u2019s Dismissal", "body": "The chain of events that ended Jensen Huang\u2019s 33-year run as Nvidia CEO was set in motion by US Secretary of State Marco Rubio, according to The Washington Post. Rubio sent President Donald Trump a memo warning him about Huang\u2019s relationship with a woman US intelligence officials suspect of being a Chinese intelligence asset. The memo was based on a CIA report, but Rubio recast its findings \u201cin his own more assertive terms,\u201d a person familiar with the matter told the Post. The memo\u2019s findings later leaked to the media, triggering the chain of events that ended Huang\u2019s career at Nvidia. Huang admitted the affair, and the board opened an investigation into possible security risks. Huang resigned on Thursday after reports of another affair, this time with a subordinate at Nvidia. The allegations against the woman have not been publicly established.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/15/rubio-behind-jensen-huang-nvidia-exit/"}, {"head": "Where was Nvidia\u2019s security team?", "body": "Nvidia is confronting pointed questions about its internal security after the company's chief security officer quietly departed in August, a leave-taking that drew little public attention at the time but has since taken on fresh significance with the chain of disclosures that followed. Pressure intensified when chief executive Jensen Huang stepped down over his personal relationships, including one with an executive at a company suspected of funnelling Nvidia chips to China. The chipmaker now faces scrutiny on two fronts at once: a leadership exit tied to undisclosed ties, and a security chair left empty in the months before the disclosures surfaced.\n\nA former intelligence officer characterised the leak now enveloping Nvidia as the sort that runs through everyday conversation \u2014 introductions, favours, offhand remarks over dinner \u2014 precisely the human channels that most corporate security teams, organised around technical monitoring and insider-threat programmes, are poorly equipped to catch. That mismatch, the assessment suggests, is the crux of what went unanswered: an apparatus built to detect technical intrusion has little visibility into the slow, conversational mechanics of influence.\n\nThe lessons now stretch beyond one company. For a business whose chips sit at the centre of the global AI build-out, and which already operates under close watch over where its accelerators end up, the distance between technical defences and human ones has ceased to be abstract. Boards will have to decide whether an executive's personal network, and the quiet departure of the officer hired to watch such risks, amount to a governance red flag in their own right \u2014 and whether the industry's security model, tuned to hardware and credentials, needs a rebuilt human side.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/"}, {"head": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang", "body": "Elon Musk and a group of fellow technology executives have signed a petition calling on Nvidia to reinstate Jensen Huang, mounting public pressure on the leadership arrangements of the world's most valuable chipmaker. The petition had attracted more than 115,000 signatures as of Saturday afternoon, a total that has risen steadily as prominent names from across the industry lent their support. The campaign urges Nvidia's board to return Huang to the helm of the company he established more than three decades ago.\n\nHuang co-founded Nvidia in 1993 and built the firm from a maker of graphics chips for personal computers into the central supplier of the processors and software that underpin artificial intelligence worldwide. Its data-centre operations have grown into some of the most consequential in the technology sector, and its market value has placed it among the largest companies on public exchanges. That standing means any question over Huang's position carries significance well beyond Silicon Valley, given how deeply AI developers, cloud providers and governments have come to rely on the company's hardware.\n\nThe steady accumulation of signatures through the weekend, combined with the involvement of Musk and other senior figures, has turned the petition into one of the most closely watched corporate episodes of the moment. Attention has shifted to Nvidia's board and the company's leadership, with investors and industry watchers awaiting a formal response to a campaign that now speaks with considerable weight.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "Chris Pratt \u201cWould Love\u201d If James Gunn Made Another \u2018Guardians of the Galaxy\u2019 After DC Exit", "deck": "Although James Gunn \u2018s journey with the Man of Steel has come to a close, Chris Pratt hopes they can take another adventure with Star-Lord soon.", "hero_source": "Deadline Hollywood Wire", "hero_url": "https://deadline.com/2026/11/chris-pratt-would-love-james-gunn-another-guardians-galaxy-1237224237/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Although James Gunn \u2018s journey with the Man of Steel has come to a close, Chris Pratt hopes they can take another adventure with Star-Lord soon.", "The Guardians of the Galaxy star recently confessed he \u201cwould love\u201d to make a fourth movie in the MCU franchise with Gunn, following his and Peter Safran\u2019s departure from DC Studios amid David Ellison\u2019s Skydance regime change.", "\u201cThat would be awesome. I love working with James,\u201d he told MovieZine . \u201cHe\u2019s the man. I haven\u2019t had the chance to speak with him since that news came out. But it\u2019s interesting because anytime something like this comes up and you say it, it could always become a headline.\u201d", "Pratt added, \u201cAll I\u2019ll say is, I love James. He directed all three, and that\u2019s pretty rare in those types of trilogies to have the same director through all three. So, if he wanted to come back and bring it back, man, I would just love that.\u201d Watch on Deadline", "Earlier this week, Deadline reported that Gunn and Safran were out as co-CEOs and Chairmen of DC Studios after four years, but will continue to produce various DC projects. Meanwhile, Marvel\u2019s former SVP of production and development, Jeremy Latcham, has been named DC\u2019s new president and chief creative officer under Skydance\u2019s takeover."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "\u2018Toy Story 5\u2019 Producer Reflects On \u201cLevel Of Complexity\u201d In Technology That Film Franchise Has Grown To Match With Curly Hair Tool Written For Blaze \u2013 Contenders L.A.", "body": "Veteran Pixar producer Lindsey Collins offered a candid appraisal of the \u201clevel of complexity\u201d that the Toy Story films have come to demand of animation technology, arguing that the franchise must evolve in step with the very toys and gadgets it puts on screen. Collins, whose credits include A Bug\u2019s Life, Ratatouille, Finding Nemo and Turning Red, addressed the craftsmanship behind the studio\u2019s latest instalment during a Contenders L.A. panel, tracing the series\u2019 technical arc from 1995\u2019s landmark Toy Story \u2014 the first feature-length computer-animated film \u2014 to a project whose simulation work now runs as far as a curly hair tool written specifically for the character Blaze.\n\nFor Collins, the guiding principle is balance: resisting the urge to overdevelop the films\u2019 visual looks with every new generation of software while still moving the imagery forward to suit advancements in animation technology. As the latest Toy Story film demonstrates, technology is here to stay \u2014 both in the toys that populate the story and in the pipeline that renders them \u2014 and the discipline lies in deploying those tools in service of character and storytelling rather than letting technical detail become an end in itself.\n\nThe remarks land as the three-decade-old franchise continues to set the benchmark for computer animation\u2019s commercial and creative reach, with Collins among the handful of Pixar veterans to have worked across its entire span, from the studio\u2019s early features through Turning Red and now its fifth chapter in the flagship series.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/toy-story-5-producer-interview-1237224163/"}, {"head": "\u2018The Violinist\u2019 Composer Ricky Ho Took Two Months To Write The First Four Notes Of Central Sonata \u2013 Contenders L.A.", "body": "Award-season attention has turned to the craft behind the score of \u201cThe Violinist,\u201d an animated film set against the upheaval of World War II. The picture follows a woman searching for her long-lost love after the couple were separated by the war, and because its heroine is a violinist, her music functions as a central piece of the story rather than mere accompaniment.\n\nRicky Ho, who composed the film\u2019s music alongside Isabel Latorre, appeared at the Contenders L.A. awards event to walk audiences through that creative process. He detailed the painstaking deliberation behind the film\u2019s signature piece, disclosing that he spent two months writing the first four notes of the Central Sonata, the foundation on which the rest of the composition was ultimately built.\n\nThe revelation offered a measure of the care invested in the production\u2019s music. With the protagonist\u2019s instrument woven through her wartime journey, the Central Sonata carries her search for the partner she lost, giving the twin-composer arrangement of Ho and Latorre a narrative weight unusual for animated features.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/the-violinist-composer-interview-1237224216/"}, {"head": "Paul Bettany Reveals \u201cQuestions\u201d About Bringing Wanda Back For \u2018VisionQuest\u2019 But Decided Show Should \u201cStand On Its Own\u201d", "body": "Paul Bettany, who returns as the synthezoid Vision and executive produces the Disney+ series, has said that development of \u201cVisionQuest\u201d raised \u201cquestions\u201d about bringing Elizabeth Olsen\u2019s Wanda Maximoff back for a far more substantial presence. Working through the issue with Marvel Studios president Kevin Feige, however, he came down on the side of restraint, the pair ultimately agreeing that the show was worth letting it \u201cstand on its own\u201d. Wanda nonetheless appears in the series\u2019 credits scene, a brief return for a character whose fate was left unresolved at the close since 2022\u2019s \u201cDoctor Strange in the Multiverse of Madness\u201d.\n\nThe decision keeps \u201cVisionQuest\u201d centred on its title character, the third instalment in the storytelling arc that began with \u201cWandaVision\u201d since 2021 and continued with \u201cAgatha All Along\u201d since 2024. A fuller comeback by Olsen would inevitably have re-centred the narrative on Wanda, one of the Marvel Cinematic Universe\u2019s most consequential figures, rather than on Vision\u2019s own reckoning with identity and memory. The credits scene instead functions as a deliberate flourish, preserving the door for a future Wanda\u2013Vision reunion without diluting the series\u2019 central arc.\n\nBettany\u2019s remarks make clear that the scaled-back return was a creative judgement rather than an accident of production, weighing the audience\u2019s appetite for a reunion against the integrity of a show built around Vision. The credits-scene cameo stands as the compromise: a moment of continuity for longtime viewers while the series itself keeps its emphasis where it was always intended.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/paul-bettany-questions-bringing-wanda-back-visionquest-1237224196/"}, {"head": "Contenders Hall Of Fame Honoree Peter Farrelly Talks \u2018I Play Rocky\u2019, \u2018Dumb & Dumber\u2019, The Hair Gel Bit In \u2018There\u2019s Something About Mary\u2019 & More", "body": "Director, screenwriter and producer Peter Farrelly took the stage Saturday at Deadline\u2019s Contenders Film: Los Angeles, where he was saluted as a Contenders Hall of Fame honoree in an onstage conversation with Mike Fleming Jr. The session looked back across decades of his filmmaking while turning its principal focus to Farrelly\u2019s most recent film, I Play Rocky, and the process of bringing that picture to the screen.\n\nFarrelly traced the road from development to the finished work on I Play Rocky, a drama that revisits the improbable true story behind the making of Rocky and the young Sylvester Stallone\u2019s insistence on playing his own long-shot underdog. The conversation then widened to the comedies that established Farrelly\u2019s name, among them Dumb & Dumber and There\u2019s Something About Mary, with discussion touching on the celebrated hair gel bit that remains one of the most indelible gags of modern studio comedy.\n\nThe Hall of Fame recognition speaks to a body of work that runs from the brawler farces Farrelly made with his brother Bobby to Green Book, which won the Academy Award for Best Picture. With the honor, Farrelly takes his place among the showcase\u2019s most distinguished honorees as his body of work continues to reach new audiences.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/peter-farrelly-interview-i-play-rocky-1237224102/"}, {"head": "Danny Boyle Says Tabloid Headlines Censored In British Version Of \u2018Ink\u2019 Will Be Shown In U.S.", "body": "Danny Boyle confirmed on Saturday that the Sun newspaper headlines redacted from the British version of his Netflix drama \u2018Ink\u2019 will appear in full in the U.S. theatrical and streaming version of the film. Speaking while receiving the Deadline Legend Awards during Deadline\u2019s Contenders Film event, the \u2018Ink\u2019 director said the tabloid front pages, blanked out in the epilogue as screened for British audiences, have been restored entirely for the American release.\n\n\u2018Ink\u2019 chronicles the founding of Britain\u2019s best-selling tabloid and closes with an epilogue that reproduces front pages from the newspaper\u2019s history. In the British version, certain of those headlines are shown redacted, with the offending lines blacked out. The distinction points to markedly different legal frameworks on either side of the Atlantic: U.S. libel law makes it substantially harder to sue publications for defamation than the stricter regime prevailing in England and Wales, and the director\u2019s confirmation indicates that the sensitivities behind the British redactions do not travel to the American market.\n\nThe decision restores the raw tabloid language that the British edition withholds, giving the U.S. cut an arguably sharper closing montage. Boyle, whose \u2018Ink\u2019 examines how a brash upstart rewrote the rules of British popular journalism, has proved notably candid about the legal constraints that shape precisely what viewers are permitted to see on screen.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/ink-tabloid-headlines-uncensored-in-united-states-1237224129/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "Swat Valley Welcomes Its First International Hotel with the Arrival of Best Western Premier Kalam by Grace Hospitality", "deck": "Swat Valley has acquired its first internationally branded hotel with the unveiling of Best Western Premier Kalam, a new property introduced by hospitality group Grace Hospitality in the highland resort town of Kalam. The arrival of the globally recognised Best Western Premier ba", "hero_source": "ProPakistani \u00b7 National Desk", "hero_url": "https://propakistani.pk/2026/11/14/swat-valley-welcomes-its-first-international-hotel-with-the-arrival-of-best-western-premier-kalam-by-grace-hospitality/", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["Swat Valley has acquired its first internationally branded hotel with the unveiling of Best Western Premier Kalam, a new property introduced by hospitality group Grace Hospitality in the highland resort town of Kalam. The arrival of the globally recognised Best Western Premier banner in the upper reaches of Swat marks a milestone for a region whose lodging market has long been characterised by independent guesthouses and seasonal accommodation rather than internationally managed operations.", "Nestled among the majestic mountains, lush valleys and river landscapes that draw travellers to Kalam throughout the summer season, the hotel is positioned to deliver international standards of comfort, quality and service in one of Pakistan's most celebrated natural settings. Grace Hospitality presents the property as an answer to growing demand for professionally managed accommodation, targeting both domestic holidaymakers and a rising segment of international visitors seeking consistent, elevated guest experiences across northern Pakistan.", "The launch reflects a broader evolution in the valley's tourism economy. Swat, renowned for its scenic landscapes, refreshing climate, rich cultural heritage and remarkable natural attractions, has seen expanding visitor interest in recent years, sharpening the need for infrastructure capable of matching the standards available in more established destinations. The company describes the project as a significant step toward strengthening the region's hospitality base and aligning service delivery in Kalam with the benchmarks associated with a global brand.", "The opening is expected to reinforce Kalam's standing as a destination in its own right and to position the hotel, and the wider valley, to compete for domestic and international travellers alongside Pakistan's principal northern circuits. For the local tourism sector, the entry of an international flag signals deepening commercial confidence in Swat's enduring appeal."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Thousands rally in Antalya to demand climate justice as COP31 talks hit midpoint", "body": "Thousands of protesters on Saturday took to the streets in the Turkish city hosting COP31 to accuse the climate summit of failing those bearing the brunt of environmental destruction. The show of dissent comes as negotiators approach the crunch final week of global climate talks in Antalya, with nearly 200 nations scrambling to strike a deal by Friday. The summit is not expected to produce a major breakthrough, frustrating activists demanding tougher curbs on planet-warming fossil fuels and fresh pledges to help poorer countries adapt to climate impacts. In downtown Antalya, under rainy skies, thousands of protesters dressed in costumes and shouting slogans marched under close police supervision in the largest demonstration since COP31 began on Monday. \u201cWe are suffering the consequences of climate injustice, yet our voices are never heard at the COP,\u201d said Halime Saman from the People\u2019s Climate Summit platform, one of the groups behind the rally. \u201cTurkiye is the co-chair of COP31 but still has no roadmap for phasing out fossil fuels. New power stations and coal mines are being opened,\u201d she told AFP . Yasar Gokoglu, a 78-year-old demonstrator, travelled nearly 600 kilometres from Adana in southern Turkiye to denounce what he called \u201ca masquerade sponsored by monopolies\u201d. Protesters hold bird effigies during a demonstration organised by climate activists on the sidelines of the 31st United Nations Climate Change Conference (COP31) in Antalya on Nov 14, 2026. \u2014 AFP Police estimated that more than 7,000 people attended the protest, which was organised by environmental groups, trade unions and rights organisations, and proceeded without any major incident. Civil society activists had raised safety concerns ahead of COP31 after Turkiye embarked on a crackdown on the LGBT community in September. Some LGBT protesters waving rainbow flags participated in the march. Demonstrators were only allowed to join the rally after being searched by police. \u2018No quick fix\u2019 Much smaller demonstrations inside the COP31 venue this week, including one attended by Swedish activist Greta Thunberg, have been mounting pressure on political leaders to act faster on the climate crisis. The negotiations hit the halfway point Saturday, but countries remain far apart on contentious issues including financing adaptation measures in developing nations, defending climate science, and shifting from fossil fuels to clean energy. Australia\u2019s climate minister, Chris Bowen, who is chairing the formal negotiations, said there had been \u201creally good and positive conversations\u201d but some issues required more time. Outside the negotiations, Turkiye is urging countries to join a voluntary pledge to raise the share of global final energy demand met by electricity. The summit, which closes on Nov 20, takes place against a difficult backdrop, with a conflict-driven energy crisis and geopolitical tensions tempering expectations. \u201cThere\u2019s no climate quick fix. No single COP can magic this crisis away, but each must drive progress,\u201d UN climate chief Simon Stiell told reporters on Saturday. MNA presents five parliamentary recommendations At the Pakistan Pavilion at COP31, Parliamentary Secretary for Information and Broadcasting Barrister Danyal Chaudhry addressed a high-level dialogue and stressed that the world needs to acknowledge the economic cost of climate inaction, according to a press release . At the dialogue, titled \u2018Adapting Under Austerity: Delivering Paris Commitments in Debt-Stressed, Climate-Vulnerable Economies\u2019, he stated that Pakistan\u2019s core needs to ensure that the pursuit of fiscal sustainability does not compromise Islamabad\u2019s capacity to protect people from severe climate impacts. \u201cHe noted that past policies introduced in the name of fiscal consolidation increased taxation and discouraged climate-resilient development \u2014 an approach the Government of Pakistan believes directly undermined its climate objectives,\u201d the press release said. Chaudhry emphasised that the world must \u201cfunction as one global village and one global family\u201d. The secretary further noted that addressing the climate crisis requires collective action on a shared planet and there cannot be separate standards for wealthy and developing nations. He presented five key parliamentary recommendations for climate-vulnerable and debt-stressed nations. \u201cFirst, he called for climate-proofing fiscal and taxation policies by mandating climate impact assessments for major financial decisions so they do not drive up the cost of sustainable development,\u201d the statement said. Second, he stressed the need to safeguard the transition to renewable energy through stable, predictable policies that do not penalise households or businesses investing in clean energy. Chaudhry also called on governments and lenders to treat adaptation as an investment rather than an expense, stressing that investing in climate-resilient agriculture, water management, early warning systems, and disaster-resistant infrastructure reduces future recovery costs. Next, he advocated for reforming global debt architecture through debt-for-climate swaps, climate-contingent clauses, concessional financing and extended repayment schedules, so disaster-prone countries are not forced to \u201csacrifice essential development\u201d. Chaudhry went on to call for strengthening parliamentary oversight of climate financing by requiring annual reports on climate-related taxes, subsidies, budget allocations and measurable adaptation outcomes, the press release said. He added that national fiscal frameworks must remain fully aligned with Pakistan\u2019s Nationally Determined Contributions (NDCs) and National Adaptation Plan.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2044520/thousands-rally-in-antalya-to-demand-climate-justice-as-cop31-talks-hit-midpoint"}, {"head": "Moscow says it will not dictate EU delegation's participation in Ukraine talks", "body": "Moscow has softened its position on who may attend negotiations aimed at ending the war in Ukraine, saying it will not stand in the way of a European Union delegation joining future rounds of talks. The announcement marks a clear change of course on the Russian side, which had previously maintained that European representatives had no role at the negotiating table and that only the direct parties to the conflict belonged in the room.\n\nThe shift unfolds as diplomatic activity around a prospective settlement intensifies, with discussions touching on territory, security guarantees and the future shape of Ukraine's armed forces. European governments have consistently argued that no durable agreement can be reached without the participation of Ukraine's European partners, given that enforcement of any ceasefire, reconstruction financing and long-term security arrangements would rest heavily on the continent. Their absence from earlier contacts had fuelled concern in Brussels and other capitals that decisions affecting Europe's security could be taken over its head.\n\nWhile thelatest formulation stops short of an explicit invitation, it opens the door for Brussels to press for formal representation in the process. Questions remain over the timing of further talks, the scope of any interim understandings, and whether Kyiv and its allies will judge this flexibility on attendance to be matched by real movement on the substantive terms of a settlement.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/11/14/moscow-says-it-will-not-dictate-eu-delegations-participation-in-ukraine-talks"}, {"head": "Canada and the Philippines conclude talks on free trade deal, Mark Carney says", "body": "Canada and the Philippines have concluded negotiations on a free trade agreement, Canadian Prime Minister Mark Carney announced, hailing the outcome as a lift for exporters and service providers on both sides of the Pacific. \"This is good news for Canadians in the agriculture sector, in the aerospace sector, even in AI, and our businesses working across forest products, mining, energy, services and beyond,\" Carney told reporters.\n\nThe conclusion of talks moves the arrangement into its final phase, with both capitals now expected to settle the legal text before signature and ratification through their respective legislatures. For Canadian producers, the Philippines represents one of Southeast Asia's fastest-growing consumer markets, long an important destination for prairie grain and pulses, while Manila stands to gain firmer access for its manufactures and processed foods, alongside fresh investment, services trade and employment tied to expanded bilateral commerce.\n\nThe announcement lands as Ottawa pursues closer economic engagement across the Indo-Pacific in pursuit of a more diversified trade posture, and as Manila deepens partnerships beyond its region. The breadth of sectors Carney cited \u2014 from artificial intelligence and aerospace to mining, energy and services \u2014 signals an agreement intended to reach well beyond tariff lines, with strengthened people-to-people ties, anchored by a large Filipino-Canadian community, adding a further dimension to the partnership.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/11/14/canada-and-the-philippines-conclude-talks-on-free-trade-deal-mark-carney-says"}, {"head": "Russia urges IIHF to move Canada world juniors as hockey boycotts spread", "body": "Russia has urged the International Ice Hockey Federation to move the world junior championship out of Canada, after Canadian authorities said Russians will be barred from the 10-nation tournament in Alberta starting 26 December. The appeal lands weeks before the under-20 event, a fixture of the international hockey calendar over the holidays, and raises immediate questions over whether the venue can stand while one of the game's major powers sits out.\n\nThe Canadian stance sits within a broader pattern of sporting exclusion. Estonia, Finland and Norway plan to keep Russian athletes out of their competitions until the war in Ukraine ends, extending a barrier that has kept Russian teams away from International Ice Hockey Federation events since the federation suspended them following the full-scale invasion since 2022. Taken together, the declarations point to a continued freeze on Russian participation across much of the European hockey landscape rather than a thaw.\n\nRussia's push to relocate the tournament now forces a decision well before the puck drops. Moving the event at this stage would carry logistical, commercial and contractual complications, while keeping Alberta in place locks in the very exclusion that prompted the request. Hockey's governing body heads into December with the war in Ukraine squarely shaping who plays, where, and under which flag.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/11/14/russia-urges-iihf-to-move-canada-world-juniors-as-hockey-boycotts-spread"}, {"head": "NCCIA warns youth against joining illegal call centres for lucrative salaries", "body": "ISLAMABAD: The National Cyber Crime Investigation Agency (NCCIA) on Saturday warned that loopholes in the existing system are being exploited by illegal call centres , online betting operators and international fraud networks to launder money and trap victims. Addressing a press conference, NCCIA (Islamabad/Rawalpindi) Additional Director Muhammad Shoaib Khan said fake companies were being registered with weak verification, after which bank accounts opened in their names were integrated with loan apps, betting and gaming portals to receive and transfer illicit funds. Therefore, he called for stricter rules on company registration and bank account verification. The press conference was primarily called to warn educated youths against becoming involved in cybercrime by joining illegal call centres in pursuit of lucrative salaries, urging those seeking jobs with call centres to ask their employers where they are registered and appealing to parents to check whether their children were working at an illegal call centre carrying out scams, fraud or other illicit activities. \u201cAsk them what documents the company has, what registration it operates under, which company they work for, which company is providing the loans, where the money is coming from and who is putting money into these applications,\u201d Khan said. Acknowledging that young people and university students were engaging in such jobs because the salaries were higher than average, he noted that they risked ending up becoming part of the entire trap and operation. \u201cIf your son or daughter is arrested in such an operation, the FIR (first information report) becomes part of their record. Tomorrow, when they need a character certificate or apply for a government job, that record can affect them,\u201d the NCCIA officer warned. He said the issue concerns merchant accounts provided by banks and the accounts into which money is deposited. A bank account is linked to a company that may already have been registered despite weaknesses in proper verification, standard operating procedures or the Know Your Customer (KYC) process. \u201cAfter the company has been registered, the bank opens an account for it. The operators then take that company\u2019s bank account and integrate it with their online betting or gaming portal,\u201d Khan said, adding that the NCCIA team is working on recommendations to these institutions so that they improve their checking systems. The additional director said the agency already raised the issue with senior officials at the policy level, and loopholes identified during investigations and interrogations are brought to light so they can be addressed. He said the NCCIA wants to address cases where one-person companies or similar companies were registered and their bank accounts were subsequently used in this way. Meanwhile, Khan said that the NCCIA identified the role and other details of each individual involved: who used which computer, what their role was, the extent of their involvement, who trapped victims, made the calls and edited the material. \u201cWe do not treat everyone as having played the same role. After establishing those roles, we prepare the proper FIR and proceed accordingly,\u201d he explained. The NCCIA additional director noted the agency raided two call centres in the Islamabad-Rawalpindi Zone over the past three days. In the Rawalpindi raid, 11 people, including 10 women, were arrested, while in the Islamabad raid, 143 people were arrested, including 43 women. He said the centres were carrying out transnational scams and fraud, targeting countries in South Asia. Modus operandi Explaining the modus operandi, he said the two centres in the latest raids worked differently. At the Rawalpindi centre, an elaborate setup posing as the police had been created. The operators would offer loans, and when it was time to recover the loans \u2014 or when they had trapped someone and wanted to extract money \u2014 they would call and scam that victim. The suspects would tell a person that they were either being surveilled or on a hit list. Once someone fell into their trap, they would transfer the person to a setup made to look like the police in Bangladesh, put the victim in contact with someone posing as a police officer and then extort money. At the Islamabad centre, they worked in layers; first, they trapped the victim and convinced them to install an application on their mobile phone. Once it was installed, they obtained access to the person\u2019s photo gallery. After accessing the gallery and obtaining a selfie, they would issue a loan for a minimal amount. But their real target was to collect the person\u2019s credentials: mobile number, personal information and other data. They also obtained information about close family members whom the borrower had identified as guarantors, such as a wife, father, brother, cousin or other family members named as next of kin. Once they had collected all these credentials, the case would be passed to senior members. When they had extracted all of the money they could from someone, they would wipe out that person\u2019s account and close the case. The second method was to take a person\u2019s selfie and other pictures from their phone gallery and edit them into pornographic material, using the person\u2019s face in what appeared to be a professional manner. They would then start threatening, harassing and blackmailing the victim. \u201cEven though the resulting pictures might have been fabricated, the threats were still effective. The victim would be under tremendous pressure, fearing that the images would reach their community or family. Under that pressure, the person would start paying money,\u201d Khan said. He said the scammers extracted personal information in the name of loans, manipulated it and used it against the victims, or created sexual content depicting the victim and extracted money through harassment and blackmail. Responding to a question about alleged masterminds, Khan said they were present at every call centre and also arrested. After that, the agency would investigate local facilitators, including whoever rented out the building, those who made the arrangements and connections and those who set up the operation through a fake company. \u201cWe also trace the people who pay the bills and pursue those involved. Then we work at the transnational and international level. We have liaison arrangements with different countries. If a handler or operator belongs to another country, we communicate through embassies and our international contacts,\u201d he noted. A global problem The additional director further stated that international cooperation was being strengthened because such call centres had become a global problem. The NCCIA would handle investigations in Pakistan, while the relevant agencies in the United Kingdom, the United States, China and other countries would handle such matters in their respective jurisdictions. Khan added that in a previous Rawalpindi call centre case, foreign nationals were arrested and are in jail, and will face trial according to Pakistani law. On the changing methods of call centres, he acknowledged that they were no longer necessarily operating in large plazas. In one house, 10 to 12 people gathered with a computer setup and connected their applications and websites to bank accounts. Someone may be sitting in another country while the people here trap the victim, the NCCIA official pointed out. Once the victim starts depositing money into the account, the person in the other country receives the money. He noted that the Rawalpindi centre had been operating for about a month, while the Islamabad facility had been established only 15 or 20 days earlier. The floor managers and overall HR managers at both centres were locals, he added. \u201cWe will investigate and interrogate further to establish who is connected to the back-end operation. We need to find out in which country the application was developed, who developed it and who is handling it,\u201d Khan stated. Staying safe Speaking about how the youth could tell which call centres are legal, Khan said the first thing is common understanding. \u201cIf an entire floor is generating sexual content, you know that is illegal. That is a matter of common sense.\u201d Khan added that when applying for a job, young people should ask which organisation the business is registered with, who approved it and what approval it received from the Securities and Exchange Commission of Pakistan. Moreover, he said many loan applications were operating legally because they have proper permission and follow a lawful procedure. The NCCIA inspects their whole system, including whether the applications are accessing people\u2019s photo galleries, and examines their loan-recovery mechanism. If a borrower does not pay, there are legal channels and procedures for recovery. On foreign nationals allegedly involved in cybercrime, Khan said he did not have an exact number, but acknowledged that there have been many deportations. \u201cThe number in prison is in the hundreds. When the agency raids one call centre alone, it may find between 150 and 250 people on average,\u201d he added. Khan also rejected attributing call-centre crime to one nationality, saying there are people of multiple nationalities who come to Pakistan and become involved in this work. The agency had also arrested 37 suspects allegedly involved in harassment and blackmail cases over the past two to three years, the official added. The suspects had extracted money from women through harassment and blackmail, and the victims had endured this for the past two or three years. On online betting and gambling, Khan said operators initially give users profits deliberately, enticing people to put more money into these portals. They then assess the victim\u2019s financial capacity and, once convinced that the victim has invested their savings, they wipe out the money and cut off contact. \u201cWe are working on this issue and, God willing, will take further action soon. We are making every effort to address fraud involving millions and billions in the name of online betting and gaming,\u201d he stressed. Appealing to young people and businesspeople, including major business owners, Khan urged them against putting business money into buying tokens online and depositing money into gaming applications, gaming websites or betting platforms. \u201cInitially, they may even be allowed to withdraw their money, but essentially the operators are giving them time, playing with their mind and encouraging them to keep depositing more money,\u201d he explained. Khan said the cyber-patrolling teams work around the clock, 24 hours a day, seven days a week.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2044498/nccia-warns-youth-against-joining-illegal-call-centres-for-lucrative-salaries"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "SUNDAY, NOVEMBER 15, 2026", "headline": "India stun Pakistan by one wicket in last-ball U-19 Asia Cup final thriller", "deck": "India held their nerve to snatch a dramatic one-wicket victory over Pakistan on the final ball of the ACC Men's U-19 Asia Cup final at the Al Amerat Cricket Ground in Muscat on Saturday, chasing down a target of 338 to deny the defending champions a successful title defence. With", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2044502/india-stun-pakistan-by-one-wicket-in-last-ball-u-19-asia-cup-final-thriller", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["India held their nerve to snatch a dramatic one-wicket victory over Pakistan on the final ball of the ACC Men's U-19 Asia Cup final at the Al Amerat Cricket Ground in Muscat on Saturday, chasing down a target of 338 to deny the defending champions a successful title defence. With eight runs required in the last over, Mohit Ulva struck the winning boundary off Ahmed Hussain's final delivery, finishing unbeaten on 49 off 26 balls, laced with five fours and three sixes. Chigurupati Venkata, who came into the side in place of the injured Ishan Sood, stayed not out on 11 off eight balls as India reached 339 for nine in their 50 overs.", "India had looked beaten when they slumped to 252 for eight in the 42nd over, but Ulva and Manal Chauhan revived the pursuit with a 57-run ninth-wicket partnership. Chauhan hit three fours and three sixes in his 32-ball 47 before falling at 309 in the 48th over, leaving India needing 29 from the final 16 deliveries. Ulva and Venkata then combined in an unbeaten 30-run stand for the last wicket to carry India home. Earlier, captain Lakshya Raichandani top-scored with 80 off 101 balls and Aaryavir Sehwag made 58 from 61 deliveries, their 95-run opening stand ending when Sehwag fell in the 18th over. Raichandani departed at 217 in the 37th over, and India lost their eighth wicket one run later.", "Pakistan earlier posted 337 for nine after opting to bat, recovering from a strong platform towards a total in excess of 350 after reaching 204 for two at halfway, before India's bowlers pulled things back in the closing overs. Usman Khan anchored the innings with 107 off 111 balls, striking 11 fours and three sixes for his second century of the tournament, while Hayam Khan hit four boundaries in a 23-ball 21 as the pair put on 62 for the opening wicket. Abdul Qadir accelerated with an attacking 80 off just 54 deliveries, including eight sixes, in a 135-run second-wicket partnership with Usman before falling on the last ball of the 27th over at 197 for two. Captain Farhan Yousaf added a 60-ball 63, sharing 59 for the fourth wicket with Ahmed Hussain, who made 17.", "Kavya Paresh Patel led India's attack with four for 68 in 10 overs, while Venkata claimed three for 40 from five overs and Arjun Rajput took one for 43. Rizwanullah, with three for 53, and Niqab Shafiq, who took two for 57, were Pakistan's most successful bowlers. Pakistan had arrived at the final unbeaten, winning all three group matches, including an earlier meeting with India, before overcoming Bangladesh in the semi-final, but finished runners-up after the last-ball defeat. Ulva was named player of the match for his decisive hand in the chase, while Sehwag received the player of the tournament award."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Ronaldo-less Portugal suffer Nations League hammering at hands of Denmark", "body": "Portugal were hammered 4-1 by Denmark on Saturday, an embarrassing Nations League defeat in their first match without Cristiano Ronaldo following the superstar forward\u2019s retirement from international football. Rasmus Hojlund starred with a superb brace as Denmark moved into second place in Group A4 and closed in on a spot in the quarter-finals with a brilliant display in Braga. The Danes are on nine points from five fixtures, three behind Portugal, who were already sure of qualification for the last eight having won all four of their previous group fixtures. A draw against third-placed Norway on Tuesday, 3-1 winners over Wales earlier, will see Denmark through while Portugal hope that Saturday\u2019s disaster isn\u2019t a sign of things to come. \u201cThere are no nights to forget; it was a night of learning, of seeing the mistakes we made,\u201d said Portugal midfielder Bruno Fernandes. \u201cDenmark were also very clinical \u2014 they scored from the chances they had, and it was a match where things ultimately went wrong for us.\u201d Ahead of kick-off, Portugal paid tribute to Ronaldo, who announced his exit from the international game last week, with the team and mascots walking out wearing Ronaldo\u2019s number seven and his name on their jerseys. The entire Portugal team wears jersey number 7 in honour of Cristiano Ronaldo while posing for a team photo before the start of the UEFA Nations League Group A4 match against Denmark at the Municipal Stadium of Braga in Braga, Portugal, on November 14, 2026. \u2014AFP Fans held up a huge banner which read \u201cThank you, captain\u201d as the teams entered the field, while applause rolled around the stadium once the match clock hit seven. Ronaldo made his debut for Portugal in 2003 and went on to establish world records for goals and appearances in international football, netting 146 times in 234 matches. The highlight of his international career was winning Euro since 2016, but it ended badly when the 41-year-old fell out with Portugal coach Jorge Jesus over not being selected for a Nations League fixture in September. That row led to the five-time Ballon d\u2019Or winner being handed a 30-day suspension by the Portuguese football federation and his subsequent retirement, and Portugal looked like they needed prime Ronaldo in a dismal display. Dominant Denmark Denmark were the better team from the first minute, and it was no surprise when the away team went in front at the break thanks to Pierre-Emile Hojbjerg\u2019s spot-kick in the 43rd minute. Denmark\u2019s Pierre Hojbjerg scores from the penalty spot against Portugal during their UEFA Nations League Group A4 match at the Municipal Stadium of Braga in Braga, Portugal, on November 14, 2026. \u2014AFP Hojlund lashed home a brilliant volley four minutes after the restart and seven minutes later left the home crowd shell-shocked with a strike of which Ronaldo would have been proud, the Napoli striker skipping past Ruben Dias before crashing home a powerful shot from the edge of the area. Boos and whistles began to ring out at the Estadio Municipal when Joachim Andersen headed in the fourth, and Bernardo Silva\u2019s late consolation effort barely dampened the discontent. \u201cEvery single Denmark player put in their best performance I\u2019ve seen in a long time. Even the substitutes, which made for a fantastic overall display,\u201d said Morten Hjulmand. \u201cWe scored some great goals, and we deserved to win.\u201d In Oslo, Antonio Nusa opened the scoring for Norway just before the hour mark with a fine low strike before Andreas Schjelderup tapped home a perfect low cross from Erling Haaland, who rounded off the scoring from the penalty spot two minutes from time. Norway\u2019s Erling Haaland scores from the penalty spot against Wales during their Nations League Group A4 match at the Ullevall Stadion in Oslo, Norway, on November 14, 2026. \u2014Reuters Wales briefly had hope of getting a result when David Brooks\u2019 chipped finish halved the deficit in the 79th minute, but Craig Bellamy\u2019s team will finish bottom of the group and risk being relegated to League B. Northern Ireland, meanwhile, need a point from their final Group B2 match in Hungary on Tuesday to be promoted to League A for the first time after a 1-0 win over Ukraine secured by Terry Devlin\u2019s first international goal.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2044621/ronaldo-less-portugal-suffer-nations-league-hammering-at-hands-of-denmark"}, {"head": "Portugal immortalise Cristiano Ronaldo\u2019s No 7 shirt in tribute to national legend", "body": "Portugal have made a permanent change to the No 7 shirt in tribute to Cristiano Ronaldo, preserving its original design to honour the legacy of the country's greatest footballing icon. The move guarantees that the number will remain forever associated with the player who made it his own across 246 appearances, and converts one of football's most recognisable shirts into a lasting monument to his international career.\n\nRonaldo announced his retirement on 5 November after a falling out with the coach Jorge Jesus, bringing to an end a 23-year career in Portugal colours. Over that span he won 246 caps, scored 146 goals and collected three major titles, a record that made the No 7 shirt synonymous with the national team. His final appearance came on 24 September, a 1-0 home win over Wales in the Nations League.\n\nThe tribute fixes the shirt's original design in place as the definitive version associated with the 246-cap forward, ensuring that his era with the national side is preserved for posterity. For supporters who watched him fill the number for more than two decades, the gesture formalises what had long been self-evident: that in Portuguese football, the No 7 belongs to Ronaldo alone.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/14/portugal-immortalise-cristiano-ronaldos-no-7-shirt-in-tribute-to-national-legend"}, {"head": "Nations League roundup -Portugal mauled by Denmark as Norway sink Wales", "body": "Portugal were hammered 4-1 by Denmark in Braga on Saturday, an embarrassing Nations League defeat in their first match without Cristiano Ronaldo after his retirement from international football. Rasmus H\u00f8jlund starred with a superb double, spearheading an exceptional Danish display that left the home crowd stunned on a night which marked the start of a new chapter for Portuguese football.\n\nThe scale of the result reshaped the upper reaches of Group A4. Denmark moved into second place in the group and closed in on a spot in the quarter-finals, converting their superiority in Braga into a statement result in the top tier of the competition. For Portugal, a heavy home defeat in the first outing of the post-Ronaldo era will sharpen scrutiny of a squad in transition.\n\nWales, meanwhile, were beaten 3-1 by Norway in Oslo, a clinical display by the Scandinavians that dented Welsh hopes in the top tier of the Nations League. The defeat leaves Wales bottom of Group A4, a sobering position after an evening in the Norwegian capital in which the home side's cutting edge proved decisive.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/14/clinical-norway-dent-wales-nations-league-top-tier-hopes-with-victory-in-oslo"}, {"head": "Spain test will reveal if Tuchel and England have learned World Cup lessons", "body": "England's meeting with world champions Spain stands as the most searching examination yet of head coach Thomas Tuchel's tenure \u2014 the fixture that, as chief football writer Phil McNulty frames it, will reveal whether he and his squad have genuinely absorbed the lessons of a chastening summer. The statistical backdrop flatters England: eight wins from eight World Cup qualifiers without conceding a goal, built on squad depth and an attacking rhythm that simply overwhelmed their group opponents. Yet the memory of June, when a flat and disjointed England lost 3-1 to Senegal in Nottingham in Tuchel's first defeat as manager, remains the counterweight to that dominance, and it is precisely against elite opposition that such softness is punished most severely.\n\nContext sharpens the challenge. Tuchel, appointed in since 2025 as England's first German manager, inherited a squad that lost the Euro since 2024 final 2-1 to this same Spanish side in Berlin, and everything since \u2014 the reset of tempo, discipline and selection \u2014 has carried an implicit promise of progress. Spain remain the benchmark of international football, their technical midfield and the emergence of Lamine Yamal setting a standard England must eventually match if next summer's World Cup in the United States, Canada and Mexico is to end differently from past near-misses.\n\nFor Tuchel, the calculation is as much psychological as tactical: proof that England can impose their game on the best matters more than the result itself. But Spain will not surrender the initiative as qualifying opponents did, and any lingering habits from the summer \u2014 slower buildup play, defensive hesitancy, uncertainty over roles \u2014 would be exposed. A statement performance would confirm the qualifying perfection has substance; a repeat of June's patterns would reopen the argument that this England win matches without yet playing like champions.", "source": "BBC Sport & Sky Sports", "url": "https://www.bbc.co.uk/sport/football/articles/cq2d9l3e313zo?at_medium=RSS&at_campaign=rss"}, {"head": "Andreeva to face Svitolina in WTA Finals showpiece as Sabalenka apologises", "body": "Russian teen will face Ukraine star in the final Sabalenka issues public apology after social media storm The rise of Mirra Andreeva has seemed inevitable ever since she burst on to the tour as a precocious 15-year-old more than three years ago, but this week, six months after her maiden grand slam triumph at Roland Garros, she has taken another massive step forward in her career. The 19-year-old will attempt to close out the most impressive week of her career by winning one of her most significant titles after thoroughly outplaying Jessica Pegula, the fifth seed, 6-3, 6-4 to reach the championship match of the WTA Finals at the Indian Wells Tennis Garden. A year ago, Andreeva surprisingly failed to qualify for the WTA Finals, missing out by a paltry six points after bizarrely deciding not to compete in the final tournament week before the event. The world No 3 has been utterly supreme in her long-awaited debut appearance, bulldozing through elite opposition to reach the final without dropping a set. She has conceded just 18 games in four matches this week, including a 6-4, 6-0 demolition of the No 1 seed Aryna Sabalenka, winning 11 games in succession from 1-4 down. Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/nov/14/mirra-andreeva-jessica-pegula-wta-finals-semi-final-indian-wells"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
