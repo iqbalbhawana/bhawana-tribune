@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (THURSDAY, NOVEMBER 19, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">THURSDAY, NOVEMBER 19, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "THURSDAY, NOVEMBER 19, 2026", "headline": "Kayani, APTMA discuss Pakistan textile exports and industry reforms", "deck": "Coordinator to the Prime Minister on National Development Bilal Azhar Kayani and the leadership of the All Pakistan Textile Mills Association held wide-ranging talks on the state of Pakistan's textile exports and the structural reforms the sector needs to compete internationally.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/bilal-azhar-kayani-aptma-pakistan-textile-exports/", "body": ["Coordinator to the Prime Minister on National Development Bilal Azhar Kayani and the leadership of the All Pakistan Textile Mills Association held wide-ranging talks on the state of Pakistan's textile exports and the structural reforms the sector needs to compete internationally. The discussions took in export performance, energy and input costs, customs clearance and the broader tax-administration environment that shapes the competitiveness of mills selling into key Western and regional markets.", "Textiles remain the backbone of Pakistan's external trade, accounting for roughly 60 per cent of total goods exports of around $30 billion a year and sustaining a large share of the country's industrial workforce. Sector representatives have long argued that an export base weighted toward low-value yarn and grey cloth must shift toward higher-value apparel and technical textiles if the country is to raise foreign exchange earnings and industrial employment together.", "Reform priorities aired in the talks mirror the agenda APTMA has pressed publicly for years: faster clearance of consignments at Karachi Port and land border crossings, wider use of electronic filing and risk-based customs controls, timely release of sales tax refunds, and upgrades to freight and logistics corridors that link upcountry mills to the ports and to Central Asian and Gulf markets. Energy tariffs, which mills benchmark against prices paid by regional competitors, also featured in the exchanges.", "The engagement reflects the government's stated thrust on export-led growth at a time when pressure on external accounts keeps trade policy under close scrutiny. Policy attention has centred on maintaining exchange-rate competitiveness, reducing dwell times and paperwork at borders, and ensuring trade-facilitation measures, including transit traffic under international conventions, move predictably so exporters can quote firm delivery schedules. Compliance with sustainability and traceability standards in European markets continues to weigh on the reform debate as buyers tighten sourcing requirements.", "Follow-up is expected through the established coordination channels between the association, the commerce ministry and the Federal Board of Revenue, with industry proposals set to surface in budget deliberations. The test for both sides will be converting discussion into a higher-value export mix through binding action on refunds, energy costs and border efficiency \u2014 the variables on which the fortunes of Pakistan's largest export industry ultimately converge."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR Launches New Oil Pricing Formula", "body": "Pakistan Customs has tightened the assessment regime for imported Mixture of Hydrocarbon Oil (MHO), with the Directorate General of Customs Valuation in Karachi issuing Valuation Ruling No. 72/2026 on November 13. The ruling sets benchmark-based customs values for MHO imported from all countries, a measure designed to curb under-invoicing and bring declared values into closer alignment with prevailing international petroleum prices.\n\nThe revision follows an examination of import records and laboratory reports, which established that certain importers were declaring MHO consignments at values of $350 to $360 per metric ton \u2014 significantly below international prices for comparable petroleum products. Laboratory analysis of sampled consignments revealed variations in composition: some tested as light oil, while others displayed characteristics closer to gas oil. None of the samples, however, could be conclusively identified as Euro-V petrol, kerosene or high-speed diesel, complicating the classification of the imported product.\n\nImporters contested the benchmark, arguing that MHO was being imported as a raw material requiring further processing before local sale, and cited volatility in international petroleum prices in defence of their declared values. Officials found these submissions unsupported by sufficient documentary evidence, clearing the way for the new benchmark-based valuation to take effect across all origins of import.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/18/fbr-launches-new-oil-pricing-formula/"}, {"head": "FBR proposes faceless appeals system with anonymous hearings and voice modulation", "body": "The Federal Board of Revenue has proposed a faceless appeals system for tax disputes under which appellate orders would be issued without any physical meeting or direct interaction between taxpayers and the commissioners deciding their cases. Draft rules prepared by the revenue authority set out a framework in which appeals would be decided on written submissions, digitally filed evidence and recorded proceedings, with the identity of both the adjudicating officer and the appellant concealed from the opposite side. Where oral arguments are admitted, voice-modulation technology would distort speakers' voices, and case files would be allocated to appellate benches through an automated, randomised system designed to prevent any officer from repeatedly handling matters involving the same taxpayer or representative.\n\nThe board positions the scheme as a governance measure aimed at insulating the appellate stage of tax administration from informal influence, a stage where commissioners of appeals exercise wide discretion over assessments, penalties and refunds already contested before the tax machinery. By removing face-to-face contact, the initiative seeks to replicate the logic of faceless assessment and adjudication models adopted in other jurisdictions, which use technology to separate the officers handling a case from those deciding it. The stated rationale is that anonymity narrows the scope for graft and pressure, while a structured digital record creates an auditable trail behind every order passed.\n\nThe draft rules stop short of abolishing all human contact: the right of taxpayers to a personal hearing would survive, but it would be exercised through video links or recorded submissions rather than chamber meetings. Legal practitioners are expected to weigh the convenience of remote hearings against concerns that anonymised adjudication could complicate cross-examination and the testing of evidence \u2014 questions the board will need to resolve before the framework is finalised and notified. The proposal forms part of a broader push to digitise customs and revenue processes, moving filings, payments and now appeals onto electronic platforms to compress timelines and reduce physical touchpoints across the tax system.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-faceless-appeals-system-draft-rules-pakistan/"}, {"head": "SBP revises builders and developers financing rules to boost housing supply", "body": "The State Bank of Pakistan has revised its financing guidelines for builders and developers, in a bid to direct a larger share of bank credit into construction activity and expand the country's chronically short housing stock. The updated framework governs how commercial and Islamic banks extend project finance to builders and developers for residential schemes, setting out eligibility, loan terms and risk-mitigation arrangements in a form intended to make developer lending more workable, so that nascent or stalled projects can reach the market faster.\n\nThe dedicated facility was first introduced since 2021, when the central bank was seeking to revive a sector it regarded as an engine of economic recovery, alongside subsidised end-user schemes such as Mera Pakistan Mera Ghar. Construction carries strong multiplier effects, sustaining the cement, steel, bricks, glass and allied services industries, and it contributes materially to urban employment as well as to provincial revenues through stamp duties and transfer taxes.\n\nMortgage penetration in Pakistan remains among the lowest in the region, while a housing backlog measured in millions of units persists as urban populations keep growing. The central bank has long argued that accessible, longer-tenor construction finance for developers is a precondition for widening formal housing supply and deepening the nascent mortgage market.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-revises-builders-developers-financing-guidelines/"}, {"head": "Pakistan Receives Its Biggest LPG Shipment in History", "body": "Pakistan has received the largest liquefied petroleum gas (LPG) shipment in the country\u2019s history, with a vessel carrying 15,000 metric tons of LPG arriving at Port Qasim under a new import system. A special ceremony was held at Port Qasim to mark the arrival of the first major LPG cargo under the new system. Special Secretary Petroleum Mirza Nasiruddin Mashhood attended the event as the chief guest. Speaking at the ceremony, Mashhood said the government was taking steps to ensure LPG remained available to consumers at reasonable prices. He described the record 15,000-metric-ton shipment as the beginning of a new phase for Pakistan\u2019s LPG sector. According to an official statement, government companies had previously been unable to import LPG due to regulatory hurdles. The new system is expected to improve supply, particularly to mountainous and remote areas during the winter season. The statement said additional LPG cargoes were expected to arrive in the coming weeks, improving availability in the open market and providing relief to consumers.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/18/pakistan-receives-its-biggest-lpg-shipment-in-history/"}, {"head": "FBR launches crackdown on under-invoicing of hydrocarbon oil imports", "body": "The Federal Board of Revenue has launched a crackdown on under-invoicing of hydrocarbon oil imports, an enforcement drive aimed at declared import values that fall short of the true transaction prices of petroleum products. Under-invoicing in this segment suppresses the customs duty, sales tax and other fiscal charges that should accrue to the federal exchequer, and the practice has long been treated as a persistent source of revenue leakage at ports of entry. Hydrocarbon oil stands among the most revenue-significant import categories on the federal account, which makes valuation fraud in the sector a direct and material risk to overall collections.\n\nThe practice typically surfaces through manipulated commercial invoices, misdescription of product grades, or declared values that diverge from prevailing international benchmark prices. Customs formations applying the drive are expected to test declarations against valuation rulings issued by the board's valuation directorate, corroborate import documentation with banking records, and subject already-released consignments to post-clearance audit. Where short declaration is established, the duty shortfall becomes recoverable, with penal action available under the Customs Act, 1969.\n\nThe exercise also carries a compliance message for the wider import trade. Valuation discipline in bulk petroleum imports preserves a level playing field for traders who declare correct values, and reliance on international price indices gives customs authorities a ready yardstick for flagging anomalous declarations. By concentrating enforcement on a single, high-value commodity stream, the board has moved to close a recognised gap in the revenue chain, while signalling that declared values in sensitive import sectors will face sustained scrutiny.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-crackdown-hydrocarbon-oil-import-under-invoicing/"}, {"head": "Transforming Commercial and Industrial Energy in Pakistan -The SAJ CHS3 C&I Hybrid Energy Storage Solution", "body": "As Pakistan\u2019s commercial and industrial (C&I) sectors navigate shifting energy tariffs and the ongoing demand for reliable power, businesses require more than just conventional solar installations. They need intelligent, high-capacity, and resilient energy ecosystems. Addressing this crucial market need, SAJ Electric has introduced its flagship CHS3 C&I Hybrid Energy Storage Solution (featuring the CH3 Series and CB3 Series), now officially available in Pakistan through trusted national distributors Suntrix and Nizam Energy. Redefining energy storage economics through cutting-edge engineering, the CHS3 system delivers a powerful suite of technological advancements designed to maximize commercial ROI, protect against grid failures, and streamline complex energy demands. Traditional commercial energy systems generally operate at 1000V, requiring extensive wiring frameworks. The CH3 125K introduces a global first 1500V hybrid technology, significantly reducing the required strings by 30%. This higher voltage design minimizes balance-of-system costs, simplifies installation, and maximizes overall plant yield. One of the standout design choices of the CHS3 is its integrated Static Transfer Switch (STS). By eliminating the need for an expensive external STS box, businesses save between $10,000 to $25,000 in upfront equipment costs. More importantly, the system ensures 0-outage, seamless on/off-grid switching, protecting sensitive industrial equipment from unexpected power interruptions. Scaling up commercial energy storage no longer equates to scaling complexity. The CHS3 features a high-precision sensing hub and a built-in Energy Management System (EMS) that requires no external EMS box.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/18/transforming-commercial-and-industrial-energy-in-pakistan-the-saj-chs3-ci-hybrid-energy-storage-solution/"}, {"head": "52% Tobacco Farmers Sell Crops Without Contracts", "body": "More than half of tobacco farmers surveyed in Pakistan reported selling their crops to buyers without direct written agreements, highlighting significant gaps in compliance with Pakistan Tobacco Board (PTB) regulations and raising concerns about the potential flow of tobacco leaf into the illicit supply chain. An independent study by the Institute for Public Opinion Research (IPOR), titled \u2018Assessment of Tobacco-Leaf Production, Marketing and Purchasing Practices in Pakistan;, surveyed 1,200 tobacco farmers across Swabi, Mardan, and Charsadda. It examined purchasing agreements, pricing, payment methods, and compliance with existing regulations. The study found that 52 percent of farmers sold tobacco to buyers with whom they had no direct written agreement. Additionally, 45 percent had no written purchasing agreement before planting. Under the existing PTB regulatory framework, tobacco purchases are subject to government-notified weighted average price requirements intended to protect farmers. Tobacco companies and dealers are also required to meet their announced purchasing quotas, including additional surplus quantities assigned by the board.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/11/18/52-tobacco-farmers-sell-crops-without-contracts/"}, {"head": "SBP Governor calls for structural reforms to sustain Pakistan\u2019s economic stability", "body": "The Governor of the State Bank of Pakistan has called for the sustained implementation of structural reforms to consolidate the economic stability the country has regained after an extended period of external and fiscal stress. The central bank chief underlined that the hard-won calm in inflation, the exchange rate and the external accounts remains conditional, and that lasting stability can only be secured through deeper change in public finances, the energy sector and the wider business environment.\n\nPakistan\u2019s macroeconomic position has improved markedly over the past year under an International Monetary Fund-supported adjustment programme, with price pressures easing from past highs, foreign exchange reserves rebuilding and the rupee steadying after repeated devaluations. The SBP has responded by lowering its policy rate in stages as inflation retreated, while the import curbs of the recent crisis period have been unwound and receipts from exports and remittances have recovered.\n\nThe appeal underscores a long-standing concern that structural weaknesses \u2014 a narrow tax base, large circular debt in the power sector, low export coverage of imports and a vast informal economy \u2014 have repeatedly pushed Pakistan into balance-of-payments crises. Reform of taxation, state-owned enterprises, energy pricing and trade competitiveness is therefore seen as central to any durable recovery. The Governor\u2019s message was that consistency in these reforms, combined with prudent monetary policy, is essential to sustain growth, restore investor confidence and shield the economy from future shocks.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-governor-pakistan-economic-stability-structural-reforms/"}, {"head": "Pakistan Achieves 83% Cotton Target", "body": "Pakistan achieved 82.8 percent of its FY27 cotton sowing target by October 31, with actual cultivation reaching 1.79 million hectares. Meanwhile, cotton arrivals at factories increased 7 percent year over year to 4.743 million bales as of October 31, 2026, compared with 4.437 million bales recorded during the corresponding period last year. The increase was led by Sindh, where arrivals rose 9 percent, while Punjab recorded 5 percent growth. However, the improvement comes against a relatively low base, highlighting the challenges facing the country\u2019s cotton sector as it targets a significant recovery in production during FY27. Sindh recorded cotton arrivals of 2.744 million bales as of October 31, up from 2.528 million bales a year earlier. This represented a year-over-year increase of 9 percent, making the province the larger contributor to the national total. In Punjab, arrivals reached 1.999 million bales, compared with 1.909 million bales during the same period last year, reflecting an increase of 5 percent. Together, the two provinces brought total arrivals to 4.743 million bales, an increase of approximately 306,000 bales from the previous year. Sindh accounted for around 58 percent of total arrivals, while Punjab contributed approximately 42 percent. The provincial figures indicate that Sindh continued to lead the country\u2019s cotton arrivals, both in volume and annual growth.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/11/17/pakistan-achieves-83-cotton-target/"}, {"head": "Pakistan Embassy in London Suspends NADRA, Passport and Visa Services Indefinitely", "body": "The Pakistan Embassy in London has suspended NADRA, passport and visa services until further notice after a fault in an international submarine cable affected internet connectivity with Pakistan. In a notice posted on its official X account on Wednesday, the Pakistan High Commission in London said the services would remain temporarily suspended because of a fault in the SEA-ME-WE 5 submarine cable system, reported about 11 kilometres off Pakistan\u2019s coast. The mission said internet connectivity and related services may experience disruption due to the fault. \u201cIn view of the prevailing situation, NADRA, Passport and Visa services at the Pakistan High Commission, London, will remain temporarily suspended until further notice,\u201d the High Commission said. Attestation services will continue as usual and remain available to applicants, it added.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/19/pakistan-embassy-london-suspends-nadra-passport-visa-services/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "THURSDAY, NOVEMBER 19, 2026", "headline": "SECP slashes digital nano-loan interest rate cap from 274% to 90%", "deck": "New regulations set a lower 70% APR ceiling for repeat borrowers, introduce a three-day grace period and cap total loan recovery at twice the principal amount.", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/secp-cuts-digital-nano-loan-interest-rate-cap/", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["New regulations set a lower 70% APR ceiling for repeat borrowers, introduce a three-day grace period and cap total loan recovery at twice the principal amount.", "Islamabad, November 18, 2026: The Securities and Exchange Commission of Pakistan (SECP) has significantly reduced the maximum annual percentage rate (APR) lenders can charge on digital nano-loans, cutting the ceiling from 274% to 90% for new borrowers and 70% for repeat borrowers.", "According to an SECP news release, the move aims to strengthen borrower protection and promote responsible digital lending practices.", "Through Circular No. 26 of 2026, the regulator amended Circular No. 12 since 2024, revising the permissible APR for digital loans of up to Rs50,000 with a maximum repayment period of 90 days.", "Under the revised limits, the maximum daily borrowing cost stands at approximately 0.2466% for new customers and 0.1918% for repeat borrowers. On a Rs10,000 loan, this translates into daily charges of around Rs24.66 and Rs19.18, respectively.", "The SECP has also prohibited compounding and automatic loan rollovers. Early repayment must be allowed, with charges restricted to the actual outstanding period.", "Lenders must provide a three-day grace period after the repayment due date before imposing late-payment charges. Such charges can only apply to overdue principal."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "15,000-tonne LPG cargo arrives from Abu Dhabi under new policy to ease shortages", "body": "ISLAMABAD: The government on Wednesday said it received the first cargo of 15,000 tonnes of liquefied petroleum gas (LPG) from Abu Dhabi after it introduced policy changes earlier this month to arrange imports through state-owned enterprises (SOEs) to ease supply constraints and contain rising prices in winter. In a statement, the Petroleum Division said that SSGC LPG Limited (SSL) \u2013 a subsidiary of the state-run Sui Southern Gas Company Limited (SSGCL) \u2013 had imported a record 15,000 metric tonnes of LPG cargo, the largest of its kind that berthed at Engro Vopak Terminal Limited (EVTL). The shipment marks the first \u201cmajor\u201d import under the new LPG guidelines aimed at ensuring the availability of LPG at affordable rates for the public, the statement said. The SSL arranged the cargo through competitive bidding at a price yet to be disclosed by the company. Petroleum Division officials said the company would publish details of the pricing components on its website in a couple of days, but claimed the SSL import had already dented market prices by Rs100 to Rs120 per kg. Separately, Petroleum Minister Ali Pervez Malik informally told journalists that another shipment arranged by Pakistan State Oil (PSO) was on its way to Karachi and would reach over the next two days, followed by others. He said LPG availability would address the pricing distortions in the market. On November 3, the federal cabinet approved new LPG pricing guidelines to enable SOEs to play a leading role in securing LPG supplies. Previously, formal sector companies had exited imports due to regulatory constraints that prevented them from recovering procurement costs. Under the cabinet decision, the government also directed state-owned companies to lead LPG imports and strengthen the country\u2019s supply chain, especially in winter. The increased influx of LPG is expected to further improve market availability, ease supply constraints and help bring prices down through greater product availability. It will also enhance supplies to hilly, remote and far-flung areas, particularly during peak winter season. A welcome ceremony was held at Port Qasim to mark the arrival of the shipment, with Special Secretary Petroleum Mirza Nasir ud Din Mashood as the chief guest. SLL Managing Director Jawad Ali Khan, Oil and Gas Regulatory Authority (Ogra) Senior Executive Director (LPG) Sarmad Aslam, and other senior officials were present at the occasion, according to the statement. Speaking at the ceremony, Petroleum Special Secretary Mirza Nasiruddin Mashood said that the prime minister and the petroleum minister had issued directives to take effective measures to ensure LPG availability to the public. He said the arrival of the record shipment marked a new era for the LPG sector and would further strengthen the country\u2019s supply chain. He congratulated SLL on this achievement. The government said the LPG pricing change was meant to create competition in the market through procurement of LPG by four SOEs on government-to-government (G2G) and business-to-business (B2B) arrangements and flood the market. LPG, often described as the poor man\u2019s fuel, has been in short supply even before the onset of winter as western borders faced disruption. Resultantly, unscrupulous elements started taking advantage by selling the product to consumers at Rs700 to Rs800 per kilogramme against Rs295 per kg maximum price set by Ogra for November . LPG pricing The government is working with the Benazir Income Support Programme (BISP) to provide LPG to the \u201cmost deserving and vulnerable\u201d at Rs300-350 per kg through a subsidy mechanism to be funded by a new account arising from the differential between LPG import parity price and auction of local LPG produced by refineries and exploration and production companies under a clawback mechanism. The SOEs \u2014 PSO, Pakistan LNG Ltd, SSL and Parco-LPG \u2014 have been engaged with various suppliers from Saudi Arabia and Oman for LPG supply. Apart from imports through SOEs, the cabinet has also decided to put an end to the existing quota system for domestic LPG enjoyed by influential groups, and local producers would auction their LPG in 5 to 10 tonnes through a competitive process under Ogra and the Petroleum Division\u2019s supervision. Under the new arrangement, these SOEs would announce the base price \u2014freight-on-board (FOB) linked with the Saudi Aramco contract price (CP) \u2014 along with other costs including the premium, freight (CFR), insurance, incidental costs and import taxes actually incurred by PSO or any other SOE in the preceding month (monthly average landed cost) on their websites. Ogra would stop issuance of price notification for local (or imported) LPG forthwith. The local producers shall be entitled to this producer price only discovered through auction and the differential between the producer price (Saudi CP-linked FOB) and the base price of PSO shall be deposited in the fund account to subsidise poor consumers through BISP. The private sector has been demanding an end to the Saudi-CP-linked price, considering that most of the imports originate from other countries, including Iran and Oman. In case of no imports by SOEs in a month, the preceding month\u2019s premium, incidentals and taxes shall apply with the current month\u2019s CP on the pattern of diesel and petrol pricing. There would be an increase in margins for LPG marketing and importing companies to Rs50,000 per tonne floor instead of the existing Rs35,000 per tonne as inflation adjustment since the since 2016 LPG policy. Ten per cent of the indigenous LPG produced by exploration and production (E&P) companies, refineries and other producers shall be allocated to state-owned marketers at producer price, to guarantee supply to the northern areas, Gilgit-Baltistan and other remote, hilly and hard-to-reach areas for supply through cylinders or already installed LPG air-mix plants. The remaining 90pc will be allocated, through a transparent monthly auction with a floor price equal to 5pc of import-parity price of PSO, to prequalified bottlers to increase investment in infrastructure and storage, cylinders in circulation, geographical reach and operational capability, with safeguards against cartelisation. Ogra would be required to convene product review meetings on the pattern of oil products to ascertain supply-chain position, including the import plan and winter stock planning, and instruct specific import volumes to SOEs to ensure demand and supply balance in the market, especially during the winter.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2045423/15000-tonne-lpg-cargo-arrives-from-abu-dhabi-under-new-policy-to-ease-shortages"}, {"head": "KP governor forms 8-member commission to probe illegal placer gold mining", "body": "PESHAWAR: Khyber Pakhtunkhwa Governor Faisal Karim Kundi on Wednesday constituted an eight-member inquiry commission to probe illegal placer gold mining in the province. The commission, according to a notification issued by the provincial home and tribal affairs department, will be headed by retired Justice Asadullah Khan Chamkani. It will also include as members Barrister Mohammad Yaseen Raza, legal adviser/member Sher Akbar Khan, Deputy Inspector General of Police Wasif Rahman, Health Department Additional Secretary Engineer Ziarat Khan, and representatives of intelligence agencies. According to the notification, the commission will inquire into the extent, history and nature of illegal placer gold mining in KP, particularly in Kohat, Nowshera, Karak and other affected districts. The inquiry includes the scale, duration and locations of illegal operations. In addition to this, the commission will identify persons, groups and networks involved in illegal mining, including beneficiaries, and determine their \u201crespective roles, financial gains and individual or institutional responsibility for facilitation, corruption, negligence, abuse of authority or failure to discharge legal duties\u201d. Similarly, it will also inquire into \u201callegations of patronage, facilitation and connivance by political figures, public representatives, government functionaries, law enforcement personnel or any other persons or institutions, including corruption, abuse of authority, deliberate inaction or protection provided to illegal mining operations\u201d, the notification said. The commission will also examine the financial dimensions of illegal mining, including the estimated quantity and value of gold illegally extracted, losses caused to the public exchequer, movement of proceeds, money laundering, smuggling and possible links with organised crime, terrorist groups or terrorist financing. It will additionally examine the role and performance of concerned government departments, district administrations and the police in \u201cpreventing illegal mining, monitoring lease conditions, taking enforcement action, registering and investigating cases, prosecuting offenders and dealing with seized machinery, gold and other property\u201d. The commission has also been tasked to determine the reasons for the continuation or recurrence of illegal mining in spite of repeated complaints, government directions, enforcement operations and criminal proceedings, including negligence, deliberate failure to enforce the law, interference or facilitation by those responsible for enforcement. In addition to this, it will also inquire into the circumstances surrounding the Kohat incident of Nov 11 , including any links between illegal mining networks and the attack on police personnel, possible planning, financing, facilitation or support, and any relevant operational or security lapses, without prejudice to ongoing criminal investigations, the notification said. Eighteen terrorists were killed while 10 cops were martyred on Nov 11 when a police team came under attack on its way back after completing an operation against elements involved in illegal gold mining. The committee will also examine previous inquiries, reports, complaints and decisions, including those of the National Accountability Bureau (NAB), Provincial Cabinet Inquiry Committee (PCIC) and other competent authorities, assess the implementation of their findings and recommendations, and examine any fresh material or evidence warranting further inquiry. The commission will assess the financial and environmental damage caused by illegal mining, including loss of government revenue and damage to riverbeds and adjoining areas, while identifying persons or entities against whom recovery, compensation or other legal action may be warranted. It will also recommend specific action against those found responsible, including criminal investigation or prosecution, departmental proceedings, recovery of unlawful gains or public losses, and any other action warranted under the applicable laws. It will also recommend immediate measures, wherever necessary, for preservation of evidence, protection of witnesses and records, securing public assets and preventing interference with the inquiry. The commission will submit a comprehensive report containing its findings, supporting evidence and the responsibility of persons or institutions concerned, as well as specific recommendations for further action by the competent authorities. \u201cThe commission may examine any person, record, transaction, lease, operation or incident relevant to its mandate, irrespective of the period involved or the position or status of the persons concerned,\u201d the notification added. It added that the inquiry would not be confined to any particular government, department, institution or category of persons. According to the notification, the commission will be given access to all relevant material, including a confidential report received from the Prime Minister\u2019s Office vide a letter dated Aug 25, the chief secretary\u2019s directions of Sept 8, NAB and PCIC reports, relevant cabinet decisions, departmental files, lease and auction records, complaints, first information reports, investigation and prosecution records, machinery seizure and release records, and any other material relevant to the inquiry. \u201cThe commission shall exercise the powers available under the West Pakistan Tribunals of Inquiry Ordinance, 1969, including summoning and examining witnesses on oath, requiring the production of records and documents, receiving evidence, calling for information from any person or authority, requisitioning public records and conducting proceedings in accordance with law,\u201d the notification read. According to the notification, the KP Mines and Minerals Development Department will provide secretarial, administrative and logistical support to the commission. The commission will submit its report to the KP governor within 45 days of its notification. The probe has been set up in the aftermath of an attack that led to the martyrdom of 10 police personnel in the Gumbat area of Kohat district on Nov 11 while they were returning from an operation against illegal placer gold mining along the Indus River. The incident came a day after the Kohat deputy commissioner imposed a 60-day ban on parking excavators within blocks C and D of placer gold mining areas and adjoining locations. According to the order, these could easily be used for unauthorised gold extraction. Condemning the attack, Kundi on Saturday announced a ban on gold mining across the province and the revocation of all mining leases as part of measures to curb illegal mining.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2045455/kp-governor-forms-8-member-commission-to-probe-illegal-placer-gold-mining"}, {"head": "SBP takes major step to strengthen housing finance ecosystem", "body": "KARACHI: The State Bank of Pakistan (SBP) has revised the guidelines for builders and developers financing aimed to increase the supply of mortgageable housing units and strengthening the overall housing finance ecosystem in Pakistan. These guidelines aim to facilitate Banks and Development Finance Institutions (DFIs) financing to REITs, builders and developers while ensuring prudent risk management, in line with applicable Prudential Regulations for Corporate and Commercial Banking and international best practices. As per fresh guidelines, Banks and DFIs have been asked to establish specialized units for expanding the developers and builders financing portfolio while ensuring compliance with these guidelines. READ ALSO: Housing finance: Credit approvals in 3 weeks, SBP tells banks As per eligibility criteria, REIT, a REIT, builder, developer or project team must possess a valid license from the relevant building control authority, where applicable, or have an approved contract or agreement with the competent public sector authority or institution. Private REITs, builders and developers must also demonstrate a strong track record of successfully completed projects, supported by a list of recently completed developments. Additionally, they must have clear and unencumbered title to the land on which the project is to be developed, free from any charges, liens or other encumbrances, with the value of the land being recognised as equity contributed by the builder or sponsor(s). A project should be capable of generating sufficient cash flows to repay its debt and banks/DFIs shall get the technical feasibility report independently reviewed by an engineering firm of repute registered with concerned authority such as Pakistan Engineering Council etc. Banks and development finance institutions (DFIs) will be required to obtain valuations of plots and projects from well-reputed valuers approved by the Pakistan Banks Association (PBA), based on the financing amount. For financing of up to Rs50 million, a desktop valuation conducted by the bank or DFI will suffice. For financing exceeding Rs50 million but not more than Rs500 million, at least one valuation by an approved valuer will be required, while financing above Rs500 million will require valuations from at least two approved valuers. SBP has directed Banks and DFIs to establish a mechanism for regular monitoring during construction phase to ensure proper utilization of finance. Proper scrutiny or audit shall be undertaken of the Project Account(s), Project Escrow Account and any other accounts deemed necessary for the operation of the Project. Banks and DFIs will also ensure that the REIT, builder, developer obtains valid and enforceable comprehensive insurance or Takaful coverage (Contractor\u2019s All Risk Insurance Policy or equivalent) for the project. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449656/sbp-takes-major-step-to-strengthen-housing-finance-ecosystem?v=kIpmKT-ReO7yAGPcoiYlEQsQ"}, {"head": "Czech Ambassador visits Peshawar", "body": "PESHAWAR: Ladislav Steinh\u00fcbel, Ambassador of the Czech Republic to Pakistan, accompanied by Zden?k Koudelka, Political Counsellor, visited Peshawar on Wednesday to explore opportunities for enhancing bilateral trade, investment and industrial cooperation, particularly with Khyber Pakhtunkhwa. The visit was hosted by Barrister Assad Saifullah Khan, Honorary Consul General of the Czech Republic in Peshawar. The delegation was received at the motorway toll plaza with floral bouquets by Consulate staff, visited Peshawar Museum for a briefing on the region\u2019s historical heritage and was accorded a traditional Pashtun welcome, including the presentation of turbans, at the Honorary Consulate. At Peshawar Barracks, Masood Ahmad Qazi, Honorary Consul General of Romania, also welcomed the delegation with floral bouquets and traditional hospitality. The meeting was attended by Honorary Consuls General of Bosnia and Herzegovina, Tajikistan, Japan, Brazil, Finland, Romania and Russia, Osman Saifullah Khan, Advisor to the Governor of Khyber Pakhtunkhwa, Sikandar Kuli Khan Khattak, Chairman KPTMA, Fuad Ishaq, former President Sarhad Chamber of Commerce and Industry; Sultan Khwaja, Malik Riaz Awan and Dr. Ateeq. Welcoming the guests, Barrister Assad Saifullah Khan highlighted the province\u2019s industrial base, mineral wealth and untapped economic potential, emphasizing opportunities for Czech investment, technology transfer and business partnerships. Ambassador Steinh\u00fcbel described the visit as an important step towards closer economic relations and particularly stressed his objective of increasing Czech exports to Pakistan, promoting Czech products and developing direct commercial links with Khyber Pakhtunkhwa\u2019s business community. Participants discussed cooperation in mineral exploration and processing through Czech technology, textile machinery and technology exchange, industrial partnerships, value addition, exports and investment facilitation. Masood Ahmad Qazi stressed coordination among Honorary Consuls, Muhammad Arsalan Khan highlighted mineral-sector opportunities, Fuad Ishaq and Sultan Khwaja emphasized investment and business development; and Sikandar Kuli Khan Khattak proposed textile-sector collaboration, stressing the need to improve the ease of doing business. Nawabzada Fazal Karim Afridi highlighted overseas employment opportunities for the province\u2019s skilled workforce. The importance of provincial government facilitation was also emphasized, with Osman Saifullah Khan encouraged to use his experience and business connections to strengthen government-private sector coordination and promote economic development. Barrister Assad Saifullah Khan thanked the Ambassador and participants, expressing the hope that the visit would lead to practical business linkages and mutually beneficial cooperation. The meeting concluded with a traditional luncheon hosted by him, featuring Lakki Marwat\u2019s special delicacies, Penda, Jawar ki Roti and Saag, reflecting the region\u2019s distinctive cuisine and hospitality. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449664/czech-ambassador-visits-peshawar?v=kIpmKT-ReO7yAGPcoiYlEQsQ"}, {"head": "Govt should take measures to promote industry -UBG President", "body": "KARACHI: United Business Group (UBG) President, Zubair Tufail, has said the government should take practical measures to promote industry and trade so that the country\u2019s economy can be placed on sustainable foundations. He emphasized that a strong business representation in the Federation would help provide constructive suggestions to the government regarding continuity in economic policies, industrial growth, increased investment, and the creation of a business-friendly environment. He said that SM Tanveer must win the FPCCI elections by a large majority to help steer Pakistan towards a strong and stable economy and enable the government to receive practical and effective recommendations from the business community. Commenting on the upcoming FPCCI elections for 2027-2028, he said that the business community has full confidence in SM Tanveer\u2019s leadership and that he enjoys significant support from various trade and industrial circles. He expressed confidence that SM Tanveer, UBG\u2019s presidential candidate, would win the FPCCI elections by a heavy majority. He added that UBG\u2019s leadership and its panel are committed to resolving the problems faced by the business community and ensuring effective representation of traders and industrialists. Zubair Tufail further stated that the business community plays a vital role in Pakistan\u2019s economic development. He said economic challenges could be addressed through effective coordination and consultation between the government and the private sector, adding that the United Business Group is playing a constructive role in this regard. However, he stressed that business-friendly policies must be prioritized to encourage both local and foreign investment in the country. He concluded by emphasizing that all stakeholders must work together to improve Pakistan\u2019s economy and achieve sustainable economic growth. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449667/govt-should-take-measures-to-promote-industry-ubg-president?v=kIpmKT-ReO7yAGPcoiYlEQsQ"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "THURSDAY, NOVEMBER 19, 2026", "headline": "Anthropic prices blockbuster IPO at $83 a share, source says", "deck": "Anthropic priced its initial public offering at $83 a share on Wednesday, topping the targeted range of $70 to $78, in one of the largest stock-market debuts on record and the first by a major frontier artificial intelligence model developer. The size of the offering was enlarged", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40449679/anthropic-prices-blockbuster-ipo-at-83-a-share-source-says?v=kIpmKT-ReO7yAGPcoiYlEQsQ", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Editor-in-Chief, Senior Member Pakistan Customs Service (Retd.)", "body": ["Anthropic priced its initial public offering at $83 a share on Wednesday, topping the targeted range of $70 to $78, in one of the largest stock-market debuts on record and the first by a major frontier artificial intelligence model developer. The size of the offering was enlarged from the 825 million shares the company had initially planned to sell. The shares are expected to begin trading on the Nasdaq on Thursday under the ticker ANT, with Goldman Sachs and Morgan Stanley leading a 22-bank underwriting syndicate. The listing marks the second mega-IPO this year centred on AI, following June's record-setting SpaceX sale, and comes as OpenAI, Anthropic's closest rival, is expected to pursue a public listing as early as next year.", "Anthropic's growth has been propelled by surging demand for its Claude models, particularly Claude Code, its coding agent that has gained popularity among software developers. The company's annualised revenue run rate reached $81 billion as of October 31, up $10 billion from September 30, while customers generating at least $100,000 in annual revenue on a trailing 12-month basis rose to 11,900, from more than 1,500 at the end of last year. Third-quarter revenue climbed 47% to $16.96 billion. The pricing followed a roadshow that attracted demand for several times the number of shares on offer, despite questions over the company's outlook and its ability to sustain rapid growth as competition in the AI industry intensifies.", "Sustaining that expansion, however, is proving costly. Anthropic spent nearly $9 billion on computing capacity and infrastructure in the first half of 2026, almost four times the amount a year earlier, and incurred a further $5 billion in computing costs in the third quarter, reducing revenue generated per dollar of computing capacity. The company swung to an operating loss of $567 million from operating income of $974 million in the second quarter, while net loss narrowed to $23.3 billion from $66.3 billion, including non-operating items related to bonds convertible into its shares. Anthropic has committed to nearly $900 billion in computing spending with partners including Amazon and Alphabet's Google, and warned in its prospectus that some computing providers depend on third-party financing to acquire chips, adding that \"if such financing or support becomes unavailable or more costly, contracted capacity may be delayed, repriced, reduced, or not delivered.\"", "The debut lands against a more challenging backdrop for AI stocks, with chipmakers and cloud companies central to the sector under pressure over valuations, mounting infrastructure costs and the sudden resignation of Jensen Huang as chief executive of Nvidia, a key pillar of the industry's growth. Investors have grown increasingly concerned about debt-fuelled expansion of AI infrastructure, as technology companies and data-centre operators borrow heavily to finance chips, power and computing facilities. Anthropic also faces questions over balancing commercial ambitions with its safety focus: chief executive Dario Amodei has called for the industry to slow the pace of developing and releasing ever more powerful models, warning that advances could outstrip society's ability to manage the risks. Anthropic declined to comment."], "quote": "A declared value pitched below international petroleum prices is not commerce; it is leakage \u2014 of duty, of sales tax, and of the state's credibility.", "editorial": {"title": "Honest Prices, Hard Administration", "deck": "A benchmark-based customs value for hydrocarbon oil, a usury cap cut from 274 to 90 per cent, and an SOE-led LPG import window all point one way: the state re-asserting the discipline of honest prices \u2014 if administration can keep up with announcement.", "paragraphs": ["The Directorate General of Customs Valuation's Valuation Ruling No. 72/2026, prescribing benchmark-based customs values for imported Mixture of Hydrocarbon Oil irrespective of origin and issued on November 13, is assessment discipline placed in its proper statutory home. Section 25A of the Customs Act, 1969 exists precisely for this: where declared transaction values for a sensitive commodity diverge from prevailing international prices, the Valuation Directorate may fix customs values after due process, importer hearing and the right of review. MHO has long featured in the risk profiles of under-invoicing and transit diversion; a declared value pitched below international petroleum benchmarks translates directly into leakage of customs duty and sales tax at the import stage, and into an artificial cost advantage for the non-compliant over the honest importer. Anchoring assessment to benchmarks restores the transaction-value discipline contemplated under Article VII of the WTO Valuation Agreement rather than abandoning it. The caveat is methodological: benchmarks must be evidence-based, published with reasoning and periodically reviewed, or the cure hardens into a fresh distortion.", "The SECP's decision to slash the interest-rate cap on digital nano-loans from 274 per cent to 90 per cent is a more contested correction, but its policy philosophy is defensible. An effective annual rate approaching triple digits is not risk-based pricing; it is a usury regime dressed up as fintech innovation, and it corrodes the very financial inclusion the segment claims to serve. The statutory relief to borrowers is real, yet a cap regulates price, not supply. Ninety per cent must be enforced as an all-in, transparently computed annualised rate \u2014 fees and penalties included \u2014 against licensed NBFC platforms, or demand will migrate to unregulated apps where harassment substitutes for disclosure. SECP should now publish enforcement data and monitor whether formal micro-credit volumes contract, because a cap that chokes legitimate capital flow to small borrowers solves one problem only by manufacturing another.", "The first 15,000-tonne LPG cargo from Abu Dhabi, landed through SSGC LPG Limited under this month's policy shift toward SOE-led imports, is a pragmatic stabilisation measure rather than an ideology. Winter demand spikes against a thin private import regime have repeatedly handed pricing power to hoarders and squeezed household energy budgets; a state procurement window can contain that volatility and its pass-through into measured inflation. But the arrangement must carry buyer-of-last-resort logic with a sunset discipline: procurement should be tendered transparently, private importers must retain a level playing field, and the policy must not ossify into permanent state trading that deters private capital flows into storage, terminals and import competition.", "The thread running through the valuation ruling, the usury cap and the LPG window is the state re-learning to police prices honestly \u2014 at assessment, in consumer credit, and in energy markets. The same logic must now inform the reform dialogue with the textile industry: export competitiveness is built as much on predictable assessment, timely refunds and rational, SRO-free duty regimes as on market access. Fiscal prudence is rarely one grand reform; it is the accumulated credibility of routine, well-administered rules across the FBR and allied regulators. The announcements this week are sound in design. Administration is now the whole of the examination."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Google launches Gemini 4 Neon with Opus 5.5-level coding performance at 25% lower API token prices", "body": "Google released Gemini 4 Neon earlier today, adding a mid-range large language model to its Gemini family that the search giant positions at Opus 5.5-level coding performance while charging 25 per cent less for API tokens. The model went live on the paid Gemini API, where developers can call it through Google AI Studio and Android Studio, offering engineering teams a substantially cheaper route to high-grade code generation without committing to frontier-tier pricing.\n\nAccess extends beyond direct API consumption: Gemini 4 Neon is also available in the Gemini app and in Google Antigravity, the company's AI-assisted development platform, for Google AI Pro and Ultra subscribers. The bundling puts the new model in front of everyday assistant users and professional developers alike, consistent with the tiered structure Google applies across its AI product line, where Pro and Ultra plans unlock the most capable models.\n\nThe launch arrives as price-performance ratios on coding and agentic workloads have become the sharpest competitive lever in the AI market, with mid-range models increasingly delivering near-frontier capability at a fraction of the cost of flagship systems. By pairing Opus 5.5-class coding behaviour with a quarter off token pricing, Google is betting that developer economics, rather than raw benchmark leadership, will decide where high-volume production workloads are deployed.", "source": "VentureBeat Feed", "url": "https://venturebeat.com/technology/google-launches-gemini-4-neon-with-opus-5-5-level-coding-performance-at-25-lower-api-token-prices"}, {"head": "Anthropic reportedly prices IPO at $83 a share, above projected range", "body": "Anthropic has priced its long-awaited initial public offering at $83 a share, above the projected range, in a listing that values the artificial intelligence company at $1.5 trillion on a fully diluted basis, a measure that counts every share that could come into existence, including those tied to options held by employees and early backers. Striking the price outside rather than within expectations sets the stage for one of the most consequential technology debuts of recent years and underlines the premium that public market investors are willing to pay for exposure to frontier AI.\n\nAnthropic, the San Francisco-based developer of the Claude family of models, was founded since 2021 by former OpenAI researchers led by chief executive Dario Amodei and has built its franchise around safety-centred development of large language models for enterprise and consumer users. A valuation of $1.5 trillion would place the company among the most valuable listed technology groups in the world from the moment its shares begin trading, an extraordinary benchmark for a business incorporated barely five years ago and one that vaults it past many incumbents with far longer public histories.\n\nThe debut will be closely watched as a test of whether the AI-fuelled rally in private and public valuations can be sustained, and of how durably institutions will underwrite the enormous computing costs that frontier model development demands. Pricing above the marketed range typically signals robust institutional demand, and any firm first-day performance would sharpen the debate over whether the sector's leading developers can convert speculative enthusiasm into durable, profits-backed growth.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/"}, {"head": "OpenAI's pre-release GPT-6.2 Astra was easier to jailbreak than its predecessor, UK government testers found", "body": "The United Kingdom's AI Security Institute developed a universal jailbreak against two pre-release versions of OpenAI's GPT-6.2 Astra, and needed only half as many model queries to do so as it had against the earlier GPT-6 Astra. The efficiency of the technique points to a successor model whose safety safeguards gave way more readily to adversarial prompting than those of its predecessor \u2014 the reverse of the trajectory operators of frontier systems typically seek across successive releases.\n\nOpenAI's system card, dated Nov. 17, states that the UK AI Security Institute identified a substantial regression in robustness relative to GPT-6 Astra. The same document records the company's position that GPT-6.2 Astra meets its Critical threshold for cybersecurity capabilities. The pairing \u2014 elevated cybersecurity capability landing in the same release as weakened jailbreak robustness \u2014 frames the central tension of the new model's pre-release evaluation.\n\nPre-release access for government testing bodies exists precisely to surface weaknesses of this kind before models reach general availability. Because jailbreak effort is measured in the number of model queries, the halved query count places the robustness regression in stark, quantifiable terms, and hands OpenAI a concrete benchmark against which the guardrails of its next release will be judged.", "source": "VentureBeat Feed", "url": "https://venturebeat.com/security/openais-pre-release-gpt-6-2-astra-was-easier-to-jailbreak-than-its-predecessor-uk-government-testers-found"}, {"head": "Microsoft CEO Satya Nadella remains confident in Nvidia after Huang\u2019s exit", "body": "Satya Nadella, Microsoft's chief executive, has voiced firm confidence in Nvidia's interim leadership, backing Colette Kress, the chipmaker's long-serving chief financial officer who has taken charge as interim chief executive following the exit of Jensen Huang. Huang, who co-founded Nvidia in 1993 and transformed it from a graphics-chip specialist into the dominant supplier of processors underpinning the global artificial intelligence boom, leaves behind one of the most closely watched leadership transitions in the technology industry. Nadella's endorsement of Kress signals that Microsoft, one of Nvidia's most important customers, expects continuity in the relationship through the handover.\n\nThe stakes for both companies are considerable. Microsoft depends heavily on Nvidia's accelerators to run the artificial intelligence workloads across its Azure cloud platform, and the two groups have been closely intertwined in the build-out of data-centre infrastructure for generative AI services. A stable transition at the top of Nvidia is therefore central to Microsoft's own AI ambitions and its multibillion-dollar investments in computing capacity, making Nadella's public backing a reassurance to markets as much as to engineers.\n\nKress, a veteran finance chief and a familiar presence at Nvidia's investor events during its run of extraordinary growth, now carries the task of steadying customers, partners and shareholders while the board weighs the company's longer-term leadership direction. How she manages the interim period will shape confidence across the AI supply chain that both companies have helped build.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/"}, {"head": "Nvidia created a weird bit of intrigue by not filing a routine SEC report", "body": "Nvidia briefly turned one of the dullest rituals in corporate finance into a talking point when it signalled that it would not file its Form 10-Q, the formal quarterly results document lodged with the Securities and Exchange Commission, for weeks beyond its usual schedule. For a group that anchors the global market for artificial-intelligence chips, the announcement stood out precisely because the 10-Q is normally a formality: a fuller, rule-bound account of the quarter that follows the headline earnings release, carrying reviewed financial statements, footnotes and updated risk disclosures.\n\nThe gap mattered because investors treat Nvidia's filings as a barometer for the AI build-out, combing the document for supply-chain detail, customer concentration and risk warnings that press releases rarely contain. Federal securities rules do allow companies extra time in defined circumstances, and short extensions are usually read as administrative; until the document lands, however, markets are left to interpret the silence. Nvidia's decision to state openly that the filing would slip only sharpened that scrutiny.\n\nThe puzzlement did not last long. A Wall Street analyst worked through the paperwork and the reporting timetable, and the explanation pointed to the mechanics of the filing calendar rather than anything more troubling in the accounts, defusing concern that the delay foreshadowed problems with the quarterly numbers. The episode was nonetheless instructive: for a company whose disclosures move markets more than almost any other, even a routine pause in paperwork is now treated as a signal to be decoded within days.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/18/nvidia-created-a-weird-bit-of-intrigue-by-not-filing-a-routine-sec-report/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "THURSDAY, NOVEMBER 19, 2026", "headline": "\u2018Secret Lives of Mormon Wives\u2019 EPs on How \u2018Orange County\u2019 Became the First Franchise Extension, Season 2 Hopes and \u201cExploring\u201d More Spinoffs", "deck": "Hulu \u2019s first extension of The Secret Lives of Mormon Wives franchise arrived on the streamer last Thursday, introducing viewers to a brand-new pool of women based in Southern California who are in some way connected to the LDS faith.", "hero_source": "Hollywood Reporter Feed", "hero_url": "https://www.hollywoodreporter.com/tv/tv-features/secret-lives-mormon-wives-orange-county-season-2-future-spinoffs-1236758893/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Hulu \u2019s first extension of The Secret Lives of Mormon Wives franchise arrived on the streamer last Thursday, introducing viewers to a brand-new pool of women based in Southern California who are in some way connected to the LDS faith.", "The Secret Lives of Mormon Wives: Orange County has caused a stir online, proving that the format of the original series works with the franchise treatment. The online buzz has translated into viewership: season one accumulated 20 million hours in its first five days of streaming, a 12 percent increase over season five of the original series.", "So, what actually is in the secret sauce in Hulu\u2019s The Secret Lives of Mormon Wives format? Executive producers Jeff Jenkins and Lisa Filipelli both agree everything boils down to casting.", "\u201cA docuseries, in my opinion, is only as good as the folks who are the subject, who are on camera, right? So we just try really hard to collaborate with our cast members and bring their stories forward,\u201d Jenkins says. \u201cIt just goes back to story and sharing. We look for subjects, castmembers, who are really ready to share. It\u2019s not an easy thing to do.\u201d"], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "Rose Byrne on What Lured Her to \u2018The Good Daughter\u2019 and Why That Complicated Ending Wraps the Series", "body": "Rose Byrne has laid out what drew her to \u2018The Good Daughter\u2019, the Peacock mystery thriller she headlines and executive produces opposite Meghann Fahy, and her case rests on the closeness between the show\u2019s suspense and its psychology. The actress, long admired for shuttling between broad comedy and hard-edged drama, took on the material as performer and producer in equal measure, carrying the project from development through to screen. With the finale now on the platform, the conversation turns on how a story this tangled should be allowed to end \u2014 and whether ending it at all is the braver choice.\n\nThe ending itself is deliberately complicated, and Byrne\u2019s defense of it is that it closes the series rather than merely stopping it. The central mystery is answered; the judgment is not. Viewers are left weighing whether what happens to the young girl at the center of the story is fair, a question positioned as the drama\u2019s true destination \u2014 the point where thriller mechanics give way to moral accounting. The ambiguity is framed as honest rather than evasive, the price of a resolution that no one inside the story can hold cleanly.\n\nFor Peacock, the series lands as a marquee title in its drama slate; for Byrne, the finale doubles as a statement of intent on the producing side \u2014 a project chosen for its refusal to be comfortable, delivered without sanding off its edges. Fahy\u2019s co-lead presence steadies the final movement, keeping the resolution on people rather than plot. The closing chapter stands as the series\u2019 last word, handed, pointedly, to the audience.", "source": "Hollywood Reporter Feed", "url": "https://www.hollywoodreporter.com/tv/tv-features/rose-byrne-the-good-daughter-finale-ending-show-1236758885/"}, {"head": "\u2018GTA VI\u2019 Industry Domination Will Not End Anytime Soon", "body": "Rockstar Games has sold more than 17 million copies of Grand Theft Auto VI, and the commercial engine behind the industry's biggest entertainment release shows no sign of cooling. The tally is all the more striking because the rollout remains conspicuously incomplete: there is still no PC release date, and no announcement has been made for Grand Theft Auto Online, the persistent multiplayer mode that has historically turned each installment into years of recurring revenue. The market is therefore watching demand generated by the core title alone, built before PC players have even been given a date to plan around.\n\nThat leaves Rockstar with a reserve of commercial catalysts still in hand. A PC version would open the game to one of gaming's largest and most durable audiences, while an Online service has previously converted the franchise from a one-time purchase into a long-running social and spending platform. With neither lever pulled, the 17 million-plus figure functions less as a final count than as a floor, established by a release still missing its two principal growth engines.\n\nThe broader implication for the creative economy is straightforward: a launch of this scale draws consumer attention and spending across film, streaming and interactive entertainment alike, and rival publishers have historically kept their calendars clear of its shadow. With both a PC window and a Grand Theft Auto Online reveal still outstanding, the game's hold on the business looks built to outlast even its blockbuster opening.", "source": "Hollywood Reporter Feed", "url": "https://www.hollywoodreporter.com/business/digital/gta-vi-sales-reviews-pc-release-grand-theft-auto-6-online-1236758402/"}, {"head": "SkyShowtime to Shut Down, CEO Exiting", "body": "SkyShowtime, the pan-European streaming joint venture between Comcast and Paramount, is to be shut down, with the service's chief executive exiting as the platform prepares to wind down operations. The decision closes the chapter on a venture first unveiled five years ago by Comcast and the then-named ViacomCBS, which sought to pool some of the most recognisable names in global entertainment \u2014 Paramount Pictures, Universal, Showtime, Sky originals, Peacock and Nickelodeon \u2014 into a single subscription service for European audiences. The platform went live since 2022 in the Nordics and later expanded across the Netherlands, the Iberian Peninsula and much of Central and Eastern Europe, ultimately reaching more than 20 European markets.\n\nThe writing had long been on the wall for the experiment. The joint venture took shape at a moment when both parents were searching for a capital-efficient route into Europe's streaming market, licensing their vast film and television catalogues into one shared platform rather than rolling out standalone services territory by territory. But the economics of the industry have hardened since, with a broader retreat from sprawl toward consolidation, tighter control of flagship platforms and fewer overlapping properties steadily eroding the rationale for a partner-operated service.\n\nIts departure will leave European audiences in a market increasingly dominated by global streaming giants, and its parents \u2014 whose strategies are now anchored on flagship homes and international scale \u2014 facing the task of charting separate paths for the continent's viewers.", "source": "Hollywood Reporter Feed", "url": "https://www.hollywoodreporter.com/business/business-news/skyshowtime-to-shut-down-ceo-exiting-1236758993/"}, {"head": "Bryan Freedman Sued Over Hush-Money Deals Shielding Michael Jackson Estate", "body": "Bryan Freedman, one of Hollywood's most prominent entertainment litigators, is facing a lawsuit from the Cascio siblings, who accuse the attorney of a conflict of interest in brokering their confidential settlements with the estate of Michael Jackson. Members of a family with deep personal ties to the singer \u2014 a name long associated with the contested vocals on the since 2010 posthumous album 'Michael' \u2014 the plaintiffs contend that Freedman counselled them through those negotiations while simultaneously maintaining professional ties to the estate itself, a dual loyalty they argue tipped the terms of the deals toward the estate and left them without genuinely independent representation.\n\nThe complaint characterises the accords as hush money, describing pacts that traded cash for silence and shielded the estate \u2014 led by co-executors John Branca and John McClain since Jackson's death in 2009 \u2014 from damaging claims entering the public record. The siblings say the agreements were engineered to bury their disputes while safeguarding the reputation and commercial interests built around the singer's catalogue, rights and image. The legal action puts the enforceability of those arrangements squarely at issue and casts Freedman's dual role as a breach of the loyalty owed to the family he advised.\n\nFreedman has built his career as the industry's go-to counsel for stars and studios in crisis, and the suit lands as the estate continues to steward one of pop music's most valuable catalogues, from the contested recordings of the posthumous era to the long-gestating biopic of the singer's life. The estate has repeatedly defended its posthumous business in the face of litigation and public scepticism, and the new filing now drags its settlement machinery \u2014 and the lawyer alleged to have operated it \u2014 into open court, promising a fresh examination of how the singer's legacy has been protected in the years since his death.", "source": "Hollywood Reporter Feed", "url": "https://www.hollywoodreporter.com/business/business-news/bryan-freedman-lawsuit-michael-jackson-estate-1236758968/"}, {"head": "Rob Lowe Asked Ben Shapiro to Cast Him in \u2018Confession\u2019 -\u201cI\u2019ve Worked With Left-Wing Writers. Why Wouldn\u2019t I Work With Right-Wing Writers?\u201d", "body": "Rob Lowe personally pitched Ben Shapiro to cast him in Confession, the project attached to Shapiro\u2019s Daily Wire, only for the conservative commentator to demur on strictly physical grounds. Shapiro recently said he told the veteran actor he was \"way too handsome\" to take on the role. Lowe, undeterred, defended the idea of the collaboration on principle: \"I\u2019ve worked with left-wing writers. Why wouldn\u2019t I work with right-wing writers?\"\n\nThe reasoning rests on a career built alongside writers of openly progressive allegiances. Lowe broke through in 1980s ensemble films such as St. Elmo\u2019s Fire and About Last Night, then cemented his standing as Sam Seaborn in the early seasons of The West Wing, the acclaimed political drama created by Aaron Sorkin, one of Hollywood\u2019s most prominent self-identified liberals. Against that backdrop, Lowe frames the casting question as a matter of craft rather than ideology, a position he appears ready to apply in both directions.\n\nThe overture is notable for the Daily Wire itself. Founded since 2015 by Shapiro and Jeremy Boreing as a political commentary outfit, the company has since pushed into entertainment through its DailyWire+ streaming service, assembling a slate of original films, documentaries and series positioned outside Hollywood\u2019s conventional orbit. A marquee name with a decades-spanning career exploring a role in one of its productions underlines the seriousness of that expansion.", "source": "Hollywood Reporter Feed", "url": "https://www.hollywoodreporter.com/movies/movie-news/rob-lowe-asked-ben-shapiro-cast-confession-left-right-writers-1236758985/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "THURSDAY, NOVEMBER 19, 2026", "headline": "Islamabad police assure businessmen of addressing concerns", "deck": "ISLAMABAD: Recognising the business community as a key pillar of economic stability and growth, Islamabad Police on Wednesday assured traders of addressing their concerns, strengthening their security and promptly resolving police-related grievances through effective institutiona", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40449668/islamabad-police-assure-businessmen-of-addressing-concerns?v=kIpmKT-ReO7yAGPcoiYlEQsQ", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["ISLAMABAD: Recognising the business community as a key pillar of economic stability and growth, Islamabad Police on Wednesday assured traders of addressing their concerns, strengthening their security and promptly resolving police-related grievances through effective institutional coordination. The commitments were extended by SSP Operations Captain Ali Raza Qazi (Retd) during an interactive session with the business community held at the Islamabad Chamber of Commerce and Industry (ICCI), where he also promised traders dedicated representation in the Alternative Dispute Resolution (ADR) mechanism.", "The session brought together ICCI executive members, leading traders, industrialists and representatives of various trade bodies to discuss issues affecting the business environment and to explore practical mechanisms for closer cooperation between the police and the trading community. The SSP Operations emphasised that sustained engagement between Islamabad Police and the ICCI Police Committee was essential for translating the community's concerns into timely action. On the issue of lost property documents, he announced that comprehensive Standard Operating Procedures (SOPs) would be formulated to facilitate complainants, while business community-related grievances would preferably be resolved at the police station level to minimise procedural hurdles and ensure speedy relief.", "ICCI President Mohammad Zikria Akbar Zia stressed that a secure business environment and an efficient policing system were fundamental to economic activity, investor confidence and sustainable business growth. He said closer coordination between the chamber and Islamabad Police would not only help resolve traders' day-to-day problems but also strengthen public trust and create a more conducive environment for trade and investment. Senior Vice President Mohammad Ashfaq Hussain Chatha highlighted the importance of a responsive and business-friendly policing approach, emphasising that regular interaction between the two institutions could help identify emerging challenges and develop effective solutions.", "The proceedings were moderated by Chairman of the ICCI Police Committee Saif ur Rehman Khan, while Vice Chairman Zohaib Ahmad Malik was also in attendance. The interactive engagement concluded with the presentation of relevant letters to members of the ICCI Police Committee, marking a further step towards strengthening institutional collaboration between the capital's business community and its police force."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Pakistan's mango exports fall 36pc amid US-Iran war -exporters' association", "body": "Pakistan\u2019s mango exports fell 36 per cent this year as the US-Iran war disrupted shipping routes and drove up freight costs, industry figures showed on Wednesday. According to All Pakistan Fruit and Vegetables Exporters Association, the country exported 78,000 tonnes of mangoes this year, compared with 123,000 tons last year. Exports to the Middle East, a major market for Pakistani mangoes, dropped from 36,000 tonnes last year to 14,500 tonnes this year, the association said. Waheed Ahmed, head of the association, told Anadolu that the ongoing conflict had reduced the country\u2019s mango export earnings from approximately $100 million to around $60m. He cited the months-long near-closure of the Strait of Hormuz, a key shipping route, and rising freight rates as major factors behind the decline, particularly in exports to Middle Eastern countries. \u201cThe freight rate that was $1,000-1,400 before the US-Iran war, now stands at $8,000. Secondly, the closure of the Strait of Hormuz also increased the shipping period , which affected the exports of perishable items like mangoes,\u201d he said. Ahmed said the United Arab Emirates and Oman were the main Middle Eastern destinations for Pakistani mangoes, particularly the internationally acclaimed Chaunsa variety, followed by Saudi Arabia. Kuwait and Qatar also import significant quantities of Pakistani mangoes, according to the association. Mango exports to neighboring Afghanistan were also disrupted by frequent border closures amid strained relations between the two countries, Ahmed said. Pakistan produced 1.9m metric tonnes of mangoes annually since 2018, ranking sixth globally behind India, China, Thailand, Indonesia and Mexico. However, production has declined over the past four years, with the association attributing the drop to global warming. Climate change has reduced Pakistan\u2019s total mango production by 35pc, according to the association.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2045456/pakistans-mango-exports-fall-36pc-amid-us-iran-war-exporters-association"}, {"head": "PTA says submarine cable fault may cause internet connectivity issues", "body": "The Pakistan Telecommunication Authority (PTA) said on Wednesday that a fault in one of the international submarine cable systems may result in users experiencing internet connectivity issues. \u201cOne of the international submarine cable systems, the SEA-ME-WE 5 (SMW5), has reported a fault at about 11km from Pakistan\u2019s shore, which may cause some internet users to experience intermittent connectivity issues and a decline in service quality,\u201d the authority said. \u201cTransworld Associates is coordinating with the SMW5 consortium to identify the root cause of the fault and determine the estimated time for restoration,\u201d it added. In the meantime, the authority said internet traffic was \u201cbeing rerouted through alternative international links to minimise the impact and ensure service continuity to the greatest extent possible\u201d. It added that it was in close coordination with the concerned stakeholders and will \u201ccontinue to monitor the situation to facilitate the earliest possible restoration of normal internet services across the country\u201d. Internet monitor NetBlocks confirmed later that a decline in internet connectivity was causing slow service. \u201cThe incident is consistent with a fault on the SMW5 international subsea cable system with operators now attempting to establish alternative routes,\u201d it said. On July 1, a fault in the SMW5 international submarine cable system caused widespread connectivity issues in Pakistan. The fault was resolved on July 3.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2045448/pta-says-submarine-cable-fault-may-cause-internet-connectivity-issues"}, {"head": "Fears grow that US will put Nobel-winning judge under sanctions after Myanmar genocide ruling", "body": "<p>A ruling against Myanmar could set precedent for court\u2019s judgment on Israel\u2019s actions in Gaza</p><p>Fears are growing that the US could impose sanctions on judges at the international court of justice, including this year\u2019s <a href=\"https://www.theguardian.com/world/2026/oct/09/navanethem-navi-pillay-wins-nobel-peace-prize\">Nobel peace prize winner, Navi Pillay</a>, if the <a href=\"https://www.theguardian.com/world/2026/nov/15/myanmar-rohingya-genocide-icj\">court rules on Thursday that the Myanmar government committed genocide</a> against the Rohingya.</p><p>The ICJ has never found a state responsible for committing genocide, and a significant factor in previous cases has been how to prove \u201cintent\u201d in a crime defined as acts committed with the \u201cintent to destroy, in whole or in part\u201d a national, ethnical, racial or religious group.</p> <a href=\"https://www.theguardian.com/world/2026/nov/18/us-sanctions-icj-judges-myanmar-genocide-ruling-israel-gaza-court\">Continue reading...</a>", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/nov/18/us-sanctions-icj-judges-myanmar-genocide-ruling-israel-gaza-court"}, {"head": "European Commission accused of sugarcoating figures to release funds to Egypt", "body": "<p>Leaked documents raise questions about claims Egypt met welfare targets to qualify for \u20ac2.5bn in loans</p><p>The European Commission has been accused of sugarcoating figures to enable it to release funds to Egypt under a landmark pact with the authoritarian government of Abdel Fatah al-Sisi.</p><p>The charge relates to a \u20ac7.4bn deal <a href=\"https://www.theguardian.com/world/since 2024/mar/17/egypt-eu-deal-refugees-mediterranean\">promised by Ursula von der Leyen</a>, the European Commission president, to al-Sisi on a high-profile visit to Cairo since 2024. The three-year \u201cstrategic and comprehensive partnership\u201d was intended to bolster Egypt\u2019s shaky economy, deter migrants from coming to Europe and shore up a region reeling from the 7 October attacks and Israel\u2019s war on Gaza.</p> <a href=\"https://www.theguardian.com/world/2026/nov/18/european-commission-accused-sugarcoating-figures-egypt-loans\">Continue reading...</a>", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/nov/18/european-commission-accused-sugarcoating-figures-egypt-loans"}, {"head": "Bukele confirms airstrike on Haitian gang leader Jeff's luxury mansion", "body": "Salvadoran President Nayib Bukele has confirmed an airstrike on the luxury mansion of Jeff Larose, known widely as Jeff, one of Haiti's principal criminal leaders, and has welcomed the destruction of the property. The strike levelled the residence of a man regarded as among the most powerful figures in Haiti's underworld. It is not clear whether Larose was inside the building when it was bombed, leaving his fate and whereabouts unresolved.\n\nHaiti has been gripped by one of the Western Hemisphere's most severe security crises, with armed groups controlling most of the capital, Port-au-Prince, thousands of people killed and well over a million driven from their homes. Larose stands among the crime leaders at the centre of that violence, which has paralysed state institutions, choked an already fragile economy and placed the understaffed national police under sustained assault.\n\nBukele, who built his international reputation on an uncompromising crackdown on gangs at home, cast the destruction of the gang leader's residence as a victory against organised crime. His open satisfaction at the loss of a symbol of gang wealth is likely to sharpen debate over how the international community confronts Haiti's armed groups, and over the uncertainty that surrounds strikes launched against targets whose leadership may not have been present.", "source": "Euronews World Wire", "url": "https://www.euronews.com/2026/11/18/bukele-confirms-airstrike-on-haitian-gang-leader-jeffs-luxury-mansion"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "THURSDAY, NOVEMBER 19, 2026", "headline": "Duckett slams century as England thrash Australia to win ODI series", "deck": "Ben Duckett struck a commanding 133 and paceman Sonny Baker ripped through the Australian top order with four wickets as England thrashed the hosts by 97 runs in the third One-day International at the Bellerive Oval in Hobart on Wednesday to clinch the series. Having dropped the ", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2045447/duckett-slams-century-as-england-thrash-australia-to-win-odi-series", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Ben Duckett struck a commanding 133 and paceman Sonny Baker ripped through the Australian top order with four wickets as England thrashed the hosts by 97 runs in the third One-day International at the Bellerive Oval in Hobart on Wednesday to clinch the series. Having dropped the opener in Perth, England bounced back emphatically in Adelaide and carried that momentum into the decider, piling up 328 before dismissing Australia for 231 in the 46th over.", "England captain Harry Brook won the toss and opted to bat on a day when Australian cricket was again consumed by allegations surrounding the \u201cSandpapergate\u201d ball-tampering scandal. Opener Tom Banton, who blasted a century in Adelaide, set the tone with a quick-fire 44 before Marsh grabbed a stunning catch backpedalling to remove him. Duckett then anchored the innings as wickets tumbled around him: Joe Root (12) was bowled by part-time spinner Matt Renshaw with only his fourth ball, and Brook (17), Jordan Cox (12) and Jofra Archer (7) fell in quick succession to leave England 195-5 in the 33rd over. Duckett kept his cool, reached his seventh ODI century off 94 balls with 13 fours and one six, then accelerated before top-edging Renshaw to Josh Inglis, while Will Jacks's 59 in a late flurry carried the visitors past 300.", "Australia's chase unravelled immediately. Travis Head edged Gus Atkinson to Root at slip on the fourth ball of the innings, and skipper Mitchell Marsh (one) followed six balls later, caught by Brook off Baker. Josh Inglis (14) nicked Baker to wicket-keeper Jordan Cox to leave the hosts flailing at 34-3. Renshaw looked good on 55 before being caught and bowled by spinner Liam Dawson, and with Alex Carey run out for 37 and Cameron Green retiring hurt with blood streaming from his mouth after being hit on the grill, Australia slumped to 119-5. Baker finished with 4-45 and Dawson took 3-42.", "\u201cNot an ideal start to the series. We\u2019ve notoriously been quite slow to get into series as well, so that\u2019s something to talk about going forward,\u201d said Brook. \u201cBut the way we bounced back in Adelaide and the performance we put up today was outstanding, and the boys should be extremely proud.\u201d A rueful Marsh conceded: \u201cWell played to England. They\u2019ve certainly outplayed us in the last couple of games. I think there are lots of areas for improvement for our team and we\u2019ve got work to do.\u201d"], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Veerle Buurman scrambles late WCL winner to push blunt Chelsea past PSG", "body": "Chelsea were made to work hard for their Women's Champions League points against Paris Saint-Germain, with the decisive moment arriving only in the closing stages through Veerle Buurman. The Netherlands defender stole in to squeeze the ball over the line at the near post amid goalmouth congestion, breaking the resistance of a disciplined Paris side and lifting Chelsea, at least temporarily, to the top of the league-phase table.\n\nUntil that intervention, Chelsea had done everything but score. The team's attacking play was bright and sustained, but a resilient PSG backline, marshalled diligently throughout, kept clear chances to a minimum while Chelsea's finishing proved blunt. Buurman's scrambled finish ultimately ensured the patience and pressure finally yielded reward in front of the floodlights.\n\nThe goal capped a striking few days for the 22-year-old. In Chelsea's weekend defeat of Manchester City, Buurman was introduced after 12 minutes and nullified the threat of striker Khadija Shaw so effectively that she was named player of the match. She is now a match-winner too, establishing herself as one of the most consequential recent additions to Chelsea's European campaign.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/18/chelsea-paris-saint-germain-womens-champions-league-match-report"}, {"head": "Joint-record six referee errors in last Premier League weekend", "body": "The Premier League's Key Match Incidents Panel has ruled that on-field officials made six errors across the most recent round of fixtures \u2014 a total that equals the joint-highest recorded in a single weekend since the panel began publishing its weekly verdicts. The findings concern the match officials' original rulings rather than the video reviews that followed them, and place the last matchweek alongside the previous high-water mark for wrong decisions in the competition's flagship transparency exercise.\n\nThe panel assesses every incident in which VAR became involved and votes on whether each on-field decision was right or wrong. Its voting members include former players and coaches, a representative of every Premier League club, officials from Professional Game Match Officials Limited, the players' union and journalists, with an incident marked as wrong when a majority conclude that a better call was available. The rulings, released after each round, are advisory and cannot alter results, but they have become the league's principal public measure of refereeing standards since 2023.\n\nA six-error weekend matches the competition's previous benchmark and will intensify scrutiny of an officiating system recalibrated around semi-automated offside technology and tightening VAR protocols. Clubs and supporter groups follow the weekly scorecard closely, and the joint-record haul lands amid continuing debate over the consistency of key decisions at a stage of the season when fine margins shape European qualification and relegation struggles alike.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/c69q8jy924y4o?at_medium=RSS&at_campaign=rss"}, {"head": "Alcaraz reaches ATP Finals last four with help from Tiafoe", "body": "Carlos Alcaraz reached the last four of the ATP Finals on Wednesday thanks to Frances Tiafoe after the Spaniard had earlier brushed aside world number five Daniil Medvedev 6-2, 6-4. American Tiafoe beat Italian Flavio Cobolli 7-6(8/6), 6-0 with his first set guaranteeing Alcaraz\u2019s spot in the next round. Tiafoe kept his hopes of a semi-final spot alive in his maiden Finals appearance and faces Medvedev in his last group-stage match on Friday. Seven-time Grand Slam champion Alcaraz needed just over 70 minutes to beat the Russian in Turin. \u201cA little bit of problems, you know, physically, in the match,\u201d Alcaraz said on-court after receiving some treatment in the second set. \u201cBut I think everybody could see that I was able to still play good tennis; I could still move well.\u201d By winning in straight sets, the 23-year-old will secure his spot in the semi-finals if Frances Tiafoe defeats Flavio Cobolli later or if the Italian beats the American in three sets. Alcaraz has never won the season-ending Finals, finishing runner-up last year to Jannik Sinner. But with Sinner injured and the Spaniard entering this season\u2019s edition on the back of a nine-match winning streak that earned him indoor titles in Vienna and at the Paris Masters, Alcaraz is considered the favourite to lift the trophy this year. Since returning in August from a wrist injury that kept him off the tour for four months and prevented him from defending his French Open title, Alcaraz has won three of the five tournaments he has entered. After easing past Tiafoe in his opener in Turin 6-2, 6-2, the third seed carried that ominous form into the first set against since 2020 Finals winner Medvedev. Alcaraz broke the Russian in successive games midway through the first frame to claim the opener. He continued by breaking Medvedev in the very first game of the second set and proceeded to serve out, despite a brief stoppage to have his left thigh taped up. \u201cI didn\u2019t want to force myself to the limit physically. I was a break-up at that time. And I just tried to keep up my serve\u2026 play chill, smoothly, relaxed and just happy about it,\u201d Alcaraz said. \u201cSo, I\u2019m going to look at it with my team, and I will see.\u201d Medvedev, 30, is still in with a chance of advancing after winning his opening match against Cobolli in straight sets. World number one Alexander Zverev is the man to beat in the John McEnroe Group and became the first player to book his spot in the semi-finals after beating Ben Shelton on Tuesday.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2045519/alcaraz-reaches-atp-finals-last-four-with-help-from-tiafoe"}, {"head": "Alexander Zverev notified of abuse lawsuit by ex-partner during ATP Finals", "body": "Men\u2019s world No 1 allegedly violated terms of settlement Lawyers say Zverev will \u2018defend himself against lawsuit\u2019 Alexander Zverev was officially notified of a lawsuit filed by his former partner during the middle of the season-ending ATP Finals on Wednesday. The latest legal case against the men\u2019s world No 1 brought by the mother of the former couple\u2019s daughter alleges that Zverev violated the terms of an out-of-court settlement between the pair after the woman accused him of assaulting her. The lawsuit brought by Brenda Patea in Germany takes issue with Zverev reportedly saying in an interview with the French sports daily L\u2019Equipe earlier this year that \u201cit has been proven that the accusations were false\u201d and \u201cmy innocence has been proven\u201d. Continue reading...", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/sport/2026/nov/18/alexander-zverev-abuse-lawsuit-atp-finals-finals-brenda-patea"}, {"head": "Alcaraz continues winning run despite injury concern", "body": "Carlos Alcaraz extended his remarkable late-season winning run by outclassing world number five Daniil Medvedev to confirm his progress at the ATP Finals, doing so despite carrying an injury concern into the season-ending championship. The Spaniard has been the most commanding player on tour through the closing weeks of the campaign, and against an opponent renowned for his tactical craft, he imposed his game from the outset, blending power, variety and relentless pressure from the baseline to keep Medvedev firmly on the defensive.\n\nThe victory carries added significance given the physical worry that had hovered over his participation at the elite eight-man finale. Doubts over whether the injury might blunt his movement or restrict his training between matches were answered emphatically on court, as Alcaraz produced a performance of sustained intensity and certainty, booking his passage from the group stage with the assured air of a heavy favourite for the title.\n\nAttention now turns to how the world-leading Spaniard manages his workload in the days ahead, with the lingering concern likely to shape recovery plans before the knockout rounds. For now, his streak remains intact, his game is trending sharply upward, and the injury worry stands as a footnote rather than a brake on his ambitions at the premier end-of-season event.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/tennis/articles/cmdx1erlpqkxo?at_medium=RSS&at_campaign=rss"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
