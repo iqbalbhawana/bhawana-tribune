@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (FRIDAY, NOVEMBER 20, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">FRIDAY, NOVEMBER 20, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 20, 2026", "headline": "APTMA, German VFI agree to strengthen trade", "deck": "The All Pakistan Textile Mills Association (APTMA) and the German Importers Association (VFI) have agreed to adopt measures aimed at strengthening bilateral trade between Pakistan and Germany, with a particular emphasis on improved sustainability reporting across the textile supp", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40449822/aptma-german-vfi-agree-to-strengthen-trade", "body": ["The All Pakistan Textile Mills Association (APTMA) and the German Importers Association (VFI) have agreed to adopt measures aimed at strengthening bilateral trade between Pakistan and Germany, with a particular emphasis on improved sustainability reporting across the textile supply chain. The understanding was reached during a visit to APTMA by Dr. Michael Arretz, Managing Director of VFI, who was accompanied by Sarim Mahmood, Chief Executive Officer of Fruit of Sustainability (FOS), and Saman Aslam, Deputy Managing Director of Special Projects at FOS.", "APTMA Chairman Asad Shafi, senior members of the association and Secretary General Mohammad Raza Baqir received the visiting delegation, which explored avenues for deepening commercial cooperation between the textile sectors of the two countries.", "Dr. Arretz said Germany wants to consolidate its trade ties with medium-sized economies such as Pakistan, and praised the country's textile industry as well as the compliance efforts of APTMA members. He explained that VFI, an association funded by the German government, supports overseas exporters and German importers and represents more than 300 companies. Given the changing textile landscape in China, he said VFI would prefer to work with Pakistan. He added that the association's general services are provided free of charge, while specialised reports carry a fee.", "Chairman Shafi told the delegation that the GSP+ facility helps Pakistan compete with Bangladesh and Sri Lanka, with 78 percent of Pakistani products eligible for duty-free access to European Union markets. Since since 2013, Pakistan's exports to the EU have risen by 73 percent, while shipments to Germany have grown by 40 percent, he added.", "He further stated that APTMA members comply with 27 GSP+ conventions and adhere to international standards such as SA 8000 and Oeko-Tex. The industry, he noted, is simultaneously shifting away from fossil fuels toward preferred fibres and installing effluent and water treatment plants in line with environmental requirements."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR Split Will Boost Informal Economy: Report", "body": "The Federal Board of Revenue\u2019s (FBR) decision to separate income tax and sales tax administration could encourage businesses to remain outside the tax net and expand Pakistan\u2019s informal economy, the Policy Research Institute of Market Economy (PRIME) has warned.\n\nThe think tank criticized the government\u2019s decision to reverse a 17-year-old reform introduced in 2009, which brought income tax, sales tax, and federal excise collections under the Inland Revenue Service. The earlier arrangement aimed to reduce duplication, improve compliance, and allow a single tax officer to handle a company\u2019s tax affairs.\n\nLast week, the FBR separated sales tax and federal excise administration from income tax within the Inland Revenue Service. Dr. Muhammad Sarmad Qureshi was appointed the first Member of Sales Tax and Federal Excise Duty, while Muhammad Anwar was named chief of these taxes. A separate stream of officers is expected to become operational next month.\n\nPRIME said the FBR justified the restructuring by pointing to weak domestic sales tax collection, which declined by 1.7 percent during the last fiscal year, despite a 17 percent increase in collections at the import stage.\n\nHowever, the think tank argued that separating tax administration would weaken an important mechanism for detecting evasion because businesses report overlapping financial information in their income tax and sales tax returns.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/19/fbr-split-will-boost-informal-economy-report/"}, {"head": "KTBA urges FBR to activate ATL-U form for Tax Year 2026 late-filers", "body": "The Karachi Tax Bar Association has urged the Federal Board of Revenue to activate the ATL-U form on its IRIS portal for taxpayers seeking placement on the Active Taxpayers List for Tax Year 2026 after missing the statutory filing deadline. The form is the prescribed mechanism through which late filers apply for inclusion in the taxpayers' directory upon payment of the surcharge set out in the income tax law, and its activation at the close of each filing cycle determines whether returns submitted after the cutoff can translate into restored active taxpayer status.\n\nActive taxpayer status carries direct financial consequences across the economy. Persons appearing on the Active Taxpayers List pay reduced withholding tax rates on cash withdrawals, vehicle registration and transfer, and the purchase and sale of immovable property, while those outside the list face substantially higher rates on the same transactions under the Income Tax Ordinance. Because the list is refreshed on the basis of filed returns, taxpayers who missed the Tax Year 2026 deadline remain exposed to the enhanced rates until an application through ATL-U is processed and accepted.\n\nThe bar association has asked the board to make the form available without further delay so that eligible late filers can regularise their status for the current tax year. Availability of ATL-U shortly after the filing cutoff has become the standard administrative sequence for each cycle, keeping the directory current for withholding agents while allowing the exchequer to collect the prescribed surcharge from those who filed beyond the statutory date.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-form-atl-u-late-filers-ty2026/"}, {"head": "FBR makes withholding tax certificates mandatory for Tax Year 2027", "body": "The Federal Board of Revenue has made the issuance of withholding tax certificates mandatory for Tax Year 2027, obligating every withholding agent to furnish documented proof of tax deducted at source to the persons from whose payments tax is withheld. The requirement spans the full cycle of advance tax collections through the twelve-month period ending in June 2027 and places the duty squarely on companies, federal and provincial government bodies, local authorities and other payment-issuing entities operating within the withholding regime.\n\nWithholding forms the backbone of income tax collection in Pakistan, with tax deducted at source on salaries, contracts, supplies, services, rents and a wide range of other payments. Certificates issued by withholding agents serve as the documentary evidence on which deductees rely to claim tax credits, adjustments and refunds in their annual returns, linking the deduction recorded by the agent to the credit asserted by the taxpayer.\n\nThe mandate is expected to tighten the documentation trail between deduction and declaration, giving the revenue authority a verifiable chain from each withheld amount to the return in which it is claimed, and supporting the verification of filings and the integrity of refunds. Withholding agents will need to align payroll, procurement and accounting systems to issue certificates as payments are processed across the tax year.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-withholding-tax-certificate-tax-year-2027/"}, {"head": "Pakistan foreign exchange reserves rise to $21.59 billion", "body": "Pakistan's foreign exchange reserves rose to $21.59 billion, consolidating the gradual rebuilding of the country's external buffer after the acute balance-of-payments strain of recent years. The reserve position, updated weekly as the principal gauge of the state's capacity to finance imports and honour external debt obligations, has climbed on the back of firmer remittance inflows, resilient export earnings and continued support from multilateral and bilateral partners.\n\nThe accumulation has run alongside a broad stabilisation of the external accounts, with a narrowed current account gap easing pressure on the rupee and allowing the State Bank of Pakistan to rebuild liquidity while preserving the market-determined exchange rate. Record remittances from overseas workers, rising information technology and services exports and the discipline attached to Pakistan's programme with the International Monetary Fund have anchored the improvement, with external buffers treated as a core benchmark of the arrangement.\n\nA larger cushion carries direct consequences for the wider economy: it extends import cover, smooths the repayment calendar on external debt and supports the confidence of international lenders and rating agencies, which tie sovereign assessments to external liquidity. Sustained gains would also reduce reliance on short-term commercial borrowing and offer room to unwind the import curbs that throttled growth during the last external crisis.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-foreign-exchange-reserves-rise-to-21-59-billion/"}, {"head": "FBR sets seven-day deadline for deposit of withholding tax in TY2027", "body": "Under Rule 43 of the Income Tax Rules 2002, withholding agents must deposit collected or deducted taxes within seven days after each week, while government departments must deposit tax on the day of collection.\n\nISLAMABAD: The Federal Board of Revenue (FBR) has prescribed timelines for depositing tax collected or deducted by withholding agents during Tax Year 2027, requiring non-government collectors to transfer the amounts within seven days after the end of each week.\n\nUnder Rule 43 of the Income Tax Rules 2002, updated up to September 15, 2026, the requirement applies to Tax Year 2027, covering July 1, 2026 to June 30, 2027.\n\nThe rule, issued in accordance with Section 160 and the Sixth Schedule of the Income Tax Ordinance 2001, requires tax collected or deducted under specified provisions of Chapter X, Chapter XII and the Sixth Schedule to be paid to the Commissioner for credit to the Federal Government.\n\nWhere tax is collected or deducted by the Federal Government or a provincial government, the amount must be deposited on the same day.\n\nHowever, withholding agents and other persons outside government departments must remit the collected or deducted tax to the government treasury or deposit it in an authorised branch of the State Bank of Pakistan or National Bank of Pakistan within seven days from the end of each week ending on Sunday.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-withholding-tax-deposit-deadline-ty2027/"}, {"head": "SHC dispose of 4 identical petitions in customs matter", "body": "KARACHI: A constitutional bench of the Sindh High Court, comprising Justice Yousuf Ali Sayeed and Justice Abdul Mobeen Lakho, disposed of four identical constitutional petitions filed by separate individuals against Pakistan Customs, passing an identical order in each of the four matters. The petitions were taken up together, allowing the bench to bring the proceedings to a close through one set of identical orders rather than separate judgments on the same questions.\n\nAs the petitions were taken up, Sardar Zafar Hussain filed a vakalatnama for the respondents, formally recording his appointment as counsel for the customs department in the proceedings. The filing placed Pakistan Customs, arrayed as respondent in all four matters, on record through a single representative for the purposes of the hearing before the two-member bench.\n\nConstitutional benches of the high court sit to decide petitions that raise questions under the Constitution, and filings that are identical in substance, as these four were, are ordinarily heard together so that a consistent order may be passed in all of them. With the passage of the identical orders, the bench closed all four petitions in the customs matter.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/19/shc-dispose-of-4-identical-petitions-in-customs-matter/"}, {"head": "Economic resilience needs more than fiscal, external buffers: SBP governor", "body": "The State Bank of Pakistan governor has cautioned that lasting economic resilience cannot rest on strong fiscal indicators and comfortable external buffers alone, even though both remain central to restoring macroeconomic stability. In his view, shields of this kind \u2014 disciplined budgeting, adequate foreign exchange reserves and orderly external accounts \u2014 are necessary to absorb shocks, but they do not by themselves build the productive strength an economy needs to grow, compete and withstand repeated external pressures.\n\nThe governor's argument points instead toward deeper sources of strength: sustained productivity gains, a diversified export base, a competitive private sector and institutions capable of implementing reform consistently over time. Experience across emerging economies shows that countries pairing macroeconomic discipline with structural improvement break out of the cycle of crisis and emergency financing, while those relying on buffers alone stay vulnerable the moment global financing conditions tighten or commodity prices move against them.\n\nFor an economy such as Pakistan's, which has periodically navigated external account stress, the distinction carries practical weight. Consolidation and reserve build-up have steadied near-term indicators in the past, yet durable stability has proved elusive without reforms that lift exports, widen the revenue net and crowd in private investment. The governor's message frames that structural agenda as the real test of resilience, one that balance-sheet comfort alone cannot pass.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2045621/economic-resilience-needs-more-than-fiscal-external-buffers-sbp-governor"}, {"head": "FBR prescribes advance tax collection rules for air tickets in TY2027", "body": "The Federal Board of Revenue has prescribed the collection rules for advance tax on the purchase of air tickets for Tax Year 2027, fixing the administrative mechanics that carriers and ticketing agents must follow when the levy falls due on outward travel. The prescription ties the collection regime to the fiscal year running from July 1, 2026 to June 30, 2027, and clarifies how airlines, operating as withholding agents, will collect the charge at the point of ticket sale, incorporate it into the ticket price and deposit the proceeds with the national exchequer.\n\nAdvance tax on air tickets is an adjustable levy collected under the Income Tax Ordinance, 2001 from individuals who buy tickets for travel to destinations outside Pakistan, while companies fall outside its scope. Because the collection is advance rather than final, the amount withheld is credited against the buyer's income tax liability for the year, and persons whose names appear on the Active Taxpayers List are charged at a lower rate than non-filers, a differential the tax machinery uses to widen documentation and encourage filing.\n\nThe prescribed rules carry operational significance for the aviation and travel trade. Carriers and authorised ticketing agents must align reservation and issuance systems with the collection requirements of the new tax year so that withholding is recorded correctly and handed to the revenue authority, with the tax forming part of the ticket's total sale consideration. For passengers, the charge applies at the time of purchase irrespective of where the travel date sits within the year, making income tax filing status the decisive factor in the amount payable on international journeys.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-advance-tax-air-tickets-ty2027/"}, {"head": "One in 10 formally employed men have no education, SBP report reveals", "body": "One in every 10 men holding formal jobs in Pakistan has no schooling at all, the State Bank of Pakistan has revealed in its latest analysis of the country's labour market. The finding is striking because formal employment \u2014 the segment of the workforce that is documented, taxed and covered by institutional protections \u2014 has long been presumed to draw on better-educated workers. The presence of men with no education inside this segment shows that pathways into formal work opened for generations of Pakistanis without classrooms ever reaching them first.\n\nThe picture carries weight for the wider economy. Educational deficits within the formal sector point to shallow human capital formation, constrain productivity and limit how far workers can climb within firms, while also blunting the returns businesses can extract from technology and modern production methods. The finding places schooling, or the absence of it, at the centre of questions about long-term growth, inclusion and the country's much-discussed demographic dividend.\n\nThe spotlight on men also sharpens the question of how comparable outcomes look for women workers, whose participation in formal employment remains thinner and whose access to schooling has historically lagged. For policymakers, the message is that closing the gap demands more than enrolment drives for children: adult literacy programmes, on-the-job training and skills certification are needed to lift workers already inside the formal economy, so the foundations of the workforce do not hold back the years of growth ahead.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistani-men-no-education-sbp-report/"}, {"head": "Toyota Land Cruiser 300 Hybrid Launched in Pakistan -Prices, Specs and Features", "body": "Indus Motor Company (IMC) is bringing hybrid technology to Pakistan\u2019s Toyota Land Cruiser 300 lineup with the introduction of two new variants, the LC300 HEV ZX and LC300 HEV GR-S. Both models combine a 3.5-liter twin-turbocharged V6 petrol engine with an electric motor, delivering a combined output of 457 horsepower. They will join the existing petrol-powered Land Cruiser ZX in the local market. The two hybrid variants share the same powertrain and most interior features but differ in exterior design, suspension technology, wheel size and fuel tank capacity. The ZX focuses on luxury and everyday comfort, while the GR-S comes with additional off-road equipment and distinctive styling. Bookings are now open, with dealers reportedly requiring full payment. Although dealerships have indicated that deliveries could begin within six to eight months, IMC has yet to confirm an official delivery schedule. According to dealership communication from IMC, the two hybrid models will be positioned in Pakistan\u2019s premium SUV segment.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/19/toyota-land-cruiser-300-hybrid-launched-in-pakistan-prices-specs-and-features/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 20, 2026", "headline": "FTO uncovers multimillion-rupee sales tax frauds", "deck": "The Federal Tax Ombudsman (FTO), Zafar Hijazi, has issued a landmark order exposing serious systemic loopholes in the corporate incorporation, sales tax registration and digital tax administration framework that were exploited by cybercriminals and fraudulent business entities to", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40449785/fto-uncovers-multimillion-rupee-sales-tax-frauds", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The Federal Tax Ombudsman (FTO), Zafar Hijazi, has issued a landmark order exposing serious systemic loopholes in the corporate incorporation, sales tax registration and digital tax administration framework that were exploited by cybercriminals and fraudulent business entities to perpetrate large-scale sales tax fraud. The investigation, originating from the unauthorised use of a taxpayer's IRIS account, uncovered fraudulent sales transactions involving hundreds of millions of rupees, carrying tax implications amounting to millions of rupees. Fake supplies were introduced into the sales tax returns of an innocent taxpayer through unauthorised access to the IRIS Portal using VPN-based connections, and routed through multiple beneficiaries to facilitate fraudulent input tax adjustments.", "A newly incorporated private limited company emerged as a major second-tier beneficiary in the fraudulent supply chain. The company was incorporated with the SECP and obtained sales tax registration on consecutive days, yet its registration process ensured no meaningful scrutiny of credentials and supporting documents. The same registration profile document was uploaded in place of essential attachments, including a paid utility bill, evidence of ownership or tenancy of business premises and relevant registration particulars, and the automated registration system accepted these without adequate validation. The FTO observed that Rule 5 of the Sales Tax Rules, 2006, provides checks for individuals, AOPs, single-member companies and manufacturers, but leaves a significant gap concerning other corporate entities. Changes in directorship were also reflected in FBR's Form 181 records even though the corresponding change through Form 29 was still pending before the SECP, exposing serious weaknesses in the integration of corporate information between the two regulators. The same entity had surfaced as a beneficiary in another fake-invoice case involving a different taxpayer for the same tax period.", "The investigation established that fraudulent sales tax returns for two consecutive tax periods were filed through unauthorised access to the complainant's IRIS account, with recorded IP addresses associated with VPN services showing apparent endpoints in Indonesia and the United Arab Emirates, while available technical logs could not conclusively establish the identities of the actual perpetrators. The complainant produced bank statements and reconciliations establishing that no payment had been received against the disputed supplies, and the purported transactions involving the Defence Division and the Health Department, Government of Sindh, were not reflected in their respective procurement or purchase records. The fraudulent transactions consumed substantial carry-forward input tax available in the complainant's account.", "Going beyond the individual grievance, the FTO directed the FBR to initiate immediate legal proceedings for suspension, blacklisting and recovery against identified beneficiaries under Section 11E of the Sales Tax Act, 1990, ensure an in-depth criminal investigation under Section 37A read with Section 2(37) to trace the cybercriminals, conduct a fact-finding inquiry into the newly incorporated company, constitute a committee to review Rule 5 with a clear 30-day timeframe for mandatory post-registration scrutiny, revisit the Form 181 procedure, introduce quarterly scrutiny of newly registered companies and undertake a countrywide study of companies involved in fake invoices. PRAL has been directed to deploy multi-factor authentication and biometric verification in the IRIS Portal, supervisory approval for changes in critical taxpayer particulars, and automated IP monitoring to block suspicious or high-value return filings. The concerned Commissioner Inland Revenue has been asked to consider reversal of the fraudulent consumption of the complainant's accumulated carry-forward input tax, subject to confirmation by the Directorate General of Intelligence & Investigation that the complainant was not involved. All authorities must report compliance within 60 days, with the FTO stressing that facilitation of legitimate business must be matched by effective verification, risk assessment and post-registration oversight through a coordinated response involving the FBR, PRAL and SECP."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "Engro Fertilizers, Waseela join hands to support farmers", "body": "LAHORE: Engro Fertilizers and Waseela have joined hands to improve farmers\u2019 access to specialized fertilizer solutions and reliable agricultural advisory services. The partnership aims to address the needs of Pakistani farmers by enabling more informed crop nutrition decisions, improving yields and enhancing farm profitability. The collaboration brings together Waseela\u2019s farmer-focused platform and advisory services with Engro Fertilizers\u2019 specialized crop nutrition portfolio. Through this partnership, farmers will have improved access to quality fertilizer solutions that provide essential nutrients for healthy crop growth. Combined with practical guidance, these solutions can help farmers better address their crops\u2019 nutritional needs and make more informed decisions about the inputs they use. Awais Mushtaq Paracha, VP Marketing at Engro Fertilizers, said, \u201cAt Engro Fertilizers, we believe our success lies in the success of our farmers. Through our partnership with Waseela, we aim to make specialized crop nutrition solutions more accessible and help farmers meet their crops\u2019 nutrient requirements. Solutions such as Engro Zabardast Urea, which combines urea with Bioactive Zinc, and Engro Zarkhez, which provides essential nutrients including potash, are part of our effort to support healthier crop growth and better yields.\u201d Tania Aidrus, CEO Waseela, said, \u201cWaseela was established to ensure farmers have timely access to essential agricultural inputs and reliable advisory services, particularly during the peak rice-growing season. Our goal is to become a trusted partner for farmers by understanding their needs and providing the right support at the right time. Our partnership with Engro Fertilizers enables us to bring specialized fertilizer solutions closer to farmers, helping them make informed decisions and improve their agricultural outcomes.\u201d Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449823/engro-fertilizers-waseela-join-hands-to-support-farmers"}, {"head": "Petrol price up by Re1, HSD\u2019s maintained", "body": "ISLAMABAD: The ex-depot price of petrol has been increased by Re1 per litre, effective November 20. This brings the retail price of petrol up from Rs322 to Rs323 per litre, while High Speed Diesel (HSD) has stayed at Rs355 per litre. The regulator attributed the price adjustments to global market developments, alongside shifts in Platts pricing, premiums, and incidental costs based on a seven-day rolling average. International benchmark prices for petrol is around USD 86.41 per barrel, though premiums\u2014including freight\u2014remained unchanged at USD 28.76 per barrel. Meanwhile, HSD\u2019s benchmark prices stayed at USD 89.68 per barrel. The government continues to collect the full petroleum levy of Rs80 per litre. Under the revised arrangement, consumers pay Rs63.64 per litre at retail, while refineries bear the rest Rs16.36 per litre. Under a new pricing mechanism for 30 days, oil refineries will contribute to the petroleum levy by bearing a cumulative impact of Rs15 billion. For HSD, the price drop reflects international market trends, primarily driven by a decline in the global HSD crack spread, which dropped from USD 41.89 to USD 38.00 per barrel. Government levies and fixed profit margins for petrol and HSD remain unchanged. Both fuels carry a Petroleum Levy of Rs80 per litre, a Climate Support Levy of Rs5 per litre, and profit margins of Rs9.98 per litre for dealers and Rs7.87 per litre for oil marketing companies. The IFEM is fixed at Rs8.13 per litre for petrol. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449835/petrol-price-up-by-re1-hsds-maintained"}, {"head": "Govt Announces Rs. 2 Trillion Small Business Loans", "body": "The government plans to double financing for small and medium enterprises (SMEs) from around Rs. 1 trillion to Rs. 2 trillion by June 2028, Finance Minister Muhammad Aurangzeb has told World Bank and IFC leaders. The target means raising the SME share of private sector credit from 9.9 percent to 13 percent over the next two years. Aurangzeb shared the plan in meetings on the sidelines of the Singapore FinTech Festival 2026, according to a Finance Division press release. Aurangzeb met World Bank Group Vice President for Prosperity Pablo Saavedra and IFC Vice President Alfonso Garcia Mora. He said SMEs had not received enough attention in the past despite their large economic contribution. The government now sees the sector as a key driver of jobs, growth and export diversification. He also pointed to the role of the Small and Medium Enterprises Development Authority (SMEDA) in helping small businesses get formal financing. The push follows the Prime Minister\u2019s earlier call for faster SME financing to boost exports. The minister highlighted Pakistan\u2019s progress in digital finance, including the Roshan Digital Account, the growing fintech sector and five digital banks. He discussed using digital tools to bring more farmers and agricultural businesses into formal finance.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/19/govt-double-sme-financing-rs-2-trillion-2028/"}, {"head": "Forgot to Collect Your Dividends? Govt Will Take Them Now", "body": "The Securities and Exchange Commission of Pakistan (SECP) has directed companies to transfer dividends and investment profits that remain unclaimed for three years to a federal government account under Section 244 of the Companies Act, since 2017. The regulator has issued Circular No. 25 of 2026, dated November 16, under Section 40B of the SECP Act, 1997, read with Section 510 of the Companies Act, since 2017. The directive covers unpaid dividends on company shares and modaraba certificates, as well as profit or interest on Term Finance Certificates (TFCs) and sukuk. Under the instructions, dividends on shares and modaraba certificates that remain unclaimed for three years from the date they become due and payable must be deposited with the federal government. The same applies to profit or interest on TFCs and sukuk that remains unpaid for three years from the maturity date of the instrument. Companies must transfer these amounts to Account No. G1120G, titled \u201cCompanies Unclaimed Instruments and Dividend and Insurance Benefits and Investors Education Account,\u201d maintained under the Public Account of the Federation. Companies must first send a 90-day notice by registered post to the relevant shareholder when a dividend or profit payment has remained unclaimed for three years.", "source": "ProPakistani \u00b7 Markets & Stocks", "url": "https://propakistani.pk/2026/11/19/forgot-to-collect-your-dividends-govt-will-take-them-now/"}, {"head": "Faysal Bank Secures Dual Honours at IRBA 2026", "body": "Faysal Bank Limited (FBL) has won two prestigious accolades at the 12th Islamic Retail Banking Awards (IRBA) 2026, being recognised as Best Mid-Sized Islamic Retail Bank in Pakistan 2026 and receiving the IRBA Excellence Award for Islamic Banking Growth in Pakistan 2026. Commenting on the achievement, Mr. Yousaf Hussain, President & CEO, Faysal Bank Limited, said, \u201cThese recognitions are a reflection of our collective commitment to advancing Islamic banking in Pakistan. Our journey towards becoming a full-fledged Islamic bank has been driven by a clear vision to make Shariah-compliant banking more accessible, innovative and responsive to the evolving needs of our customers. We dedicate these accolades to our customers for their continued trust and to our people whose dedication and commitment make this progress possible.\u201d The dual recognition underscores Faysal Bank\u2019s continued progress in strengthening its Islamic banking proposition, advancing customer-centric innovation and contributing to the growth of Pakistan\u2019s Islamic financial services industry. Get the latest news and stories wherever you prefer. See more ProPakistani stories in Google Search and Top Stories.", "source": "ProPakistani \u00b7 Banking & Fintech", "url": "https://propakistani.pk/2026/11/19/faysal-bank-secures-dual-honours-at-irba-2026/"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "FRIDAY, NOVEMBER 20, 2026", "headline": "Anthropic rival says companies can (mostly) skip the pricey models", "deck": "On the same day that Anthropic went public in the largest IPO on record, with investor enthusiasm for the AI lab through the roof, far away at the Slush startup conference in Helsinki, the topic du jour was open source everything.", "hero_source": "TechCrunch Wire", "hero_url": "https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Editor-in-Chief, Senior Member Pakistan Customs Service (Retd.)", "body": ["On the same day that Anthropic went public in the largest IPO on record, with investor enthusiasm for the AI lab through the roof, far away at the Slush startup conference in Helsinki, the topic du jour was open source everything.", "That\u2019s the enormous opportunity being chased by companies like Fireworks AI , as enterprises seek ways to avoid paying frontier prices for their AI needs.", "Fireworks runs AI models for other businesses. It specializes in open-weight models, which anyone can download, and helps customers tune them on their own data so they run faster and cheaper than the models of Anthropic, OpenAI, and other heavyweights, and are harder for rivals to copy. Customers have included Uber, Shopify, and Notion. Co-founder Chenyu Zhao and I spoke onstage toward the end of the day.", "Zhao and many others believe companies are gravitating toward platforms like his because frontier models are pricey and, in most cases, he says, unnecessary unless you need the very latest and greatest generalized intelligence. There are also growing concerns that frontier labs absorb too much of their customers\u2019 know-how, even if only through the prompts used to get answers, a worry Microsoft CEO Satya Nadella raised in July ."], "quote": "Documentation is no longer merely an instrument of revenue \u2014 it is Pakistan's market-access passport, and we are fragmenting the passport office.", "editorial": {"title": "One Net, Two Weavers: The FBR Split Gambles Away Seventeen Years of Formalisation", "deck": "Bifurcating inland revenue administration reverses the 2009 consolidation at the precise moment Pakistan's exporters need a documented, fraud-proof digital core.", "paragraphs": ["The decision to separate income tax and sales tax administration within the FBR, unwinding the consolidation of 2009 that placed inland revenue under a single taxpayer interface, rests on a philosophy of functional specialisation. On paper, dedicated domains promise sharper audit of each tax head. In practice, the reform now being abandoned existed precisely because integration lowers the cost of compliance and the cost of administration alike. A taxpayer who once registered, filed, was assessed and appealed within one administrative universe will now face two registrations, two audit calendars, two sets of jurisdictional officers and two interpretive cultures around the same commercial transaction. The Policy Research Institute of Market Economy's warning that this will swell the informal economy deserves to be read not as advocacy but as arithmetic: where compliance friction rises, firms hovering at the margin of the tax net rationally exit it. Seventeen years of taxpayer data integration, risk profiling and unified assessment do not transfer cleanly across a seam cut through them.", "The macroeconomic timing is worse than the design. Pakistan confronts a chronically low tax-to-GDP ratio, a revenue apparatus perennially short of its targets, and an informal sector that dwarfs the documented one. Narrowing the documented base compels heavier effective reliance on the compliant \u2014 chiefly large exporters and manufacturers \u2014 while capital that should be formalised, priced and brought within the reach of assessment remains outside. Consider what the same week demands of us: APTMA and Germany's importers association have agreed to deepen bilateral trade with an emphasis on better sustainability reporting. European buyers increasingly require verifiable data on energy, emissions and inputs \u2014 data that only documented, formally administered enterprises can credibly produce. Documentation is no longer merely an instrument of revenue; it is a market-access credential. An administration that splits its registries while its digital core leaks sends exporters to the negotiating table with papers the counterparty cannot trust.", "Which brings us to the Federal Tax Ombudsman's landmark findings: systemic loopholes across corporate incorporation, sales tax registration and digital tax administration, exploited through the unauthorised use of a taxpayer's credentials to perpetrate large-scale sales tax fraud. The lesson is uncomfortable but clear. The threat to revenue was never an absence of administrative layers; it was the absence of control integrity \u2014 authenticated identity, post-registration verification, risk-based scrutiny of refunds and input tax adjustments, and accountability along the assessment chain. Fake registrations and fabricated invoices corrupt the adjustment mechanism the Sales Tax Act presumes to be honest, and they injure genuine assesses whose credentials can be hijacked. To reorganise the board's structure before hardening this digital core is to rearrange the furniture of a house whose locks are broken.", "None of this argues that the split cannot be salvaged; it argues that fiscal prudence demands conditions. A single taxpayer portal should survive the reorganisation as a statutory guarantee; audit calendars and jurisdiction should be harmonised in the enabling amendments to the Income Tax Ordinance and the Sales Tax Act; statutory relief against duplicate proceedings should be codified rather than left to discretionary SROs; and the reform should carry a published evaluation clause against measurable outcomes \u2014 growth in registered filers, falling cost of compliance, recovered fraud. Globally, revenue and customs administration is converging toward integration: single windows, coordinated border management, one interface with the state. Pakistan is swimming against that current at the moment its exporters most need a leak-proof documentary identity. The honest taxpayer already pays once in tax and once in friction; a fragmented administration threatens to make that the national business model."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Anthropic\u2019s 7 founders cashed out nearly $2B in record-breaking IPO", "body": "Anthropic\u2019s seven founders have cashed out close to $2 billion amid a record-breaking initial public offering that ranks among the most consequential listings in the history of the technology sector. With the IPO price upgraded to $83 per share, each of the company\u2019s seven founders pocketed $280 million from the sale, while the company itself secured nearly $105 billion, underlining the extraordinary financial weight the artificial intelligence boom now carries in global capital markets.\n\nThe arithmetic of the flotation is stark. Seven individuals \u2014 the founding cohort behind one of the world\u2019s most prominent artificial intelligence developers \u2014 realised a combined sum approaching $2 billion, a scale of founder cash-out consistent with the record-breaking character of the offering. The upgraded price of $83 a share directly determined the size of each founder\u2019s realisation, converting early stakes in the business into nine-figure individual windfalls of $280 million apiece.\n\nThe debut marks a defining moment for the artificial intelligence sector, where investor appetite has propelled once-niche research laboratories into the uppermost tier of global markets. For Anthropic, the record-breaking listing consolidates a financial foundation of nearly $105 billion, a platform that will shape the company\u2019s capacity to fund the immense computational demands of frontier model development.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/"}, {"head": "Anthropic\u2019s IPO could deliver $156B to charity", "body": "Anthropic\u2019s long-anticipated stock market debut could channel an estimated $156 billion into charitable causes, under a scenario in which the frontier artificial intelligence laboratory lists its shares at $95 each. The projected total aggregates three streams of giving tied to the public offering: the company\u2019s Public Benefit Foundation, donations contributed by employees, and a matching commitment from Anthropic itself.\n\nThe estimate is anchored to the $95 share-price assumption, which fixes the combined value of the foundation\u2019s stake, employee donations and the corporate match at the moment of listing. Because the calculation is tied directly to the offering price, the final philanthropic figure would rise or fall with the level at which the company actually enters public markets. At $95 per share, the components together amount to $156 billion destined for charitable purposes.\n\nAnthropic operates as a public benefit corporation, a structure that obliges its directors to weigh public benefit alongside shareholder value, and the prospective windfall underscores how deeply philanthropy is woven into its path to the public markets. Realised in full, the $156 billion transfer would stand among the largest charitable sums associated with any technology company\u2019s arrival on public exchanges.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/"}, {"head": "Nvidia halts H200 AI chip shipments to China", "body": "US chip designer Nvidia has suspended shipments of its H200 artificial intelligence processors to China, freezing exports of an advanced data-center chip just weeks after Washington moved to permit its sale to Chinese buyers. The decision lands at a moment when the company's position in China is already being squeezed from two directions \u2014 American export controls that restrict what it may sell, and Beijing's drive to steer customers toward home-grown alternatives.\n\nThe H200, built on Nvidia's Hopper architecture and among the most powerful processors cleared for the Chinese market, had been regarded as a test of whether any easing of the technology standoff could revive the company's once-lucrative China revenues. Instead, the halt reflects a market that has steadily narrowed: Chinese regulators have discouraged purchases of Nvidia hardware on security grounds, cloud platforms and state-linked enterprises have trimmed their orders, and domestic rivals such as Huawei are scaling up competing processors to fill the gap.\n\nThe episode extends a difficult stretch for Nvidia in China. Earlier this year the company absorbed billions of dollars in inventory charges after Washington required export licences for its China-specific H20 chip, wiping out sales it had already booked. With H200 deliveries now paused, Nvidia's Chinese business risks fading into marginal importance, leaving geopolitics to dictate the fortunes of the world's most valuable semiconductor company.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/nvidia-halts-h200-ai-chip-shipments-to-china/"}, {"head": "Millions of Java Users in Pakistan Face New Hacking Threat", "body": "Pakistan\u2019s National Cyber Emergency Response Team (National CERT) has issued a critical cybersecurity warning about a vulnerability in OpenJDK that could allow hackers to execute malicious code remotely and take complete control of affected servers without authentication. The vulnerability, identified as \u201cJava4Shell\u201d and tracked as CVE-2026-114938, carries a severity rating of 9.2 under the Common Vulnerability Scoring System (CVSS 4.0). According to the advisory, the flaw involves heap memory corruption during the Base64 decoding process, which can be triggered through specially crafted input. The vulnerability affects systems running on x86-64 hardware with AVX-512 VBMI support. However, ARM64-based systems, including AWS Graviton and Apple silicon, are not affected. National CERT has identified several affected Java distributions, including Oracle Java SE, Oracle GraalVM, Amazon Corretto, Eclipse Temurin, Microsoft Build of OpenJDK, Azul Zulu, BellSoft Liberica, SAP SapMachine, and Red Hat OpenJDK. Applications reported as vulnerable without authentication under default configurations include Keycloak, Atlassian Jira, Confluence, JFrog Artifactory, Jenkins, and PingFederate. The vulnerability has also been demonstrated in Spring Boot, Apache Struts, Apache Tomcat, and Jetty.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/19/millions-of-java-users-in-pakistan-face-new-hacking-threat/"}, {"head": "Apple may be developing its own AI agent that runs your Mac", "body": "Apple may be developing an artificial intelligence agent capable of operating a Mac on its user's behalf, a project that would carry the iPhone maker straight into the fast-crowding arena of agentic computing. The company appears to be building autonomous assistants intended to compete with Meta Muse, Instinct, Claude and OpenAI Dots \u2014 systems that increasingly do more than answer questions and instead execute multi-step tasks inside an operating system. An agent with deep reach into macOS would mark a decisive departure from Siri and the conversational features Apple has so far shipped under its Apple Intelligence programme, which has leaned on on-device processing as its principal privacy safeguard.\n\nThe distinction matters because agents are becoming the industry's centre of gravity. Where chatbots draft text and field prompts, agents act: opening applications, moving files, completing transactions and stringing together workflows with limited supervision. For Apple, the appeal of software that effectively runs the Mac lies in its tight hardware integration and vast installed base \u2014 advantages that rivals building for browsers, Windows or standalone applications cannot easily replicate. A credible Mac agent would also lend fresh momentum to Apple Intelligence, whose staggered rollout has left the company playing catch-up in a market it once seemed positioned to define.\n\nThe contest Apple would be entering is expanding quickly. Meta Muse, Instinct, Claude and OpenAI Dots each belong to a new generation of assistants promising to do work rather than merely describe it, and each is backed by organisations racing to embed agents into everyday computing. Apple has a record of arriving late to categories and then dominating them, as it did with smartphones, smartwatches and wireless earbuds. Whether that pattern can repeat in agentic AI \u2014 where model performance, reliability and user trust in autonomy will decide the winners \u2014 now stands as the central question over the company's next move in artificial intelligence.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 20, 2026", "headline": "Oscar Predictions -Amanda Seyfried and Matt Damon Take the Top Spots for the First Time as Hollywood Heads Into Thanksgiving", "deck": "Variety Awards Circuit section is the home for all awards news and related content throughout the year, featuring the following: the official predictions for the upcoming Oscars , Emmys , Grammys and Tony Awards ceremonies, curated by Variety chief awards editor Clayton Davis. Th", "hero_source": "Variety Global Wire", "hero_url": "https://variety.com/lists/2027-oscars-predictions/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Variety Awards Circuit section is the home for all awards news and related content throughout the year, featuring the following: the official predictions for the upcoming Oscars , Emmys , Grammys and Tony Awards ceremonies, curated by Variety chief awards editor Clayton Davis. The prediction pages reflect the current standings in the race and do not reflect personal preferences for any individual contender. As other formal (and informal) polls suggest, competitions are fluid and subject to change based on buzz and events. Predictions are updated every Thursday.", "2027 Academy Awards Predictions Commentary All Categories (Updated: Nov. 19, 2026): Members of the Oscars are going into the Thanksgiving holiday with some homework to do, but they seem to have a clear road map for where to start.", "One of the final major variables of the fall, Netflix\u2019s \u201cThe Further Mis-Adventures of Cliff Booth,\u201d premiered at the TCL Chinese Theatre on Nov. 16. Early reactions have been largely enthusiastic. That leaves the David Fincher-directed, Quentin Tarantino-penned film in roughly the same position it occupied heading into the premiere, but maybe it can pick up some heat."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "Bill Hader\u2019s Feature Directorial Debut \u2018They Know\u2019 Acquired by Black Bear", "body": "Black Bear has acquired the North American rights to \u201cThey Know,\u201d the feature directorial debut of actor and filmmaker Bill Hader. The horror-thriller, which Hader also wrote, reunites him on screen with Linda Cardellini, and the deal adds a prominent star-driven genre title to Black Bear\u2019s North American slate.\n\nThe film is drawn from an idea developed by Hader with Duffy Boudreau, his collaborator on the Emmy-winning dark comedy \u201cBarry,\u201d and centres on a divorced father who becomes increasingly suspicious and paranoid about his ex-wife\u2019s new relationship. The project marks Hader\u2019s first turn directing a feature, following a stretch of acclaimed television work in which he both co-created and helmed episodes of a series that earned him individual Emmy recognition.\n\nFor Black Bear, the pickup signals continued investment in original, talent-led films as it builds its distribution footing in North America. Details on the wider cast, the release date and the theatrical window have yet to be outlined, leaving the rollout plans for \u201cThey Know\u201d to be confirmed closer to launch.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/bill-hader-horror-movie-they-know-acquired-black-bear-1236953795/"}, {"head": "\u2018GTA VI\u2019 Sales Surge Past $2 Billion On Launch Day As Vice City Mania Takes Over", "body": "Grand Theft Auto VI, the twice-delayed, Florida-inspired open-world epic, has surged past $2 billion in sales less than 24 hours after going live at midnight, turning the long-awaited return to Vice City into an instant commercial and cultural event. The launch of Rockstar Games' crime saga \u2014 the first new instalment in the landmark series in more than a decade \u2014 has dominated social platforms and streaming channels through the day, as Vice City mania swept players of every stripe into the game's satirical universe of neon beaches, gated mansions and criminal excess.\n\nThe launch-day haul dramatically overshadows the biggest opening weekends Hollywood's blockbusters can muster, underlining how decisively video games now sit at the apex of the global entertainment business. The new title sends players back to Vice City, the franchise's lampoon of Miami, for the first time since the 2002 original, a homecoming that built anticipation to fever pitch across two slipped release dates and years of relentless fan speculation.\n\nExpectations were always vertiginous: the predecessor, Grand Theft Auto V, released since 2013, remains one of the best-selling entertainment products of all time. A $2 billion milestone inside a single day confirms the sequel as the most consequential release of the year, and hands the games industry its clearest demonstration yet that no film, album or streaming spectacle can match the gravitational pull of a Grand Theft Auto launch.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/gta-6-sales-launch-day-surge-videogame-1237229514/"}, {"head": "Two Directors, One Oscar -Can Lord and Miller, Los Javis, Fielder and Oppenheim or the Esiri Brothers Break Through?", "body": "The question hanging over this year's Academy Awards directing race is whether shared credit can overturn one of the longest-standing habits in Hollywood. Phil Lord and Chris Miller, Nathan Fielder and Lance Oppenheim, Javier Calvo and Javier Ambrossi \u2014 the Spanish pair better known as Los Javis \u2014 and Nigeria's Esiri brothers make up a notable cluster of two-name teams in contention for a prize that the Academy's Director Branch has placed in the hands of a directing duo only three times in its history.\n\nThe branch has historically rewarded the single-vision auteur, and pairs vying for the honour have typically had to persuade voters that their collaboration functions as one filmmaking mind rather than a divided authorship. That perception has rarely been overcome, which makes the presence of so many dual contenders in a single season an unusual feature of the current field.\n\nThe convergence also broadens the race's geography and form, spanning American film and television auteurs, Spanish screen storytellers and Nigerian filmmakers. Whether the Academy's directors ultimately extend their count of duo winners beyond three, the season has already elevated the two-director question into one of the defining talking points of the awards contest.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/awards/directing-duos-lord-miller-javis-fielder-oppenheim-oscars-1236952486/"}, {"head": "Lakers\u2019 Official History Book Gets $9,600 Limited Edition With Magic Johnson Handprints, Staples Center Hardwood and Rare Artwork", "body": "The Los Angeles Lakers are giving their official team history a collector-grade treatment. Luxury art-book publisher Taschen and the franchise have unveiled two limited-edition versions of \u201cLakers: An Official History of the Purple & Gold,\u201d transforming the $100 coffee-table volume into a five-figure collectible priced at $9,600. The deluxe sets pair the book with museum-style artifacts drawn from the franchise\u2019s championship lore, placing the release among Taschen\u2019s line of premium sports and culture titles.\n\nEach limited edition incorporates original handprints from stars of the Showtime era, the 1980s run in which the Lakers captured five championships, alongside authenticated hardwood salvaged from the court at the former Staples Center, the downtown arena the team occupied for more than two decades before it was renamed. Exclusive artwork signed by Magic Johnson anchors the package, tying the collectible directly to the Hall of Fame point guard who defined that dynasty. The handprints and court fragments are presented as authenticated display pieces rather than loose memorabilia, blurring the line between published book and curated artifact.\n\nThe pricing underscores how sports franchises and luxury publishing houses are courting high-end collectors, offering an alternative to trading cards and game-worn jerseys in an era when authenticated team relics increasingly command art-market treatment. For the Lakers, one of professional basketball\u2019s most storied brands, the release extends the franchise\u2019s archive into the luxury goods space, converting championship history into a bound and framed commodity for deep-pocketed supporters.", "source": "Variety Global Wire", "url": "https://variety.com/2026/shopping/news/lakers-photo-book-collectible-deluxe-edition-buy-online-1236953793/"}, {"head": "Jorrybell Agoto Dies -Filipi\u00f1ana Breakout Actress Was 32", "body": "Jorrybell Agoto, the Filipino actress who starred in Rafael Manuel's award-winning debut feature Filipi\u00f1ana, has died at the age of 32. Her family announced that she passed away on Tuesday, November 17, following a battle with lymphoma, a cancer of the lymphatic system. The announcement drew immediate tributes from collaborators and audiences across the Philippine film industry and beyond, with many recalling the performance that first brought her name to international attention.\n\nEpicmedia Productions, the Philippine production company behind Filipi\u00f1ana, paid tribute on its Instagram account, writing: \u201cWe love you, Belle. No more pain.\u201d Manuel also shared a tribute to his leading actress on social media. Filipi\u00f1ana, the award-winning debut feature by Rafael Manuel, had brought Agoto's work before audiences well beyond the Philippines, and it remains the performance by which she will be best remembered.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/jorrybell-agoto-obituary-filipinana-star-1237229689/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 20, 2026", "headline": "Silicon Valley elites 'bankrolled' news platform Visegrad24 publishing pro-Israel content -report", "deck": "An extensive investigation published by Wired on Thursday laid bare how the Polish right-wing news platform Visegrad24 became, in the magazine's words, an \"anti-migrant, pro-Israel propaganda machine\" bankrolled by Silicon Valley elites. Founded since 2020 by Stefan Tompson, the ", "hero_source": "Dawn Latest News", "hero_url": "https://www.dawn.com/news/2045708/silicon-valley-elites-bankrolled-news-platform-visegrad24-publishing-pro-israel-content-report", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["An extensive investigation published by Wired on Thursday laid bare how the Polish right-wing news platform Visegrad24 became, in the magazine's words, an \"anti-migrant, pro-Israel propaganda machine\" bankrolled by Silicon Valley elites. Founded since 2020 by Stefan Tompson, the operation deliberately engineered a pro-Israel editorial stance to extract money from powerful supporters and, after Hamas's Oct 7, since 2023 attack on Israel, worked around the clock to pump out nearly 400 posts within three days \u2014 a mix of terse news updates, soft tributes to Israeli victims and, above all, rage-bait videos showing allegedly 'pro-Hamas' demonstrations in cities across the West. The output racked up 370 million views, launching the account overnight as one of the most influential pro-Israel voices on X, where it came to dominate breaking-news discussion of the Gaza conflict.", "Texts from Tompson to a colleague 15 days after the attack showed he was already wary that Israel was angling for a wider regional war, writing that \"the Israelis do seem to be doing some vicious things\". Nevertheless, he reasoned his way to an 'editorial line' the same day, framing the platform's choice as one of \"four options\": say nothing; be objective and \"get hated by both sides\"; go pro-Muslim, \"there are 1.5 billion of them\"; or pro-Israel, \"there are fewer but also they have a lot of influence and money\". His \"goal\", he admitted, \"is to fundraise off of this\". Drawing on an extensive trove of V24 financial records, internal communications, group-chat screenshots and donor correspondence, the magazine documented over a million dollars flowing into the organisation, much of it through donor-advised funds \u2014 'dark money' vehicles that conceal identities \u2014 including $175,000 from DonorsTrust, often described as the 'dark money ATM' of the American right. Tompson responded with a blanket denial and an email from a lawyer, and declined an interview when questions were not supplied in advance.", "The investigation traced Tompson into two groups formed to counter founders sympathetic to Palestine: one, named Jewish Alliances, where he was recommended by Sequoia Capital general partner Shaun Maguire, who helped connect the Israel Defence Forces with Elon Musk's Starlink satellite communication network; the other an informal WhatsApp thread of hundreds of powerful figures from Silicon Valley, Wall Street and Hollywood. The chats bought domains carrying pro-Palestinian phrases, including longlivetheintifada.com and palestineisourhome.com, to redirect them toward pro-Israel content. Contributions solicited through GiveButter were linked to email addresses associated with SimpleVenue CEO Michael Sinensky, Warby Parker founder Neil Blumenthal, Wix president Nir Zohar, Lux Capital cofounder Josh Wolfe and deep-tech venture capitalist Matt Ocko, while money rolled in from firms such as Ribbit Capital; those named either declined to comment, claimed no records of the donations or disputed any 'far-right' label.", "Tompson meanwhile urged his colleague to \"play both sides\" \u2014 \"I do the Jewish side. You do Arabs\", he wrote \u2014 to open Saudi and Emirati funding channels. The platform built its audience through intense volume on Russia's invasion of Ukraine, though it gained notoriety for spreading fake news, and Polish outlets reported the prime minister sought to channel about $300,000 since 2022 and a bit under $600,000 the following year to a sports and fitness NGO as a carve-out for a V24-affiliated project, funding Tompson denies. When Israel attacked Iran since 2025, Visegrad24 voiced enthusiasm for restoring the leadership of Reza Pahlavi and even posted content designed to influence US President Donald Trump to join the strike; Tompson had since 2024 been interviewed by Michael Eisenberg, an American-born Israeli venture capitalist often billed as an informal adviser to Prime Minister Benjamin Netanyahu."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "USD17.9bn in textile exports at risk over green compliance, BZU Summit warns", "body": "<p><strong>MULTAN: Pakistan\u2019s textile and apparel exporters must accelerate their shift to cleaner production, energy efficiency and internationally recognised sustainability standards to remain competitive in global markets, industry leaders and environmental experts said at the second two-day BZU Climate Action Summit 2026.</strong></p>\n<p>Organised by the Department of Environmental Sciences, Bahauddin Zakariya University (BZU), in collaboration with Alternate Development Services (ADS), the summit highlighted growing international demands for verified emissions data, supply-chain traceability and ESG compliance.</p>\n<p>Speakers noted that exports to the European Union, Pakistan\u2019s largest textile market, amounted to around USD7.1 billion out of USD17.9 billion in total textile exports in FY2025-26. They said sustainability standards were becoming increasingly important for maintaining market access, particularly under the GSP+ arrangement.</p>\n<p>Khawaja Muhammad Qasim, Central Chairman of APBUMA, said a clean environment was essential for both industry and communities. He urged industrialists to take responsibility for reducing emissions rather than wait for government intervention, identifying solar power, battery storage and wind energy as important alternatives, particularly highlighting Balochistan\u2019s potential for wind power.</p>\n<p>Prof. Dr. Javed Ahmed, Dean, Faculty of Science, BZU, stressed stronger academia-industry linkages to address environmental challenges. He said universities could support businesses through research, data collection, software development and technical expertise, while internships could prepare students for emerging sustainability professions.</p>\n<p>Amjad Nazeer, CEO of ADS, said carbon emissions were increasingly influencing international trade and competitiveness, warning that Pakistani exporters risked losing orders if they failed to meet sustainability requirements and provide reliable environmental data.</p>\n<p>Highlighting the SECP\u2019s ESG Disclosure Guidelines and Pakistan Green Taxonomy, he said promotion of green production and sustainability reporting, including through Global Reporting Initiative (GRI) standards, required effective implementation. He observed that most Pakistani textile companies were still at an early stage of carbon disclosure, GRI reporting and greenhouse gas (GHG) accounting, making accelerated capacity building essential.</p>\n<p>Nazeer stressed that ESG compliance was crucial for maintaining Pakistan\u2019s preferential access to the EU under GSP+, which is due for renewal under the upcoming review. He said compliance could help exporters strengthen their position in the EU market, where Pakistani textile exports had remained around USD7-8 billion for an extended period. He also highlighted the roles of the Science Based Targets initiative (SBTi) and measurement, reporting and verification (MRV) systems, adding that carbon accounting was creating new career opportunities.</p>\n<p>During a policy dialogue moderated by Dr Muhammad Dawood, industry representatives discussed the financial, technical and regulatory challenges of the green transition. Dr Zafar Iqbal of the Environmental Protection Agency said decarbonisation was necessary for industrial competitiveness and environmental protection.</p>\n<p>Hammad Haseeb Rao of Zephyrs Textile said sustainability compliance must extend across the entire value chain, from cotton cultivation to finished products. He identified reliable supply-chain data, verification and traceability as major challenges, stressing digital product passports and a centralised software system for carbon accounting.</p>\n<p>Basharat Hashmi of Fazal Cloth Mills called for a clear government roadmap and financial support, saying shrinking profit margins and inadequate solar energy policies were making the transition difficult. Shakeel Ahmad of Reliance Weaving Mills highlighted the cost of wastewater treatment and called for effective regulation of all polluting industries, a national consensus on environmental compliance and practical university research.</p>\n<p>Participants also stressed the need to help small and medium-sized enterprises overcome shortages of technical expertise and financial resources, and called for a national compliance framework and stronger academic support to obtain verifiable data.</p>\n<p>In the technical session, Muhammad Yameen Qureshi of Huawei Pakistan discussed solar energy and battery storage as phased solutions for industrial energy transition. Hameed Akhtar of the EPA highlighted the environmental costs of fast fashion, recycling and responsible resource use, while Muhammad Usman bin Ahmed of ADS explained the importance of MRV in ESG compliance and the potential of the Competitive Trading Bilateral Contract Market (CTBCM) to provide industrial consumers access to cleaner electricity.</p>\n<p>The summit\u2019s second day focused on practical capacity building, with industry representatives, professionals and students receiving hands-on training in greenhouse gas accounting, industrial energy auditing, MRV and decarbonisation planning.</p>\n<p>Copyright Business Recorder, 2026</p>", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449821/usd179bn-in-textile-exports-at-risk-over-green-compliance-bzu-summit-warns"}, {"head": "FCC sets aside high court rulings upholding infrastructure cess in Sindh, KP", "body": "ISLAMABAD: The Federal Constitutional Court (FCC) on Thursday set aside high court rulings upholding the infrastructure cess imposed by the Sindh and Khyber Pakhtunkhwa governments. The case pertained to the Sindh Development and Maintenance of Infrastructure Cess Act, since 2017 and the Khyber Pakhtunkhwa Infrastructure Development Cess Act, since 2022, including amendments introduced through the KP Finance Act, since 2024. Headed by FCC Chief Justice Aminuddin Khan, a two-judge bench, also comprising Justice Aamer Farooq, had taken up a batch of 568 petitions by private petitioners challenging decisions by the Sindh High Court (SHC) and the Peshawar High Court (PHC) upholding the cesses. The FCC bench examined the constitutional limits of provincial taxation in relation to imports, exports, customs-related transactions and the movement of goods across provincial boundaries. The Sindh infrastructure cess controversy originated in 1994 and was subsequently governed by the Sindh Development and Maintenance of Infrastructure Cess Act, since 2017, which provided for taxes on goods entering or leaving Sindh from or for outside the country through air or sea. On June 4, since 2021, the SHC upheld the levy. Similarly, the KP Infrastructure Development Cess Act, since 2022, imposed cess on the transportation and movement of goods in the province. Section 14 of the KP Finance Act, since 2024, amended Section 3 of the since 2022 Act to enhance the cess rate from one to two per cent. The PHC, through its Nov 14, since 2025 judgement, dismissed 157 petitions challenging the levy and upheld its legality. The judgements of both high courts were subsequently challenged before the FCC. The petitioners argued that the provinces lacked constitutional authority to impose fiscal levies on imports, exports and goods falling within the federal legislative domain. They maintained that the impugned laws encroached upon Parliament\u2019s exclusive legislative competence. Consequently, the provincial provisions and the high court judgements upholding them could not be sustained. Senior counsel Hafiz Ehsaan Ahmad Khokhar, while representing the secretary of the Revenue Division and the Federal Board of Revenue (FBR), submitted that the impugned provincial levies had to be examined in the light of Articles 141 and 142(a) of the Constitution, read with Entries 27, 43 and 59 of Part I of the Federal Legislative List (FLL) in the Fourth Schedule. He explained that Entry 27 covered imports and exports across customs frontiers, inter-provincial trade and commerce and trade with foreign countries, whereas Entry 43 specifically assigned customs duties, including export duties, to the federation. The counsel contended that under Article 142(a), Parliament had exclusive legislative competence over matters enumerated in the FLL. The constitutional character of a levy, he argued, must be determined by its true nature, taxable event, fiscal incidence, charging provisions and actual operation, not merely by its nomenclature as an infrastructure cess. A provincial levy imposing an additional fiscal burden on imported or exported goods and operating through the customs-clearance mechanism directly engaged the federal legislative domain, he said. He also referred to Article 163, explaining that the provincial power to impose taxes on professions, trades, callings and employments could not be extended to customs duties or other subjects constitutionally assigned to the Parliament. The counsel further argued that a provincial legislature could not acquire legislative competence over a federal subject merely by describing a customs-linked fiscal levy as an infrastructure cess. Meanwhile, the Sindh and KP governments defended their respective laws, arguing that the taxes were provincial levies intended to finance infrastructure development and road facilities. They maintained that it was not a customs or export duty and that the provincial assemblies were competent to legislate on such matters under Article 142(c) of the Constitution and the impugned judgements were legal. The additional attorney general supported the federation\u2019s position, submitting that the provincial governments lacked legislative competence to impose levies falling within the FLL. After hearing the arguments, the FCC set aside the two high court judgements and declared that the legislations were beyond the legislative competence of the provinces.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2045693/fcc-sets-aside-high-court-rulings-upholding-infrastructure-cess-in-sindh-kp"}, {"head": "Riyadh\u2019s tallest skyscraper hit in Houthi strike", "body": "RIYADH: Riyadh\u2019s tallest skyscraper, headquarters of the Saudi sovereign wealth fund, was struck on Thursday by a suspected Houthi missile in the latest blow in the Yemeni group\u2019s war with the kingdom. The strike blew out windows across seven to eight floors of PIF Tower, bending parts of its metal facade. It was the second time in less than two weeks that a Houthi attack damaged a landmark in Riyadh\u2019s financial district, with state oil giant Aramco\u2019s building hit in a November 8 attack. Entrances to the King Abdullah Financial District (KAFD) were closed and people were being evacuated, while ambulances and fire trucks were on the scene. There were no immediate reports of casualties. READ ALSO: Riyadh financial district targeted, Aramco skyscraper damaged Three sources familiar with the matter said the building had been struck by an incoming Houthi missile. The Saudi-led coalition fighting the Houthis said it had \u201cdealt with a missile threat\u201d launched by the Houthis towards Riyadh, and that its initial assessment showed debris had fallen and material damage had been reported. PIF, which stands for the Saudi Public Investment Fund, acknowledged receiving a Reuters request for comment. The Houthis issued no immediate statement on the strike. The Houthis have been firing at Saudi airports and oil infrastructure since Yemen\u2019s frozen civil war was reignited in July amid the US-Iran war. On the ground in Yemen, the group has seized swathes of territory from the Saudi-backed government, forcing it to stage a major retreat at the weekend. Residents of the Saudi capital were awoken by a loud boom in the early hours of Thursday. The Houthi-run Saba news agency reported that Saudi aircraft had carried out airstrikes on the Houthi-controlled Yemeni capital Sanaa early on Thursday, without providing further details. Saudi sees campaign stretching well into 2027 The conflict has dealt a big blow to Crown Prince Mohammed bin Salman\u2019s plans to develop and diversify the economy of Saudi Arabia, the world\u2019s biggest oil exporter and a US ally. The prince met US Central Command chief Admiral Brad Cooper in Riyadh on Wednesday, Cooper\u2019s third publicly reported visit to Saudi Arabia since the Yemen conflict resumed. Reuters reported on Wednesday that Saudi officials now foresee the campaign stretching on for up to six months, according to two Western officials briefed by the Saudis on the kingdom\u2019s plans. A third source familiar with the Saudi plans confirmed the accounts. The sources said the Saudis, who replaced the commander of their coalition fighting in Yemen this week, want to see their allies make gains on the ground before they enter any negotiations with the Houthis. But meanwhile the situation in Yemen has appeared to favour the Houthis, who have seized Yemen\u2019s entire Red Sea coast including the strategically vital Bab el-Mandeb Strait at its mouth, and have surrounded the city of Taiz in highlands overlooking the government\u2019s temporary capital Aden. In the wider war, which began in February when the United States and Israel attacked Iran, there has been no sign of a breakthrough in negotiations mediated by Qatar. Meanwhile, there has been an uptick in hostilities in the Gulf in recent days, with Iran firing at US allies Bahrain and Kuwait and US airstrikes hitting Iran\u2019s Qeshm Island in the Strait of Hormuz on Tuesday. Saudi Arabia first entered the Yemen conflict since 2015 at the head of an Arab coalition to try to restore Yemen\u2019s government to power after the Houthis seized the capital Sanaa and much of the country. They fought to a bloody stalemate and since 2022 reached a ceasefire that lasted until summer this year.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449838/riyadhs-tallest-skyscraper-hit-in-houthi-strike"}, {"head": "COP31 negotiators publish revised deal draft with no mention of fossil fuels", "body": "Climate negotiators stripped out any reference to ending the use of fossil fuels in a slimmed-down draft deal text published on Thursday, as the COP31 meeting in Antalya, Turkiye, approaches its Friday deadline. The talks are taking place at a time when war and rising living costs are competing for the attention of policymakers and the public against the warming climate and its increasingly severe effects, including heatwaves, floods and droughts. The revised deal, which is not expected to be the final version, was weaker on some of the conference\u2019s central topics \u2014 fossil fuels, electrification and adaptation finance \u2014 compared to a first draft published on Monday. Monday\u2019s two references to fossil fuels and limiting their use a topic that deeply divides nations in the negotiations every year \u2014 were removed, as was mention of a $120 billion target for finance to help developing countries adapt to climate change. \u201cThis new text has gone backwards from the one released earlier in the week,\u201d said Mohamed Adow, director of climate and energy think tank Power Shift Africa. \u201cIf this version of the text remains, it will be a ghost COP. The summit will have nothing to show for what happened here.\u201d Thursday\u2019s draft did retain an acknowledgement that global warming could exceed the 1.5 degrees Celsius threshold countries have sought to preserve, and the need for \u201cdeep, rapid and sustained\u201d cuts to greenhouse gas emissions. It also encouraged efforts to scale up the deployment of technologies that can suck carbon out of the atmosphere, something scientists say would be needed to bring temperatures back down. Start broad and narrow down Australia, which is leading negotiations under a split presidency arrangement with Turkiye, previously said Monday\u2019s opening draft of the deal was always intended to be a broad document that would then be narrowed down. While the conference is scheduled to end on Friday, in recent years efforts to secure consensus among the nearly 200 countries participating have regularly blown past this deadline by more than 24 hours. The need to limit rising global temperatures is widely accepted by participants, but they don\u2019t all agree on the best way to do so, who should pay for it, and how quickly the world needs to act. Thursday\u2019s draft deal also called for \u201cglobal cooperation\u201d to boost electricity\u2019s share of world energy consumption to 35 per cent by 2035, up from around 23pc now \u2014 something proponents say would slash greenhouse gas emissions by reducing fossil fuel use. The previous draft had more firmly set that as a target but came up against resistance from developing nations that argued it would require significant funding. The so-called 35-by-35 goal had been put forward by COP host Turkiye, but so far only about 75 nations have backed it. Jasper Inventor, head of Greenpeace\u2019s COP31 delegation, said the electrification goal wasn\u2019t clear enough on how the target would accelerate the transition away from fossil fuels. He also said the mention of carbon removal technologies opened the door to the fossil fuel industry to keep ramping up production. \u201cAnything that provides a way for the fossil fuel industry to keep polluting the climate would be a profound backwards step at a time when climate impacts are rapidly worsening,\u201d he said.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2045694/cop31-negotiators-publish-revised-deal-draft-with-no-mention-of-fossil-fuels"}, {"head": "ME crisis \u2018largest threat\u2019 to energy security ever -IEA", "body": "PARIS: The crisis in the Middle East sparked in February by the US and Israeli bombing of Iran has created the \u201clargest threat\u201d to energy security in history, the International Energy Agency (IEA) warned Thursday. The agency said in its flagship annual World Energy Outlook that consumers were increasingly footing the bill as the world runs out of ways to absorb the impact of the conflict on energy supplies. The crisis, just like previous energy shocks, would certainly leave \u201clasting marks\u201d, the agency warned. Gulf countries have been struggling to export oil since Iran began blockading the Strait of Hormuz and targeting tankers in the area, following US and Israeli strikes that sparked the crisis in February. Despite attempts by the United States to escort vessels through the channel \u2014 which pre-crisis carried about one-fifth of global oil shipments \u2014 supply lines remain severely disrupted. \u201cThe Strait of Hormuz crisis has created the largest threat to energy security in history, one that dwarfs the scale of the oil shocks of the 1970s,\u201d IEA Executive Director Fatih Birol wrote in his foreword to the report. He highlighted the efforts countries had taken to protect households, with producing nations bringing more supplies into the market and using alternative routes, and China buying less from international markets. \u201cGovernments have intervened to try and provide some shelter for consumers, but they have nonetheless faced higher prices and, in some cases, shortfalls of supply,\u201d Birol wrote. The report said elsewhere that \u201cincreasingly it is falling to consumers \u2014 and high prices \u2014 to absorb the impact as other buffers are run down\u201d. Birol had struck a more hopeful tone in July when he wrote that the oil market was still benefiting from \u201cseveral cushioning factors\u201d. \u2018No pathway\u2019 back The IEA\u2019s report comes as nations meet for the COP31 climate talks in Turkey, with governments under pressure to tackle climate change after a year of searing heatwaves and wildfires in Europe, and deadly floods in Nepal. The agency uses three scenarios for its energy outlook: a cautious one takes into account policies that are currently in place, a middle scenario looks at \u201cstated\u201d government policies including measures that have yet to be adopted, and a third considers a world that reaches net zero emissions by 2050. In its middle scenario, the IEA forecasts that global oil demand will reach a peak around 2030 before a slow decline, while gas demand would increase until around 2035. Climate scientist Bill Hare, founder of Climate Analytics think tank, said the world had to commit to the most interventionist scenario outlined by the IEA. \u201cIf we don\u2019t get on the net-zero train the IEA has outlined, then we are condemning the world to irreversible and permanent warming of 2.5C or above,\u201d he said. For this report, the IEA also added two scenarios based on what might happen if the Middle East crisis persists. \u201cWhile the energy sector and the global economy have shown considerable resilience, the longer the crisis lasts, the deeper the effects will be,\u201d Birol said in a press release. \u201cAnd I don\u2019t see any credible pathway for the energy world to return to the way it was before.\u201d", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40449836/me-crisis-largest-threat-to-energy-security-ever-iea"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 20, 2026", "headline": "Pakistan inch closer to victory in second Test despite Sri Lanka fightback", "deck": "Sri Lanka mounted a determined rearguard to stave off an innings defeat on the third day of the second and final Test at the Rawalpindi Cricket Stadium on Thursday, reaching 309-9 at stumps with an overall lead of 82 and just one wicket standing. Milan Rathnayake anchored the res", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2045665/pakistan-inch-closer-to-victory-in-second-test-despite-sri-lanka-fightback", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Sri Lanka mounted a determined rearguard to stave off an innings defeat on the third day of the second and final Test at the Rawalpindi Cricket Stadium on Thursday, reaching 309-9 at stumps with an overall lead of 82 and just one wicket standing. Milan Rathnayake anchored the resistance with an unbeaten 60, while Kusal Mendis and Sonal Dinusha struck half-centuries to carry the match into a fourth day, although Pakistan remain firm favourites to secure victory and the series.", "Resuming at 74-3 and still 153 behind after Pakistan had taken a 227-run first-innings lead by dismissing them for 98 and replying with 325, the visitors lost Dhananjaya de Silva when Aamer Jamal trapped him lbw for 37, a review failing to rescue the batter at 99-4. Razaullah then claimed Pasindu Sooriyabandara, who had battled 116 deliveries for 38, the edge taken by wicket-keeper Ghazi Ghori diving to his left. Sri Lanka lunched at 166-5 before Mendis and Dinusha rebuilt with an 81-run sixth-wicket stand, the former reaching his 24th Test half-century with eight fours in a patient 126-ball 53. Salman Ali Agha broke the partnership at 215-6, Mendis sweeping the off-spinner onto his leg stump. Dinusha and Rathnayake added 53 more for the seventh wicket to take Sri Lanka past the follow-on target and into the lead, and at tea the visitors were 241-6, 14 ahead. Soon after Pakistan took the second new ball, Aamer struck again, Dinusha mistiming a pull to be caught sharply at midwicket by Azan Awais for 54 off 119 balls with seven boundaries.", "Rathnayake grew increasingly assured as the tail fell away, reaching his second Test half-century with a boundary off Razaullah in the 90th over and finishing on 60 not out from 82 deliveries, laced with 11 fours. Mohammad Abbas removed Prabath Jayasuriya for one and Lahiru Kumara for five to return 2-54 from 33 overs, including 15 maidens, while Aamer led the attack with 3-67. Pakistan operated largely with three frontline seamers after Saqib Khan was ruled out of further bowling with a left hamstring strain suffered on Wednesday, the day he dismissed Lahiru Udara for seven. Ghazi acknowledged the impact but praised the cover: \"The other three deserve a lot of credit for the effort they put in to cover for him.\"", "Dinusha credited Pakistan's bowlers for the first-innings collapse and insisted patience had been central to the recovery. \"To be honest, it wasn't easy. They bowled really well. We went with patience,\" he said, hoping Rathnayake would add more on Friday, as another contribution would be \"very good\" for Sri Lanka. Ghazi asked for discipline when Pakistan chase, saying \"there is still a lot in the wicket for the bowlers.\" Play was called off at 4:35pm after the umpires deemed the light insufficient, leaving Sri Lanka to resume with Rathnayake and Asitha Fernando, unbeaten on two, and Pakistan needing only one more wicket to begin a chase that could settle the series."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Saqib Khan ruled out of further bowling in Rawalpindi Test", "body": "Pakistan fast bowler Saqib Khan will take no further part in the bowling attack in the ongoing second Test against Sri Lanka after sustaining a left hamstring strain, dealing a blow to the home side\u2019s hopes of securing a series victory. The Pakistan Cricket Board (PCB), in an update on Thursday, said Saqib was currently undergoing treatment under the supervision of the team\u2019s medical staff. The right-arm pacer sustained the injury during his second over of Sri Lanka\u2019s second innings on Wednesday. He had just dismissed opener Lahiru Udara when he left the field, having apparently felt discomfort in his left hamstring. The setback comes at an unfortunate time for the 26-year-old, who has emerged as one of Pakistan\u2019s most impressive performers during the ongoing two-red-ball series. Saqib made an immediate impact on his Test debut in the opening match at the Rawalpindi Cricket Stadium, claiming seven wickets for 130 runs in Sri Lanka\u2019s first innings. His haul included the prized scalps of captain Kusal Mendis and centurion Dhananjaya de Silva, earning him the player-of-the-match award despite the contest ending in a draw. He carried that form into the second Test, striking early by removing Udara for seven runs in Sri Lanka\u2019s second innings. His departure, however, leaves Pakistan without a key component of their pace attack as they seek to press home their advantage. Pakistan had established a commanding position in the match after dismissing Sri Lanka for just 98 in their first innings, taking a substantial 227-run lead. The visitors were 74-3 at stumps on the second day, still trailing by 153 runs, when Saqib\u2019s injury threatened to complicate the hosts\u2019 efforts to force a result. The PCB has not provided a timeline for Saqib\u2019s recovery or indicated whether the injury could affect his availability for future assignments.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2045627/saqib-khan-ruled-out-of-further-bowling-in-rawalpindi-test"}, {"head": "Arsenal 'have ingredients' but Europe's elite on another level", "body": "Arsenal were given the starkest possible reminder of the gap they must bridge after a difficult defeat by French giants Lyon laid bare the distance between the London club and the established aristocracy of European football. The reality confronting Arsenal was unvarnished: this squad has the ingredients, but the continent's elite operate on another level, a divide that must be closed before any genuine, sustained Champions League challenge can be contemplated.\n\nLyon's authority illustrated the demands of the summit: composure in decisive moments, relentless control of the game's rhythm and a winners' instinct sharpened by years of deep European runs. Arsenal showed pieces of the required formula \u2014 quality throughout the side, technical depth and clear ambition \u2014 yet could not sustain those ingredients as the contest tightened. It is precisely this conversion of promise into relentlessness that separates a contender from a champion.\n\nThe defeat carries a value beyond the result, offering a reference point for recruitment, preparation and mentality as Arsenal measure themselves against the standard Europe's best sides set week after week. If the club intends to convert potential into dominance, the lesson from Lyon is plain: ingredients alone do not win the game's biggest prizes, and the elite demand execution in every minute of every encounter.", "source": "BBC Sport & Sky Sports", "url": "https://www.bbc.co.uk/sport/football/articles/cm4gnxz8dvx1o?at_medium=RSS&at_campaign=rss"}, {"head": "Shelton into ATP Finals last four, France's Fils eliminated", "body": "Ben Shelton qualified for the ATP Finals last-four on Thursday after Arthur Fils lost the first set of his match against world number one Alexander Zverev. Earlier, American Shelton beat Spaniard Rafael Jodar 7-6(10/8), 7-5, a win that meant Fils had to beat German Zverev in straight sets to snatch second place in the John McEnroe Group. Fils went a set behind in 35 minutes, with Zverev winning 6-4, and was eliminated after losing the second set 7-6(8/6). France\u2019s Arthur Fils hits a return against Germany\u2019s Alexander Zverev during their ATP Finals group stage match at the Inalpi Arena in Turin, Italy, on November 19, 2026. \u2014AFP Zverev has yet to lose a set in Turin and will face the second-placed finisher of the other four-man group over the weekend, the winner of Friday\u2019s game between Daniil Medvedev and Frances Tiafoe. Zverev seemed to be struggling with an ankle injury late in the match, having torn ligaments in the joint at the French Open since 2022. \u201cThe ankle unfortunately is a topic for me that probably will stay until the end of my career with the injury I had four years ago,\u201d he said. \u201cI\u2019m going to do everything I can with the physio and with my team to be ready on Saturday and to be pain-free on Saturday,\u201d he added. Germany\u2019s Alexander Zverev serves during the ATP Finals group stage match against France\u2019s Arthur Fils at the Inalpi Arena in Turin, Italy, on November 19, 2026. \u2014Reuters Shelton joins Zverev, who is guaranteed to win the group, and Carlos Alcaraz in the last four. The American, 24, had to work hard against Jodar, who held two set points in the first set tie-break. After clinching a hard-fought opening set that lasted over an hour, Shelton quickly broke Jodar\u2019s serve in the second. Trailing 3-1 and then 4-2, the 10th-ranked Spanish newcomer mounted a comeback. The 20-year-old levelled at 4-4 and then took a 5-4 lead but eventually wilted, losing three consecutive games and falling to his third defeat of the week in his debut at the elite season-ending event. \u201cIt was really tough,\u201d said Shelton. \u201cRafa is a great player. So many weapons and such a great competitor as well. I knew it wasn\u2019t going to be an easy match going in, and I was happy to get through some tough moments in the first set, early, when I was down break points to get to the tie-break. \u201cWhen I was in the tie-break, I felt confident. A tricky second set and being up a break and losing it. But I think I fought well and competed well. The 5-5 game was a dogfight, and I am really happy to get that W.\u201d Jodar said he was \u201csuper proud\u201d of what he had achieved during a whirlwind breakthrough season. Spain\u2019s Rafael Jodar reacts during the ATP Finals group stage match against Ben Shelton of the US at the Inalpi Arena in Turin, Italy, on November 19, 2026. \u2014AFP \u201cI didn\u2019t know what I was going to face and what we could expect in the first season,\u201d he said. \u201cI\u2019ve given everything on court in every match that I\u2019ve played. That is something that I\u2019m very proud of, not giving up in any match. \u201cIt\u2019s very difficult to compete against these types of guys. You have to pay a lot of attention to every detail. You have to play at a very high level, not having many ups and downs during the match. \u201cThat\u2019s what I\u2019ve learned this year: if you want to compete against the best players in the world, you have to have consistency during the tournaments and during the months to be at the top.\u201d Meanwhile, world number three Alcaraz is awaiting the results of an MRI scan he underwent on Thursday for a hamstring injury picked up in his win over Russia\u2019s Daniil Medvedev on Wednesday.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2045795/shelton-into-atp-finals-last-four-frances-fils-eliminated"}, {"head": "Unbeaten Zverev hopes to be 'pain-free' after overcoming Fils at ATP Finals", "body": "Alexander Zverev preserved his unbeaten record at the ATP Finals by overcoming Arthur Fils, though the world number one came through the contest with an ankle problem sustained during the victory. The German acknowledged afterwards that his immediate priority is managing the issue as the season-ending championship intensifies. \"I will do everything I can to be pain-free,\" he said, underlining the concern that now shadows his perfect start to the event.\n\nFils, among the most prominent members of the game's rising generation, provided a demanding test, and the result keeps Zverev unbeaten at the tournament that gathers the leading players in the men's rankings to close the professional season. His status as world number one makes the German the central figure of the championship, and his physical condition is now set to determine how boldly he can pursue the title through the round-robin stage and into the knockout rounds.\n\nThe concern carries particular weight given Zverev's history: the German suffered a serious ankle injury at the since 2022 French Open that sidelined him for the remainder of that season, before he rebuilt his fitness to return to the sport's highest level. His pledge to do everything he can to be pain-free captures the balance he must now strike between an unbeaten week and an injury serious enough that an aggravation would place his championship hopes at risk.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/tennis/articles/c64gne03ykjro?at_medium=RSS&at_campaign=rss"}, {"head": "England fined for fans' anti-Catholic chants in Spain", "body": "England have been fined by Uefa after away supporters were found to have engaged in anti-Catholic chanting during the team's Nations League victory in Spain. The sanction was handed down through Uefa's disciplinary process, which treats discriminatory conduct by spectators as an offence for which national associations are held responsible, regardless of the result achieved on the pitch. The decision continues European football's governing body's sustained effort to police behaviour in travelling support and to attach firm consequences to abusive songbooks carried from fixture to fixture.\n\nUnder Uefa's disciplinary regulations, chants that insult a religion fall within the scope of discriminatory behaviour, exposing associations to fines even where play is uninterrupted. Such songs, which have long featured in England away ends at matches against sides from countries with strong Catholic traditions, remain difficult for stewards and authorities to detect and halt in real time, making the club-by-club and association-level sanction the principal enforcement tool available to Uefa.\n\nThe penalty deepens the scrutiny resting on the Football Association at a time when its supporters' conduct abroad is under close watch, and it underscores that a Nations League win in Spain does not shield theEnglish federation from financial and reputational sanction for what is sung in the stands.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/cmlye2n7p7d9o?at_medium=RSS&at_campaign=rss"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
