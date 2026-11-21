@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (SATURDAY, NOVEMBER 21, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">SATURDAY, NOVEMBER 21, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 21, 2026", "headline": "LHC bars FBR from ST collection prior to registration", "deck": "LAHORE: The Lahore High Court (LHC) on Friday barred the Federal Board of Revenue (FBR) from collecting sales tax on its own, holding that registration of a businessman is a mandatory precondition for any demand or recovery of the levy. Justice Muhammad Ajmal Zahid ruled that Sec", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40450016/lhc-bars-fbr-from-st-collection-prior-to-registration", "body": ["LAHORE: The Lahore High Court (LHC) on Friday barred the Federal Board of Revenue (FBR) from collecting sales tax on its own, holding that registration of a businessman is a mandatory precondition for any demand or recovery of the levy. Justice Muhammad Ajmal Zahid ruled that Section 3 of the Sales Tax Act could be invoked against a businessman only after his or her registration, directing that the department first complete the prescribed registration process before proceeding to determine or collect tax from any unregistered person.", "The court observed: \u201cFBR must first follow the prescribed legal sequence to register a person liable to be registered. Only after registration can the department proceed to determine and recover tax.\u201d The observation places the burden on the revenue authority to establish that a person falls within the registration threshold before raising any charge, and forecloses collection of the levy directly from persons who have not yet been brought onto the tax register. The injunction, accordingly, covers recovery steps initiated without the registration stage.", "With the operative order, the court rejected all four tax references submitted by the Inland Revenue on sales tax matters and maintained the tribunal's decision of March 15, since 2022. The rejection closes the department's attempt to unsettle the tribunal's view through the reference route and leaves the adjudicated position on these disputes intact. The reference procedure had allowed the department to carry its tax objections to the high court; the bench declined to disturb the outcome on the questions presented.", "The court declared the sales tax case concerning the supply of ghee and cooking oil for the period since 2016 to since 2019 null and void, and directed the department to register the businesses concerned first and then collect tax. The declaration resolves a dispute that had run across several tax years of the ghee and cooking oil sector, and replaces recovery action against the parties with a registration-first sequence required of the department.", "The judgment ties invocation of the charging provision to completed registration, requiring the FBR to document each person's registration before raising demands, issuing notices or initiating recovery in comparable matters. Practically, the department must open and complete the registration file, determine liability thereafter and then move to collect the tax, a sequence the court treated as legally mandatory rather than a matter of enforcement choice."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "Peshawar Businessman Seeks Contempt Proceedings Against FBR Chief Over Unpaid 27.1 Million Rupee Customs Claim", "body": "PESHAWAR: A Peshawar-based electronics trader has petitioned the Peshawar High Court to initiate contempt of court proceedings against the head of Pakistan\u2019s Federal Board of Revenue and two senior customs officials, alleging they failed to comply with a since 2025 court order to reimburse him 27.1 million Pakistani rupees for illegally destroyed goods.\n\nShahid-ud-Din Paracha, proprietor of Shahid-ud-Din Paracha Satellite System, filed the petition under Article 204 of the Constitution against FBR Chairman Rashid Mehmood Langrial, Collector of Customs (Enforcement) Aisha Bashir Wani, and Deputy Collector (Refund) Aman Sadiq.\n\nThe dispute stems from an Oct. 29, since 2018, raid on Paracha\u2019s warehouse at Kohati Chowk in Peshawar. A joint team of customs, police, and regulatory officials seized foreign-origin digital satellite receivers valued at 27.1 million rupees (roughly $97,000) during a nationwide crackdown on illegal direct-to-home television equipment ordered by the Supreme Court.\n\nAlthough customs authorities initially confiscated the equipment since 2019, the Customs Appellate Tribunal remanded the case for rehearing. After Paracha produced valid import documents and no-objection certificates, a customs adjudication collector ordered the unconditional release of the verified goods in early since 2021.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/20/peshawar-businessman-seeks-contempt-proceedings-against-fbr-chief-over-unpaid-27-1-million-rupee-customs-claim/"}, {"head": "FPCCI warns FBR tax wing split could fuel tax evasion and expand informal economy", "body": "The Federation of Pakistan Chambers of Commerce and Industry (FPCCI) has cautioned the Federal Board of Revenue (FBR) that separating the income tax and sales tax wings of the revenue administration could open fresh avenues for tax evasion and push a larger share of economic activity into the informal economy. The apex business chamber voiced concern that dismantling the unified domestic tax structure would end the single-point interface that taxpayers currently maintain with the collector of both direct and indirect levies.\n\nUnder the existing setup, income tax and sales tax administration operate within an integrated domestic framework, allowing coordinated audits, cross-referencing of declarations and reconciliation of the same financial records. The chamber warned that a split would subject businesses to parallel scrutiny by two separate administrative structures, heightening the risk of conflicting assessments, duplicate documentation demands and divergent interpretations of identical ledgers. Such friction, it argued, would raise compliance costs across the manufacturing, import, wholesale and retail segments and weaken incentives for firms to remain within the documented channel.\n\nThe chamber urged the revenue authority to weigh these risks against the rationale for restructuring before any reorganisation takes effect, stressing that administrative fragmentation could undo gains in widening the tax net and reinforcing the documentation drive. It called for structured consultation with trade bodies so that taxpayer facilitation, rather than institutional division, remains the guiding principle of reform at the FBR.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fpcci-warns-fbr-income-sales-tax-wing-separation/"}, {"head": "Syngenta Promises to Bring Biotech Seed Technologies to Pakistan", "body": "Syngenta Group plans to introduce advanced hybrid and biotechnology seed technologies in Pakistan, with a focus on cotton, corn, wheat, rice, and sunflower, following high-level meetings with federal and provincial government officials. Minjie Ying, Head of Seeds Business for Africa, Middle East and Asia at Syngenta Group, visited Pakistan alongside the company\u2019s local leadership team to discuss agricultural cooperation, seed innovation, and ways to improve productivity and food security. In Lahore, Ying and the Syngenta Pakistan delegation met with the Punjab Agriculture Department in a meeting chaired by Provincial Agriculture Minister Syed Ashiq Hussain. The discussions built on previous engagements between Syngenta Group China\u2019s leadership and the Punjab government in Beijing last year. The Punjab government assured the company\u2019s leadership of its full support for agricultural collaboration and the introduction of advanced seed technologies. In Islamabad, the delegation met with the federal minister and secretary for National Food Security and Research, the chairman of the National Agri-Trade and Food Safety Authority (NAFSA), representatives from the Prime Minister\u2019s Office, and the federal secretary for commerce.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/11/20/syngenta-promises-to-bring-biotech-seed-technologies-to-pakistan/"}, {"head": "IMF Worried About Pakistan", "body": "The International Monetary Fund (IMF) has warned that Pakistan\u2019s external financial position could come under pressure in the medium term as imports increase and the growth in workers\u2019 remittances slows.\n\nIMF Resident Representative Dr. Mahir Binici said Pakistan needs to continue strengthening its financial buffers and economic resources to protect itself against potential external shocks.\n\nSpeaking at the Pakistan Prosperity Forum, Binici acknowledged that the country had made progress towards economic stability but stressed that sustained and gradual reforms were necessary to turn that progress into long-term economic growth.\n\nHe did not give a clear answer on whether Pakistan could avoid another IMF programme for five years after the completion of its ongoing $7 billion arrangement.\n\nBinici identified low investment in human and physical capital as two of Pakistan\u2019s major structural economic problems. Weak investment has limited productivity, while low productivity, insufficient investment and poor export performance continue to reinforce one another.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/20/imf-worried-about-pakistan/"}, {"head": "FBR makes AI-based production monitoring mandatory for paper and artificial leather industries", "body": "The Federal Board of Revenue (FBR) has made artificial intelligence-based electronic production monitoring mandatory for the paper and artificial leather industries, extending its technology-driven supervision regime to two additional sectors of the economy. Under the measure, manufacturing units in these industries are required to deploy automated monitoring systems on their production lines, capturing output data in real time and transmitting it directly to the tax administration, thereby reducing dependence on self-reported declarations filed in sales tax returns.\n\nThe decision is designed to close a long-standing enforcement gap in industries where divergence between declared and actual production has historically complicated revenue collection. Machine-readable, sensor-based reporting makes it materially harder for units to under-record output, divert production to undocumented channels or clear goods outside the tax net. The approach also marks a shift away from periodic audits and post-facto reconciliation towards continuous, technology-anchored verification of taxable activity at the point of manufacture.\n\nThe expansion fits within the board's wider digitalisation agenda, which already encompasses point-of-sale integration and track-and-trace monitoring across major manufacturing sectors. By bringing the paper and artificial leather industries under comparable electronic surveillance, the revenue authority intends to widen the documented economy, strengthen sales tax compliance and consolidate gains in federal revenue collection.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-electronic-production-monitoring-paper-artificial-leather/"}, {"head": "Pakistan Wins Blind T20 Asia Cup After Rain Washes Out Final Against India", "body": "Pakistan won the Blind T20 Asia Cup after rain washed out the final against defending champion India in Bangladesh, with officials awarding the trophy to Pakistan based on their superior tournament record.\n\nThe match referee declared Pakistan the winner under the tournament rules after persistent rain prevented the final from taking place.\n\nAccording to reports, the tournament regulations had been shared with all participating teams before the competition. Pakistan ranked ahead of India in points, net run rate and head-to-head record, securing the title without a ball being bowled in the final.\n\nPakistan remained unbeaten throughout the league stage, defeating Bangladesh, Sri Lanka and India to finish at the top of the standings with three consecutive victories.\n\nThe team began its campaign with a commanding 126-run victory over host Bangladesh. Pakistan followed that performance with a 10-wicket victory over Sri Lanka before securing a thrilling one-wicket win against India.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/20/pakistan-wins-blind-t20-asia-cup-after-rain-washes-out-final-against-india/"}, {"head": "Pakistan\u2019s Fuel Trade Has a Dirty Secret, And It\u2019s Costing Billions a Month", "body": "Pakistan\u2019s market is flooded with nearly 150 million liters of counterfeit lubricants annually, accounting for around 35 percent of the country\u2019s 450 million liter lubricant market and resulting in massive tax evasion, industry representatives told a Senate committee.\n\nThe Senate Standing Committee on Cabinet Secretariat on Thursday also raised concerns over widespread fuel smuggling and adulteration, which are estimated to cost the national exchequer between Rs. 1 billion and Rs. 1.5 billion daily. The illicit trade is also damaging vehicle engines and worsening environmental pollution.\n\nThe Oil and Gas Regulatory Authority (OGRA) chairman and Petroleum Division officials informed the committee that key blending solvents had been placed on the controlled list. They also said proposals to allow used oil imports had been firmly opposed.\n\nOfficials added that joint enforcement raids with district administrations would be intensified whenever the industry provided actionable intelligence.\n\nThe committee was also briefed on the proposed implementation of a digitalization requirement linked to the Rs. 1.22 per liter increase in oil marketing companies\u2019 (OMCs) margins. The federal cabinet had previously made the increase conditional on 100 percent supply chain digitalization.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/20/pakistans-fuel-trade-has-a-dirty-secret-and-its-costing-billions-a-month/"}, {"head": "FBR Forms Committee to Oversee Pakistan Coast Guard Auction of Seized Goods", "body": "KARACHI: The Federal Board of Revenue has constituted a three-member committee to supervise the auction and disposal of confiscated goods held by the Pakistan Coast Guard, tightening administrative control over one of the most sensitive stages of coastal customs enforcement. The step follows the issuance of S.R.O. 436(I)/2026 dated 27 August 2026, through which customs powers were extended to the Coast Guard for enforcement along the country's shoreline. The committee is intended to examine how items intercepted at sea and across the coastal belt are valued, catalogued and placed before prospective bidders once seizure proceedings are complete.\n\nAuctions of seized goods are a central instrument of customs administration, allowing confiscated cargo to be disposed of transparently while its proceeds are credited to the national exchequer. With the Coast Guard now performing customs duties along the coastal belt, the FBR's oversight panel is expected to align these disposals with board-approved procedures, guard against undervaluation of lots and ensure consistent documentation of goods presented for sale.\n\nThe arrangement reflects a broader consolidation of revenue enforcement across Pakistan's maritime frontier, where sea-borne smuggling runs parallel to land-based contraband corridors. By pairing the Coast Guard's expanded interception mandate with FBR-supervised disposal, authorities seek to close procedural gaps between seizure and auction, ensuring goods taken at sea enter the same custody, valuation and sale chain as confiscations made by customs field formations at ports and border crossings.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/20/pakistan-grants-customs-powers-to-coast-guard-in-coastal-enforcement-push/"}, {"head": "Another Country Wants Pakistan\u2019s Precious Minerals", "body": "Pakistan has invited South African investors to explore opportunities in its mining and critical minerals sectors, as both countries seek to expand bilateral trade, attract investment, and establish new business partnerships.\n\nThe proposal was discussed during a meeting between Federal Minister for Commerce Jam Kamal Khan and a high-level South African business delegation led by Dr. Gwen Malegwala Ramokgopa, Treasurer-General of the African National Congress and Group Chair of the Progressive Business Forum, in Islamabad.\n\nJam Kamal highlighted opportunities for South African investment in mineral exploration, processing, gemstone cutting and polishing, and jewelry manufacturing. He also identified agriculture, information technology, dairy, livestock, and halal products as potential areas for bilateral cooperation.\n\nThe minister stressed the need for closer engagement between business communities and chambers of commerce to identify trade barriers, explore investment opportunities, and promote joint ventures.\n\nThe minister briefed the delegation on investment facilitation measures offered through the Special Investment Facilitation Council (SIFC) and the role of the Export Import Bank of Pakistan in supporting export-oriented businesses, particularly small and medium-sized enterprises.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/20/another-country-wants-pakistans-precious-minerals/"}, {"head": "BMW i7 price in Pakistan starts at Rs65.22 million as Dewan Motors opens bookings", "body": "Dewan Motors, the authorised representative of the German luxury carmaker in Pakistan, has opened bookings for the BMW i7, with the flagship electric sedan priced from Rs65.22 million. The move formally brings the electric derivative of the 7 Series to the domestic market, where it will sit at the apex of the passenger vehicle price ladder and rank among the most expensive models ever offered for local sale.\n\nThe i7 is BMW's fully electric interpretation of its 7 Series flagship, engineered as a long-wheelbase luxury saloon aimed squarely at business executives, dignitaries and chauffeur-driven buyers. Its introduction widens the marque's electric presence in a market where premium battery-electric vehicles remain rare, and where prospective owners must still weigh the developing public charging network against the familiarity of conventional petrol alternatives.\n\nThe Rs65.22 million sticker reflects the substantial customs duties, regulatory duties and sales taxes levied on completely built imported luxury vehicles, which together account for a large share of the final ex-showroom price. While successive policy frameworks have sought to promote electric mobility, the ultra-luxury tier remains a low-volume, made-to-order niche, with vehicles such as the i7 arriving against confirmed orders rather than as showroom staples.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/bmw-i7-price-in-pakistan-starts-at-rs65-22-million-as-dewan-motors-opens-bookings/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 21, 2026", "headline": "Shagufta Hassan Named SECP Policy Board Chairperson After Year-Long Vacancy", "deck": "The federal government has appointed Shagufta Shamsuddin Hassan as Chairperson of the Securities and Exchange Policy Board, filling a post that had been lying vacant for about a year. The Finance Division's Investment Wing issued a notification dated November 16, 2026, stating th", "hero_source": "ProPakistani \u00b7 Markets & Stocks", "hero_url": "https://propakistani.pk/2026/11/20/shagufta-hassan-secp-policy-board-chairperson/", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The federal government has appointed Shagufta Shamsuddin Hassan as Chairperson of the Securities and Exchange Policy Board, filling a post that had been lying vacant for about a year. The Finance Division's Investment Wing issued a notification dated November 16, 2026, stating that the federal government has nominated her as Chairperson of the Securities and Exchange Policy Board with immediate effect, under Section 12(7) of the Securities and Exchange Commission of Pakistan Act, 1997.", "Hassan takes the post from within the board's existing membership. She already serves as a member of the Policy Board and was one of the five private-sector members the Finance Division appointed to the body since 2024 for a five-year term. Her elevation provides continuity at the top of the statutory oversight board established under the 1997 act, whose chairpersonship had been left unfilled through the preceding twelve months.", "A Fellow Member of the Institute of Chartered Accountants of Pakistan, Hassan is the Vice President Finance and Chief Financial Officer of the Aga Khan University, where she oversees the financial affairs of the university and its healthcare system across six countries. She brings more than 35 years of experience in senior roles in the public and private sectors. Before joining the Aga Khan University in 2003, she worked with A.F. Ferguson & Co., now part of PwC, and with the Institute of Business Administration, and taught students of ICAP, ACCA and CIMA.", "The notification places a chartered accountant with deep financial-management and regulatory-sector exposure in the regulatory policy chair exactly a year after the position fell vacant, giving the Securities and Exchange Policy Board a full-time head to work alongside the commission it oversees."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "One Missing Number on Your Audit Report? SECP Won\u2019t Accept It", "body": "The Securities and Exchange Commission of Pakistan (SECP) has made valid Unique Document Identification Numbers (UDINs) mandatory on company audit reports, warning that financial statements submitted without valid UDINs will not be accepted. The regulator said the requirement aims to verify the authenticity of audit reports and prevent the submission of fraudulent or falsified documents. Under the audit regulations, auditors are required to include a UDIN on their audit reports. The identification number allows the authenticity of an audit report to be verified. The SECP has advised companies to confirm the UDIN mentioned in their audit reports with the relevant accounting body to ensure its validity. The regulator warned that companies submitting audit reports containing incorrect or altered UDINs could face criminal proceedings.", "source": "ProPakistani \u00b7 Markets & Stocks", "url": "https://propakistani.pk/2026/11/20/one-missing-number-on-your-audit-report-secp-wont-accept-it/"}, {"head": "Shagufta made Chairperson SECP Policy Board", "body": "ISLAMABAD: Ms Shagufta Shamsuddin Hassan has been appointed Chairperson of the Securities and Exchange Policy Board with immediate effect. The federal government made the appointment through notification No. F.3(15)Inv-II/2004, issued by the Finance Division's Investment Wing, in exercise of powers conferred under Section 12(7) of the Securities and Exchange Commission of Pakistan (SECP) Act, 1997.\n\nThe Securities and Exchange Policy Board, constituted under the same 1997 law, serves as the apex policymaking and oversight body for the SECP, the integrated regulator of Pakistan's corporate sector, capital market, insurance industry and non-banking financial companies. As chairperson, Ms Hassan will preside over the board's deliberations on regulatory policy, which frame the rules governing listed companies, capital market intermediaries, insurers and other licensed operators, and will guide the strategic direction of the Commission's supervisory mandate.\n\nOperating under the SECP Act, the board is vested with responsibility for policy formulation and oversight of the Commission's affairs, supporting the orderly growth of the securities market, investor protection and transparency across the Pakistan Stock Exchange ecosystem. With the appointment effective forthwith, Ms Hassan assumes the statutory role at a forum whose deliberations shape the regulatory environment for issuers, intermediaries, insurers and investors across the country.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450019/shagufta-made-chairperson-secp-policy-board"}, {"head": "Approximately 89pc of increase in imports came from non-petroleum categories -Zahid", "body": "KARACHI: President of the Pakistan Businessmen and Intellectuals Forum and All Karachi Industrial Alliance, Chairman of the National Business Group Pakistan and Chairman of the FPCCI Policy Advisory Board, Mian Zahid Hussain has emphasised that the reasons behind import growth must also be examined by product category. Approximately 89 percent of the overall increase in imports during July\u2013September came from non-petroleum categories. Machinery imports increased by approximately USD504.1 million, while metal imports rose by USD377.1 million. He said expanding industrial activity had increased demand for machinery, raw cotton, iron and steel, and other industrial inputs. Meanwhile, higher prices had raised the import bill for certain petroleum products despite lower import volumes. The government should assess the economic returns from productive imports and help local industries manufacture inputs and products whose competitive domestic production could deliver genuine foreign exchange savings. Mian Zahid Hussain said expensive electricity and gas, multiple taxes and levies, delayed tax refunds and certification expenses were adding to exporters\u2019 difficulties. Longer shipping times increased working capital requirements by extending the period between purchasing raw materials, dispatching finished goods and receiving payments from buyers. Exporters relying on commercial credit faced higher financing costs, while the impact on businesses receiving subsidised financing would depend on the terms of the relevant schemes. Timely tax refunds and adequate working capital for small exporters were essential to fulfilling new orders. Mian Zahid Hussain urged the Ministry of Commerce, Ministry of Maritime Affairs, FBR, TDAP and FPCCI to work together to address exporters\u2019 production and logistics constraints. He called for transparency in freight rates and surcharges on major shipping routes, reliable shipping services, prompt port clearance and advance clarity on energy costs. He said reducing dependence on unnecessary imports required improvements in the quality and competitiveness of domestic production while maintaining availability of essential raw materials and machinery for export industries. Pakistan needed an industrial and trade policy that delivered a lasting reduction in the trade deficit through higher export earnings, greater domestic value addition and increased employment. He said that the recovery in exports during the first four months of FY2026\u201327 is welcome, but expressed concern that faster import growth had further widened the trade deficit. He said exports increased by 8.52 percent to USD11.336 billion during July\u2013October, while imports rose by 12.59 percent to USD25.964 billion. Consequently, the trade deficit widened by 15.97 percent to USD14.628 billion. Reducing this gap required immediate attention to export industries\u2019 production costs, productive capacity and access to international markets. Mian Zahid Hussain said exports increased by USD890 million during July\u2013October 2026 compared with the corresponding period last year, while imports rose by USD2.904 billion. For every additional dollar earned through exports, the import bill increased by approximately USD3.26. He said October exports grew by only 2.84 percent year-on-year and just 0.21 percent compared with September 2026. These figures highlighted the need to strengthen and broaden the export recovery. New orders would translate into sustained earnings only when Pakistani businesses could ensure competitive prices, the required quality and timely delivery. Mian Zahid Hussain said the US\u2013Iran war and closures of the Strait of Hormuz and Bab el-Mandeb had increased freight, insurance and delivery difficulties for Pakistani exporters. According to the Ministry of Commerce\u2019s parliamentary briefing on November 11, 2026, freight for a 40-foot dry container from Karachi to Qatar\u2019s Hamad Port had risen from the previous range of USD1,300\u20131,900 to the current USD8,500\u20138,800. Exports to GCC countries also declined by 6.4 percent, or approximately USD69.8 million, during July\u2013October 2026. He said expensive shipping increased the landed cost of Pakistani products, while delivery delays tied up businesses\u2019 capital for longer periods. Small exporters and businesses dealing in perishable products were particularly vulnerable to these pressures. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450084/approximately-89pc-of-increase-in-imports-came-from-non-petroleum-categories-zahid"}, {"head": "Aurangzeb emphasises affordable electricity", "body": "ISLAMABAD: The government is moving to finalise a revamped power market structure to promote competition, encourage private investment and clearly define the regulatory roles of National Electric Power Regulatory Authority (Nepra) and the Competition Commission of Pakistan (CCP), and ensure affordable electricity for consumers. Federal Minister for Finance and Revenue, Muhammad Aurangzeb, chaired a meeting of the Steering Committee on Power Sector Regulatory Regime at the Finance Division on Friday. The meeting reviewed progress on the proposed reforms and recommendations emerging from the Technical Working Group (TWG), the government\u2019s deliberations on developing a comprehensive regulatory and market framework to improve efficiency, promote competition, attract private investment and ensure affordable electricity for consumers. The Committee was briefed on the TWG\u2019s detailed work covering tariff methodology, regulatory certainty, investment incentives, performance benchmarks and the future structure of the electricity market. Discussions focused on ensuring that the proposed framework addresses investor concerns while safeguarding consumer interests and strengthening the sector\u2019s long-term financial sustainability. READ ALSO: Time-based power tariff: IMF not allowing Pakistan to offer cheap electricity: Leghari A key area of deliberation was the need for clear, transparent and predictable regulatory rules for distribution network operators (DNOs) and competitive suppliers. The Committee considered proposals relating to investment approvals, monitoring of investment plans, service and performance standards, transmission and distribution losses, conflict-of-interest safeguards and the scope of ancillary commercial activities. The importance of clearly defining the respective roles of Nepra and the CCP, while avoiding regulatory overlaps, was also highlighted. The Committee reviewed proposals for strengthening the incentive structure under the Multi-Year Tariff (MYT) framework, including mechanisms to reward improvements in operational efficiency, service quality and reduction in distribution losses. Discussions also covered the treatment of returns on equity, inflation-related adjustments and sharing of efficiency gains, with a view to balancing commercially viable investment incentives with consumer protection. It was emphasised that efficiency improvements should translate into tangible benefits for consumers. The evolving dynamics of the electricity market, particularly rapid solarisation, battery storage and changing consumption patterns, also featured prominently. The Committee discussed the challenges arising from excess generation capacity, declining grid demand and the resulting pressure of capacity-payment obligations on electricity tariffs. In this context, proposals for adapting the Competitive Trading Bilateral Contract Market (CTBCM) design to Pakistan\u2019s changing circumstances were examined. These included the possibility of aligning existing supply obligations and consumer demand with distribution companies being privatised, as a potential pathway towards a more competitive electricity market. The discussions recognised the need to address the imbalance between available generation capacity and actual consumption, while preventing further increases in the burden on grid-connected consumers. The proposed market arrangements could provide greater flexibility for competitive suppliers to develop tariff structures, improve efficiency and make better use of existing generation capacity. Their implications for existing power purchase agreements, capacity-payment obligations and uniform tariff arrangements would, however, require further examination. The Finance Minister emphasised that the overriding objective of the reform process must be to reduce electricity costs, improve service delivery and establish a financially sustainable power sector. He observed that Pakistan\u2019s changing energy landscape required practical and forward-looking solutions tailored to the country\u2019s specific challenges. The reforms must create a viable environment for private investment while ensuring affordable and competitive electricity for households, businesses and industry. The Committee also discussed the pace and sequencing of the transition towards a competitive retail electricity market. While recognising the need to move towards greater competition, participants highlighted the importance of a realistic implementation roadmap that takes account of regulatory and institutional readiness, consumer protection and investor confidence. The need to balance the urgency of reforms with the practical requirements of market preparedness was underscored. The proposed arrangements for managing residual assets and liabilities of distribution companies in the context of privatisation were also discussed. These include land, receivables, pension obligations and litigation. The Finance Minister called for a pragmatic and cost-effective institutional arrangement, avoiding unnecessary duplication and ensuring effective management of these responsibilities. The Committee agreed that further work was required on certain technical and policy aspects of the proposed framework. The Finance Minister directed the relevant teams to clearly identify outstanding issues, including areas of divergent views, and bring forward considered recommendations for the Steering Committee\u2019s further deliberation. Continued coordination with Nepra and other stakeholders was emphasised to ensure that the eventual framework is technically sound, legally robust and implementable. The Finance Minister reiterated the government\u2019s commitment to advancing power-sector reforms within clear timelines, with affordability, financial sustainability, regulatory predictability, improved service quality and greater private-sector participation as the guiding objectives. The meeting was attended by Federal Minister for Power Sardar Awais Ahmad Khan Leghari; Special Assistant to the Prime Minister on Energy, Lt. Gen. Muhammad Zafar Iqbal; Minister of State for Finance and Railways, Bilal Azhar Kayani; Adviser to the Prime Minister on Privatisation, Muhammad Ali; Chairman Nepra; senior officials of the Finance Division; and representatives of relevant public-sector institutions and stakeholders. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450075/aurangzeb-emphasises-affordable-electricity"}, {"head": "World Bank-funded Punjab land reform project achieves 90pc progress", "body": "ISLAMABAD: Punjab has digitised and notified 5,805 out of 6,014 revenue villages, registered nearly 69.9 million land rights and converted more than 31 million person-based land records into parcel-based records under a World Bank-funded project, achieving 90 percent physical progress ahead of its June 2027 completion deadline. The World Bank official document noted that the Punjab Urban Land Systems Enhancement Project had exceeded several key development targets, prompting an upgrade in its ratings for progress towards achieving development objectives and overall implementation from \u201cSatisfactory\u201d to \u201cHighly Satisfactory\u201d. The project, being implemented by the Punjab Board of Revenue and Punjab Land Records Authority (PLRA), aims to improve land records and identify public land for development, including housing programmes. According to the report, approximately 69.92 million land rights have been registered or linked with the Land Records Management Information System (LRMIS), against the closing target of 50.68 million. Women account for 31 percent of the registered land rights, compared with the target of 32 percent. Digital cadastral maps have been updated to cover 86 percent of Punjab, exceeding the closing target of 61.8 percent. Similarly, 31.18 million person-based land records have been converted into parcel-based records, surpassing the target of 28 million. The digitisation exercise covers more than 24.4 million landowners, with 7.57 million newly registered or updated land records jointly or individually filed by women, exceeding the project\u2019s target of six million. Of the province\u2019s 6,014 revenue villages (mauzas), 5,805 have been digitised and notified, while 27 have been submitted for notification and work on the remaining 182 is still pending. The report also highlighted progress in addressing jointly owned land, with 495,163 of the 1.747 million eligible jointly owned landholdings partitioned, representing 28 percent of the total. The exercise has created approximately 1.18 million new parcels, including 94,833 registered in women\u2019s names. Under the Green Property Certificate initiative, 46,626 applications have been received, 37,272 field assessments completed and 23,280 cases approved, while 54,694 certificates have been issued, according to the report. On the identification of public land for development, the project has screened 933.5 hectares for housing against a target of 1,000 hectares and identified 200 public land sites for development programmes, achieving the relevant target. The World Bank said the project had reached 90 percent physical progress by October 2026 and remained on track to complete all activities by its scheduled closing date of June 30, 2027. However, financial disbursement remains comparatively slower than physical implementation. Against the revised credit allocation of USD 145.76 million, approximately USD 90.08 million had been disbursed by October 2026, representing 61.8 percent of the total credit, leaving USD55.68 million undisbursed. The project was approved on March 10, since 2022, with an original financing allocation of USD 150 million, subsequently revised to USD 145.76 million. The World Bank maintained the project\u2019s overall risk rating at \u201cModerate\u201d, while upgrading both its development objective and implementation progress assessments to \u201cHighly Satisfactory\u201d. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450020/world-bank-funded-punjab-land-reform-project-achieves-90pc-progress"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "SATURDAY, NOVEMBER 21, 2026", "headline": "OpenAI smartphone reportedly selects Foxconn for assembly", "deck": "Foxconn subsidiary FIH Mobile has reportedly secured the assembly order, with the AI-focused smartphone potentially launching in late 2027 or 2028.", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/openai-smartphone-reportedly-selects-foxconn-for-assembly/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Editor-in-Chief, Senior Member Pakistan Customs Service (Retd.)", "body": ["Foxconn subsidiary FIH Mobile has reportedly secured the assembly order, with the AI-focused smartphone potentially launching in late 2027 or 2028.", "OpenAI is reportedly moving closer to developing its first smartphone, with new reports from China suggesting that Foxconn subsidiary FIH Mobile has secured an order to assemble the upcoming device.", "According to China\u2019s Securities Times, citing supply chain sources, FIH Mobile will handle assembly of OpenAI\u2019s smartphone. Foxconn is already one of Apple\u2019s major manufacturing partners and plays an important role in assembling iPhone models.", "A separate report from Cailian Press also supports the development, suggesting that the device could reach the market in late 2027 or sometime in 2028.", "The reports further identify several other Apple suppliers that could participate in the smartphone\u2019s component supply chain. These include Luxshare Precision, Lingyi iTech and AAC Technologies.", "The reported involvement of Luxshare is particularly interesting because analyst Ming-Chi Kuo previously identified the company as OpenAI\u2019s exclusive co-design and manufacturing partner. The latest reports suggest that its role may have changed as the project progresses.", "OpenAI\u2019s smartphone project first emerged in April, when Kuo reported that the company was developing a handset with a custom chipset. In May, the analyst suggested that development had been accelerated."], "quote": "Taxation without registration is collection by presumption; a decree left unpaid is a default by the state itself.", "editorial": {"title": "The State Must Register Before It Taxes \u2014 and Pay When It Loses", "deck": "A superior court has re-sequenced the charging section of the Sales Tax Act, 1990; a trader asks why a restitution decree has stood unexecuted since 2025; and the securities regulator reclaims its board and its attestations. The common thread is procedural legality as the precondition of sustainable revenue.", "paragraphs": ["The Lahore High Court's direction that Section 3 of the Sales Tax Act, 1990 cannot be invoked against an unregistered businessman \u2014 and that the FBR may not collect sales tax on its own volition \u2014 is far more than a ruling on administrative sequencing. It restores the architecture of an indirect tax that field practice had quietly inverted for years. The charging section presupposes a taxable person: an entity that has entered the net through a defined registration procedure, on stated thresholds and forms. An administration habituated to ruling through SROs, presumption-based assessment and coercive demand letters long treated the charging provision as a plenary licence \u2014 collect first, register later, adjudicate whenever convenient. Justice Ajmal Zahid's order reasserts the statutory sequence: registration precedes liability, liability precedes assessment, and collection follows adjudication rather than presumption. The macroeconomics of this correction are frequently misread. Punishing entry into the tax net by extracting tax from the unregistered is precisely the incentive structure that keeps businesses informal; registration-first enforcement is not a concession to trade but a base-building measure. Voluntary compliance is an economic asset, and it is priced by how the statute is administered, not merely by how it is written.", "The petition before the Peshawar High Court presents the mirror image of that lesson. An electronics trader, whose goods were destroyed unlawfully, has waited since a 2025 order for the Rs 27.1 million of restitution decreed to him, and now invokes contempt against the FBR's chief and senior customs officers. The same administration that deploys sections 14A and 14B of the Sales Tax Act, attachment of bank accounts, and recovery through the tax officer's notice with remarkable alacrity treats a superior court's decree against itself as an item for deferral. This asymmetry is the most corrosive force in the compliance equation. A refund, a restitution order, or any form of statutory relief is not a favour disbursed at the exchequer's discretion; it is the state's own liability, ranking ahead of its convenience. Article 4 of the Constitution promises every citizen treatment in accordance with law \u2014 and it binds the state as a party no less than the citizen. When the Board defaults on its own obligations while pursuing every rupee of assessed demand, the voluntary taxpayer draws the obvious conclusion: recovery is relentless against him, relief is negotiable against it. Fiscal prudence, properly understood, is measured not only by collection targets but by the state's record of honouring adjudicated liabilities.", "On the capital-market flank, two quieter developments carry equal institutional weight. The nomination of Shagufta Shamsuddin Hassan as Chairperson of the Securities and Exchange Policy Board, notified on November 16, closes a vacancy of roughly a year in the very body the SECP Act, 1997 created to set supervisory policy for our markets. A policy board left headless is not neutrality; it is abdication, and a vacancy of that duration cedes de facto rule-making to informal discretion. Concurrently, the SECP's insistence on valid UDINs on company audit reports \u2014 financial statements submitted without them will simply not be accepted \u2014 hardens the chain of custody around statutory attestation. The UDIN binds a report to a named professional, a date and an engagement, making fabrication traceable and forgery provable. Audited accounts are the load-bearing structure of investor protection; one unverifiable number can misprice an entire security and chill an entire sector's access to formal capital flows. Attestation integrity is, in truth, market-development policy.", "The through-line of this week is an old doctrine of administrative law that Pakistan's fiscal state keeps relearning at cost: process is not the enemy of revenue; it is the condition of credible revenue. A treasury that taxes only registered persons, pays what courts order, keeps its regulatory boards occupied and authenticates its attestations will command consent from taxpayers, auditors and investors alike. The FBR should read the Lahore judgment not as an irritation but as a design brief \u2014 registration campaigns before liability, adjudication before recovery, and automated, time-bound settlement of decrees and refunds with the same rigour it applies to coercive recovery powers. Anything less invites the next contempt notice, and with it the further erosion of the only asset the revenue administration truly owns: the taxpayer's willingness to be inside the net."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Trump Tells Huang to Apologize and Become Nvidia CEO Again", "body": "US President Donald Trump has urged former Nvidia chief Jensen Huang to apologize and take back his job as the chipmaker\u2019s CEO. \u201cI\u2019d like to see Jensen make a big apology and go back,\u201d Trump told reporters on Friday. \u201cWe\u2019re a country of second chances.\u201d He added that Nvidia should welcome Huang back. \u201cI think the company, if they were smart, they\u2019d take that brilliant man, accept an apology and let him go back to work,\u201d he said. Trump also said he had discussed Huang with President of China Xi Jinping. Huang, who co-founded Nvidia and led it for 33 years, resigned on November 12 as president, CEO and board member. His exit followed reports of extramarital affairs, including one with a woman US intelligence reportedly assessed as working for Beijing. CFO Colette Kress is serving as interim CEO while the board searches for a permanent replacement.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/21/trump-jensen-huang-apologize-nvidia-ceo-again/"}, {"head": "California AG subpoenas Nvidia over worries about Huang\u2019s ties with China", "body": "California Attorney General Rob Bonta has subpoenaed Nvidia, opening a formal inquiry into the conduct of the artificial-intelligence chipmaker and the China-related ties of Jensen Huang, its former chief executive. The legal demand marks a significant escalation in the scrutiny surrounding the Silicon Valley company, whose commercial position in China has been a persistent flashpoint in Washington's technology policy. Bonta said the conduct of Nvidia and its former chief executive \"raises bright red flags, including about the ways in which the company may have misled investors.\"\n\nThe subpoena places the Santa Clara-based company under the scrutiny of California's top law-enforcement official, whose mandate includes protecting investors and consumers in the state. An investigative subpoena of this kind typically compels the production of documents and testimony and signals that an inquiry has progressed beyond a preliminary review. For Nvidia, the development adds a domestic legal dimension to the export controls Washington has already imposed on shipments of its most advanced chips to Chinese customers, curbs that have repeatedly tested the company's footing in a key market for its data-centre processors.\n\nA subpoena is an investigative instrument rather than a finding of wrongdoing, and inquiries of this kind can conclude without enforcement action. The investor-protection framing of Bonta's warning, however, points to unresolved questions over what the company told markets about its exposure to China \u2014 questions likely to shadow the chipmaker as Washington and Beijing compete for primacy in artificial intelligence and as oversight of cross-border technology dealings tightens.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/20/california-ag-subpoenas-nvidia-over-worries-about-huangs-ties-with-china/"}, {"head": "NBP establishes AI, robotics and STEM lab at APS", "body": "KARACHI: National Bank of Pakistan (NBP) has established an artificial intelligence, robotics and STEM digital laboratory at Abbottabad Public School (APS), aiming to provide students with access to technology-based and hands-on learning facilities. The laboratory was formally inaugurated during the school\u2019s Annual Parents\u2019 Day ceremony, attended by Federal Minister for Education Wajiha Qamar, APS Principal Akhtar Ali Qureshi and other guests, according to a press release issued by NBP. The initiative was conceived and spearheaded by Farhan J. Durrani, Divisional Head of NBP\u2019s Digital Banking Group, with the bank saying that its implementation involved institutional coordination and support. NBP was represented at the inauguration by Durrani, Imran Gull, General Manager Islamabad and North, and Fakhar Zaman Khan, Regional Head Abbottabad. Commenting on the facility, Adnan Nasir, Chief Digital Officer of NBP\u2019s Digital Banking Group, said the initiative reflected the bank\u2019s commitment to equipping the next generation with technology, innovation and digital education to prepare students for a technology-driven future. The bank said the laboratory would support learning in artificial intelligence, robotics and other emerging technologies, with an emphasis on practical digital education. NBP described the initiative as part of its efforts to contribute to the intellectual and technological development of young people beyond its core banking operations. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450089/nbp-establishes-ai-robotics-and-stem-lab-at-aps"}, {"head": "Giving its AI more to read made T-Mobile's answers worse", "body": "T-Mobile's first serious attempt to give its artificial intelligence customer-service agents enough context to work with produced the opposite of the intended effect: the more the system was given to read, the worse its answers became. The wireless carrier equipped its AI agents with access to a large body of support documentation, in the expectation that richer context would translate into sharper, more accurate responses. In practice, conflicting instructions embedded within that material could send an agent down entirely the wrong path when it set out to handle a particular customer's request.\n\nT-Mobile chief information officer Jeff Simon recounted the stumbles when he told attendees at the Agentic Infrastructure Stack Summit in October about the company's early experiments with agentic systems. A follow-up effort to organise the carrier's knowledge into a graph structure fared no better: the agents found the graph too slow to traverse and too difficult to navigate within live conversations, undermining the speed and fluidity that real-time customer service demands.\n\nThe episode captures the growing pains of enterprises deploying agentic AI in customer-facing roles. Context, the carrier's experience suggests, is only as useful as it is coherent: an ever-expanding corpus of documents can inject contradictions that erode accuracy, while heavily structured alternatives can sacrifice responsiveness. The lesson of T-Mobile's early missteps is that engineering an agent's information supply \u2014 deciding what it reads, how it is organised and how quickly it can be queried \u2014 matters as much as the underlying model itself.", "source": "VentureBeat Feed", "url": "https://venturebeat.com/orchestration/giving-its-ai-more-to-read-made-t-mobiles-answers-worse"}, {"head": "Amazon says attackers' AI agents found and exploited a zero-day in 11 minutes, but no patched release is available", "body": "Autonomous AI agents operated by attackers discovered and weaponised a previously unknown vulnerability in MONAI Label, an open-source medical imaging AI application, in roughly 11 minutes, Amazon said Friday. The agents used the zero-day flaw to write files outside the directory the software designates for storage, marking a striking demonstration of AI-accelerated offensive capability.\n\nMONAI Label is an open-source platform that brings machine-learning assistance to the labelling of medical images, infrastructure relied upon in clinical research and imaging workflows. The flaw allowed the agents to place files outside the storage boundary the application is designed to enforce, a category of defect that can clear the way for tampering with data and code elsewhere on a host system.\n\nThe fix has been merged into MONAI Label's source code, but no patched release is available, meaning deployments running official versions currently have no packaged upgrade to install and remain exposed in the interim. The episode underlines a widening weakness in the open-source supply chain, with fixes that exist in repository code but not in distributable releases at a moment when autonomous agents compress discovery and exploitation into minutes.", "source": "VentureBeat Feed", "url": "https://venturebeat.com/security/amazon-says-attackers-ai-agents-found-and-exploited-a-zero-day-in-11-minutes-but-no-patched-release-is-available"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 21, 2026", "headline": "David Fincher Defends Use Of AI Amid \u2018Cliff Booth\u2019 Criticism -\u201cWell, It Exists. Should We Not Use It?\u201d", "deck": "Although The Further Mis-Adventures of Cliff Booth is steeped with nostalgia for Hollywood\u2019s past, David Fincher claims to represent the future.", "hero_source": "Deadline Hollywood Wire", "hero_url": "https://deadline.com/2026/11/david-fincher-defends-ai-cliff-booth-criticism-1237230711/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Although The Further Mis-Adventures of Cliff Booth is steeped with nostalgia for Hollywood\u2019s past, David Fincher claims to represent the future.", "While many have criticized the Quentin Tarantino-penned sequel to Once Upon a Time in Hollywood (since 2019) for the apparent onscreen use of Gen AI , the 3x Oscar-nominated director recently shared his thoughts on the rapidly growing tech.", "\u201cI\u2019m not a Luddite, so I don\u2019t fear the unknown,\u201d Fincher told the Los Angeles Times .", "\u201cIs everyone satisfied that we have figured this art form out enough that what we really need to do is go back to celluloid?\u201d he continued. \u201cHow long have people painted? 40,000 years? We\u2019re talking about a thing that\u2019s a hundred years old and everyone\u2019s going, \u2018Stop. Pencils down. No more iterating. It\u2019s not necessary to have at your fingertips the ability to change the color of that person\u2019s eyes.'\u201d Watch on Deadline", "The comments come after several fans have taken to social media to criticize the apparent use of AI in the film as \u201c astounding to an absurd degree ,\u201d with one viewer saying they \u201c walked out of Cliff Booth completely gutted .\u201d"], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "Melania Trump Calls for \u2018Peace\u2019 When Asked About Children in Gaza and Israel at Amazon Series Premiere", "body": "Melania Trump called for \u201cpeace\u201d when asked about the children of Gaza and Israel at the premiere of \u201cMelania: The Series,\u201d the Amazon Prime Video documentary that opens a rare window into the personal life of one of the most closely guarded figures in American public life. The exchange placed the first lady before cameras at an event built almost entirely around her own image, arriving at a moment when she is seeking a visibly larger public role than the one that defined her first years in the White House.\n\nThe series explores the often-reclusive first lady\u2019s personal life and her role inside the executive mansion, including her efforts to provide children in foster care with educational and career opportunities. That domestic portfolio has long anchored her public identity, and the documentary presents it as a working record rather than a ceremonial one, drawing attention to an office whose daily mechanics rarely attract scrutiny even as its occupant shapes the family\u2019s public posture.\n\nThe question about Gaza and Israel underscored how the welfare of children has become a recurring test for international figures as the war\u2019s humanitarian toll dominates global concern, and how her brief answer fits into a broader turn toward international peacemaking, framed in the language of child welfare. As the documentary reaches a worldwide streaming audience, the single-word response offered the clearest public indication yet of the register she intends to strike in that expanding role.", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/melania-trump-series-gaza-israel-children-peace-amazon-1236954718/"}, {"head": "E.J. Carroll, \u2018Law & Order,\u2019 \u2018GTA 5\u2019 and \u2018Blue Bloods\u2019 Actor, Dies at 66", "body": "E.J. Carroll, the American character actor whose career on screen stretched across nearly three decades of television, film and video games, has died at the age of 66. Carroll died suddenly on Thursday morning, a representative for the actor said. No cause of death has been provided.\n\nOver a career spanning close to 30 years, Carroll's credits included David Simon's HBO drama 'The Deuce,' the long-running NBC procedural 'Law & Order' and the CBS police series 'Blue Bloods,' as well as Darren Aronofsky's acclaimed 2008 film 'The Wrestler.' His screen work also reached the video game industry through 'Grand Theft Auto V,' one of the best-selling titles in the history of the medium.\n\nWith a screen presence that moved easily between prestige cable drama, network procedurals and studio cinema, Carroll built a r\u00e9sum\u00e9 that few working character actors could match. Further details about his death were not immediately available.", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/e-j-carroll-dead-the-deuce-1236954725/"}, {"head": "How to Get Started on Making a Difference as Tax Rules for Charitable Giving Change", "body": "Rick Baker has spent his career guiding some of Hollywood's most prominent names through the financial volatility of the entertainment industry, managing money and building portfolios designed to endure careers defined by irregular income and shifting fortunes. For the wealth management expert, the discipline extends beyond preservation: meaningful wealth, in his view, includes giving some of it away, a conviction he has put into practice through a scholarship program he launched more than 10 years ago in Alabama. His long-running commitment now offers a timely case study as tax rules governing charitable giving enter a period of change, prompting donors at every level to reconsider how their generosity is structured.\n\nThe evolving tax treatment of charitable donations is reshaping decisions for high earners in particular, with deductions, timing and giving vehicles all subject to new calculations. Philanthropy is increasingly treated as a planned component of a financial strategy rather than a year-end impulse. For anyone looking to begin, the natural starting point is clarity of purpose: identifying the causes that merit sustained support before choosing a structure, whether direct gifts, contributions of appreciated assets or dedicated vehicles that allow donations to grow and compound over time.\n\nBaker's own example illustrates that approach in action. A scholarship program sustained for more than a decade reflects a donor who defined a cause, committed to it and built the giving into his broader financial life, aligning philanthropic intent with long-term planning. As the tax rules continue to shift, the fundamentals he embodies remain constant: start with purpose, plan the structure deliberately and treat generosity as a fixed line in the financial plan rather than an afterthought.", "source": "Variety Global Wire", "url": "https://variety.com/2026/biz/news/rick-baker-alabama-tax-charity-sean-weissbart-strictly-1236954674/"}, {"head": "Palisades Fire Arson Suspect Convicted, Faces 40 Years In Prison", "body": "A Los Angeles jury has convicted Jonathan Rinderknecht, the 30-year-old charged with setting the small fire that smoldered undetected and later flared into the Palisades Fire, the since 2025 wildfire that devastated Pacific Palisades and Malibu. Rinderknecht was found guilty on Friday of destruction of property by means of fire and of arson affecting property used in interstate commerce, counts that together carry a potential sentence of 40 years in prison. The verdict concluded a trial in United States District Court over one of the most destructive wildfires in California's history.\n\nProsecutors alleged that Rinderknecht deliberately ignited a blaze in the Temescal Canyon area above Pacific Palisades on New Year's Eve and that, although it appeared extinguished, it continued to smolder beneath the brush before reigniting on January 7, since 2025, as a violent windstorm swept the region. The resulting fire burned more than 23,000 acres, destroyed more than 6,800 homes and other structures, killed 12 people and forced tens of thousands of residents to flee, ranking among the greatest wildfire losses Los Angeles has ever suffered.\n\nRinderknecht, who was arrested in Florida in since 2025 and pleaded not guilty at his arraignment, has been held in custody as the case proceeded to trial, with sentencing now set to follow the jury's verdict. The conviction lands as Pacific Palisades and Malibu continue the slow rebuild from a fire that razed entire neighbourhoods along the Los Angeles coast and stands among the costliest wildfire disasters in United States history.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/palisades-fire-trial-verdict-1236967822/"}, {"head": "\u2018Yellowjackets\u2019 Stars Melanie Lynskey & Christina Ricci On Misty\u2019s Plot \u201cTo Save Themselves\u201d From Shauna -\u201cShe\u2019ll Be The Downfall Of Everybody\u201d", "body": "The fourth and final season of \"Yellowjackets\" opened on Friday with its premiere episode, \"Hivemind,\" returning to the adult timeline of the survivors of the 1996 plane crash and placing their fractured loyalties under fresh strain. The episode picks up in the immediate aftermath of the previous season's finale, and its central fault line now runs between Shauna, played by Melanie Lynskey, and the rest of the group, whose patience with her escalating rage has all but run out.\n\nChristina Ricci, who plays Misty Quigley, explained that her character moves to shield the group from Shauna, framing the manoeuvre as an effort \"to save themselves,\" and warned that Shauna \"will be the downfall of everybody.\" The premiere also positions the team for one last act of sacrifice to the wilderness, a possibility that now hangs over the final chapter of a series whose survivors have always paid dearly for what they did in order to get home.\n\nFor Lynskey and Ricci, the farewell season extends a dynamic that has anchored the adult story since the show began: Shauna's grief curdling into violence, and Misty's unsettling readiness to cross lines the others will not. With the wilderness still unappeased and the remaining survivors increasingly at odds, \"Hivemind\" sets the stage for a final reckoning among women who have long outlived their own worst secrets.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/yellowjackets-melanie-lynskey-christina-ricci-misty-plot-1237230788/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 21, 2026", "headline": "Race to be next UN secretary general exposes divisions among world powers", "deck": "The race to be the next United Nations secretary general could reach a decisive moment on Friday, when a security council vote is likely to reveal whether Rebeca Grynspan, the Costa Rican frontrunner for the post, will be blocked by the big powers. Any such setback would reignite", "hero_source": "Guardian World Wire", "hero_url": "https://www.theguardian.com/world/2026/nov/20/race-to-be-next-un-secretary-general-exposes-divisions-among-world-powers", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["The race to be the next United Nations secretary general could reach a decisive moment on Friday, when a security council vote is likely to reveal whether Rebeca Grynspan, the Costa Rican frontrunner for the post, will be blocked by the big powers. Any such setback would reignite a long-simmering debate about the dominance of the council's five permanent members \u2014 the US, Britain, France, Russia and China \u2014 over an appointment that will shape the leadership of the world body from January 2027.", "Grynspan, an economist and UN insider who comes from a family of Polish-Jewish wartime refugees to Costa Rica, has been in the lead in all but one of the eight straw polls of the 15 security council members since the first secret ballot was held on 30 July. In each round, members go down the list of candidates, casting an 'encourage', 'discourage' or 'no opinion' vote for each name. The exercise is informal and unattributed, but its power is decisive: sustained discouraging votes can quietly end a candidacy long before the council formally settles on a recommendation.", "Under the UN charter, the council recommends the secretary general to the general assembly, and in practice the choice has been shaped by the veto-wielding permanent five since the organisation's founding in 1945. No woman has ever held the post, a fact that has lent extra weight to the contest and to recurring calls from member states for a more open, merit-based selection process.", "The stakes extend well beyond the individual involved. The next secretary general takes charge of an organisation contending with protracted conflicts, compounding humanitarian emergencies and strained finances at a time when great-power unity at the council has eroded. Should Friday's vote confirm that the permanent five remain the gatekeepers, the outcome is likely to keep the argument over where real power lies at the UN running well past this race."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "First impressions -I see why GTA VI is capturing the cultural zeitgeist", "body": "It\u2019s finally here. After 13 long years and 13 years of longing, the game we\u2019ve all been waiting for, Grand Theft Auto VI , is out on store shelves (digitally). Billed as Rockstar Games\u2019 magnum opus, the hype for this entry in the iconic crime franchise has raised it from being just another game to a full-on cultural event. There have been memes, mainstream media coverage and massive expectations for this. We had an Indo-Pak war before this came out. Even Bigfoot\u2019s in here. And we were right to expect a lot from GTA VI \u2014 it\u2019s priced higher than other AAA blockbusters and has been developed by Rockstar, who are a byword for quality in the industry. Well, I\u2019ve got it and I can say that so far, the game is delivering and more. It looks absolutely beautiful with superb lighting and texture work. It feels mechanically sound with satisfying driving mechanics and though I\u2019ve barely left the starting island of Key Lento, the world has its own character and personality. I\u2019m left wanting to play more every time I step away from my console. If you haven\u2019t got it yet, read this and then go and get it. Let me give you a rundown. Me and the boys on launch day. (Note that like the rest of the GTA franchise, this entry contains content inappropriate for children.) A whole new world It\u2019s official, GTA VI is graphically one of the best games I\u2019ve ever seen. At times, the state of Leonida looks absolutely photorealistic, with cars and objects looking like they were plucked out of the real world. I mean just look at this specimen. Skin textures on characters look realistic, while hair moves naturally when a character turns their head. It doesn\u2019t feel like a solid object; it genuinely looks like hair. It shines with the light and each individual strand seems to be moving on its own. As I said after the extended demo was unveiled in August, the game\u2019s lighting system is doing a lot of the heavy lifting here. I don\u2019t know how they\u2019ve done it, but Rockstar\u2019s system illuminates the environment and characters so well that it looks like natural light. It is most harsh during midday; highlights get blown out and shadows are very hard and defined. By contrast, everything is bathed in a beautiful orange glow around sunset and sunrise. What makes this even more special is the fact that the lighting and high-resolution textures stretch across a gigantic map that\u2019s bigger than GTA V and Red Dead Redemption 2 ( RDR2 ) put together \u2014 a map that I intend to fully explore. So far I\u2019ve visited a bit of Vice City and spent most of my time doing story missions in Key Lento \u2014 the games start point \u2014 and both locations feel genuinely lived in due to how the buildings are designed and how many non-player characters (NPC) are present in the world at any given time, either in vehicles or on foot. Amazing still, is how NPCs have unique routines; I\u2019ve seen instances of them getting pulled over by the cops for drunk driving, getting into accidents or starting up fights with each other at complete random. I came across this random NPC protest and could hear the sound of riot cops salivating. That\u2019s one of the reasons why GTA VI runs at 30 frames per second (FPS); the visual fidelity is extremely high, there is high NPC and traffic density and all of these things are running simultaneously in the background. I\u2019m willing to give up a high framerate for the greater immersion. Leonida feels alive: there\u2019s plenty to explore, NPCs and other characters to run into and plenty of intrinsic motivation \u2014 reasons you give yourself to engage with the game \u2014 to put time into exploring the world. It\u2019s not perfect, though; the framerate had a tendency to noticeably drop when moving through vegetation like trees, both on foot and in vehicles. During a car chase, I crashed into a copse of small trees (skill issue, I\u2019ll admit) and while backing up through them, my framerate went down below 20 FPS. It\u2019s only in cases like those though; the framerate has been relatively stable throughout. Insert the dial-up sound effect here. There are also points where the lighting will goof up. During the prologue cutscene with protagonist Lucia in jail, a shard of light came in through a window. It wasn\u2019t softened like other effects, leading me to believe that we got a graphical downgrade. While it\u2019s not a Ubisoft Watch Dogs-level step down, it\u2019s noticeable enough that it broke my immersion briefly. Granted, it\u2019s the only example I\u2019ve caught thus far and I\u2019ll be keeping an eye out for more instances. On the left is footage from the first trailer, on the right is the same scene from the final release. Notice how stark the lighting is in the second image. Hop in and let\u2019s go for a drive GTA has become such a phenomenon that people think of the game as opposed to the crime it\u2019s named after \u2014 grand theft auto \u2014 which is car theft. Well, you\u2019ll be doing a lot of driving, considering how big Leonida is as a map. More of the lighting system\u2019s handiwork. Driving doesn\u2019t feel like the arcade-style system GTA V came with, where cars had little weight and the use of effects like screen shake were used to create the illusion of speed. It feels heavier and more planted, and pulling the right trigger all the way back to accelerate can cause you to spin out because of the torque. You need to be quite delicate with the controls, especially when riding a motorcycle; pull the left stick back too far when popping a wheelie and you\u2019ll go head-first into the tarmac. Same thing if you\u2019re leaning too far forward. Me heading into the game like\u2026 Turn too sharply and you\u2019ll spin. You need to gently feed the throttle in a vehicle to avoid wheelspin and turn by pushing the sticks gently. It\u2019s a lot like playing Forza Horizon with the traction control and other driver aids off, albeit much more simplified. It requires a more delicate and deliberate touch, I\u2019ve found. Now I haven\u2019t had time to experiment too much with other vehicles besides Jason\u2019s El Camino rip-off and motorcycle, so I can\u2019t say too much about whether vehicles have individual handling profiles. I really hope they do, because they managed to do it 13 years ago. But when I fully review this game, I\u2019ll have an answer for that. Nearly lost it there. Stealing vehicles is also very different now. I attempted to go to Starfish Island off the coast of Vice City and steal a supercar, just like I did in the original GTA Vice City and Vice City Stories . I broke through the gates, triggering security as I searched for a car. I smashed the window, got in and found that I needed a key cloner, which I did not have. Had this been any other game in the series, I\u2019d have sped off out of there, leaving the cops in the dust. Here, I just got surrounded, tased and busted by rent-a-cops. \u201cOops\u201d puts it mildly. I\u2019ll be frank: not having access to high-end cars in the early game is really annoying, particularly when something like the key cloner is a gadget that is most likely tied to story progression. So you can\u2019t jack a parked supercar off the bat. A shame, that. Speaking of cops\u2026 Call 911! Rockstar promised a revamped police and wanted system which was far deeper than previous entries. In GTA IV , the cops were morons. In GTA V , they were precognitive and omniscient, knowing your exact position, the crime committed and responding with lethal force. Here, the police system is more akin to that in RDR2 ; if you commit a crime within a certain area of the map and flee the police, it\u2019ll be marked red on your map. This indicates that the cops are searching for someone matching your description, appearance and vehicle, if you\u2019re using one. Even though a chase ends, the cops will still be looking for you within that area. What\u2019s the charge officer? Eating a meal? A succulent Chinese meal? In practice, this system is miles ahead of what we had before. It doesn\u2019t punish you immediately and forces you to be more careful when committing crimes in-game. I\u2019ve stored a spare outfit in my vehicle to throw off the cops, so it encourages a degree of preparation. It also lines up with the new criminal profile system implemented in the game. Rather than being a binary system of good or evil, it will take note of your actions and create a more nuanced assessment. Killing people wantonly will have you branded as a \u201cpsycho\u201d, while performing actions non-lethally and with stealth will contribute to your status as a \u201cprofessional\u201d. Yeah, GTA is discouraging you from killing people. Who would\u2019ve thunk. However, the police system is not perfect; if you get far enough away and just avoid the area where you committed the crime, I found that the cops just went away. Granted, I didn\u2019t go on a rampage or do anything that warranted more than a two-star wanted level. But it\u2019s annoying how this undercuts what is, in practice, a pretty decent system. I have yet to see the full extent of these systems in use since I\u2019m so early in the game, but I\u2019m looking forward to seeing what else the police have in store. Maybe they respond differently in different parts of the map? Leonida man In addition to being beautiful and fun to play, we expected GTA VI to be immersive. RDR2 presented us with a world with unprecedented interaction with NPCs, grand scale and a wealth of activities. We expected the same level of interaction, but expanded. Rockstar delivered. Is that a legally-distinct knockoff PS5 I spy? This may be one of the most immersive games I\u2019ve played in recent memory, more so than The Blood of Dawnwalker and Control: Resonant . It achieves this through a world that feels lived-in and zany characters, as well as the activities you engage with in the open world. GTA VI also immerses you by making you do the mundane: Jason has to fix up his house before Lucia gets out of jail, so you\u2019ve got to pick up the nailgun, repair fences, install drywall, and fix roof leaks. When you ignore your real-world chores and carry out chores in a video game\u2026 The day she is released, Jason also needs to perform several errands, like ordering flowers and a necklace for Lucia, as well as bringing her a spare change of clothes. These seemingly everyday tasks pulled me into the game more, as it felt like someone just going about their normal life. Jason and the player, by extension, can work out, fill up their car with gas, drive to a convenience store and play basketball, among other things. It feels real because these are things we do in the real world. Tired of doomscrolling in real life? Doomscroll in the virtual world instead. Of course, if that sort of thing doesn\u2019t float your boat, you can also go full \u201cLeonida man\u201d, a parody of the real-life \u201cFlorida man\u201d and do whatever wacky things come to your mind. Hunt alligators, get into police chases, get stranded in the sea and get picked up by a jet-skiing dog in sunglasses. Unfortunately, the last one is an easter egg that I can\u2019t get to work. Crazy NPCs and characters really lend the world personality. This comes in the form of characters like Cal and Donnie, as well as through in-game magazine articles written by people who should really be committed somewhere for public safety. Let out your inner American. I have yet to listen to the inane talk-radio shows and podcasts in full, but I\u2019m looking forward to it, although the humour feels a little less sharp and more reliant on the \u201cloud and obnoxious equals funny\u201d trope. I\u2019m looking at Cal and Donnie specifically here. A masterpiece? So far, I\u2019ve really enjoyed my time with GTA VI and its mechanics, fleshed-out world and superb graphics. It feels like there has been a genuine increase in scale, immersion and interactability with the game\u2019s world, but does it warrant another $10? Or having no physical disc to play the game with? It\u2019s met most of my expectations thus far; for the most part, it\u2019s technically stable, it looks amazing and it has fleshed-out mechanics that are genuinely fun to engage with. There are issues, such as the occasional framerate drop, but there have been no bugs or glitches, which was my major concern. But it is still very early days. Do I think it\u2019s worth the money? Yeah, I don\u2019t regret spending it. Is it a masterpiece? Well, there\u2019s only one way to find out for sure. Reviewing a game of this scale and scope is going to be tough, but stay tuned for the full review.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2045846/first-impressions-i-see-why-gta-vi-is-capturing-the-cultural-zeitgeist"}, {"head": "KP governor invites investment in key sectors", "body": "ISLAMABAD: Khyber Pakhtunkhwa (KP) Governor Faisal Karim Kundi on Friday invited investors to invest in the minerals, hydropower, and tourism sectors, saying that the province offers enormous investment opportunities in agriculture, information technology, and industrial development. Addressing the business community at the Islamabad Chamber of Commerce and Industry (ICCI) Kundi also stressed that stronger public-private partnerships, institutional coordination and investor-friendly policies are essential to unlock the province\u2019s economic potential and accelerate sustainable growth. He invited the Chamber\u2019s leadership and members of the business community to explore avenues for strengthening trade, investment and commercial cooperation between Islamabad and KP. The Governor said that there was no option of retreat on the security front, reaffirming that both federal and provincial governments were committed to eliminating terrorism, while all necessary requirements of law enforcement agencies were being fulfilled on a war footing. He emphasised that lasting peace was fundamental to restoring investor confidence and accelerating economic activity in the province. Announcing a significant step towards institutional collaboration, Governor Kundi said that he would appoint a dedicated focal person at the Governor House to maintain close liaison with ICCI and regularly exchange information on trade and investment opportunities. He also announced that a comprehensive investment briefing would be arranged for Islamabad\u2019s business community to showcase the potential of Khyber Pakhtunkhwa, particularly in tourism, mines and minerals, energy and other promising sectors. He added that the provincial government was committed to addressing the challenges and frustration of youth through education, skills development, employment and entrepreneurship opportunities. Speaking on the occasion, ICCI President Mohammad Zikria Akbar Zia said that KP possessed tremendous untapped economic potential and could emerge as a major investment destination through transparent regulations, modern infrastructure, consistent policies and effective facilitation mechanisms. He highlighted the complementary strengths of Islamabad and Khyber Pakhtunkhwa and proposed joint business delegations, investment conferences, B2B meetings and sector-specific interactions to connect investors with viable opportunities. He assured the Governor that ICCI would extend full cooperation in promoting investment and facilitating meaningful business partnerships. Emphasizing the importance of a structured coordination mechanism, the ICCI President proposed the appointment of two focal persons, one in Peshawar and the other at ICCI in Islamabad, to ensure regular communication and a continuous two-way exchange of information about investment opportunities, industrial projects, trade prospects and potential joint ventures. He said that such an arrangement would enable business communities on both sides to remain informed, establish direct contacts and translate available economic opportunities into practical commercial ventures. He further observed that sustainable economic development required peace, policy consistency, investor confidence and a business-friendly regulatory environment, adding that the sacrifices made by the people of Khyber Pakhtunkhwa for peace and stability must translate into greater investment, employment and prosperity. ICCI Senior Vice President Mohammad Ashfaq Hussain Chatha said that stronger coordination among chambers of commerce, provincial authorities and relevant government departments could significantly improve the business environment. He stressed the need for simplified regulatory procedures, timely approvals, improved infrastructure and effective institutional support to encourage investment and industrial expansion. ICCI Vice President Mohammad Waqas Khan Swati said that the province\u2019s strategic geographical location, natural resources and skilled human capital offered a strong foundation for expanding economic activities. Chairman ICCI Founder Group Sheikh Tariq Sadiq stressed the need for coordinated efforts to resolve practical obstacles confronting the business community, particularly restrictions and hurdles in the inter-provincial transportation of wheat and flour. He underscored that seamless movement of essential commodities between provinces was important for protecting business interests, ensuring market stability, and strengthening economic integration. Copyright Business Recorder, 2026", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450088/kp-governor-invites-investment-in-key-sectors"}, {"head": "California\u2019s coastal communities on alert as biggest waves in years hit state", "body": "Hazard warnings issued throughout week after powerful swells and waves of more than 9 metres recorded Multiple coastal hazard warnings were issued this week across California as successive areas of low pressure generated powerful swells and large breaking waves for coastal communities. Beaches and piers were closed last weekend as large waves crashed into California\u2019s coastline. Offshore National Oceanic and Atmospheric Administration buoys recorded wave heights of greater than 30ft (9 metres) last Friday. The Monterey, California, buoy recorded a wave height of 34.1ft, which would make it the highest reading in 30 years. Coastal warnings extended from last weekend through this week, with alerts extending until Friday night. Waves of 10-18ft are expected, with local sets of 18-22ft for San Luis Obispo county beaches and Santa Barbara county central coast beaches. These Pacific storm systems are also bringing unsettled conditions across the western US, with heavy rain, mountain snow, and strong winds through the coming days. Already, record-breaking rainfall affected San Fransisco on Wednesday, with heavy rain also causing 32,000 customers to lose power in Sacramento. Into this weekend, a further area of low pressure will bring considerable amounts of moisture for southern Oregon and northern California. By Sunday night, more than 100mm (4in) of rain is expected in places, with further snowfall for areas such as Donner Pass across the northern Sierra Nevada mountains. Continue reading...", "source": "Guardian World Wire", "url": "https://www.theguardian.com/us-news/2026/nov/20/california-coastal-communities-alert-big-waves-hit-state"}, {"head": "Govt Eyes Another Rs. 90 Billion from PIA Sale", "body": "Pakistan expects to generate another Rs. 90 billion from the next phase of Pakistan International Airlines (PIA) privatization in June 2027, Prime Minister\u2019s Adviser on Privatisation Muhammad Ali said. Speaking at the sixth Pakistan Prosperity Forum on Thursday, Ali said the initial PIA transaction had generated Rs. 80 billion in fresh equity for the airline and Rs. 10 billion for the government. He added that the next phase was expected to bring another Rs. 90 billion. Ali said the privatization process for three major power distribution companies, Islamabad Electric Supply Company (IESCO), Gujranwala Electric Power Company (GEPCO), and Faisalabad Electric Supply Company (FESCO), had entered a critical due diligence stage. The development marks another step in the government\u2019s efforts to bring private investors into the power distribution sector and improve the management of state-owned utilities. Ali also highlighted the privatization of First Women Bank, saying the transaction had brought an international investor into Pakistan\u2019s market and demonstrated foreign investor interest in opportunities emerging from economic reforms.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/20/govt-eyes-another-rs-90-billion-from-pia-sale/"}, {"head": "\u2018Weak and dizzy\u2019 -the secretive ICE force-feeding tactics that ended a Cuban father\u2019s hunger strike", "body": "Luis Alejandro Cora P\u00e9rez, a 32-year-old Cuban asylum seeker, has abandoned a hunger strike he maintained for three months inside an Immigration and Customs Enforcement (ICE) detention facility in Texas, saying the ordeal of being force-fed became too painful to sustain. In text messages sent this month from inside the centre, he summed up the pressure he faced: \u201cI have spent five days eating regular food. If I don\u2019t eat it, they put the tube in me to feed me.\u201d\n\nP\u00e9rez, a father, said he remained weak and dizzy after five days of regular meals, his body still recovering from three months in which he took no food at all. He abandoned the protest, he explained, because the tube-feeding was simply too painful to keep enduring. His account offers a rare, first-person look at the mechanics of how ICE responds to sustained hunger strikes in its custody, where medical teams may step in to nourish a detainee who refuses food.\n\nForce-feeding in immigration detention generally involves passing a tube through the nose into the stomach to deliver liquid nutrition, and it has repeatedly drawn condemnation from medical and human rights groups, which regard feeding a competent detainee against his will as a breach of medical ethics. For P\u00e9rez, the calculation was finally simple: the pain of the tube outweighed the hunger. The choice he faced \u2014 resume eating or undergo the tube again \u2014 ultimately ended a protest that had lasted a quarter of a year.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/us-news/2026/nov/20/ice-cuba-hunger-strike-force-feeding"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "SATURDAY, NOVEMBER 21, 2026", "headline": "Babar Azam stresses patience, continuity in backing young players", "deck": "Captain Babar Azam has cautioned against declaring Pakistan's Test rebuilding exercise a success on the strength of a single series, insisting that the country's emerging red-ball cricketers require sustained opportunities and continuity to establish themselves at the highest lev", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2045914/babar-azam-stresses-patience-continuity-in-backing-young-players", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Captain Babar Azam has cautioned against declaring Pakistan's Test rebuilding exercise a success on the strength of a single series, insisting that the country's emerging red-ball cricketers require sustained opportunities and continuity to establish themselves at the highest level. Speaking after Pakistan sealed the two-match series 1-0 by defeating Sri Lanka by eight wickets in the second Test on Friday, Babar said the performances of the newer members of the squad since the series against England had been a distinctly encouraging sign. \"After England, we had planned to play a new team and give opportunities to players, and the boys grabbed those opportunities,\" he said during the post-match press conference. \"The main thing is that they get proper opportunities.\"", "In Babar's assessment, developing a competitive Test side remains a gradual process that depends on exposure to different conditions, opposition attacks and match situations rather than on isolated results. \"One series or one match does not mean you have achieved something. It takes time to become stable as a team,\" he said, adding that players learn twice as much from performances that go badly as from those that go well. He said senior players in the dressing room were working to build an environment in which newcomers remained confident even when results or individual contributions fell short. Several members of the squad are due to appear in four-day domestic cricket within days of the conclusion of the series, where Babar expects them to apply the lessons learnt in Rawalpindi and guard against complacency. Selection for the next home assignment against New Zealand, he added, would be discussed closer to the series, with conditions and the venue likely to shape the playing combination.", "Reflecting on the Rawalpindi victory, Babar identified Sri Lanka's first-innings collapse \u2014 the visitors were dismissed for 98 in approximately 36 to 37 overs \u2014 as the turning point of the match, though he felt Pakistan could have pressed home the advantage more emphatically after posting 325. Kusal Mendis and the middle order did make the contest briefly interesting in the second innings, and the task grew harder for the hosts after Saqib Khan suffered a hamstring injury early in his second-innings spell, leaving Pakistan a fast bowler short. Babar was appreciative of the remaining pace attack, saying Aamer Jamal, Razaullah and Mohammad Abbas absorbed the additional workload through long spells delivered with patience and control.", "The captain singled out left-hander Saud Shakeel as an important component of Pakistan's Test batting order, a player the side can rely upon to build substantial innings. He acknowledged that other senior batters had received opportunities without consistently converting them into big scores, and expressed hope that they would make fuller use of such chances in the future. Babar also welcomed the energy of the younger players, whose spark in batting, bowling and fielding had been evident throughout the series, and said that excitement in a new player's early days must be channelled into sustained performance rather than left to fade."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Premier League news: Moyes demands more from Grealish, Iraola wary of United threat", "body": "Jack Grealish returns to the Everton fold after being stood down, with David Moyes demanding a greater and more consistent contribution from the England playmaker than he has shown in recent weeks. The manager's message was direct: talent alone will not carry the campaign, and the winger, on loan at Everton from Manchester City, must turn flashes of brilliance into sustained, decisive performances as the club push for momentum through a congested stretch of fixtures.\n\nOn the south coast, Andoni Iraola has voiced wariness about the threat Manchester United carry, cautioning that their danger is not defined by any single result. His Bournemouth players, he stressed, must prepare for an opponent capable of inflicting punishment upon any lapse, with United's attacking talent commanding respect whatever their current form.\n\nAttention also turns to Anfield, where Liverpool's head coach has kept the focus fixed on the looming showdown, prioritising preparation, intensity and discipline while steering clear of the surrounding noise that accompanies a fixture of such stature.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/20/premier-league-news-everton-jack-grealish-manchester-city-liverpool-chelsea"}, {"head": "Shevchenko lying about drugs test claims - Mudryk", "body": "Mykhailo Mudryk has accused Andriy Shevchenko of lying about the circumstances surrounding the Ukraine winger's positive drugs test, sharpening a row that has also brought the country's football federation into conflict with the player. The Chelsea forward, whose career has been on hold since the finding became known, rejected the version of events advanced by his celebrated compatriot and said the truth would emerge once the case is formally resolved. The intervention marks the most personal clash yet in a saga that has shadowed the winger throughout his suspension.\n\nShevchenko's stature makes the dispute especially pointed. The 2004 Ballon d'Or winner, Ukraine's record goalscorer and a former captain and coach of the national team, remains one of the most authoritative voices in the Ukrainian game, and Mudryk's decision to publicly call him a liar signals how far relations with the establishment have broken down. The running confrontation has drawn in the federation itself, with the player disputing both the handling of his situation and the accounts offered by the country's most famous former player.\n\nThe matter now proceeds through anti-doping channels, where a confirmed adverse finding can carry a ban of up to four years, though mitigating factors can reduce that period. Mudryk has maintained his innocence, and the eventual ruling will shape not only his standing with Ukraine but a Chelsea career that has been stalled while the process runs.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/cjn502n9vqp4o?at_medium=RSS&at_campaign=rss"}, {"head": "Alcaraz brushes off injury to down Cobolli at ATP Finals, Medvedev advances", "body": "Carlos Alcaraz made light of any potential hamstring issues he may be facing as he eased to a 6-4, 6-1 victory over Flavio Cobolli in the ATP Finals on Friday, in the process booking a last-four meeting with Ben Shelton. Russia\u2019s Daniil Medvedev later battled past American Frances Tiafoe 6-3, 6-4 to snatch the final last-four berth and set up a clash with world number one Alexander Zverev on Saturday. Third seed Alcaraz had an MRI scan for the thigh issue on Thursday but showed little sign that the heavy strapping on his left leg was hampering him as he needed just over an hour to dismiss the world number six in Turin. With three victories from his three Ivan Lendl Group outings, Alcaraz has topped the pool and will face American Shelton on Saturday in a repeat of the Paris Masters final earlier in November. Alcaraz beat Shelton 7-6(7/5), 7-5 in the final in France to win the title for the first time, a measure of revenge on the American who had ended the Spaniard\u2019s US Open title defence earlier in the season. \u201cThe challenge is not on the court now, it\u2019s outside the court,\u201d the 23-year-old Spaniard said. \u201cI will do everything to be in better shape, physically, to be ready tomorrow [Saturday]. It\u2019s going to be a really important half of the day that I have ahead of me with my team, with my physio. \u201cSo we will see, but I think I\u2019m doing great things. I felt great on court today.\u201d Medvedev reached the ATP Finals semi-finals for the fourth time and first since 2023. Russia\u2019s Daniil Medvedev serves to Frances Tiafoe of the US during their ATP Finals group stage match at the Inalpi Arena in Turin, Italy, on November 20, 2026. \u2014Reuters Both Medvedev and Tiafoe had beaten Cobolli but lost to Alcaraz earlier this week in the Ivan Lendl Group, leaving a winner-takes-all clash between the two. A missed backhand slice in the first set gave Medvedev the crucial break of serve, before Tiafoe lost his serve once again at 4-4 in the second set. Tiafoe saved three break points in the ninth game, but the seventh seed was unable to hold off Medvedev who served out for his 54th win of the season. Fourth-seed Medvedev is bidding for his fifth title this season and his second ATP Finals crown after since 2020. \u2018Dream come true\u2019 Alcaraz has not lost a match going back to a round-of-32 exit at the Shanghai Masters in early October, and that confidence and form was on clear display as he broke Italian Cobolli in the very first game of the match. Italy\u2019s Flavio Cobolli waves as he leaves the court after being defeated by Spain\u2019s Carlos Alcaraz during their ATP Finals group stage match at the Inalpi Arena in Turin, Italy, on November 20, 2026. \u2014AFP The seven-time Grand Slam champion served out the opener, before again breaking the 24-year-old in the first game of the second set before racing to victory. \u201cIt was a difficult match for me, because I had to see how I was going to feel on the court,\u201d Alcaraz said. For French Open runner-up Cobolli it was a swift and painful end to his Finals debut as he finished bottom of the group with three defeats in as many outings. \u201cWhen you\u2019re here, everything is fantastic, and it\u2019s a dream come true,\u201d said the Italian. \u201cOf course I\u2019m very proud of myself, of my team, and the goal now is to come back next year.\u201d", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2046042/alcaraz-brushes-off-injury-to-down-cobolli-at-atp-finals-medvedev-advances"}, {"head": "Alcaraz puts aside injury concerns to take apart Cobolli", "body": "TURIN \u2014 Carlos Alcaraz cast aside the fitness concerns that had trailed him into the season-ending ATP Finals, producing a ruthless, front-foot display to dismantle Italy's Flavio Cobolli and complete an undefeated passage through the round-robin stage. Any doubts about the Spaniard's physical condition dissolved early, as he moved freely across the baseline, served with authority and repeatedly seized control of the extended exchanges, punishing Cobolli whenever the rally stretched beyond the first few strokes. The triumph secured a flawless group record and, with it, a place in the final four in Turin.\n\nCobolli, roared on by a partisan home crowd, showed flashes of the aggression that carried him into the eight-man season finale, but the gap in consistency soon told. The Italian fought to stay in touch in the early stages, yet under Alcaraz's relentless court coverage the errors mounted, and each glimmer of an opening was closed almost as quickly as it appeared.\n\nThe result caps a spotless group campaign and sends Alcaraz into the knockout rounds with momentum and, crucially, a body that has answered the questions posed of it. For Cobolli, hopes of progressing now rest on the outcome of the group's remaining match, while Alcaraz awaits the semi-finals with his fitness question, at least for now, emphatically settled.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/tennis/articles/cqrkgn17emr2o?at_medium=RSS&at_campaign=rss"}, {"head": "Pakistan cruise to eight-wicket win over Sri Lanka to seal red-ball series 1-0", "body": "Pakistan wrapped up an eight-wicket victory over Sri Lanka in the second and final Test, chasing down a target of 90 in just 13 overs to seal the two-match series 1-0 on Friday. The hosts needed only 90 minutes on the fourth morning to complete the job after Mohammad Abbas dismissed the last Sri Lankan batter to end the visitors\u2019 second innings at 316. It was Pakistan\u2019s first Test win since they beat the West Indies in the summer and their first series victory in the ongoing World Test Championship cycle. The result was also just their third win in 11 matches in the current cycle, following draws against South Africa and the West Indies and series defeats in Bangladesh and England. The first Test against Sri Lanka, also played in Rawalpindi, had ended in a draw. Sri Lanka, who had resumed at 309-9, added seven runs before Asitha Fernando was trapped lbw for two by Abbas. Fernando reviewed the decision, but ball-tracking showed the delivery clipping the top of middle stump. Abbas finished with three wickets for 55 runs from 34 overs, including 15 maidens. Aamer Jamal also claimed three wickets for 67, while Razaullah took two for 116 and Saqib Khan one before being sidelined by a hamstring injury. Sri Lanka\u2019s total left Pakistan needing 90 for victory, with Milan Rathnayaka unbeaten on 66 from 88 balls, including 12 fours. His fighting innings had been central to a recovery after the visitors were dismissed for 98 in their first innings and conceded a 227-run lead when Pakistan replied with 325. Pakistan\u2019s pace attack had made full use of a green-tinged pitch to bowl Sri Lanka out cheaply on the opening day and put the hosts firmly in control. The tourists began their second innings 153 runs behind and slipped to 10-2, but half-centuries from Kusal Mendis (53), Sonal Dinusha (54) and Rathnayaka helped them reach 316 and avoid an innings defeat. Their 235-run effort on the third day briefly revived the contest, although the eventual target remained modest. Pakistan began the chase positively, with Azan Awais and Tayyab Arif putting on 18 for the opening wicket. The stand ended when Lahiru Kumara bowled Tayyab for 13, with the batter beaten by movement off the pitch after striking three fours. Azan was joined by Mohammad Taha, but the latter\u2019s stay was brief. Asitha Fernando trapped him lbw for four, and Taha\u2019s review failed as the ball was shown to be clipping leg stump. Pakistan were 37-2, but Sri Lanka could not build on the breakthrough. Aamer was promoted up the order and turned the chase into a brisk finish. He struck 34 not out from 22 balls, hitting five fours and a six, and added an unbroken 53 with Azan for the third wicket. Aamer attacked from the outset, taking boundaries off Fernando and Kumara before finishing the match with a four off Prabath Jayasuriya. Azan remained unbeaten on 32 from 36 balls, with five fours, as Pakistan reached 90-2 in 13 overs.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2045883/pakistan-cruise-to-eight-wicket-win-over-sri-lanka-to-seal-test-series-1-0"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
