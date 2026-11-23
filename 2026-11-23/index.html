@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (MONDAY, NOVEMBER 23, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 3 Lead Editorial Special Box */
+  .editorial-special {
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid #b45309;
+    border-radius: 24px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .editorial-special-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 24px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .editorial-special-deck {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    margin-bottom: 14px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #cbd5e1;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">MONDAY, NOVEMBER 23, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "MONDAY, NOVEMBER 23, 2026", "headline": "FBR sets tax statement filing deadlines for withholding agents in Tax Year 2027", "deck": "Under the updated Income Tax Rules 2002, couriers and payment intermediaries must submit quarterly withholding tax statements by specified dates, while employers face an annual July deadline.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/fbr-withholding-tax-statement-deadlines-2027/", "body": ["Under the updated Income Tax Rules 2002, couriers and payment intermediaries must submit quarterly withholding tax statements by specified dates, while employers face an annual July deadline.", "ISLAMABAD: The Federal Board of Revenue (FBR) has prescribed deadlines for filing withholding tax statements by withholding agents during Tax Year 2027, covering the period from July 1, 2026, to June 30, 2027.", "The FBR outlined the requirements under Rule 44 of the Income Tax Rules, 2002, updated up to September 15, 2026.", "Under the rule, couriers and payment intermediaries responsible for collecting or deducting tax under Divisions II and III of Part V of Chapter X, or Chapter XII of the Income Tax Ordinance, 2001, must submit quarterly statements.", "The statements must be furnished or electronically filed using the format provided in Part X of the Second Schedule to the rules.", "The FBR has also made it mandatory to attach evidence showing that the tax collected or deducted has been deposited into the Federal Government\u2019s account.", "Furthermore, the Commissioner may require withholding agents to reconcile amounts reported in quarterly statements with their income tax returns, statements, relevant annexes and other documents submitted to the tax authorities.", "Rule 44 also prescribes a separate annual filing requirement for persons responsible for deducting tax under Section 149 of the Income Tax Ordinance, 2001.", "Such persons must furnish or electronically file an annual statement by July 31 following the end of the financial year. The statement must follow the format specified in Part IX of the Second Schedule.", "Meanwhile, Rule 45 provides the prescribed format under Part XI of the Second Schedule for statements relating to tax deducted under the Sixth Schedule to the Ordinance.", "These requirements form part of the FBR\u2019s reporting framework for withholding agents during Tax Year 2027."], "quote": "Statutory precision is the indispensable baseline of credible sovereign revenue governance. \u2014 Muhammad Iqbal Bhawana, Founder & Editor-in-Chief", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR explains electronic service of tax notices and documents for TY2027", "body": "Under Rule 74 of the Income Tax Rules 2002, tax notices and orders may be served through registered email addresses or fax numbers, subject to prescribed delivery confirmations.\n\nThe Federal Board of Revenue (FBR) has prescribed rules for electronically serving tax notices, orders and other documents during Tax Year 2027, covering July 1, 2026, to June 30, 2027.\n\nThe FBR explained the requirements under Rule 74 of the Income Tax Rules, 2002, updated up to September 15, 2026.\n\nUnder the rule, where a taxpayer has provided an electronic address, a document required to be served under the Income Tax Ordinance, 2001, or the relevant rules will be considered sufficiently served if sent to that address.\n\n\u2022 Fax messages: Confirmation from the sending fax machine that the transmission has been sent.\n\n\u2022 Email messages: Confirmation from the recipient\u2019s server that the email has been received.\n\n\u2022 Electronic tax filings: A digitally signed email from the FBR acknowledging receipt of an electronically filed income tax return or withholding tax statement.\n\nA document includes any notice, order or requisition issued under the Income Tax Ordinance, 2001.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-electronic-service-documents-tax-year-2027/"}, {"head": "FBR activates online complaint filing and tracking through IRIS portal", "body": "The Federal Board of Revenue (FBR) has activated an online complaint filing and tracking facility through its IRIS portal, offering taxpayers a digital route to raise grievances with the tax administration. Under the facility, complaints can be entered directly into the online system rather than being submitted in writing at tax offices or pursued through correspondence. Each complaint lodged on the portal is recorded electronically, and the complainant can monitor its status as it moves through the processing stages until disposal.\n\nIRIS serves as the FBR's principal online platform for taxpayer registration, return filing and related income tax matters. By attaching a complaint management function to the portal, the board has extended the system's role from transactional services to grievance redressal, consolidating taxpayer interaction with the administration on a single digital channel. Every submission, review and resolution step is documented within the system, reducing reliance on physical visits and informal approaches to tax officers.\n\nThe activation of the facility forms part of the revenue authority's broader digitisation of taxpayer-facing services. A traceable complaint mechanism introduces structure and accountability into the handling of grievances, as records of receipt and progression remain visible to the complainant and the administration alike. For taxpayers, the portal provides a clearer avenue for raising issues concerning tax administration, while for the board it centralises complaint records in one place, supporting oversight of how grievances are received and processed across the tax machinery.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-iris-online-complaint-management-system/"}, {"head": "Pakistanis Face Another Flour Price Shock as 20 Kg Bag Hits Rs. 3,600", "body": "Flour prices have increased sharply across Pakistan, with a 20-kilogram bag now costing up to Rs. 3,600 in several major cities despite wheat imports. According to the latest Pakistan Bureau of Statistics (PBS) data, flour prices increased by as much as Rs. 334 in a single week, adding to the financial pressure on households. Karachi, Islamabad, Hyderabad and Bannu recorded the highest price of Rs. 3,600 per 20kg bag. In Karachi, the price increased by Rs. 100 during the week. Islamabad recorded a rise of Rs. 106.67, while Hyderabad saw an increase of Rs. 240. In Bannu, the price went up by Rs. 200. Lahore recorded one of the biggest increases, with the price of a 20kg bag jumping by Rs. 333.67 to Rs. 3,467. In Gujranwala, it rose by Rs. 333 to Rs. 3,400.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/22/pakistanis-face-another-flour-price-shock-as-20-kg-bag-hits-rs-3600/"}, {"head": "Pakistan rice exports surge 41.67% to $823 million in 4MFY27", "body": "Pakistan's rice exports expanded 41.67% to $823 million during the first four months of fiscal year 2026-27, covering July through October, delivering a strong opening to the fiscal year for one of the country's flagship agri-commodities. The four-month shipment cycle captures both the newly harvested kharif crop moving into export channels and carry-over stocks from the previous season, reflecting firm overseas uptake at a time when foreign exchange inflows carry heightened importance for the external account.\n\nRice ranks among Pakistan's principal foreign exchange earners, with basmati varieties commanding premium prices in Gulf, European and North American markets, while non-basmati white and brown varieties serve bulk buyers across Africa, the Middle East and Central Asia. Earnings of this magnitude support efforts to narrow the merchandise trade deficit and build reserve buffers, complementing the wider basket of textile, food and manufactured exports that anchor the country's external balance.\n\nSustaining the pace through the remainder of the fiscal year will hinge on harvest outcomes, competitive global pricing and smooth port logistics as the kharif marketing season advances, with growers, millers and exporters watching international demand for signals on shipment volumes in the months ahead.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-rice-exports-july-october-2026/"}, {"head": "FBR springs surprise tests on officers, legal basis questioned", "body": "KARACHI: Sixty officers of the Pakistan Customs Service in grades 17 to 20 appeared in a surprise test in Lahore on Tuesday, held on the instructions of Federal Board of Revenue Chairman Rashid Langrial, who belongs to the Pakistan Administrative Service group. The chairman has been carrying the examinations out across the country as part of a wider testing drive within the revenue administration.\\n\\nOfficers of the Inland Revenue Service also took the tests, taking the exercise beyond the customs cadre to the other principal formation of the federal revenue body.\n\nThe examinations were sprung on serving officers without prior announcement, in keeping with the surprise format adopted for the nationwide drive.\\n\\nThe legal basis of the exercise has meanwhile been questioned, with the requirement that serving officers in BS-17 to BS-20 sit examinations ordered directly by the chairman drawing scrutiny within the service. The testing drive spans both the customs and inland revenue cadres, extending to officers across the country under the chairman's instructions.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/22/fbr-springs-surprise-tests-on-officers-legal-basis-questioned/"}, {"head": "$10 Billion Iran Pakistan Trade Deal Enters Final Stage", "body": "Iran and Pakistan are close to finalizing their long-pending $10 billion free trade agreement (FTA), which is expected to be completed by the end of this year.\n\nDeputy Director of the East Asia and Subcontinent Office at the Iran Trade Promotion Organization Mehrdad Siyadat-Nasab told the Islamic Republic News Agency (IRNA) on Saturday that the agreement has reached its final stages and its implementation could boost bilateral trade by cutting customs costs.\n\nHe said FTA negotiations have concluded and both sides have exchanged lists of the goods it will cover. Iran hopes to implement its first phase before the end of the year.\n\nUnder the deal, customs tariffs on a major part of Iran\u2019s exports to Pakistan will fall to zero, while Iran will consider tariff concessions on some Pakistani exports.\n\nSiyadat-Nasab put formal and informal trade between the two countries at around $6 billion and said it could exceed $10 billion given the existing economic potential. He noted that part of Iran\u2019s imports from Pakistan used to pass through the UAE\u2019s Jebel Ali port and was not recorded in official bilateral figures.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/22/iran-pakistan-free-trade-deal-final-stage-10-billion/"}, {"head": "Hyundai Pakistan announces Rs400,000 registration benefit on Santa Fe hybrid", "body": "Hyundai Pakistan has announced a registration benefit of Rs400,000 on the Santa Fe hybrid, transferring the cost of vehicle registration from the buyer to the automaker. Under the arrangement, customers opting for the hybrid SUV will not pay the registration charges that normally fall due when a new vehicle is entered into the provincial record, lowering the upfront amount required to put the car on the road and simplifying the purchase process at the point of delivery.\n\nRegistration charges in Pakistan are levied by provincial excise and taxation authorities at first registration and scale with engine capacity and vehicle category, making them a material line item for buyers of large sport utility vehicles. By absorbing that component, Hyundai reduces the effective on-road price of the Santa Fe hybrid relative to its headline cost, allowing the vehicle to be handed over with documentation completed while the manufacturer covers the statutory payable.\n\nThe Santa Fe hybrid pairs a petrol powertrain with electric assistance to deliver lower fuel consumption than comparable conventionally powered SUVs, a segment that has drawn sustained buyer interest as running costs weigh on purchase decisions. Purchaser-funded incentives of this kind, in which the manufacturer underwrites a government charge at the time of sale, are used by automakers to sharpen effective pricing, and the Rs400,000 cover positions the Santa Fe hybrid's real transaction cost below its listed price for customers availing the benefit.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/hyundai-pakistan-announces-rs400000-registration-benefit-on-santa-fe-hybrid/"}, {"head": "Pakistanis Students Can Explore Admission Opportunities at 36 Korean Universities for Free", "body": "Pakistani students planning to study in South Korea in 2027 can explore admission opportunities at 36 Korean universities for free through an online education fair organized by the country\u2019s National Institute for International Education (NIIED). The 2026 Study in Korea Online Education Fair with Admission Webinars is being held till 29, 2026, providing international students with information about university admissions, scholarships, degree programs, and visa requirements. According to an announcement shared by the Korean diplomatic office in Karachi, the event allows students to communicate directly with university representatives, attend admission webinars, and receive personalized guidance without traveling to South Korea. The organizers have scheduled several online admission webinars to help international students learn about degree programs, scholarships, Korean language courses, and visa requirements at participating Korean universities. On November 23, students can attend webinars about career-linked degree programs. The organizers will also hold a special visa information session at 2:00 PM KST to help students understand the requirements and procedures for studying in South Korea.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/22/pakistanis-students-can-explore-admission-opportunities-at-36-korean-universities-for-free/"}, {"head": "Pakistan targets higher-value seafood exports on World Fisheries Day 2026", "body": "Pakistan has used World Fisheries Day, observed annually on 21 November, to underline its push for higher-value seafood exports, shifting the sector's emphasis from bulk consignments of raw catch to processed, certified products aimed at premium markets. The coastline along the Arabian Sea, anchored by the Karachi Fish Harbour and fed by landing sites across Sindh and Balochistan, supplies shrimp, tuna, mackerel, sardines and cuttlefish to buyers in Asia and Europe. The argument for value addition rests on plain arithmetic: graded, packaged and certified seafood earns markedly more per kilogramme than unprocessed catch, and the gains compound the more of that processing is retained at home.\n\nThe constraints are equally well established. Cold-chain gaps, post-harvest losses, ageing harbour infrastructure and the stringent traceability and hygiene standards of major buyers \u2014 most notably the European Union, whose market requires approved processing establishments \u2014 have long capped returns on a catch landed largely by small-scale, artisanal fleets. Aquaculture, particularly shrimp farming and cage culture, has emerged as the next frontier within the country's blue-economy framing, which pairs commercial harvesting with coastal livelihoods, mariculture and the health of marine stocks.\n\nWorld Fisheries Day carries both messages at once: sustainability and fair conditions for fishing communities on one side, commercial ambition on the other. For Pakistan's seafood trade, the 2026 observance lands against a familiar test \u2014 converting a resource-rich coastline into export earnings that reflect value added at home rather than volume shipped out.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pakistan-fisheries-sector-seafood-exports-2026/"}, {"head": "Pak Suzuki officially teases launch of new Suzuki Carry in Pakistan", "body": "Pak Suzuki Motor Company has officially teased the launch of the new Suzuki Carry in Pakistan, signalling the arrival of a fresh generation of one of the country's most familiar light commercial vehicles. The teaser puts the compact pickup squarely in the automaker's pipeline for the local market and offers the clearest indication yet that the Carry nameplate is being readied for a renewed run in Pakistan.\n\nThe Carry has long been synonymous with cargo haulage in Pakistan, serving traders, manufacturers, wholesalers and delivery operators who depend on compact pickups for short-haul freight and last-mile distribution. Its small footprint, load-carrying practicality and economical operation have made it a fixture of urban and semi-urban commerce, from market deliveries to building supplies, and the model's return is being watched closely by fleet owners and small businesses that lean on such vehicles daily.\n\nPak Suzuki has not yet disclosed technical specifications, variant details, pricing or an exact launch timeline, with further information expected as the model moves closer to its market debut. The teaser lands amid steadily rising demand for light commercial vehicles, driven by expanding e-commerce, courier networks and urban delivery services that require nimble, low-cost vehicles of this class. A new Carry would strengthen the automaker's footing in the commercial segment, where competition among compact pickups and mini trucks has continued to intensify.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/pak-suzuki-officially-teases-launch-of-new-suzuki-carry-in-pakistan/"}]}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "MONDAY, NOVEMBER 23, 2026", "headline": "Oman to supply petroleum products, $200m credit facility to PSO under new agreement", "deck": "Pakistan and Oman on Sunday signed an agreement under which the Gulf state's state-owned OQ Trading will supply petroleum products to Pakistan State Oil (PSO) and extend a $200 million credit line to facilitate those purchases. The arrangement offers Islamabad a means of strategi", "hero_source": "Dawn Business", "hero_url": "https://www.dawn.com/news/2046330/oman-petroleum-products-200m-credit-to-pso-new-agreement", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["Pakistan and Oman on Sunday signed an agreement under which the Gulf state's state-owned OQ Trading will supply petroleum products to Pakistan State Oil (PSO) and extend a $200 million credit line to facilitate those purchases. The arrangement offers Islamabad a means of strategically diversifying its sourcing of petroleum products as the Strait of Hormuz remains choked by the US-Iran conflict into its ninth month. The Sale and Purchase Agreement (SPA) between PSO and OQ Trading (OQT), Oman's global commodity trading company, was signed during a visit to Muscat by Petroleum Minister Ali Pervaiz Malik.", "During the visit, Mr Malik met Oman's Minister of Energy and Minerals Eng. Salim Al Aufi, with both sides discussing opportunities for strengthening bilateral cooperation in the oil, gas and minerals sectors. The two ministers welcomed the establishment of the Pakistan-Oman Joint Working Group on Oil and Gas and agreed to make optimal use of the institutional mechanism to deepen bilateral engagement and advance cooperation in the energy and mining sector. They subsequently witnessed the signing of the SPA.", "In a statement, the Petroleum Division described the agreement as \"an important milestone in the commercial relationship between the two companies\", providing \"a structured arrangement for petroleum product supplies from OQT to PSO, supporting supply reliability amid continued volatility in regional energy markets\". It noted that OQT has already established itself as a major supplier of gasoline to PSO, delivering more than 1 million tonnes during 2026. Beyond gasoline, OQT has strengthened its presence in Pakistan's liquefied petroleum gas (LPG) market, serving both state-owned and private sector buyers, with its LPG supplies to Pakistan expected to exceed 120,000 metric tonnes by the end of 2026.", "Both ministers expressed confidence that implementation of the agreement would reinforce Pakistan-Oman energy ties and support Pakistan's efforts to enhance energy security through diversification of energy imports. The signing follows Omani Foreign Minister Badr Albusaidi's two-day visit to Pakistan earlier in the quarter, during which he attended the eighth session of the Pakistan-Oman Joint Ministerial Commission and both sides underscored the need to promote exchanges of business delegations to unlock new opportunities for trade, investment and institutional collaboration."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "Weekly Cotton Review -Production soars 6pc to 5.131m bales YoY", "body": "KARACHI: Pakistan\u2019s cotton production has reached 5.131 million bales, up 6 percent from the same period last year, while prices remained stable amid subdued trading activity in the market. Karachi Cotton Association (KCA) Vice Chairman Prem Chand Kohistani has proposed a set of measures to revive the cotton sector and voiced concern over the association\u2019s eviction from the historic Karachi Cotton Exchange (KCE) Building, despite court orders. Senator Saleem Mandviwalla, Chairman of the Senate Standing Committee on Finance and Revenue, and other committee members have invited a KCA delegation to Islamabad to discuss the issue and explore solutions to the challenges facing the industry. Separately, Motiwala and Kohistani discussed the future of the KCE Building and the wider problems confronting the cotton industry. They focused on the building\u2019s current status, the need to preserve its historical significance and steps required to revitalise the sector. In a related development, All Pakistan Textile Mills Association (APTMA) Chairman Mian Asad Shafi and Vice Chairman Mian Anees Khawaja met Minister of State for Finance Bilal Azhar Kiani to discuss export facilitation, the textile industry\u2019s challenges and ways to make Pakistani textiles more competitive internationally. During the meeting, it was revealed that the government plans to simplify the Export Finance Scheme (EFS) to make it easier for exporters and give exports a boost. Both sides also exchanged views on improving export-related facilities, lowering production costs and strengthening the global competitiveness of Pakistani textile products. Meanwhile, cotton industry stakeholder Sajid Mahmood said the country\u2019s cotton crisis could not be blamed on seed issues alone, pointing to several deeper, underlying factors. He stressed that boosting output requires more than access to quality seed, calling for reforms in agricultural policy, the adoption of modern farming practices, and stronger support for growers and solutions to problems across the entire cotton supply chain. Cotton prices held steady during the week, with little movement over the past three weeks, but early deterioration in quality, adverse weather and a shift to rival crops in traditional growing areas are raising concerns about the future of Pakistan\u2019s cotton sector. Market sources said prices ranged from Rs15,500 to Rs18,500 per maund, depending on quality and payment terms, while Balochi cotton traded at Rs19,500 to Rs19,600 per maund. The Pakistan Cotton Ginners Association (PCGA) reported that national production reached 5.131 million bales as of November 15, up six per cent from the same period last year, an increase of 275,000 bales. Punjab produced 2.252 million bales, up four per cent, while Sindh produced 2.879 million bales, up seven per cent. Despite the gains, the sector remains under pressure. Unfavourable weather and the spread of sugarcane cultivation in traditional cotton belts have hurt the crop, leaving growers, ginners and textile stakeholders uncertain. The trend is most visible in southern Punjab, where large tracts once synonymous with the region\u2019s agricultural economy are increasingly being turned over to sugarcane and rice. The shift has prompted questions about what is behind the decline of the country\u2019s once-thriving \u201cwhite gold\u201d industry. Market sources said quality slipped earlier than usual this season, reducing the availability of good lint in the domestic market. As a result, major textile groups are showing growing interest in imports to meet their requirements and maintain production standards. Phutti (seed cotton) was priced between Rs7,000 and Rs9,200 per 40 kilogrammes. Prices of cottonseed, cottonseed oil and cottonseed cake also edged higher during the week. The Karachi Cotton Association\u2019s (KCA) Spot Rate Committee left its spot rate unchanged at Rs17,800 per maund. Pakistan\u2019s cotton revival depends on building a complete production system rather than focusing on seed quality alone, according to Naseem Usman, Chairman of the Karachi Cotton Brokers Forum. International cotton prices were mixed during the week, with New York futures trading between 78 and 83 US cents per pound, Usman said. The USDA\u2019s weekly export report showed 118,660 bales sold for the 2026-27 season. Turkey led buyers with 45,755 bales, followed by Bangladesh (14,479) and Indonesia (13,399). A further 2,115 bales were sold for 2027-28, all to Mexico. Weekly exports totalled 117,825 bales. Vietnam was the top destination with 44,154 bales, followed by Mexico (23,991) and Pakistan (13,002). Pakistan produced about 5.5 million bales in 2025-26, against annual textile industry demand of 12 to 13 million. The gap forced imports of roughly 7 to 8 million bales in recent years, costing USD2 billion to USD2.5 billion annually. Output is expected to stay between 5.5 and 6 million bales in 2026-27 as cotton acreage keeps shrinking and farmers move to other crops. Usman said recent debate has centred on poor-quality seed and weak genetics, but treating seed as a guarantee of higher yields is a misconception. Seed supplies potential, he said, but turning it into output requires a favourable environment, timely decisions, good crop management and sound economic incentives. \u201cThe real challenge lies in the weakness of an integrated production system,\u201d he said, calling for research, seed development, advisory services, water management, crop nutrition, pest control, climate adaptation and marketing to work together, with farmers\u2019 net income as the measure of success. Rather than announcing new targets or committees, Usman said, authorities should first understand why productivity and profitability are falling region by region. He called for comparative assessments in South Punjab (including Multan, Khanewal, Vehari, Lodhran, Bahawalpur, Bahawalnagar, Rahim Yar Khan, Muzaffargarh, Dera Ghazi Khan and Rajanpur), Sindh (including Ghotki, Sukkur, Khairpur, Shaheed Benazirabad, Sanghar, Naushahro Feroze, Umerkot and Mirpurkhas) and suitable areas of Balochistan. The studies should cover yields, all production costs, water use, fibre quality, market prices and net farmer income, to determine whether the decline stems from unsuitable varieties, poor seed, late sowing, inadequate plant population, nutrient and water mismanagement, pests, or a combination. Findings should be tested in demonstration plots comparing conventional practices with an integrated scientific approach, covering suitable varieties, timely sowing, optimum plant density, tailored nutrient management, efficient irrigation, integrated pest management and climate-risk measures. In South Punjab, he said, priority challenges include high temperatures, flower and boll shedding, whitefly, pink bollworm and Cotton Leaf Curl Virus. In Sindh, temperature, water availability, soil salinity and pest pressure need attention. Institutional coordination: Usman urged stronger cooperation among the Central Cotton Research Institute in Multan, agricultural universities, the Punjab and Sindh agriculture departments, regional research centres and the seed sector. Responsibilities should be clearly defined and farmer benefits assessed each season, he said, adding that improving existing bodies should take priority over creating new ones. Farmers choose crops based on expected income, costs and risk, Usman noted. If cotton earns less than alternatives in areas such as Rahim Yar Khan, Bahawalpur, Sanghar or Ghotki, even better seed will not bring growers back. He called for lower production costs, better prices for quality produce, improved market access and reduced price risk, and for cotton\u2019s returns and water productivity to be compared with competing crops. He said success should be judged by net income per acre, marketable yield, fibre quality, water efficiency, costs and financial risk, rather than acreage, seed distributed or training sessions held. A technology that raises output but whose extra cost exceeds the income gain should not be considered successful, he added. Usman proposed a five-year programme according to which in first six months; diagnosis, baseline data and selection of districts. Years one to two demonstration plots in representative areas such as Multan, Vehari, Bahawalpur, Rahim Yar Khan, Sanghar and Ghotki; followed by an independent assessment of yields, costs and net income. Years three and four scale up only practices with measurable results. Year five turn research, seed development, advisory services and evaluation into a permanent, results-oriented system. Success, he said, will depend on research capacity, institutional collaboration, farmers\u2019 finances and the ability to manage climate risks. \u201cPakistan\u2019s cotton revival cannot be achieved through further announcements or a debate confined to seed quality,\u201d Usman said. The goal, he added, must be to help farmers achieve better yields, sell at reasonable prices and earn enough profit after all costs to make growing cotton a viable decision for the next season. The All Pakistan Textile Mills Association (APTMA) has called on the government to introduce wide-ranging reforms in energy, taxation, customs, export financing and trade facilitation, arguing that they are needed to make Pakistan\u2019s textile industry more competitive internationally and to speed up export growth. An APTMA delegation met Minister of State for Finance Bilal Azhar Kiani, the Prime Minister\u2019s Coordinator on Commerce and Industry Rana Ehsan Afzal, and Commerce Secretary Jawad Paul to discuss the main policy obstacles facing the sector. The delegation welcomed the government\u2019s continued engagement with the industry and its willingness to consult stakeholders directly. Talks centred on energy costs, taxation, customs procedures, GSP+ arrangements and export financing. APTMA said that resolving these issues was essential to restoring export competitiveness and would allow the sector to raise exports by about USD3 billion in the short term and by a further USD10 billion over the next three to five years. A key proposal was a minimum 8 per cent Drawback of Local Taxes and Levies (DLTL) rebate, which the association said would give Pakistani exporters a level playing field. It noted that competitors benefit from cheaper energy, large tax concessions and other incentives. According to APTMA, the rebate would compensate exporters for federal and provincial taxes and levies built into the cost of locally made export goods, which cannot be passed on to foreign buyers. The delegation also discussed the Federal Board of Revenue\u2019s Production Monitoring System and the need to improve export financing to meet the industry\u2019s working capital and investment needs. It stressed strengthening the Export Finance Scheme and the Long-Term Export Growth Financing Facility to support expansion and encourage investment in export-oriented manufacturing. APTMA further pointed to the potential for promoting Pakistani textile brands abroad, increasing value addition and building stronger direct links with overseas buyers and distribution networks, saying greater focus on branding and direct market access could help the country capture a larger share of global markets. The meetings ended with an understanding that government and industry representatives would hold regular consultations to resolve outstanding issues and pursue the proposed reforms. The APTMA delegation included Chairman Asad Shafi, Vice Chairman Anis Khawaja, North Chairman Siddique Javed Siddiqui, Senior Vice Chairman North Habib Anwar, Vice Chairman North Muhammad Ali Chaudhry, CEC members Haroon Elahi and Faisal Shakeel, Secretary General Raza Baqir, Energy Adviser Asim Riaz, Senior Economist Syed Absar Ali and Trade Economist Sarah Javed. Separately, FPCCI presidential candidate Zubair Motiwala raised problems facing the cotton sector, including falling production and the status of the Karachi Cotton Association\u2019s (KCA) historic building, in a meeting with KCA Vice Chairman Prem Chand Kohistani. Motiwala, accompanied by Businessmen Group (BMG) Vice Chairman Javed Bilwani and Asif Begh, visited Kohistani\u2019s residence on November 21. The discussion covered the overall state of the economy, the decline in cotton output, the KCA building and difficulties faced by the Pakistan Cotton Ginners Association. Participants stressed the need for coordinated efforts to revive cotton production, strengthen the value chain and resolve structural issues to support industrial activity and economic recovery. In a related development, Kohistani raised the KCA building issue and presented proposals for reviving cotton production at a meeting attended by Senate Standing Committee on Finance and Revenue Chairman Senator Saleem Mandviwalla and other parliamentarians. Committee members Senator Anusha Rahman Ahmed Khan, Senator Muhammad Talha Mahmood, Senator Manzoor Ahmed Kakar and Senator Aamir Waliuddin Chishti attended, as did KCCI President Talat Mahmood. BMG Chairman Zubair Motiwala and Vice Chairman Javed Bilwani were also present. Kohistani drew attention to the eviction of the Karachi Cotton Association from its historic building despite court orders, and discussed what it means for the institution. Senator Mandviwalla assured him that he would meet him in Islamabad soon to discuss the dispute and other cotton-related matters in detail. The other senators also pledged their cooperation. The discussions underlined the need for closer coordination between the government, parliamentarians and industry stakeholders to settle institutional disputes, revive domestic cotton production and strengthen the country\u2019s textile. A delegation of the All Pakistan Textile Mills Association (APTMA) met senior government officials on Saturday to press for reforms aimed at making the textile industry more competitive and lifting exports. The delegation met Minister of State for Finance Bilal Azhar Kiani, Coordinator to the Prime Minister on Commerce and Industry Rana Ehsan Afzal, and Commerce Secretary Jawad Paul. It thanked the government for its continued engagement with the industry and its efforts to address exporters\u2019 problems through consultation. Talks centred on energy, taxation, customs, GSP+ and export financing. APTMA said the reforms could add roughly USD3 billion to textile exports in the short term and as much as USD10 billion over three to five years. A key demand was a minimum 8 per cent Duty and Tax Remission for Exports (DLTL) rebate. APTMA argued that the rebate would offset federal and provincial taxes and levies embedded in export costs, which cannot be passed on to foreign buyers, and would level the field with rival exporters who enjoy cheaper energy and greater tax relief. The meetings also covered the Federal Board of Revenue\u2019s Production Monitoring System and improvements to the Export Finance Scheme and the Long-Term Export Growth Financing Facility, so that exporters\u2019 working capital and investment needs are better met. APTMA also highlighted scope for promoting Pakistani textile brands abroad, adding value and strengthening direct access to overseas markets. Both sides agreed to keep talking on outstanding issues and proposed reforms. The APTMA delegation included Chairman Asad Shafi, Vice Chairman Anis Khawaja, Chairman North Siddique Javed Siddiqui, Senior Vice Chairman North Habib Anwar, Vice Chairman North Muhammad Ali Chaudhry, Executive Committee members Haroon Ilahi and Faisal Shakeel, Secretary General Raza Baqir, Energy Adviser Asim Riaz, Senior Economist Syed Absar Ali and Trade Economist Sarah Javed. Separately, Zubair Motiwala, chairman of the Businessmen Group (BMG) and a presidential candidate for the Federation of Pakistan Chambers of Commerce and Industry (FPCCI), visited the home of Karachi Cotton Association (KCA) Vice Chairman Premchand Kohistani on Nov 21. He was accompanied by Javed Bilwani and Asif Begh. Senate Standing Committee on Finance and Revenue Chairman Saleem Mandviwalla attended, along with Senators Anusha Rahman Ahmed Khan, Muhammad Talha Mahmood, Manzoor Ahmed Kakar and Aamir Waliuddin Chishti, and Karachi Chamber of Commerce and Industry President Talat Mahmood. BMG Vice Chairman Javed Bilwani was also present. Participants discussed the economy, falling cotton output, the KCA building issue and the difficulties facing the Pakistan Cotton Ginners Association. They stressed the need to tackle industry challenges and strengthen the cotton value chain. Kohistani presented proposals to revive the cotton sector and raised the proposed eviction of the KCA from its historic building despite court orders, stressing the need to protect the association\u2019s interests. He also briefed attendees on the problems facing the cotton trade. Senator Mandviwalla promised to arrange an early meeting in Islamabad to discuss the building dispute and other cotton-sector matters in detail. The other senators also pledged their cooperation. Participants called for coordinated efforts to resolve pending issues and revive the cotton sector. The government is planning to simplify the Export Facilitation Scheme (EFS), rationalise exporter eligibility and authorisation requirements, and introduce uniform value-addition formula across customs collectorates to reduce compliance costs, encourage investment and boost export-led growth. Minister of State for Finance and Railways Bilal Azhar Kiani, who chaired the ninth meeting of the Prime Minister\u2019s Committee to Review the EFS, emphasised that proposed amendments should make the scheme more accessible and predictable for exporters while strengthening compliance, transparency and revenue safeguards. The Minister of State reiterated the Government\u2019s commitment to advancing the Prime Minister\u2019s vision of a business-friendly environment, export-led growth and greater private sector participation. He emphasised that the proposed amendments should make the EFS more accessible and predictable for exporters, while ensuring transparency.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450235/weekly-cotton-review-production-soars-6pc-to-5131m-bales-yoy"}, {"head": "Investors drive gold market as prices fall in Karachi", "body": "\u2022 Heavy investor buying triggers a shortage of gold bars; dealers charge premiums of Rs10,000 to Rs30,000 per tola \u2022 Lower prices lure wedding shoppers back from silver, artificial jewellery KARACHI: Consumer footfall in Karachi\u2019s gold market has improved following a decline in prices, but jewellers say \u201cthere are more buyers than sellers right now, in which investors rule the market rather than jewellery buyers\u201d. However, lower gold prices have also encouraged some genuine buyers to resume purchases after putting them on hold amid a meteoric rise in prices. Many had previously shifted to silver and artificial jewellery. A random visit to the market suggested that both investors and retail shoppers were visible in gold shops, which had looked deserted when the price of one tola of gold hit Rs585,000 earlier this year. The sharp increase had driven mainly buyers away from the market, as gold became unaffordable amid high food prices and utility bills. A salesman at a jewellery shop in Hyderi Market, North Nazimabad, said investors were mainly returning to the market to buy gold in anticipation of further price increases. However, some remained cautious because of uncertainty surrounding the US-Iran-Israel war, although its intensity had eased. Excessive demand from investors has also led to a shortage of gold bars, prompting dealers to charge premiums of Rs10,000 to Rs30,000 per tola. \u201cWe don\u2019t have gold bars in our shops. We manage them through our sources,\u201d the salesman said, adding that bars of almost every weight were in high demand. Vice President of the All Pakistan Sarafa Gems and Jewellers Association (APSGJA) Hamza Shikarpuri said a premium of Rs10,000 per tola prevailed in the market amid strong investor demand and limited supplies. \u201cInvestors are happy to pay the \u2018on money\u2019 and do not hesitate to wait even one or two days for physical delivery of gold biscuits,\u201d he added. According to official rates announced by the association, Pakistan recorded its highest-ever gold prices on Jan 29, 2026, when the price of one tola of 24-karat gold reached Rs572,862 as international prices climbed to $5,505 per ounce. However, jewellers said the actual record-high price at the time was Rs585,000 per tola, as traders charged premiums amid strong investor demand and a shortage of gold. When the Middle East war began on Feb 28, 2026, the price of one tola of gold stood at Rs550,000, based on an international rate of $5,278 per ounce. Currently, gold is priced at Rs376,336 per tola, representing a steep decline of Rs208,664 from the record high of Rs585,000. International gold prices have also fallen by $1,967 per ounce since Jan 29. While claiming that buyers remained largely uninterested in gold jewellery, Shikarpuri said investors were purchasing even small bars weighing one or two tolas. Apart from regular investors, some affluent consumers have also been investing in gold while diversifying their holdings across other commodities. President of the All Karachi Jewellers and Manufacturers Association (AKJMA) Haseen Qureishi acknowledged that investors outnumbered jewellery buyers in the market. However, he said around 50pc of investors remained hesitant despite the decline in prices, waiting for a further reduction of Rs40,000 to Rs50,000 per tola. He said the drop in rates had definitely lured genuine gold jewellery buyers to shops, as the marriage season is at its peak this winter and Ramazan begins in early February next year. Gold prices have experienced unexpected fluctuations amid the Ukraine war, US President Donald Trump\u2019s tariffs on various countries and the ongoing Iran-US-Israel conflict. However, the rupee-dollar exchange rate has not recorded any significant fluctuations in Pakistan this year, helping avert additional pressure on domestic gold prices. Published in Dawn, November 22nd, 2026", "source": "Dawn Business", "url": "https://www.dawn.com/news/2046185/investors-drive-gold-market-as-prices-fall-in-karachi"}, {"head": "Farmers urged to complete wheat sowing by Nov 25", "body": "SARGODHA: Agriculture Department urged farmers in irrigated areas to complete wheat cultivation preferably by Nov 25, stressing that the use of certified seeds of approved varieties, timely sowing and proper field preparation could significantly enhance per-acre production, with certified seed alone having the potential to increase yield by up to 25 percent. Director Agriculture extension, Ashfaq Ahmed khan said to media men that the farmers should use 45 to 50 kilograms seed per acre for sowing wheat up to November 25 while germination rate of the seed should not be less than 85 percent. The farmers intending to cultivate wheat in standing cotton crops should however increase the seed rate to 55 to 60 kg per acre to ensure an adequate plant population, he added. He emphasized that using certified seed of varieties approved by the Agriculture Department was essential for achieving better production and maintaining crop quality. The farmers were also advised to treat wheat seed with appropriate fungicides before sowing to protect the crop against various seed-borne diseases, after consulting local agricultural experts of the department, he added. He said that for effective seed treatment, the farmers should use a rotating drum to ensure uniform application of the recommended fungicide to every seed. In the absence of such equipment, the farmers could use a clean plastic bag by placing the measured quantity of seed and the recommended fungicide inside it, securely tying its opening and shaking it thoroughly while holding both ends. The bag should be filled only halfway to allow sufficient movement of the seed and ensure that every grain was properly coated, he added. Ashfaq Ahmed khan further stressed that proper preparation and leveling of agricultural land were equally important for obtaining a healthy wheat crop and better yields. The farmers should plough fields with a soil crust two to three times and level uneven patches wherever necessary through a conventional land leveler or laser land leveler, he added. He said that to ensure efficient irrigation and conserve water, the farmers should divide their fields into smaller sections before applying pre-sowing irrigation (Rauni), enabling them to irrigate a larger area with comparatively less water. As the sowing period approached, the farmers should plough their fields before sunrise and subsequently apply a plank (Suhaga) to level the soil. Repeating this process two to three times would help eliminate weeds and bring moisture from deeper soil layers towards the surface, creating favourable conditions for uniform seed germination.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450302/farmers-urged-to-complete-wheat-sowing-by-nov-25"}, {"head": "Gold Investors Have Lost Rs. 2 Lac Per Tola Since January", "body": "Gold has lost nearly Rs. 197,000 per tola in Pakistan and more than $2,000 per ounce in the international market, a massive reversal after precious metals reached record highs earlier this year. The selloff has hit investors worldwide. Silver has suffered an even sharper decline. It has also made gold considerably cheaper for buyers in Pakistan. In Pakistan, 24-karat gold reached an all-time high of Rs. 572,862 per tola on January 29, 2026. Its price has since fallen to Rs. 376,336 per tola as of November 21. This represents a decline of Rs. 196,526 per tola, or approximately 34.3 percent. The international market has witnessed a similar reversal. Gold climbed to nearly $5,600 per ounce in January before falling to around $3,538. This represents a decline of more than $2,000 per ounce, or approximately 37 percent. Silver has suffered an even bigger setback. Its international price has dropped from around $121 per ounce in January to nearly $41, wiping out approximately 66 percent of its peak value.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/22/gold-investors-have-lost-rs-2-lac-per-tola-since-january/"}, {"head": "Dubai No Longer a Preferred Investment Destination", "body": "Dubai is no longer a preferred investment destination for Pakistani investors as a stable rupee and expectations of lower interest rates are making the Pakistan Stock Exchange (PSX) a more attractive option. Local investors have emerged as the main buyers in the stock market, absorbing foreign selling. With the rupee remaining stable and interest rates expected to decline in the second half of 2027, equities are likely to remain the preferred investment option, according to Topline Securities. The brokerage expects the State Bank of Pakistan to maintain its policy rate at 12 percent during the first half of 2027 before reducing it by 100 basis points to 11 percent in the second half. Lower borrowing costs could encourage investment in local equities, particularly in sectors that benefit from economic recovery and cheaper financing. Topline Securities expects Pakistan\u2019s economy to grow by 3.5 to 4 percent in FY27, followed by 4 to 4.5 percent growth in FY28. It also expects inflation to ease from April 2027, creating room for monetary easing.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/22/dubai-no-longer-a-preferred-investment-destination/"}]}, {"id": 3, "desk": "AI Frontier Models, Infrastructure & Editorial", "category": "Frontier Architectures", "readTime": "5 min read", "date": "MONDAY, NOVEMBER 23, 2026", "headline": "OpenAI\u2019s chief scientist has thoughts on how to limit AI development", "deck": "A new blog post from OpenAI\u2019s chief scientist Jakub Pachocki discusses potential limits on AI development, with a focus on a measurement called perplexity.", "hero_source": "TechCrunch Wire", "hero_url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/", "author": "Muhammad Iqbal Bhawana / AI Systems Desk", "authorRole": "Founder & Editor-in-Chief, Senior Member Pakistan Customs Service (Retd.)", "body": ["A new blog post from OpenAI\u2019s chief scientist Jakub Pachocki discusses potential limits on AI development, with a focus on a measurement called perplexity.", "Slowing AI development became a particularly hot topic after a former OpenAI and Anthropic researcher said the companies were \u201cgambling with our lives,\u201d and even Anthropic\u2019s IPO filing suggested that the technology could pose \u201ccatastrophic or existential risks to society.\u201d", "Anthropic CEO Dario Amodei then published a plan to \u201cpace the frontier,\u201d seemingly endorsed by OpenAI CEO Sam Altman and SpaceX CEO Elon Musk. Among other things, Amodei called for companies to agree to \u201ccommon safety standards as well as limits on the rate of unchecked AI progress.\u201d", "But to establish a speed limit on AI development, you need to agree on how you measure speed. Pachocki\u2019s post \u2014 described by Altman as \u201cthe most important thing OpenAI has published in a while\u201d \u2014 suggests perplexity (not to be confused with the company of the same name ) could be that measurement.", "In Pachochki\u2019s argument, benchmarks that focus on AI\u2019s \u201cdownstream capabilities\u201d have quickly become outdated as the technology advances. But perplexity \u2014 which \u201cmeasures how well a model predicts the next token on average; lower perplexity means better predictions\u201d \u2014 has remained \u201cinformative.\u201d"], "quote": "A fixed deadline and a delivery receipt cost nothing; certainty, not severity, is what makes a compliance state credible.", "editorial": {"title": "Deadlines, Deemed Service and the Borrowed Barrel", "deck": "A withholding calendar and electronic service of notices complete the machinery of assessment; Oman's $200 million credit line and a rising cotton crop test whether the wider fiscal house can hold.", "paragraphs": ["The fixing of statement-filing deadlines for withholding agents in Tax Year 2027 is low drama with high consequence. Section 165 of the Income Tax Ordinance, 2001 makes every prescribed person an unpaid extension counter of the exchequer: salary, rent, contracts, imports and services are taxed at source, and the return of that deduction is the raw ledger from which the FBR cross-matches, refunds and assesses. Embedding those dates in a published calendar converts what was once discretionary grace into statutory certainty \u2014 and certainty is the one good a revenue authority can deliver without spending a rupee. Agents who know the date can build systems around it; the FBR, in turn, gains a dataset clean enough to run automated withholding-profile comparisons and third-party notices without the excuse of late or incomplete statements. The quid pro quo must be proportionality: penalties under section 182 should be calibrated to the size of the agent, and the small employer or shopkeeper pressed into the withholding net deserves free, functional software and a working helpdesk, not a penalty regime.", "The companion explanation on electronic service of tax notices and documents for TY2027 deserves less applause and more drafting. Section 172A rightly authorises service through electronic media, and an audit-trailed e-notice cures decades of 'I never received it' litigation that clogs the appellate machinery. But deemed service is a double-edged instrument: once a notice is 'served', limitation periods for representations and appeals begin to run against the taxpayer, and a mailbox that spammed, bounced or delayed the message becomes the citizen's problem. The statutory merit of e-service holds only if the rules obligate delivery confirmation, resend logic on bounced mail, and a short cure period tolling limitation until receipt is demonstrably logged. The FBR's explanatory posture is welcome; it should now be hardened into binding SRO text before TY2027 opens, not left as guidance that assessment officers may read one way and taxpayers another.", "On the external front, the agreement with Oman \u2014 OQ Trading supplying petroleum products to Pakistan State Oil alongside a $200 million credit facility \u2014 is pragmatic statecraft for a nervous quarter. With the Strait of Hormuz constricted by the US\u2013Iran confrontation, diversifying both the source and the payment terms of our fuel inflow is prudent: a supplier credit defers the foreign-exchange outflow, keeps PSO's import pipeline running, and buys the State Bank breathing room it does not currently possess. Capital flows of this kind, however, are liability management, not energy policy. A $200 million line, standing against a petroleum import bill an order of magnitude larger, is palliative; the disease remains the circular debt stack, unrecovered tariff and distribution losses that turn our state traders into borrowers by default. Fiscal prudence means booking this facility, honouring it, and using the reprieve to finish structural work \u2014 tariff adjustment, receivables recovery, refinery economics \u2014 rather than to postpone it again.", "The cotton numbers offer quieter encouragement: 5.131 million bales, six per cent ahead of last year, with prices steady amid subdued trade. Textile exports, the largest earner in our external accounts, rise or fall on this crop, and the documented value chain \u2014 ginners' withholding obligations, sales tax discipline at the lint stage with its stop-go history of Fifth Schedule concessions, and the provincial taxation of agriculture income \u2014 is where a six per cent gain either compounds or is confiscated. The Karachi Cotton Association's revival proposals merit statutory hearing rather than ceremony, and its unease over eviction from its historic premises speaks to the thinning of institutional price discovery precisely when the sector needs it most. If the state wants farmers to bank that six per cent, the answer is continuity in exemption philosophy where it protects the grower, no fresh cess layered onto a recovering crop, and predictable assessment of ginners \u2014 not measures announced for one season and withdrawn at the next shortfall."]}, "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO", "body": "Anthropic's climb toward the public markets was built on capital from three backers with sharply different mandates: Notable Capital, the venture firm; GIC, Singapore's sovereign wealth manager; and Baillie Gifford, the Edinburgh-based growth investor. Ahead of the artificial-intelligence developer's initial public offering, all three have set out the reasoning behind commitments that ran to billions of dollars in a company that spent most of its life as a closely held startup working at the frontier of large language models.\n\nEach wager mirrors its sponsor's philosophy. Notable Capital has made its name by backing breakout companies early and holding through their scaling years. GIC has channelled sovereign wealth into long-duration technology themes as it positions its portfolio for the decades ahead. Baillie Gifford, whose patient, long-horizon style produced celebrated early stakes in Amazon, Tesla and Nvidia, is known for treating such positions as decade-long compounding plays rather than trades. What united the three was a judgment that Anthropic's research depth and its safety-led approach gave it a durable edge in a crowded field.\n\nAnthropic was founded in 2021 by researchers who left OpenAI and is led by chief executive Dario Amodei. Its Claude assistant has emerged as a mainstay of enterprise AI deployment, competing with OpenAI and Google at the model frontier. The investors' shared conviction reflects a broader institutional verdict that frontier AI will command one of the largest pools of value of the decade \u2014 and Anthropic's IPO now gives public shareholders the chance to take the position the three firms assembled in private.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/"}, {"head": "Your ML model passed every test. Here\u2019s what those tests might have missed", "body": "Machine learning models that clear every benchmark in the laboratory often falter once they meet live traffic, and the gap between evaluation and deployment has become the defining quality problem of applied artificial intelligence. Standard testing still resembles examination cramming: teams split a static dataset, hold out a slice of it, and measure accuracy, precision or recall on inputs drawn from the very same distribution used in training. The material is clean, carefully labelled and familiar, and under those comfortable conditions the scores look excellent. But a held-out set is a snapshot, not a promise, and a model that has mastered the exam\u2019s idiom is not necessarily one that understands the subject.\n\nProduction rarely honours the snapshot. Inputs arrive messy and shifting: user behaviour evolves, upstream pipelines are reconfigured, seasonal patterns invert, and the relationship between features and outcomes \u2014 concept drift \u2014 moves beneath the model\u2019s feet. Labels arrive late, noisy or not at all, so degradation is silent. Dashboards report latency and uptime, not whether predictions remain correct, and by the time ground truth catches up, weeks of flawed decisions may have travelled downstream, compounding quietly rather than triggering any alert.\n\nThe emerging remedy is to treat validation as a lifecycle rather than a gate. That means monitoring input distributions in real time, slicing performance by subpopulation, staging champion-challenger deployments, re-labelling recent samples and stress-testing edge cases the training data never contained. The discipline shifts the question from whether a model passed to whether it is still passing \u2014 a question no single test, however thorough, can answer once, and one that production systems must keep answering every day.", "source": "VentureBeat Feed", "url": "https://venturebeat.com/orchestration/your-ml-model-passed-every-test-heres-what-those-tests-might-have-missed"}, {"head": "Bitcoin hits two-year low as AI valuation fears rattle markets", "body": "Bitcoin tumbled to its lowest level in roughly two years as fears over stretched valuations in the artificial-intelligence sector rippled through global markets and triggered a broad retreat from risky assets. The flagship cryptocurrency traded down to the $55,830 mark, territory it last occupied more than two years ago, extending a sell-off that has eroded months of gains across digital-asset markets. Traders pointed to mounting doubts over whether the enormous capital being channelled into data centres, semiconductors and AI infrastructure by the world's largest technology companies will generate returns commensurate with the spending \u2014 a concern that has knocked technology shares lower and pulled cryptocurrencies down in their wake.\n\nThe slide underlined how tightly bitcoin's fortunes are now bound to mainstream risk appetite. Ether and other major tokens weakened in sympathy, while the flushing out of leveraged long positions deepened the decline as stop-loss orders cascaded through trading venues. An asset class once promoted as an uncorrelated hedge has in recent sessions behaved more like a high-beta technology stock, whipsawed by every shift in earnings expectations at the handful of conglomerates financing the AI build-out.\n\nAttention now turns to forthcoming earnings updates from large technology groups and to the broader macroeconomic backdrop, which together will determine whether current levels of AI investment can be sustained. Until clearer evidence emerges on the payoff from that build-out, digital assets appear set to remain hostage to equity-market sentiment, with bitcoin's near-term direction resting on whether buyers step in to defend levels last tested during the downturn two years ago.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/bitcoin-price-crash-two-year-low-55830/"}, {"head": "NCCIA Introduces Kids Corner to Teach Children Online Safety", "body": "The National Cyber Crime Investigation Agency (NCCIA) has introduced Kids Corner, a dedicated online platform that teaches children how to stay safe in the digital world. In a post on X, the agency said the platform uses fun activities, informative challenges and simple safety tips to make children aware of how to protect their personal information, spot online risks and use the internet responsibly. According to the NCCIA, Kids Corner is available on its website at nccia.gov.pk/kids.html and is built around three sections: Safety Missions, Learn Online Safety, and Fun Challenges. The platform focuses on four basic safety lessons for children: Besides the safety missions for children, the platform also carries guidance for parents and resources for teachers, so that families and schools can help young internet users stay protected.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/22/nccia-kids-corner-children-online-safety/"}, {"head": "TechCrunch Mobility -A/B testing robots vs. humans", "body": "The question of whether machines drive better than people is increasingly being settled by experiment rather than rhetoric. A/B testing \u2014 the software industry's method of running two variants side by side \u2014 has emerged as a practical lens through which the mobility sector weighs robotic driving systems against human performance on identical roads and conditions, framing autonomy as a measurable upgrade rather than a leap of faith.\n\nUnder such a framework, one vehicle operates on a conventional, human-driven pattern while its counterpart runs an autonomous stack, and the two are compared across measures such as intervention frequency, journey consistency, braking behaviour and near-miss exposure. The approach borrows directly from web engineering, where small, controlled trials of rival designs settle debates that instinct and anecdote could not, and it suits a moment when AI in mobility has moved from assisted driving tools to full driving responsibilities.\n\nThe stakes reach beyond engineering curiosity. Insurers, regulators and city planners want like-for-like evidence before driverless services scale beyond pilot zones, and comparative trials offer a legible benchmark in a field long dominated by marketing claims. As artificial intelligence penetrates transportation ever deeper \u2014 from fleet planning to the driving task itself \u2014 measuring robots against the human baseline is becoming the sector's clearest test of readiness.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/22/techcrunch-mobility-a-b-testing-robots-vs-humans/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "MONDAY, NOVEMBER 23, 2026", "headline": "\u2018Cameron Winter\u2019 Shines In Vibrant Indie Weekend, \u2018Elsinore\u2019 Opens Strong \u2014 Specialty Box Office", "deck": "Andrew Scott-starring Elsinore is off to a nice start with a $240k limited opening on 6 screens in NY and LA. That\u2019s a $40k per theater average as excellent exits polls bode well for the Focus Features\u2019 film as it expands to 120 screens in top 25 markets starting Wednesday.", "hero_source": "Deadline Hollywood Wire", "hero_url": "https://deadline.com/2026/11/indie-film-box-office-elisnore-cameron-winter-at-carnegie-hall-1237231210/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["Andrew Scott-starring Elsinore is off to a nice start with a $240k limited opening on 6 screens in NY and LA. That\u2019s a $40k per theater average as excellent exits polls bode well for the Focus Features\u2019 film as it expands to 120 screens in top 25 markets starting Wednesday.", "The true story of Ian Charleson, a gifted actor facing his own mortality with honesty, wit, and grace is \u201cinspiring, and we could all use a movie that shows how you can live your life to the fullest even when you have obstacles in the way,\u201d says Focus distribution chief Lisa Bunnell of the film, which has a 92% positive rating and an 80% recommend.", "Directed by Simon Stone and written by Stephen Beresford, it world premiered at Telluride taking the International People\u2019s Choice Award, followed by a winning festival run and lively screening program through Focus Insider, a community of 2 million. This is a meaningful project for Scott , who has been very actively promoting the film and the story behind it. Watch on Deadline", "The film enters a crowded and dynamic period for the indie box office with a weekend of diverse debuts including a standout by Janus Films and Criterion\u2019s exclusive 35mm tour of Paul Thomas Anderson\u2019s Cameron Winter At Carnegie Hall . The concert film grossed $162k at just three locations for a $54k per-screen average, one of the year\u2019s best. Shows were sold out at all theaters weeks in advance, and the 35mm-only meant additional showings couldn\u2019t be added."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "\u2018Glee\u2019 Star Chris Colfer Says He Forgot Kurt Hummel \u2018Meant So Much to People\u2019 Because of the \u2018Homophobia and Hatred\u2019 He Experienced During the Show", "body": "Chris Colfer, who brought Kurt Hummel to life across the run of the musical comedy-drama \u2018Glee,\u2019 says he forgot how deeply the character \u2018meant so much to people\u2019 while the series was on air, because the \u2018homophobia and hatred\u2019 he experienced during that time overshadowed the role\u2019s reach. The actor is now reflecting on what it meant to play the now-beloved character, whose journey as an openly gay teenager formed one of the show\u2019s emotional cores and made Hummel a touchstone for viewers who had rarely seen themselves written into mainstream network television.\n\nColfer\u2019s remarks arrive a month after he reunited onstage with Darren Criss, his on-screen love interest and \u2018Glee\u2019 co-star, who played Blaine Anderson. The two surprised audiences with a rendition of \u2018Baby, It\u2019s Cold Outside,\u2019 an homage to the duet their characters performed during the show\u2019s run, delighting the fanbase that followed the pair\u2019s romance \u2014 widely known by the portmanteau \u2018Klaine\u2019 \u2014 as one of network television\u2019s most prominent LGBTQ+ relationships.\n\nThe reflection underscores the complicated legacy of a series that placed a gay protagonist at the centre of a mass-audience hit even as its cast confronted hostility for the representation it championed. Colfer\u2019s acknowledgment that the vitriol the role drew once clouded the character\u2019s significance speaks to the distance between the abuse of that era and the enduring affection with which Kurt Hummel is remembered today.", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/glee-chris-colfer-kurt-homophobia-1236955465/"}, {"head": "Mahershala Ali Says Having 2 Oscars \u201cDoesn\u2019t Matter\u201d When Getting Cast -\u201cIt Doesn\u2019t Translate To Anything Real\u201d", "body": "Mahershala Ali, the two-time Academy Award winner honoured for his supporting performances in \u201cMoonlight\u201d and \u201cGreen Book,\u201d has delivered a sober assessment of what the film industry\u2019s most coveted acting prize is actually worth inside the casting room. The actor said that having two Oscars \u201cdoesn\u2019t matter\u201d when he is being considered for roles, characterising the statuette as \u201ckind of just talk\u201d that \u201cdoesn\u2019t translate to anything real.\u201d The remark carries particular weight coming from a performer who reached the profession\u2019s pinnacle twice within the space of three years.\n\nHis observation speaks to a paradox that has long shaped Hollywood\u2019s hiring calculus. An Academy Award confers prestige, applause and a permanent line on a r\u00e9sum\u00e9, yet it guarantees neither a greenlight nor an offer. Casting in practice rests on budgets, box-office prospects, star packaging and the commercial architecture surrounding each project \u2014 calculations in which even the most decorated names can find themselves negotiating from much the same footing as far less lauded colleagues.\n\nAli, whose career spans independent cinema, prestige television and studio productions, presented the honour as symbolic rather than practical currency \u2014 applause that follows an actor into the room but does not decide what happens once the discussion turns to parts, pay and production realities. His comments add to an enduring debate about the limits of awards as leverage in an industry where the final word on a role typically belongs to financiers, distributors and box-office projections rather than to trophies.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/mahershala-ali-2-oscars-doesnt-matter-getting-cast-1237231259/"}, {"head": "Don Toliver\u2019s Manchester Concert Evacuated After Suspected Tear Gas Released Into Crowd", "body": "Don Toliver\u2019s concert at Co-op Live in Manchester, England, was brought to an abrupt end on Sunday after a substance believed to be tear gas was released into the crowd, forcing the evacuation of the venue. The disruption unfolded towards the end of the performance, and the rapper\u2019s show concluded with the arena being cleared rather than a typical finale.\n\nGreater Manchester Police confirmed the sequence of events in a statement. \u201cIt is understood that a substance believed to be tear gas was let off in the crowd towards the end of a concert,\u201d wrote the Greater Manchester Police in the statement. The force\u2019s account tied the suspected release directly to the closing stages of the evening, the same period in which the evacuation was carried out and concertgoers left the venue.\n\nThe incident turned the closing stretch of Don Toliver\u2019s date at the Manchester venue into a public safety matter, with the suspected release of tear gas bringing the performance to a halt and the evacuation emptying the building as the show ended.", "source": "Variety Global Wire", "url": "https://variety.com/2026/music/news/don-toliver-manchester-concert-evacuated-tear-gas-1236955605/"}, {"head": "Ateez Debuts at No. 1 on Billboard 200 for the Third Time This Year; U2\u2019s \u2018Carnaval de Luz\u2019 Bows at No. 4", "body": "Ateez has claimed another chart summit, with the K-pop group\u2019s new EP \u201cGolden Hour: Part 6\u201d opening at No. 1 on the Billboard 200. It is the third time in 2026 that the group has launched an EP straight into the top spot on the United States\u2019 flagship album chart, the most recent such occasion having come in July. That run of consecutive peaks underlines the group\u2019s standing as one of the steadiest commercial performers in the current pop landscape.\n\nEntering just behind it, U2\u2019s \u201cCarnaval de Luz\u201d bows at No. 4, handing the veteran Irish rock band a top-five placement on the tally and a fresh foothold in the upper reaches of the American album market. The pairing of a K-pop EP and a legacy rock release at the top of the chart frames a week in which two very different audiences collided at the summit of the industry\u2019s most closely watched ranking.\n\nThe Billboard 200 ranks the week\u2019s most-consumed albums in the United States by blending traditional sales with streaming and track-equivalent activity, a methodology under which tightly spaced EP releases have repeatedly produced swift climbs to the top. For Ateez, the sixth installment of the \u201cGolden Hour\u201d series extends a year of successive chart-topping debuts, while U2\u2019s high opening reflects the durable commercial draw that established acts continue to command whenever new material reaches the market.", "source": "Variety Global Wire", "url": "https://variety.com/2026/music/news/ateez-u2-album-chart-debut-billboard-1236955537/"}, {"head": "Ina Garten Reveals Why She Will Never Do \u2018Dancing With The Stars\u2019", "body": "Ina Garten, the cookbook author and Food Network personality known to millions as the Barefoot Contessa, has disclosed that she once turned down an invitation to compete on Dancing With the Stars. The revelation came during this week\u2019s episode of her Happy Hour podcast, in the course of a wide-ranging conversation about fear \u2014 how it operates, whether it can be overcome, and if she had ever stepped away from an opportunity because it felt \u201ctoo scary.\u201d\n\nGarten answered the question directly, telling her listeners: \u201cI think I absolutely have\u2026Somebody asked me to do Dancing with the Stars.\u201d The chef, whose decades-long career has been built almost entirely around the kitchen counter rather than the performance floor, made clear that after deliberation she chose not to pursue the offer. The remark offered a rare glimpse behind the placid, unhurried on-screen persona that has made her one of the most trusted voices in American home entertaining.\n\nDancing With the Stars, the long-running celebrity ballroom competition, has over its many seasons drawn actors, athletes, musicians and reality personalities into its orbit, while figures from the culinary world remain largely absent from its roster. Garten, who founded the Barefoot Contessa specialty food store in the Hamptons before translating that success into a television franchise and a series of bestselling cookbooks, has consistently kept her public work anchored in cooking and hospitality. Her disclosure places one more prominent name alongside the celebrities who have weighed the show\u2019s invitation and ultimately walked away.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/ina-garten-dancing-with-the-stars-1237231317/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "MONDAY, NOVEMBER 23, 2026", "headline": "More than 2,300 Indian Sikh pilgrims arrive in Pakistan to mark Guru Nanak's birthday", "deck": "LAHORE: More than 2,300 Indian Sikh pilgrims crossed into Pakistan through the Wagah Border on Sunday to attend celebrations marking the 557th birth anniversary of Baba Guru Nanak Dev Ji, the founder of Sikhism. ETPB spokesperson Amir Hashmi put the number of arrivals at 2,339. T", "hero_source": "Dawn Latest News", "hero_url": "https://www.dawn.com/news/2046342/more-than-2300-indian-sikh-pilgrims-arrive-in-pakistan-to-mark-guru-nanaks-birthday", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["LAHORE: More than 2,300 Indian Sikh pilgrims crossed into Pakistan through the Wagah Border on Sunday to attend celebrations marking the 557th birth anniversary of Baba Guru Nanak Dev Ji, the founder of Sikhism. ETPB spokesperson Amir Hashmi put the number of arrivals at 2,339. The pilgrims were received at the border by Evacuee Trust Property Board (ETPB) Chairman Qamar Zaman, Secretary Nasir Mushtaq, Pakistan Sikh Gurdwara Prabandhak Committee (PSGPC) President and Punjab Minorities Minister Sardar Ramesh Singh Arora, the committee's secretary general Satwant Kaur and other officials, who presented bouquets to the jatha leaders. The Pakistan High Commission in New Delhi had issued around 3,100 visas to Indian Sikhs for the occasion.", "Special counters were set up at the Wagah crossing to facilitate immigration and baggage screening, while Rangers were deployed to ensure security. Hashmi said the ETPB had also established currency exchange facilities at the border and its teams promptly issued identity cards and bus tickets to guarantee a smooth onward journey. The pilgrims left for Nankana Sahib in three separate convoys under tight security to attend the main ceremony on Nov 24 at Gurdwara Janam Asthan, the guru's birthplace. More than 20,000 Sikhs from Pakistan and across the globe are expected at the formal festivities, which began on Sunday and run until Nov 24. Federal Minister for Religious Affairs Sardar Muhammad Yousuf, along with other federal and provincial ministers, will attend as special guests. Participants will perform Bhog and Akhand Path Sahib, followed by the traditional palanquin procession known as Nagar Kirtan. Chairman Zaman said the board was making every effort to ensure the visitors faced no inconvenience and would return home with fond memories of love, peace and brotherhood.", "Minister Arora urged the Indian government to immediately reopen the Kartarpur Corridor, which provides Sikh pilgrims access to Gurdwara Darbar Sahib in Kartarpur, one of the holiest sites in Sikhism. India suspended movement through the corridor in May 2025 amid the four-day conflict between the two countries. Kaldeep Singh Gurgaj, a leader of the Akal Takht authority from India, said the Sikh community shared a deep bond of reverence with Pakistan, where its members were always treated with respect and honour, adding that the gurdwaras in Pakistan were safe and preserved in their original state. Parmjeet Singh, a leader of a Delhi Gurdwara Management Committee delegation, said Pakistan held special significance for Sikhs as the land associated with their guru.", "After the main ceremony, the pilgrims will visit Gurdwara Sacha Sauda in Farooqabad on Nov 25 before proceeding to Hassan Abdal, where they will stay overnight at Gurdwara Panja Sahib. They will travel to Gurdwara Darbar Sahib in Kartarpur, Narowal, on Nov 27, spend Nov 29 and 30 visiting historic gurdwaras in Lahore, and return to India through the Wagah border by road on Dec 1. Sikh pilgrims frequently visit Pakistan for events of religious significance. In June, around 600 Sikhs arrived from India to observe the death anniversary of Guru Arjan Dev Ji, known as Jore Mela, while about 2,800 visas were issued earlier in the year for the Baisakhi festival in April."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "IBCC plans fully online attestation from Jan 1, ending office visits and courier submissions", "body": "The Inter Boards Coordination Commission (IBCC) will launch a fully online attestation service on Jan 1, 2027, allowing students to apply for attestation and download their attested documents without visiting an IBCC office or sending documents by courier. The decision was taken at a meeting of the IBCC Board of Directors chaired by Executive Director Dr Ghulam Ali Mallah. The service will cover qualifications issued by 29 examination boards across Pakistan, as well as eligible qualifications from madressahs. Under the new online service, applicants will submit their documents through the IBCC portal. Once the commission processes and approves an application, the electronically attested document will be available in the applicant\u2019s account to download and print. The new system will eliminate the need for courier delivery in either direction. Students needing to submit the same document to several institutions will be able to print multiple copies without paying a separate IBCC attestation fee for each copy. They can use the copies for submissions to universities and, where required for use abroad, to the foreign ministry, subject to its applicable requirements. Dr Mallah said the commission had developed the system on the directions of Federal Secretary for Education and Professional Training Nadeem Mahbub, after the IBCC Board of Governors took up the automation of the entire attestation process. He said the commission expected the service to benefit an estimated 400,000 to 500,000 students by cutting travel and courier costs and saving them time spent visiting and waiting at IBCC offices. The shift would also reduce the commission\u2019s workload by eliminating the need to receive, handle and dispatch physical documents. The IBCC is an umbrella board of 29 educational boards in the country that verifies matric and intermediate certificates and provides equivalence certificates against O/A levels and other foreign qualifications. In February 2025, the board said it had digitised the process for verification of academic degrees issued by boards of intermediate and secondary education. It said this would ensure the integrity and authenticity of the data as well as streamlining the process, ensuring faster and more efficient attestation.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2046341/ibcc-plans-fully-online-attestation-from-jan-1-ending-office-visits-and-courier-submissions"}, {"head": "Motorway Police Makes Special Arrangements for Sikh Pilgrims on Baba Guru Nanak\u2019s Birth Anniversary", "body": "The National Highways & Motorway Police (NHMP), MC-I Zone, has made comprehensive arrangements to ensure the safe, smooth and comfortable travel of Sikh pilgrims arriving in Pakistan from India and various other countries to participate in the celebrations marking the 557th birth anniversary of Baba Guru Nanak Dev Ji. According to Syed Imran Ahmad Shah, Spokesperson, NHMP Central Region, special measures have been undertaken to provide visiting pilgrims with the highest standards of safety, hospitality and travel facilitation. NHMP officers are warmly welcoming Sikh pilgrims at various toll plazas, providing special assistance, travel guidance and all possible facilities throughout their journey. The convoys of Sikh pilgrims are being provided with dedicated pilot and escort services under special security arrangements to ensure their safe and hassle-free movement towards their destinations. Special patrolling, effective surveillance and additional deployment of personnel have also been ensured along the motorways to maintain security and respond promptly to any emergency situation. The spokesperson further stated that officers have been directed to provide immediate assistance, guidance and maximum cooperation to the pilgrims throughout their journey. Special emphasis is being placed on their safety, comfort and overall travel experience. The spokesperson said that NHMP firmly believes in promoting religious tourism, interfaith harmony and Pakistan\u2019s positive image internationally. Sikh pilgrims are respected guests of Pakistan, and their safety, dignity and well-being remain among the top priorities of the Motorway Police.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/22/motorway-police-makes-special-arrangements-for-sikh-pilgrims-on-baba-guru-nanak-birth-anniversary/"}, {"head": "Ahsan Iqbal Reaches Beijing as Pakistan\u2019s First Astronaut Gets Ready for Space", "body": "Federal Minister for Planning, Development and Special Initiatives Professor Ahsan Iqbal has arrived in Beijing to attend the departure ceremony of Pakistan\u2019s first astronaut, who is set to become the first foreign guest aboard China\u2019s space station. Iqbal was received at Beijing Airport by Yang Yunli, Vice President of China Great Wall Industry Corporation (CGWIC), and officials of the Embassy of Pakistan, according to the Ministry of Planning. The minister will travel to the space mission centre on Monday, where he will meet the two Pakistani astronauts who have completed their training. One of the two will be finally selected for the mission before the spaceflight. Iqbal said the flight of Pakistan\u2019s first astronaut will be a historic moment for the entire nation and a new symbol of the ironclad brotherhood between Pakistan and China. \u201cThis flight represents Pakistan\u2019s journey towards space, carrying the dreams of our youth beyond the Earth,\u201d he said.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/22/ahsan-iqbal-beijing-pakistan-first-astronaut-space/"}, {"head": "Bank of England directors illegally profited from post-abolition enslavement in Cuba", "body": "Men and boys were held in prison conditions at the El Cobre copper ore mine near Santiago de Cuba, where a British-led enterprise extracted ore that helped fuel Britain's Industrial Revolution \u2014 and men at the helm of that operation drew profits for decades after slavery was abolished across the British empire, the historian Chris Evans has found. Several of the company's long-serving directors also sat on the board of the Bank of England, placing figures at the heart of Britain's financial establishment at the head of businesses built on brutal enslavement.\n\nHis research shows that the Cobre Mining Company, a British venture operating in Spanish Cuba, channelled copper from deposits worked by enslaved African people to British firms, helping to industrialise Manchester during the 19th century. The wealth generated in this way, the findings indicate, became embedded in Britain's financial system, linking copper mined under prison-like conditions in the Caribbean to the mills and workshops of northern England.\n\nThe discoveries shed light on how enslavement reached beyond the formal boundaries of empire: although British law had prohibited slavery in British territories from the 1830s, the labour regime at El Cobre persisted, and British-linked profits from enslaved labour in the Spanish Caribbean continued long after abolition. The research deepens historical understanding of the part forced labour played in Britain's industrial and financial rise.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/news/2026/nov/22/bank-of-england-directors-illegally-profited-enslavement-cuba"}, {"head": "Russian warship sinks in Benghazi after suspected Ukrainian drone attack", "body": "A Russian navy corvette sank in the Libyan port city of Benghazi early on Sunday after a suspected Ukrainian sea drone attack triggered a dramatic night-time explosion in the harbour. The strike severely damaged the Merkury, which had docked in the eastern Libyan city to refuel and take on supplies while on its way back to Russia, sending the warship down at its moorings.\n\nLibyan officials from the country's eastern government, which administers Benghazi and its port, said the vessel had stopped there for fuel and provisions during its return journey. No one has claimed responsibility for the strike, which carries the confrontation between Russia and Ukraine well beyond the immediate theatre of their war and into the southern Mediterranean.\n\nThe sinking places renewed attention on Benghazi, where Libya's divided administrations \u2014 one based in the east, the other in the west \u2014 exercise competing authority. It also raises pointed questions about the port security that allowed a Russian naval vessel to dock, resupply and be struck in a city far removed from the front lines of either the conflict between Moscow and Kyiv or Libya's own long-running instability.", "source": "Guardian World Wire", "url": "https://www.theguardian.com/world/2026/nov/22/blast-russian-ship-suspected-drone-attack-benghazi-libya"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "MONDAY, NOVEMBER 23, 2026", "headline": "Pochettino backs Manchester United players after Liverpool thrashing, rejects relegation talk", "deck": "Mauricio Pochettino insisted Manchester United\u2019s players showed fight and commitment despite a humiliating 4-0 defeat to Liverpool in his first game in charge, rejecting suggestions that the club\u2019s dire start to the season pointed to a relegation battle. United remain 19th in the", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2046403/pochettino-backs-manchester-united-players-after-liverpool-thrashing-rejects-relegation-talk", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Mauricio Pochettino insisted Manchester United\u2019s players showed fight and commitment despite a humiliating 4-0 defeat to Liverpool in his first game in charge, rejecting suggestions that the club\u2019s dire start to the season pointed to a relegation battle. United remain 19th in the Premier League table with one win from 11 games after a crushing loss at Anfield on Sunday, where Leny Yoro\u2019s eighth-minute red card left the visitors facing an uphill struggle for more than 80 minutes. Liverpool cruised to victory through goals from Dominik Szoboszlai, Florian Wirtz, teenager Rio Ngumoha and Victor Munoz. \u201cToday was a test that, for me, is very positive. After eight minutes, 10 men, a red card, concede a goal in this action, and then 80 minutes to play. Do you think that it\u2019s easy?\u201d \u201cWe need to accept the reality, and we need to be responsible, we need to be united, we need to be all together,\u201d Pochettino said when asked what he had learned about the size of the task facing him.", "Manchester United manager Mauricio Pochettino looks dejected during the English Premier League match against Liverpool at Anfield in Liverpool on November 22, 2026. \u2014Reuters \u201cWhat I learned from my players is that they like to fight, they commit to the team, with the club, and of course they want to win games. They want to make the effort. The defeat was the joint heaviest for a United manager in his first match in charge, according to Opta, equalling the 4-0 loss to Bolton Wanderers suffered by Lal Hilditch in 1926. The Argentine, who was hired after the sacking of Michael Carrick and arrived in Manchester only on Wednesday after a stint with the United States national team, said the dismissal of Yoro fundamentally altered the contest and repeatedly returned to the sending-off when assessing his side\u2019s performance. \u201cEven the best team in the world playing like this in this situation, in our circumstance, maybe concede four goals or maybe more.\u201d Manchester United\u2019s Leny Yoro is sent off for this foul on Liverpool\u2019s Alexander Isak during their English Premier League match at Anfield in Liverpool on November 22, 2026. \u2014AFP Pochettino also questioned the decision itself, arguing that Liverpool striker Alexander Isak did not have the ball under control when Yoro brought him down. \u2018Applauding rubbish\u2019 Former United captain Roy Keane was among those unimpressed by attempts to find positives in the defeat, questioning why the United supporters still in the stadium at the final whistle applauded the players. \u201cFans are applauding the players, applauding what?", "Applauding rubbish,\u201d Keane said. \u201cWhen do the players take responsibility for some of the decision making? Liverpool should have scored eight or nine. I feel like swearing.\u201d Liverpool fans taunt the Manchester United fans after going 3-0 up during the English Premier League match at Anfield in Liverpool on November 22, 2026. \u2014AFP Pochettino, however, refused to dwell on criticism or wider questions about United\u2019s defensive record after the team conceded four goals for the third time this season across all competitions. \u201cIt\u2019s painful because it\u2019s 4-0 at the end and you lose the game. But you need to [consider] the circumstances,\u201d he said.", "\u201cWe are not going to lose more than one game like we did today. We have a lot of work to do.\u201d With a Champions League trip to Portugal to face Sporting Lisbon on Wednesday, Pochettino said his message in the dressing room was simple. \u201cThey are very, very, very low,\u201d he said. \u201cBut I said, \u2018Head up, and we need to keep working, be concentrated, try to go to Portugal and try to win the game\u2019.\u201d"], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "McBurnie\u2019s added-time double snatches win for Hull to shock 10-man Brighton", "body": "McBurnie struck twice in added time as Hull delivered one of the shocks of the Premier League season, overturning long spells of Brighton dominance to take all three points in front of their own supporters. With Brighton reduced to ten men, an afternoon that Fabian H\u00fcrzeler\u2019s side had largely controlled unravelled completely in the final moments, the hosts rewarded for their persistence with the most dramatic of late turnarounds.\n\nThe defeat punctures some of the momentum gathered amid the growing talk of Brighton as surprise title contenders this season, even though H\u00fcrzeler\u2019s side remain second in the table. They will play far worse than this over the coming months and win, and the manner in which they left Hull without even a point, having dominated for large parts of the contest, almost defies belief.\n\nFor all the statement victories and headline-grabbing moments that have shaped Brighton\u2019s campaign, these are the afternoons which show the margin that still exists and the Premier League\u2019s capacity to deliver the most punishing of wake-up calls at any moment. More than any marquee occasion, it is fixtures of this kind that most readily trip up the most ambitious sides.", "source": "Guardian Sport Wire", "url": "https://www.theguardian.com/football/2026/nov/22/hull-brighton-premier-league-match-report"}, {"head": "Fifa to confirm UK as host for 2035 Women's World Cup", "body": "Fifa is set to confirm on Monday that the United Kingdom will stage the 2035 Women's World Cup, a decision that returns a football World Cup to Britain for the first time since 1966. The tournament is expected to be held across England, Scotland, Wales and Northern Ireland, the product of a joint bid submitted by the four home nations' football associations, and will give the country its first global tournament of either code in nearly seven decades.\n\nThe British candidacy proceeded as the sole contender for the 2035 edition, clearing the path for formal ratification by football's world governing body. Brazil will host the 2027 Women's World Cup, while the 2023 tournament, co-staged by Australia and New Zealand, marked a turning point for the women's game, drawing unprecedented audiences and commercial interest on a global scale.\n\nEngland's only previous hosting experience was the 1966 men's World Cup, which concluded at Wembley. Monday's confirmation now opens a long runway of preparation for stadiums, transport and grassroots investment across the four nations.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/cx30g83716lzo?at_medium=RSS&at_campaign=rss"}, {"head": "McBurnie stoppage-time double earns Hull win over 10-man Brighton", "body": "Oli McBurnie struck twice deep in stoppage time to earn Hull City a Premier League victory over Brighton & Hove Albion, settling a tightly fought contest in the final moments. The Hull forward's late double decided the outcome in the most dramatic manner available, clinching the points after Brighton had been reduced to ten men during the course of the match.\n\nBrighton, who occupy second place in the Premier League standings, finished the game a man short, and the reshaped closing stages altered the complexion of the contest. Hull seized the advantage as the clock ran down, and McBurnie's two goals in stoppage time turned the result decisively in Hull's favour, securing victory against one of the division's leading sides.\n\nFor Hull, overcoming a team placed second in the table stands as a significant result, delivered by a striker who took the decisive moment twice in added time. For Brighton, the late collapse, compounded by the dismissal, marks a costly setback for a campaign in which they have sat among the front-runners, underlining how fine the margins can be at the sharp end of the Premier League.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/videos/ck62pzzezqz2o?at_medium=RSS&at_campaign=rss"}, {"head": "Ngumoha stars as Liverpool thrash 10-man Utd", "body": "Mauricio Pochettino's reign as Manchester United head coach began in the most punishing fashion imaginable as Liverpool overwhelmed their fiercest rivals, with teenage winger Ngumoha producing the kind of performance that announced him as one of the most compelling young talents in the Premier League. His direct running, close control and willingness to take defenders on unsettled United throughout, and Liverpool dictated the contest from the opening exchanges.\n\nUnited's situation deteriorated when they were reduced to ten men, a dismissal that extinguished whatever hope of a contest remained. The scale of the defeat leaves Pochettino's side stranded in the Premier League relegation zone, a sobering verdict for a club that turned to the Argentine to restore order to a campaign that has already drifted badly off course.\n\nFor Liverpool, the afternoon offered further evidence of a squad operating with confidence and depth, with Ngumoha's emergence adding another attacking dimension. For United, the task facing Pochettino could scarcely be starker: belief must be rebuilt, discipline restored and results found quickly, because at this stage of the season the relegation zone is no place for a club of such stature and expectation.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/videos/c933g77knz00o?at_medium=RSS&at_campaign=rss"}, {"head": "From conceding seven to Hull heroics - how Tzolakis recovered to defy Brighton", "body": "Hull boss Sergej Jakirovic used one word to describe the performance of his goalkeeper Konstantinos Tzolakis in Sunday's 2-0 Premier League win against Brighton.\n\nTzolakis' previous outing had been for Greece against the Netherlands in the Uefa Nations League, where he and his side were humbled 7-0 by the hosts in Amsterdam.\n\nNine days later, his contribution to the Tigers' first league victory since 29 August was every bit as important as that of striker Oli McBurnie, who netted both goals in second-half stoppage time against the second-placed Seagulls.\n\nTzolakis made a series of top saves to keep the highest scorers in the top flight at bay and, when Brighton full-back Costinha was sent off in the 89th minute for a second bookable offence, the hosts seized their opportunity to clinch only their third win following their Premier League return.\n\nMcBurnie said the 24-year-old stopper had \"kept Hull in a few games\" this season and the club were \"lucky to have him\", while Tzolakis told Sky Sports: \"We are a unit and a team.\n\n\"We play for each other. We showed a good team effort and we deserved the three points.\"", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/cm4gn7npqe8yo?at_medium=RSS&at_campaign=rss"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  let editorialHtml = '';
+  if (d.editorial) {
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${d.editorial.title}</div>
+        <div class="editorial-special-deck">${d.editorial.deck}</div>
+        <div class="editorial-special-body">
+          ${d.editorial.paragraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${it.head} <span class="ext-link-arrow">↗</span></a>` : it.head}
+                </div>
+                <div class="card-body">${it.body}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${d.headline} <span class="ext-link-arrow">↗</span></a>` : d.headline}</h2>
+      <p class="hero-deck">${d.deck}</p>
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${(Array.isArray(d.body) ? d.body : [d.body]).map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
