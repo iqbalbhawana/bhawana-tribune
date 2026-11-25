@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (WEDNESDAY, NOVEMBER 25, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 1 Standalone Founder's Editorial Special Box (Distinct Playfair Display + Lora Typography & Royal Burgundy-Gold Accent) */
+  .editorial-special {
+    background: linear-gradient(180deg, rgba(28, 18, 28, 0.94) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 2px solid #d97706;
+    border-top: 6px solid #9f1239;
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 36px 0;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  }
+
+  .editorial-special-title {
+    font-family: 'Playfair Display', 'Cinzel', Georgia, serif;
+    font-size: 26px;
+    color: #fcd34d;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+  }
+
+  .editorial-special-deck {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #fde68a;
+    border-left: 3px solid #d97706;
+    padding-left: 14px;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    font-family: 'Lora', Georgia, serif;
+    margin-bottom: 15px;
+    font-size: 16.8px;
+    line-height: 1.85;
+    color: #f8fafc;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-body p {
+    margin-bottom: 10px;
+  }
+
+  .card-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">WEDNESDAY, NOVEMBER 25, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 25, 2026", "headline": "FBR introduces faceless appeals mechanism for income tax disputes", "deck": "ISLAMABAD: The Federal Board of Revenue (FBR) has formally introduced a comprehensive faceless appeals mechanism for income tax disputes, under which appeals will be electronically allocated to Commissioners (Appeals) whose identities will remain concealed from taxpayers, their representatives and tax officials.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40450586/fbr-introduces-faceless-appeals-mechanism-for-income-tax-disputes", "body": ["Through amendments to the Income Tax Rules, 2002, the FBR has inserted a new Chapter XIXA, titled \u201cFaceless Appeals\u201d, following the earlier publication of draft amendments through S.R.O. 2136(I)/2026 dated November 18, 2026. The amendments have been notified through S.R.O. 2276(I)/2026 issued on Tuesday. Under the new framework, an Appeals Wing will be established within the National Faceless Centre, comprising as many Appellate Units as the FBR considers necessary. Each unit will be headed by a Commissioner (Appeals) and will operate under the administrative control of Member (Legal) Inland Revenue. A significant safeguard introduced under the framework is that the Director General, Chief Commissioner or any other authority of the Centre will not be allowed to exercise control over, or issue directions to, a Commissioner (Appeals) regarding the hearing or decision of an appeal. Furthermore, an officer who conducted the audit, assessment or quality-control function in a case, or passed the disputed order, will not be allowed to hear or decide the appeal. All appeals under section 127 of the Income Tax Ordinance, 2001, covered by the new arrangement will be filed electronically through the FBR\u2019s e-portal. Upon successful filing, the system will automatically generate a unique appeal number and allocate the case to an Appellate Unit or Commissioner (Appeals) through a random, dynamic and automated allocation algorithm.", "The identity of the Commissioner (Appeals) handling the case will remain anonymous throughout the proceedings, including in the final appellate order. The FBR or the Centre will also be authorised to transfer or reallocate pending appeals between Appellate Units to ensure workload distribution, efficiency and impartiality. However, once a hearing has commenced, a case cannot be transferred unless reasons are recorded in writing. In such circumstances, the appellant will have the right to request a fresh hearing. The new rules require all notices, requisitions, written submissions, arguments, rejoinders and evidence to be exchanged exclusively through the electronic portal. Physical appearances of taxpayers, departmental representatives and their authorised representatives before the Commissioner (Appeals) will not be permitted. The appeals will be heard through video conferencing or secure digital communication links. Interestingly, the face of the Commissioner (Appeals) will not be shown during the hearing and the officer\u2019s voice will be electronically modulated to conceal his or her identity. All proceedings will be recorded and digitally archived as part of the electronic appeal record.", "Taxpayers will also have the option to seek a decision on the basis of written submissions instead of participating in a video hearing. A significant facilitation for taxpayers is that those without internet access will be able to request assistance from the nearest unit of the Field Operations Wing to attend an e-hearing through its designated e-hearing room. The concerned unit will facilitate the taxpayer on the scheduled date and time. The framework also provides a specific procedure for stay applications against recovery of tax. Applications for stay of recovery under section 128(1A) or 128(1AA) will be filed electronically and fixed for e-hearing within the time prescribed under the existing rules. The respondent tax authority will be heard before the Commissioner (Appeals) decides the application, and the decision will be communicated electronically to the taxpayer, respondent and Field Operations Wing on the day it is issued. Another important feature is the introduction of digitally authenticated appellate orders. Every order, decision, direction or notice will be generated through the FBR\u2019s computerized system and carry a Digital Identification Number (DIN), without displaying the name, designation or signature of the Commissioner (Appeals). The final appellate order, specifying the amount of tax upheld, will be simultaneously communicated electronically to the appellant, respondent Commissioner and Field Operations Wing.", "Any subsequent appeal before the Appellate Tribunal under section 131 will identify the disputed decision through its appeal number and DIN instead of the name of the Commissioner (Appeals). The rules also provide that where a taxpayer is unable to file an appeal, application or reply within the prescribed time due to technical failure of the e-portal, confirmed by the FBR, such failure will constitute sufficient cause for the purposes of condonation of delay under section 127(6). The notification further clarifies that appeals already pending before a Commissioner (Appeals) when the new system becomes applicable will continue before that Commissioner unless the FBR directs their transfer to the Centre. In case of transfer, the electronic record will be transmitted and proceedings will resume from the stage already reached. The framework will apply to appeals against orders passed by authorities of the Centre and other tax authorities in respect of persons, classes of persons, orders or classes of orders specified by the FBR through a separate notification. Importantly, the new Chapter will come into force on a date to be separately notified by the FBR, which may prescribe different commencement dates for different categories of appeals. The notification also preserves the statutory option of an aggrieved taxpayer to file an appeal directly before the Appellate Tribunal under the relevant proviso to section 127(1), the FBR added."], "quote": "Tax administration is not a classroom memory test; in an era where voice-enabled AI and statutory RAG systems can retrieve Section 33 of the Customs Act, 1969 in seconds, subjecting specialized revenue officers to rote exams betrays a profound disconnect from both law and modern technology.", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR Seals Famous Bakery in Islamabad", "body": "The Federal Board of Revenue (FBR) has sealed United Bakery in Islamabad, one of the oldest bakeries in the federal capital, for failing to issue Point of Sale (POS) digital invoices to customers. The enforcement action against M/s United Bakery was taken under the Sales Tax Act, 1990, as part of the tax authority's drive to ensure compliance with the mandatory POS integration regime and to prevent sales tax evasion through non-integrated invoicing. A notice pasted on the bakery's premises on November 24, 2026, and signed by an Assistant Commissioner, stated: \"United Bakery is sealed by the Regional Tax Office, Islamabad due to non-issuance of POS digital invoice.\"\n\nThe enforcement drive was not limited to the capital. The Commissioner Inland Revenue, Zone-IV, Regional Tax Office-I, Karachi, also carried out enforcement action against the bakery's outlet in Saddar, Karachi, on the same day and sealed the premises.\n\nVerification by the tax administration established that the bakery was issuing non-POS invoices to customers instead of generating digital invoices through the FBR-integrated POS system, and the department subsequently initiated enforcement proceedings against the business.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/24/one-of-islamabads-oldest-bakeries-sealed-by-fbr/"}, {"head": "IAEA commends Pakistan\u2019s longstanding partnership", "body": "ISLAMABAD: Karine Herviou, IAEA Deputy Director General and Head of the Department of Nuclear Safety and Security, commended Pakistan\u2019s longstanding partnership with the Agency. She said that she would like to highlight and commend the long-standing partnership between the IAEA and Pakistan in the area of nuclear security. This partnership stands as a testament to our shared commitment to advancing nuclear security through international cooperation and capacity building, she emphasised while addressing the second day of 15th Annual Meeting of the NSSC Network. On the sidelines of the 15th Annual Meeting of the NSSC Network, taking place in Islamabad from 23-26 November 2026, a special event to mark 20 years of nuclear security cooperation between Pakistan and the International Atomic Energy Agency (IAEA) was organized at the Pakistan Nuclear Regulatory Authority (PNRA). The event brought together senior government officials, representatives of the IAEA, delegates participating in the Annual Meeting, members of the diplomatic corps, representatives of Pakistan\u2019s nuclear industry, technology developers, research institutions, and nuclear security experts. To mark the occasion, the Chairman of the PNRA highlighted the importance of the longstanding partnership between Pakistan and the IAEA in strengthening national and international nuclear security. He stated that the partnership over the past two decades had contributed to building strong institutions, developing skilled human resources and strengthening Pakistan\u2019s nuclear security infrastructure. He added that the exhibition demonstrated that this cooperation had also fostered indigenous technological capabilities and innovation, and provided a platform for national industry to engage with the international nuclear security community\u201d. Another key feature of the event was an exhibition of indigenous nuclear security technologies, equipment and technical solutions developed by Pakistan\u2019s national industry. The exhibition provided a platform for interaction between national organizations, the IAEA, international delegates and industry representatives, promoting technical collaboration, knowledge exchange and opportunities for future cooperation. The event reaffirmed the shared commitment of Pakistan and the IAEA to further strengthen international cooperation, promote innovation, and build resilient nuclear security capabilities for the future.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450600/iaea-commends-pakistans-longstanding-partnership"}, {"head": "Pakistanis to Get 3 Consecutive Holidays in December", "body": "People working in offices and educational institutions with a five-day weekly schedule will get a three-day break in December as Quaid-e-Azam Day and Christmas fall on Friday, December 25. According to the Cabinet Division\u2019s official public holiday schedule for 2026, December 25 is a confirmed nationwide public holiday to mark the birth anniversary of Quaid-e-Azam Muhammad Ali Jinnah and Christmas. The holiday will be followed by the regular Saturday and Sunday weekend, giving employees and students at institutions operating five days a week three consecutive days off, from Friday through Sunday. However, those working or studying at offices and educational institutions that operate six days a week will only get Friday off and will return on Saturday, December 26. They will then observe the usual Sunday holiday. The Cabinet Division has also listed December 26 as a special holiday for Christian employees to mark the day after Christmas. This means Christian employees will also get Saturday off, in addition to the nationwide Friday holiday.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/24/pakistanis-to-get-3-consecutive-holidays-in-december/"}, {"head": "Apple\u2019s Authorized Retail Partner in Pakistan Reports Massive iPhone 18 Sales This Year", "body": "Sales of the iPhone 18 at Air Link Communication\u2019s Apple outlets have remained in line with last year\u2019s iPhone 17 sales, with the business generating around Rs. 1-1.5 billion in sales. The update was shared by Topline Securities following Air Link\u2019s corporate briefing on November 24, 2026. According to the report, sales of the new iPhone model at authorized Apple outlets were similar to those recorded for the iPhone 17 last year. The briefing also covered the company\u2019s plans to expand its retail and e-commerce operations. Its buy now, pay later (BNPL) service, AirFin, is awaiting licensing approval. Once approved, the company plans to integrate it with its Airkart e-commerce platform, retail outlets and distributors.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/24/apples-authorized-retail-partner-in-pakistan-reports-massive-iphone-18-sales-this-year/"}, {"head": "Used Phone Imports Into Pakistan Skyrocket 6,760% in 3 Months", "body": "Pakistan\u2019s used smartphone imports have exploded in recent months, jumping from just 1,434 units in July to 98,383 units in October, a staggering 6,760% surge, as the duty gap between imported and locally assembled smartphones continues to narrow. Total smartphone arrivals tell the same story: shipments climbed from 18,431 units worth $17.8 million in July to 150,133 units in October, a 715% increase, including 51,750 new devices valued at $71.7 million alone. The trend is already taking a bite out of domestic manufacturing. Local smartphone production slid from 906,711 units in July to 752,870 units in October, a 17% decline. The Pakistan Mobile Phone Manufacturers Association (PMPMA) has formally raised the alarm with the Ministry of Industries and Production and the Federal Board of Revenue (FBR), warning that the import flood is squeezing local assembly out of the market. PMPMA Chairman Abdul Rehman said the surge in completely built-up (CBU) phone imports was driven by a narrower tariff gap between imported phones and locally assembled devices, along with a reduction in FBR taxes on imported smartphones.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/11/24/used-phone-imports-into-pakistan-skyrocket-6760-in-3-months/"}, {"head": "Foreign Investors Have Lost Confidence in Pakistan -Survey", "body": "Foreign investors in Pakistan have turned pessimistic, with their confidence plunging by 55 percentage points, according to the latest Business Confidence Survey by the Overseas Investors Chamber of Commerce and Industry (OICCI). Confidence among OICCI members fell from positive 28 percent to negative 27 percent in the survey conducted in September and October 2026. Overall business confidence dropped 36 points, from positive 13 percent to negative 23 percent. This reverses the usual trend in which foreign investors were more upbeat than the wider business community. The survey covers businesses that make up nearly 80 percent of Pakistan\u2019s GDP. Retail and wholesale saw the steepest fall of 45 points to negative 25 percent. Manufacturing dropped 34 points to negative 25 percent, while services slid 31 points to negative 17 percent. Investment plans also weakened. Capital investment sentiment fell from positive 2 percent to negative 14 percent, and employment expectations dropped 23 points to negative 6 percent.\n\nMore than 90 percent of businesses in Pakistan say recent fuel price adjustments have negatively affected their operations, with higher transportation costs emerging as the biggest challenge, according to the latest Business Confidence Survey by the OICCI. The survey, conducted during September and October 2026, found that higher transportation costs affected between 80 and 88 percent of businesses across different sectors. Companies also reported rising operating expenses, weaker consumer demand, lower profitability, and disruptions to their supply chains. The impact of fuel price increases comes at a time when businesses are already facing high inflation, taxation, and energy costs. In the same survey, 84 percent of respondents identified rising inflation as a threat to business growth, while 81 percent cited high taxation. Load shedding was another major concern, reported by 58 percent of respondents. The findings suggest that fuel price adjustments are affecting businesses beyond their direct spending on petrol and diesel. Higher transportation expenses can increase the cost of moving raw materials and finished products, while companies also face pressure on their operating costs and profitability.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/24/foreign-investor-confidence-pakistan-crashes-oicci/"}, {"head": "Pakistan Signs Major Investment Agreement With Portugal", "body": "The Pakistan\u2013Portugal Business Forum, hosted by the Special Investment Facilitation Council (SIFC) in Islamabad, has marked a new step in economic cooperation between the two countries, bringing together government officials, investors, and business representatives to explore opportunities for trade, investment, and commercial partnerships.\n\nThe main outcome of the forum was the signing of a Memorandum of Understanding (MoU) on Investment Protection between Pakistan\u2019s Board of Investment (BOI) and Portugal\u2019s Agency for Investment and Foreign Trade (AICEP). The agreement establishes a framework for cooperation between the two countries\u2019 investment promotion agencies and aims to support bilateral investment and business partnerships.\n\nAround 20 Portuguese companies participated in the forum alongside representatives of Pakistan\u2019s business community. Business-to-business (B2B) meetings gave companies from both countries an opportunity to exchange proposals, explore joint ventures, identify potential partners, and establish direct commercial contacts.\n\nThe discussions covered several sectors, including agriculture, textiles, renewable energy, information technology, tourism, maritime services, education, and skilled labor mobility.\n\nAgriculture emerged as an area with potential for cooperation, particularly in olive cultivation, agricultural processing, and value addition. Portuguese expertise and technology could complement Pakistan\u2019s agricultural potential, while both sides also explored opportunities in industrial collaboration, renewable energy, and trade in goods and services.", "source": "ProPakistani \u00b7 Markets & Stocks", "url": "https://propakistani.pk/2026/11/24/pakistan-signs-major-investment-agreement-with-portugal/"}, {"head": "Ahsan Iqbal Says Pakistan-China Friendship Is Now Out of This World", "body": "Federal Minister for Planning Ahsan Iqbal has described Pakistan-China friendship as reaching beyond the skies as Pakistan prepares to send its first astronaut to China\u2019s Tiangong Space Station. Speaking at the Jiuquan Satellite Launch Centre in China on November 24, Iqbal said the upcoming Shenzhou-24 mission would take bilateral cooperation into space. \u201cPakistan-China friendship has always stood higher than the Himalayas. This historic space mission will now carry that friendship beyond the skies,\u201d he said. The minister attended the official astronaut media briefing, where Muhammad Zeeshan Ali was announced as a member of the three-person Shenzhou-24 crew. The mission is scheduled to launch on November 25, 2026. Ali is expected to become the first foreign national to visit China\u2019s Tiangong Space Station, according to the announcement.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/24/ahsan-iqbal-says-pakistan-china-friendship-is-now-out-of-this-world/"}, {"head": "IMF Reveals When Pakistan Will Get Next Loan Deposit", "body": "The International Monetary Fund (IMF) has scheduled an Executive Board meeting for December 11, where it is expected to consider the release of $1.2 billion in funding to Pakistan under its ongoing loan programs.\n\nThe potential disbursement follows a staff-level agreement reached between Pakistan and the IMF mission in October.\n\nThe agreement covered the fourth review of Pakistan\u2019s current Extended Fund Facility (EFF) program and the third review under the Resilience and Sustainability Facility (RSF).\n\nPakistan could receive around $1 billion as the fifth tranche under the EFF program, while another $210 million is expected under the RSF program, which supports climate-related initiatives.\n\nThe two disbursements would bring the total expected funding to approximately $1.21 billion, subject to approval by the IMF Executive Board.", "source": "ProPakistani \u00b7 Economy & Policy", "url": "https://propakistani.pk/2026/11/24/imf-reveals-when-pakistan-will-get-next-loan-deposit/"}], "editorial": {"title": "Reject Rote Exams: Equip FBR Officers With AI, Not Memory Tests", "deck": "The FBR Chairman's in-service testing of Customs and Inland Revenue officers misunderstands statutory administration and ignores the AI and RAG revolution. If rote screening is needed anywhere, start with the generalist PAS monopoly that sidelined Dr. Ishrat Husain's National Executive Service.", "paragraphs": ["The reported decision by the Chairman of the Federal Board of Revenue (FBR) to subject officers of both the Inland Revenue Service (IRS) and the Pakistan Customs Service to in-service written testing of their recall of tax statutes deserves outright, unequivocal rejection. Following the 14 November 2026 Business Recorder report that Inland Revenue officers in Islamabad and Karachi underwent an assessment on income tax and sales tax, and subsequent reports of a similar written test for Customs officers in Lahore, the exercise has been hastily repackaged by officials as a training-needs assessment. Whatever label is applied, the initiative is fundamentally misguided, demoralizing, and deeply out of touch with the realities of modern tax administration. Coming from a Chairman drawn from outside the specialized taxation services, it betrays an elementary misunderstanding of what revenue officers actually do and how statutory law is practiced in the twenty-first century.", "Pakistan's fiscal statutes, including the Customs Act, 1969, the Sales Tax Act, 1990, the Income Tax Ordinance, 2001, the Federal Excise Act, 2005, and the thousands of Statutory Regulatory Orders (SROs), Customs General Orders (CGOs), Sales Tax General Orders (STGOs), and valuation rulings issued thereunder, are elaborate, highly technical, and continuously amended. They exist as authoritative legal texts to be consulted, applied, and interpreted with precision, not committed to memory like a school examination. The job of an FBR officer is to administer revenue fairly under the law, supervise field operations, verify compliance, and adjudicate disputes on evidence. At the operational level, routine assessments and audits are carried out by appraisers and auditors under supervisory oversight, while officers are expected to verify every legal threshold against the statute book before signing an order. Indeed, throughout the world, whenever written professional examinations are held in law, taxation, or other statutory disciplines, open books are routinely allowed precisely so that the assessment tests legal reasoning rather than rote memorization, allowing a capable practitioner to consult the relevant statute immediately and retrieve the exact provision required.", "On a personal level, as Founder and Editor-in-Chief of the Bhawana Tribune, I place on record my own testimony from thirty-three years of distinguished service in the Pakistan Customs Service. Across field formations in Customs Intelligence and Appraisement at Custom House Karachi, seven to eight years at FBR Headquarters, and successive statutory assignments as Assistant Collector Adjudication, Deputy Collector Adjudication, and Collector Adjudication at Custom House Karachi, followed by service as Member of the Customs Appellate Tribunal, Karachi, I never once relied on bare memory when deciding a citizen's rights or the exchequer's claim. Even with decades of proficiency in customs law, every conscientious adjudicator and tribunal member opens the statute again to verify the exact text, proviso, and limitation period. To treat statutory verification as a defect and rote memorization as competence is to invert the very discipline of the rule of law.", "What makes the Chairman's rote-testing drive doubly indefensible is its complete obliviousness to the revolution in information technology and artificial intelligence. Years ago, consulting bound statute volumes and loose-leaf SRO binders was genuinely cumbersome and time-consuming. Today, any officer, appraiser, auditor, or adjudicating authority can lift an iPhone or smartphone, use the built-in voice feature of Google, ChatGPT, or Claude without even typing a single prompt, and ask aloud: 'What are the provisions of Section 33 of the Customs Act, 1969?' Within seconds, the complete, current statutory provision and its interpretive context are delivered accurately. Even more decisively, Retrieval-Augmented Generation (RAG) architectures allow an entire corpus of tax statutes, rules, notifications, and appellate judgments to be indexed into an authoritative institutional knowledge base, enabling officers to query complex cross-references, draft legally sound Orders-in-Original, prepare ironclad Contravention Reports, and eliminate clerical or interpretive errors at scale.", "Tax administration is not a classroom memory test; in an era where voice-enabled AI and statutory RAG systems can retrieve Section 33 of the Customs Act, 1969 in seconds, subjecting specialized revenue officers to rote exams betrays a profound disconnect from both law and modern technology. There is absolutely no need to waste public time and institutional morale on in-service written examinations for FBR officers. Instead, the FBR leadership should immediately launch a structured, nationwide programme to train every Customs and Inland Revenue officer in modern AI tools, statutory RAG workflows, and automated risk analytics, equipping them to discharge their statutory duties optimally, tap leaked revenue, and plug systemic revenue holes that actually bleed the national exchequer.", "If the Chairman FBR and the Federal Government are genuinely committed to testing competence and breaking institutional complacency, they should direct their attention to the Pakistan Administrative Service (PAS), a cadre of career generalists, jacks of all trades and masters of none, who occupy senior executive and technical positions across petroleum, industry, energy, commerce, and revenue administration despite lacking specialized domain expertise. It is this generalist monopoly, not specialized tax officers, that has repeatedly undermined governance by disregarding statutory discipline and constitutional norms. As Dr. Ishrat Husain rightly proposed through the National Executive Service (NES) framework, competitive, merit-based mid-career professional assessments should be instituted across all federal and provincial services to break the PAS monopoly over senior policy posts. Tellingly, as the September 2026 civil service reform discussions confirmed once again, institutional resistance from within PAS has repeatedly sidelined and suppressed the NES proposal.", "This problem is rooted directly in the repeated induction of outsiders from PAS as Chairman FBR, officers who are often placed at the helm not for any mastery of fiscal law, but because they served their superiors well during their generalist tenures. Bypassing career taxation professionals for the leadership of their own organization deeply discourages the service. Worse still, in an effort to prove that they know the job better than seasoned Customs and Inland Revenue officers, outsider Chairmen frequently surround themselves with junior officers or officials who lack deep statutory and operational command, repeatedly thwarting the institutional progress of the FBR. Yet Pakistan Customs has historically been one of the most robust services in the country, necessarily aligned with global customs administrations and the standards of the World Customs Organization (WCO) because it regulates and taxes international trade, imports, and exports. Pit any Grade 20 officer from Pakistan Customs against a PAS officer of the same grade, and the Customs officer will almost invariably display sharper comprehension, stronger legal grasp, and faster decision-making, forged over decades of resolving thousands of live assessment issues in a matter of minutes. That is precisely why whenever Customs or Inland Revenue officers are posted to federal ministries or other national assignments, they consistently outperform their counterparts from PAS and other generalist services.", "Instead of strengthening this professional core, external leadership has torn apart the fabric of the FBR, leaving officer morale hollowed out and the Pakistan Customs Service teetering on the brink of collapse. In critical field formations where operational strength is needed most, staffing has fallen so low that officers are completely weighed down and unable to decide matters in time. In major Karachi collectorates, including South Asia Pakistan Terminals (SAPT), a single Additional Collector has been left to handle hundreds of cases alone. Urgent corrective intervention is needed before both Pakistan Customs and the Inland Revenue Service suffer lasting damage. The Chairman FBR must be chosen from amongst seasoned career officers of the FBR itself, whether from Customs or Inland Revenue. Pakistan has always possessed officers of exceptional calibre within the tax services, exemplified by Mr. Tariq Pasha, originally an Income Tax officer, who remains remembered as one of the most outstanding Chairmen of the FBR on the strength of his integrity and professionalism.", "The path to credible revenue reform is unmistakable. The Chairman FBR should abandon cosmetic, headline-seeking examinations that betray unfamiliarity with modern technological realities and call into question the suitability of generalist leadership over a highly technical revenue authority. Respect the specialized cadres of Customs and Inland Revenue, restore leadership of the tax authority to career revenue professionals, revive genuine cross-service merit reform for the generalist bureaucracy, and align the FBR with artificial intelligence and statutory RAG systems. As the organization charged with collecting the nation's taxes, the FBR must put its house in order and, instead of wasting time on useless exercises, get to work in real earnest."]}}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 25, 2026", "headline": "SECP Lifts Ban on Private Lender After Employees Cleared in Suicide Case", "deck": "The Securities and Exchange Commission of Pakistan (SECP) has lifted a temporary ban on new loan disbursements by the Rural Community Development Programme (RCDP), allowing the microfinance lender to resume its lending operations.", "hero_source": "ProPakistani \u00b7 Markets & Stocks", "hero_url": "https://propakistani.pk/2026/11/24/secp-lifts-ban-on-private-lender-after-employees-cleared-in-suicide-case/", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The move follows an investigation that found no evidence linking the organisation's employees to a suicide incident in Farooqabad. The regulator said a magistrate has discharged the RCDP employees from the case after finding no evidence of their involvement in the incident, adding that the investigation did not establish any connection between the employees and the suicide. Following this development, the SECP removed the temporary restriction that had barred the company from issuing new loans.", "The lifting of the restriction, however, came with a caveat. The regulator directed RCDP to improve its loan recovery performance, emphasising the need for the lender to better collect its outstanding loans. The directive signals that the SECP expects strengthened recovery practices from the microfinance institution even as it returns to normal disbursement activity.", "RCDP is a Lahore-based, not-for-profit microfinance company regulated by the SECP. It traces its roots to the Rural Community Development Society, established in 1995, which initially provided community development and microcredit services. RCDP itself was established as a separate entity in 2015, with its microfinance operations formally transferred to it in 2016.", "The company provides loans and other financial services to low-income households, small entrepreneurs and underserved communities, with a particular focus on rural areas and women borrowers. Its return to lending restores credit access for these segments after the period of the temporary prohibition on new disbursements."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "Petroleum dealers warn of another strike over unmet demands, including 30-day fuel price mechanism", "body": "KARACHI: The Pakistan Petroleum Dealers Association (PPDA) on Monday warned that dealers would shut their petrol pumps unless the government fixes fuel prices for 30 days at a time, giving it 15 days to resolve the issue.\n\nThis is the latest of several strike calls by fuel retailers this year; on each previous occasion, the call was withdrawn after the government stepped in. This time too, dealers say, the issues they raised earlier remain unresolved.\n\nAt a joint press conference held at the Karachi Press Club, PPDA Chairman Malik Khuda Bakhsh, Vice Chairmen Tariq Hassan and Anwar Kamal, Sindh Region President Ameer Khan, and Karachi Region President Saeed Khan said that daily changes to fuel prices were quickly draining pump owners\u2019 working capital.\n\nThey said that if capital ran out, pumps would run dry, which could lead to a law and order situation.\n\nThey demanded that the dealers\u2019 margin be raised immediately to 8pc of the retail price. They also claimed that refineries had cut supplies of petrol and diesel, and that one refinery had stopped supplying diesel altogether. According to the dealers, they collectively deposit Rs5.74 billion into the national exchequer every day.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2046719/petroleum-dealers-warn-of-another-strike-over-unmet-demands-including-30-day-fuel-price-mechanism"}, {"head": "Good Luck Industries Limited -performance and outlook", "body": "Good Luck Industries Limited (PSX: GIL) was incorporated in Pakistan as a public limited company in 1967. The company is engaged in the milling of wheat and all kinds of grains. The main products of GIL are maida (all-purpose flour), fine flour, bran and mill flour (chakki atta). Pattern of Shareholding As of June 30, 2026, GIL had a total of 300,000 shares outstanding which were held by 79 shareholders. Individuals represent the largest shareholder category of GIL with 59.87 percent shares followed by directors, CEO, their spouse and minor children having a stake of 40.11 percent in GIL. The remaining 0.02 percent shares are held by NIT and ICP. Financial Performance (2021-26) Over the period under consideration, GIL\u2019s topline plunged only in 2025. However, its bottomline took a slide twice i.e. in 2023 and 2024. The company\u2019s margins show a cyclical trend. Gross margin registered its optimum level in 2025 while operating and net margins peaked in 2022. The detailed performance review of the period under consideration is given below. After dipping in 2020, GIL\u2019s net sales revived in 2021, boasting 39 percent year-on-year growth to clock in at Rs.1195.26 million. All the product categories performed well during the year with maida making the highest contribution to the net sales followed by katta packing. GIL\u2019s production grew by 3.3 percent in 2021 with capacity utilization standing at 24 percent. This translated into annual production of 22.094 million kgs in 2021. Cost of sales grew by 39.50 percent year-on-year. Gross profit enhanced by 17.66 percent year-on-year in 2021, however, GP margin marched down to 1.87 percent from 2.20 percent in the previous year. This was due to higher support price of wheat especially in Sind and Baluchistan where it jacked up to Rs.2200 per 40 kg. Operating expense spiked by 6.80 percent year-on-year due to higher payroll expense on account of inflation while number of employees stayed intact at 41. Operating profit rebounded by 67.80 percent year-on-year in 2021 with OP margin clocking in at 0.44 percent versus 0.37 percent in the previous year. Finance cost (bank charges) escalated by 28 percent year-on-year. Tax effect of depreciation allowance resulted in 27.53 percent year-on-year plunge in tax charge for the year. Consequently, net profit magnified by 263.31 percent year-on-year in 2021 to clock in at Rs.3.76 million. This resulted in NP margin of 0.31 percent and EPS of Rs.12.54 in 2021 as against NP margin of 0.12 percent and EPS of Rs.3.45 registered in 2020. In 2022, GIL net sales grew by a marginal 3.35 percent year-on-year to clock in at Rs.1235.29 million. The decline in the net sales of atta largely offset the higher turnover of other categories. GIL\u2019s production slid by 6 percent year-on-year to 20.765 million kgs in 2022. This translated into capacity utilization of 22 percent \u2013 the lowest since 2018. Cost of sales inched up by 3.22 percent, resulting in 10 percent higher gross profit recorded in 2022. GP margin also slightly grew to 2 percent in 2022. Operating expense escalated by 6.75 percent year-on-year in 2022 on account of inflation and rise in employee headcount to 44. Operating profit burgeoned by 19.87 percent year-on-year with OP margin slightly ticking up to 0.52 percent in 2022. Finance cost/bank charges hiked by 21.77 percent year-on-year in 2022. Net profit picked up by 22.16 percent year-on-year in 2022 in clock in at Rs.4.60 million with NP margin of 0.37 percent and EPS of Rs.15.32 \u2013 the highest among all the years under consideration. The monsoon floods greatly affected the agricultural output of the country during the first half of the year. This created immense shortage of wheat. The Sind government raised the minimum support price to an exorbitant level of Rs.4000 per 40 kg to encourage the growers. However, this resulted in unprecedented level of food inflation in the country. GIL\u2019s production slid by 2.6 percent in 2023 to clock in at 20.221 million kgs. This resulted in capacity utilization of 21.81 percent. GIL\u2019s net sales grew by 43.32 percent year; however, GP margin fell to 1.55 percent despite 11.52 percent rise in gross profit in 2023. High inflation and transportation charges pushed operating expense up by 18.81 percent year-on-year in 2023. This squeezed the operating profit by 4.25 percent year-on-year with OP margin sinking to 0.34 percent in 2023. Finance cost measured up by 3.69 percent year-on-year in 2023. This resulted in 5.80 percent thinner bottomline in 2023. Net profit stood at Rs.4.33 million in 2023 with NP margin of 0.24 percent and EPS of Rs.14.42. In 2024, GIL\u2019s topline grew by 22.40 percent to clock in at Rs.2166.95 million. This mainly came on the back of higher prices of wheat purchased from Food Department and open market. During the year, the company\u2019s production volume stood at 18.945 million kgs, down 6.3 percent year-on-year. This translated into the lowest ever capacity utilization of 20.44 percent recorded in 2024. Unprecedented spike in the prices of electricity, transportation as well as other related items resulted in 22.69 percent surge in cost of sales in 2024. In absolute terms, gross profit ticked up by 4.33 percent in 2024, however, GP margin slumped to its multiyear low level of 1.32 percent. Operating expense escalated by 19.82 percent in 2024 particularly due to higher payroll expense which was the result of inflation and increase in workforce from 42 employees in 2023 to 46 employees in 2024. Operating profit tapered off by 22.48 percent in 2024 with OP margin sliding down to 0.22 percent. Finance cost mounted by 24.73 percent in 2024. GIL recorded 24.65 percent decline in its net profit in 2024 which clocked in at Rs.3.263 million with EPS of Rs.10.88 and NP margin of 0.15 percent. In 2025, GIL recorded 25.86 percent year-on-year deterioration in its topline which clocked in at Rs.1606.64 million. This was due to decreased rate of wheat in the open market which led the company to align its prices. Reduced commodity prices also enabled the company to record 26.38 percent lower cost of sales in 2025. This translated into 13.50 percent uptick in gross profit with GP margin ticking up to 2 percent. Operating expense surged by 17.14 percent in 2025 due to inflationary pressure. GIL also recorded other income of Rs.2.76 million in 2025, up 50.55 percent year-on-year. This largely included profit on bank deposits followed by reversal of provision booked for ECL. Higher profit related provisioning resulted in 10.24 percent spike in other expense in 2025. Operating profit improved by 9.13 percent in 2025 with OP margin ticking up to 0.32 percent. Finance cost (bank charges) escalated by 86.14 percent in 2025. GIL recorded 4.36 percent uptick in its net profit which clocked in at Rs.3.405 million in 2025. This translated into EPS of Rs.11.35 and NP margin of 0.21 percent in 2025. In 2026, GIL\u2019s net sales grew by 18.83 percent to clock in at Rs.1909.18 million. The growth largely came on the back of increased revenue from atta, katta packing and bran while revenue from maida slid in 2026. The increase in the rate of wheat purchases from the open market pushed the company to increase the prices of wheat products during the year. Cost of sales also increased by 19 percent in 2026 due to higher price of wheat and inflationary pressure. GIL recorded 8 percent uptick in its gross profit in 2026 with GP margin slightly dipping to 1.83 percent. Administrative expense plunged by 3.35 percent in 2026 due to lower payroll expense and fee & subscription charges incurred during the year. Number of employees was reduced from 46 in 2025 to 42 in 2026. Lower provisioning done for WWF resulted in 19.57 percent drop in other expense in 2026. Other income also deteriorated by 78.50 percent in 2026 due to thinner profit on bank deposits and no reversal of allowance booked for ECL recorded during the year. GIL\u2019s operating profit strengthened by 30.28 percent in 2026 with OP margin slightly inching up to 0.35 percent. 114.76 percent spike in finance cost in 2026 encompassed bank charges as the company is non-geared. Net profit inched up by 0.55 percent to clock in at Rs.3.424 million in 2026. This translated into EPS of Rs.11.41 and NP margin of 0.18 percent in 2026. Recent Performance (1QFY27) During the first quarter of FY27, GIL recorded a staggering 91.26 percent year-on-year growth in its topline which clocked in at Rs.639.90 million. This largely came on the back of higher price of wheat in the open market which pushed the company to increase the prices of its products. Cost of sales also mounted by 94.43 percent in 1QFY27 due to elevated wheat prices. This suppressed the gross profit by 6.75 percent in 1QFY27 with GP margin falling down to 1.53 percent from 3.13 percent in 1QFY26. Administrative expense also dwindled by 2.28 percent in 1QFY27 likely due to workforce rationalization. Lesser provisioning done for WWF appears to be the cause of 84.81 percent decline in other expense in 1QFY27. Other income strengthened by 83.14 percent in 1QFY27 due to higher return on bank deposits. GIL recorded 63.32 percent stronger operating profit in 1QFY27 with OP margin clocking in at 0.48 percent versus 0.56 percent in 1QFY26. Finance cost (bank charges) surged by 108.74 percent in 1QFY27. GIL registered net profit of Rs.4.232 million in 1QFY27, up 109.33 percent year-on-year. This translated into EPS of Rs.14.11 and NP margin of 0.66 percent in 1QFY27 versus EPS of Rs.6.74 and NP margin of 0.60 percent recorded in 1QFY26. Future Outlook The future outlook for GIL will largely depend on wheat price movements, the availability of local supplies and the company\u2019s ability to maintain its margins amid rising input and operating costs. The recently announced National wheat policy has set an indicative wheat price of Rs.4500 per 40 kg for the 2027 crop. This will provide greater visibility to the farmers and encourage cultivation. The government\u2019s plan to maintain strategic wheat reserves of up to six million tons alongside arrangements for additional imports if required will help maintain adequate supply in the local market and keep a check on excessive price volatility in the open market. On the downside, insufficient water supply, unfavorable weather conditions and the pace of wheat sowing could restrict the supplies and push procurement prices up. Given GIL\u2019s established presence in the Karachi\u2019s flour landscape and provided its diverse range of wheat products, its revenue prospects are bright. However, improvement in margins and earnings will depend on cost management, procurement mix and operational efficiency.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450599/good-luck-industries-limited-performance-and-outlook"}, {"head": "Oil prices ease, but risks remain", "body": "Global crude oil prices have seen sharp swings over the past three months, largely driven by geopolitical tensions, supply disruptions and concerns over weakening demand. After rising sharply in September and October, prices have started retreating in November as supplies improve and fears of a global oil shortage begin to ease. Brent crude averaged around $91 per barrel in August before climbing to $114 in September and $124 in October, its highest monthly average in over four years. However, the rally has since lost momentum. By November 24, Brent had fallen to around $89 per barrel, while US West Texas Intermediate (WTI) was trading near $80. The sharp correction suggests that markets are becoming less concerned about immediate supply shortages, although the geopolitical risks have certainly not disappeared. The biggest factor behind the recent volatility has been the conflict in the Middle East, particularly disruptions to oil shipments through the Strait of Hormuz. Attacks on tankers and energy infrastructure, along with higher shipping and insurance costs, have pushed up the cost of getting oil to international markets. The Russia-Ukraine conflict has also regained momentum, with renewed Ukrainian attacks on Russian refineries and energy infrastructure adding to uncertainties in global fuel markets. However, the supply situation has started improving. According to the International Energy Agency (IEA), global oil production increased by 2.3 million barrels per day in October to 105.4 million barrels per day as Gulf exports recovered. Overall production has increased considerably since August, although supplies from the Middle East have yet to return to pre-war levels. On the demand side, the picture is less encouraging. The IEA expects global oil consumption to decline by 2.7 million barrels per day in 2026 to 102.3 million barrels per day. High oil prices, slower economic activity, and disruptions to industrial production have affected consumption. Demand from China, traditionally one of the biggest drivers of global oil consumption growth, has also weakened. This changing demand-supply balance is now putting downward pressure on prices. The IEA expects the oil market to return to surplus towards the end of 2026. However, the availability of crude oil does not necessarily mean that refined petroleum products will become cheaper at the same pace. Diesel markets, in particular, remain relatively tight. For oil-importing countries such as Pakistan, the past few months have been particularly difficult. Pakistan\u2019s petroleum import bill increased by 9.3 percent year-on-year to $5.63 billion during 4MFY27, while crude oil imports jumped by 33 percent to $2.62 billion. Higher international prices have added to the country\u2019s import bill, increased pressure on domestic fuel prices and contributed to inflation. The recent decline in crude prices is therefore a welcome development. If sustained, it could ease pressure on Pakistan\u2019s current account and help contain inflation. However, the benefit to consumers may be limited by higher freight costs, refining margins, exchange-rate movements, and domestic petroleum taxes. For now, the global oil market appears to be moving away from fears of an immediate shortage towards concerns about weaker demand and improving supply. But with geopolitical tensions still unresolved, another round of volatility cannot be ruled out. For Pakistan, the challenge remains its dependence on imported energy, which continues to leave the economy exposed to developments well beyond its control.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450598/oil-prices-ease-but-risks-remain"}, {"head": "Oil rises on Hormuz ship attacks, surplus supply outlook curbs gains", "body": "HOUSTON: Oil prices edged higher on Tuesday in a choppy session as new attacks were reported on vessels in the Strait of Hormuz, but gains were capped by an outlook for surplus global supplies. Brent crude futures bounced off a session trough that was their lowest since August 27 and were up 45 cents, or 0.5 percent, to USD89.82 a barrel at 11:25 a.m. EDT (1625 GMT). US West Texas Intermediate crude futures were up 42 cents, or 0.52 percent, at USD80.59 a barrel. Their session low was the weakest since August 10. Brent\u2019s session low was USD88.10 a barrel, while WTI slipped as low as USD79.07, pressured by a stock market slide. On Monday, three vessels were struck by unidentified projectiles as they sailed east through the Strait of Hormuz, the United Kingdom Maritime Trade Operations said on Tuesday. All three vessels continued their journeys and all crew members were accounted for, UKMTO said. \u201cExpectations for excess supply continue to restrain the recovery, leaving crude sensitive to whether further attacks actually interrupt deliveries,\u201d Gelber & Associates analysts said in a note. The US is investigating whether Iran was involved in cyberattacks on as many as 50 energy tankers, the Wall Street Journal reported on Monday, citing US officials and others familiar with the matter. Libya\u2019s Sharara oil pipeline has reopened after an \u201cunlawful group\u201d closed a valve on the pipeline, and oil has begun to flow into storage tanks at the Akakus facility in Zawiya, the chairperson of the National Oil Corporation told Reuters on Monday. China and India are on track for record Russian oil imports this year, plugging a supply gap caused by the Iran war, according to tanker data and industry insiders. Temporary US waivers on Russian oil sanctions widened the pool of vessels and suppliers available to India and China, allowing them to increase purchases at a time when supplies from the Middle East are disrupted. But sustained Ukrainian strikes on Russian oil infrastructure tempered available supplies. Russia will \u201cinevitably\u201d respond to the continuing Ukrainian attacks on its refineries, President Vladimir Putin said on Tuesday, adding he wanted the government to discuss additional security measures for energy facilities. Putin noted that US President Donald Trump had explicitly asked Ukraine to stop attacking Russian refineries. The overall global oil supply outlook still was seen as a surplus. Deutsche Bank said that global observed liquids inventories rose in October, implying an oversupply of 1.7 million barrels per day. Evidence is accumulating that the global market is rebalancing and turning into surplus, although setbacks could delay progress, the bank said in a research report. US crude oil and product inventories likely rose last week, a preliminary Reuters poll showed. \u201cOil prices are facing modest downward pressure from two sides: markets are pricing out some near-term geopolitical risk in the Middle East, while releases from strategic reserves are keeping supply relatively comfortable despite lower regional exports and stronger Chinese demand,\u201d said UBS analyst Giovanni Staunovo. Elsewhere, Iraq\u2019s prime minister has ordered the federal oil ministry to manage oilfields in areas under Kurdish security control, the state news agency said on Tuesday, potentially deepening tensions between Baghdad and the semi-autonomous Kurdistan region.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450613/oil-rises-on-hormuz-ship-attacks-surplus-supply-outlook-curbs-gains"}, {"head": "Food exports jump, imports stay flat in October", "body": "ISLAMABAD: Pakistan exported 10,346 tonnes of sugar in October, marking the formal commencement of sugar exports from the country in the current fiscal year. In contrast, wheat imports resumed in the same month to help bridge domestic supply shortages and contain rising wheat prices. During the month, Pakistan imported 51,000 tonnes of wheat. However, the quantity of sugar exported in October was significantly lower than the volumes approved by the government for export, including 108,000 tonnes in August and 200,000 tonnes in mid-September. Official figures compiled by the Pakistan Bureau of Statistics showed that no sugar exports were recorded in August and September. Sugar shipments begin as imported wheat arrives to bridge shortfall In its latest meeting, the Economic Coordination Committee (ECC) of the Cabinet also approved exporting an additional 416,000 tonnes of sugar. Official data showed that sugar exports were valued at $4.936 million in October, compared with no exports in the same month last year. Meat exports grew 19pc year on year during 4MFY27. Fish and fish product exports rose by 29.83pc, while spice exports posted robust growth of 23.98pc. In contrast, vegetable exports recorded the steepest decline, falling by 18.64pc, while fruit exports dropped by 27.43pc. Pakistan\u2019s main markets for these products are Afghanistan, Iran, and China. However, no fruit or vegetable exports to Afghanistan have been recorded since October 2025. Overall food exports rose 22.49pc to $1.885bn during July-October FY27 from $1.538bn in the corresponding period last year. Palm oil accounted for the largest share of food imports, followed by pulses, tea, and soybean oil. The value of palm oil imports rose modestly by 1.44pc year on year. However, import volumes declined by 9.60pc during the period under review. Imports of pulses declined by 10.02pc during the period under review, while the value of soybean oil imports plunged by 90.35pc compared with the same period last year. The import bill for all other food items rose 24.04pc, tea 18.28pc, and milk products 6.39pc during July-October FY27. Imports of dry fruits grew 11.24pc. The overall import bill grew modestly by 2.76pc to $3.160bn in 4MFY27 from $3.075bn in the same period last year. Published in Dawn, November 24th, 2026", "source": "Dawn Business", "url": "https://www.dawn.com/news/2046650/food-exports-jump-imports-stay-flat-in-october"}]}, {"id": 3, "desk": "AI Frontier Models & Developer Infrastructure", "category": "Frontier Architectures", "readTime": "5 min read", "date": "WEDNESDAY, NOVEMBER 25, 2026", "headline": "Anthropic shares fall below IPO price, a worrying sign for AI startups", "deck": "Anthropic\u2019s stock fell below its IPO price of $83 , trading as low as $76 a share by midday Tuesday, down nearly 12% from Monday\u2019s close.", "hero_source": "TechCrunch Wire", "hero_url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/", "author": "AI Systems & Frontier Tech Desk", "authorRole": "Technical Intelligence", "body": ["Falling below the IPO price is often seen as a negative signal because underwriters typically price offerings at a discount to their expected trading value.", "The AI industry has been eagerly watching how Anthropic\u2019s shares trade, with VCs and other observers saying its performance could serve as a barometer for how public market investors value the sector.", "The dramatic slump comes less than a week after Anthropic debuted on Nasdaq at $111.50 a share . If its shares continue to trade poorly in the coming weeks, the slide could put pressure on private startup valuations and weaken IPO prospects for other AI companies.", "Anthropic isn\u2019t the only AI stock selling off on Tuesday. Nvidia fell more than 7% by midday, giving back some of the more than 30%-plus gain it posted Monday after Jensen Huang was reinstated as CEO."], "quote": "Empirical benchmarks and transparent system architecture define durable AI progress.", "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Huang\u2019s return fails to dispel doubts as Nvidia shares drop", "body": "Technology shares led a market retreat on Tuesday as caution returned after Jensen Huang\u2019s extraordinary return to AI giant Nvidia days after he was forced to resign, with investors bracing for further volatility in a key sector driving economic growth worldwide. A day after Huang\u2019s reinstatement as CEO drove Nvidia shares up more than 30 per cent, adding more than $900 billion to the firm\u2019s market value, the euphoria dissipated as its stock lost almost 9pc mid-session. Fellow tech behemoth and AI giant Anthropic also slumped, giving up around 12pc to $77.19, below its $83 price for last week\u2019s IPO. Monday aside, AI stocks had already sold off sharply throughout November on worries about profitability and the vast sums pumped into the sector. Overall, the tech-heavy Nasdaq shed 2.3pc and the broader-based S&P 500 lost 1.1pc, while the Dow was just into the green around 1700 GMT (10pm PKT). Europe\u2019s main stock markets, which feature far fewer tech companies than their Asian and US rivals, finished a handful of percentage points lower after jumping on Monday in line with Wall Street. Away from the tech sector, French pharmaceutical giant Sanofi revealed it would buy the US biopharma group Insmed, a specialist in respiratory treatments, for $41bn as it races to bulk up its development pipeline of new drugs. Sanofi\u2019s share price closed up almost 10pc following the news. Huang had resigned less than two weeks ago over extramarital affairs, reportedly with an alleged Chinese spy as well as a senior Nvidia executive before US President Donald Trump noisily declared he should be brought back. \u201cJensen\u2019s return takes away one of the biggest unknowns hanging over the AI trade,\u201d said Charu Chanana, an investment strategist at Saxo Markets. \u201cHe is not just Nvidia\u2019s CEO; he is arguably the biggest salesman for the entire AI ecosystem. His relationships with customers, suppliers and capital providers are difficult to replicate,\u201d she said. But \u201cJensen Huang alone cannot support the AI trade in the long term,\u201d said Kathleen Brooks, research director at XTB. \u201cNvidia\u2019s stock price decline on Tuesday is to be expected after such a large rally in the previous session,\u201d she added. Analysts were in broad agreement that Huang\u2019s return did not mean an end to probes or the uncertainty that has clouded the AI trade for six months. The company remains under scrutiny from investigators including at the FBI and on Capitol Hill for allegedly helping Chinese firms gain access to Nvidia\u2019s top-line chips. Monday\u2019s Wall Street surge had propelled Asian markets earlier on Tuesday, with Taipei surging 9pc higher as chip titans TSMC and MediaTek added nearly 10pc each. Seoul piled on more than 6pc thanks to strong gains in fellow chip giants SK Hynix and Samsung, and Tokyo rose nearly 4pc, led by a 12.5pc jump for semiconductor tester Advantest.", "source": "Dawn Business", "url": "https://www.dawn.com/news/2046803/huangs-return-fails-to-dispel-doubts-as-nvidia-shares-drop"}, {"head": "Yale\u2019s Sonnenfeld -Nvidia is a \u2018detriment\u2019 to U.S. industrial might \u2014 not a champion", "body": "Jeffrey Sonnenfeld of Yale has warned that Monday\u2019s jubilant market reception of Jensen Huang\u2019s White House\u2013backed return as Nvidia\u2019s chief executive and board member could prove a giant mistake. In his assessment, the directors who embraced the arrangement now face exposure to \u201chistoric\u201d personal liability stemming from a growing pile of lawsuits.\n\nThe intervention punctures the celebratory narrative surrounding the semiconductor heavyweight. Sonnenfeld argues that Nvidia should be regarded not as a champion of American industry but as a \u201cdetriment\u201d to United States industrial might \u2014 a reversal of the framing that has cast the company as the standard-bearer of the nation\u2019s technological ascendancy.\n\nCentral to his case is a blunt question: whether the country is cheering a company that has helped put advanced chips in its adversaries\u2019 hands. That concern, on his reading, should temper the enthusiasm with which investors and the White House chose to mark Huang\u2019s return.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/"}, {"head": "Dozens of oil and shipping tankers hacked in recent weeks, per report", "body": "Dozens of oil and shipping tankers have been hacked over recent weeks in an escalating wave of cyberattacks against vessels carrying oil and chemicals across the world's busiest sea lanes, and Iran stands as the chief suspect behind the intrusions. The breadth of the campaign, reaching dozens of commercial ships within a concentrated window, points to a co-ordinated effort rather than isolated breaches, and it lands at a moment when the tanker sector already contends with security risks, sanctions enforcement and volatile freight markets.\n\nThe targets sit at the centre of seaborne energy trade, and the intrusions expose how vulnerable modern merchant fleets remain: navigation and satellite-communication systems, engine-room controls and cargo-management software all live aboard hulls whose crews, owners and flag registrations are scattered across jurisdictions, complicating detection, attribution and recovery. Maritime security specialists have long cautioned that commercial shipping offers state-linked hackers an attractive arena, serving both intelligence gathering and the signalling of capability during periods of heightened geopolitical tension.\n\nWith Iran identified as the prime suspect, attention will sharpen on the Gulf, where tanker traffic has repeatedly been drawn into confrontation and where vessels have previously endured electronic interference and digital probing. As the tally of affected ships was still being assessed on 24 November 2026, shipowners, insurers and port authorities face mounting pressure to harden onboard systems, audit network access and rehearse contingency plans for a threat that now reaches directly into commercial shipping at scale.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/24/dozens-of-oil-and-shipping-tankers-hacked-in-recent-weeks-per-report/"}, {"head": "Huawei Beats US Rivals as Only Non-American Firm in Gartner\u2019s First AI Storage Ranking", "body": "Huawei has been named a \u201cMarket Shaper\u201d in Gartner\u2019s first-ever ranking of AI data storage vendors, and it is the only company outside North America in that top group. Gartner also placed Huawei furthest along the axis that measures potential to disrupt the market, ahead of US storage names like IBM, Dell Technologies, NetApp, Everpure and VAST Data. The recognition comes from the November 2026 Gartner Emerging Market Quadrant for AI Data Storage (Established Vendors), Huawei announced on November 23. It is the first time Gartner has evaluated AI data storage as a separate category, which shows how central storage has become to the AI race. Gartner describes Market Shapers as the companies most likely to drive major change, or even disruption, in an emerging market, combining strong disruptive technology with the ability to bring it to customers at scale. According to the report, the key capabilities for this group include hardware and software co-design, GPU protocol acceleration, specialized SSD management, large-scale vector indexing and a persistent shared KV cache. Huawei credited its AI Data Lake Solution, OceanStor A Series AI Storage and OceanStor M Series Context Memory Storage for the placement. Its OceanStor storage is used in more than 150 countries across finance, telecom, manufacturing, healthcare and government.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/24/huawei-gartner-ai-data-storage-market-shaper/"}, {"head": "Even the best AI agents struggle with everyday life", "body": "Millions of users have embraced personal assistants built on artificial intelligence (AI), trusting them to book appointments, sort inboxes, order groceries and coordinate errands on their behalf. Yet a new benchmark published on 24 November 2026 delivers an uncomfortable verdict on this experiment: even the most advanced AI models cannot reliably and safely complete the everyday tasks people increasingly expect of them, and their efforts sometimes introduce potential new problems rather than solving old ones.\n\nThe shortcoming reflects the sheer messiness of ordinary life. Where a chatbot answers a question and stops, an agent must chain together many steps: interpreting instructions correctly, choosing between ambiguous options, dealing with websites, vendors and calendars that behave unpredictably, and knowing when to stop. Each stage offers an opportunity to misread a request, take an unneeded action or complete a task in a way that leaves the user exposed \u2014 precisely the potential for fresh trouble that the benchmark was designed to measure.\n\nThe results land as the technology industry promotes agents as the next step of commercial AI, promising consumers genuine relief from chores. They underline the gap between that ambition and present reality, and point to human oversight \u2014 checking a booking, reviewing a purchase, confirming what an assistant has just done \u2014 as indispensable for now. Until agents become demonstrably safer and more dependable, the routine tasks they were meant to spare us may demand more attention, not less.", "source": "TechCrunch Wire", "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 25, 2026", "headline": "\u2018Sunrise On The Reaping\u2019 To Gobble Up Thanksgiving; \u2018Hexed\u2019 $75M+ WW Opening; \u2018Focker-In-Law\u2019 $70M WW \u2013 Box Office Preview", "deck": "Lionsgate\u2019s The Hunger Games: Sunrise on the Reaping will have all the fire to keep the Thanksgiving box office stretch cooking with at least $70M between Wednesday and Sunday per industry estimates at the domestic B.O.. Five-day forecasts are hard, duh, and once we\u2019re into Black Friday, the richest day of the frame, does it [\u2026]", "hero_source": "Deadline Hollywood Wire", "hero_url": "https://deadline.com/2026/11/hunger-games-focker-in-law-hexed-box-office-thanksgiving-1237233010/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["'Hershey' and 'The Further Mis-Adventures of Cliff Booth' also head to the big screen for the five-day holiday weekend.", "The Golden Globes ballots are out, and some of the year&#8217;s biggest surprises are emerging from the official reminder lists sent to members. Variety has exclusively obtained the official motion picture eligibility list for the 84th Golden Globes, which lays out every film submitted across seven categories along with the actors, directors, writers and composers [&#8230;]", "Being a member of Capitol society in Panem is an honor not to be taken lightly, at least if you&#8217;re Drusilla Sickle, played by screen legend Glenn Close in \u201cThe Hunger Games: Sunrise on the Reaping.\u201d In the book, Drusilla is the cruel and vain escort for Haymitch Abernathy (Joseph Zada) and the rest of [&#8230;]", "'Inter Alia,' starring Rosamund Pike, is also continuing to build momentum."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "Take-Two CEO Strauss Zelnick To Talk \u2018Grand Theft Auto VI\u2019 At SXSW London 2027; More Speakers Announced", "body": "Strauss Zelnick, chief executive of Take-Two Interactive, will speak at South by Southwest (SXSW) London 2027, organisers announced on Tuesday. Zelnick, set to discuss building one of the world's biggest entertainment franchises, figures among the first wave of speakers revealed for the festival, which returns to Shoreditch, east London, for its third year in May 2027.\n\nThe opening reveal places the Grand Theft Auto franchise at the centre of the 2027 programme, with Zelnick's session framed around how Take-Two built one of the world's biggest entertainment franchises. Additional speakers were also named on Tuesday, rounding out a first wave of announcements that organisers have set out as the starting point for the festival's third London edition.\n\nFor Zelnick and Take-Two Interactive, the appearance offers a prominent European stage at a time when Grand Theft Auto VI commands attention across the interactive entertainment industry. SXSW London, staged in Shoreditch since its launch, has opened its 2027 programme with the games business holding a central place, and more speaker names are expected to follow ahead of the festival's May 2027 run.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/gta-6-take-two-ceo-strauss-zelnick-sxsw-london-2027-speaker-1237232963/"}, {"head": "\u2018Avengers -Doomsday\u2019 Final Trailer Clocks 563M Views, Best Ever For Disney; 2nd Most Viewed Of All-Time", "body": "The final trailer for \u201cAvengers: Doomsday\u201d has clocked 563 million views in its first 24 hours, marking the best performance ever recorded for a Disney title and the second most-viewed trailer of all time. While studio distribution executives routinely downplay the straight line between such analytics and opening ticket sales, the sheer volume of traffic suggests the Russo Brothers-directed Disney and Marvel Studios film is bound for some sort of box office opening record. The picture is directed by Anthony and Joe Russo.\n\nInterest in the film has been sharpened by James Marsden\u2019s return as Cyclops, the character he originated in the 2000s \u201cX-Men\u201d films. In a new interview, the actor teased the new Marvel film, saying fans will be \u201cvery pleased\u201d and noting that Cyclops finally gets to lead the mutants.\n\nMarvel Studios president Kevin Feige and co-directors Anthony and Joe Russo have also reflected on completing the shoot with the late Patrick Stewart, whose role became his final on-screen appearance after his death in October. \u201cHe stood up and he gave a speech to the crew,\u201d Feige told Entertainment Weekly of Stewart\u2019s final day on the film.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/avengers-doomsday-final-trailer-viewership-record-1237232943/"}, {"head": "Philip Rosenberg, Oscar-Winning Production Designer for \u2018All That Jazz,\u2019 Dies at 91", "body": "Philip Rosenberg, the production designer and art director who was part of the team that won the Academy Award for art direction\u2013set decoration for \u201cAll That Jazz,\u201d died on October 28 in West Palm Beach, Florida. He was 91. His death was announced by his nephew, Alan Rosenberg.\n\nThe Oscar honoured the bold, theatrical production design that Rosenberg and his collaborators built for Bob Fosse\u2019s 1979 musical, and it remains the most celebrated credit of his career behind the camera. The recognition placed the film among the most visually distinctive productions of its era and confirmed Rosenberg\u2019s standing within Hollywood\u2019s design community.\n\nHis first film job was as a design assistant, a starting point from which he rose through the art department to a career as a production designer and art director on major American films. With \u201cAll That Jazz,\u201d he secured his place among the designers whose work helped define the look of late-20th-century Hollywood, a legacy that now stands as his lasting memorial.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/news/philip-rosenberg-dead-all-that-jazz-1236957540/"}, {"head": "\u2018One Last Order\u2019 -Beloved Drive-Thru Worker Sighle Williams Says \u2018I Miss the Community\u2019 as Viral Netflix Doc Streams", "body": "Sighle Williams, the beloved drive-thru worker at Mac\u2019s Drive Thru in Gainesville, Florida, has served her final order after 37 years at the burger joint, and her farewell has found a wide audience through \u201cOne Last Order\u201d, the Netflix documentary that has gone viral on the streamer. On her last day, it seemed like the entire city of Gainesville came out to say goodbye, an outpouring of affection that left the longtime window worker herself taken aback.\n\n\u201cA lot of people told me they were going to come. But I wasn\u2019t expecting that many people,\u201d Williams says, recalling the crowds of well-wishers who turned up at the drive-thru to place one last order from the woman who had greeted them for more than three decades.\n\nThe feeling behind the send-off is summed up in her own words: \u201cI miss the community,\u201d Williams says. With \u201cOne Last Order\u201d streaming on Netflix, a documentary about a single window at a Florida burger joint has travelled far beyond Gainesville, turning one worker\u2019s final shift into a moment of collective thanks.", "source": "Variety Global Wire", "url": "https://variety.com/2026/tv/news/one-last-order-netflix-drive-thru-worker-sighle-williams-1236957515/"}, {"head": "Everything We Know About Gina Prince-Bythewood\u2019s \u2018Children Of Blood And Bone\u2019 Movie So Far", "body": "The theatrical release of Children of Blood and Bone is drawing nearer as summer draws to a close, moving Gina Prince-Bythewood\u2019s big-screen adaptation of Tomi Adeyemi\u2019s young adult fantasy into its final stretch toward cinemas. The project, which brings Adeyemi\u2019s acclaimed novel to the screen with a notably stacked cast of actors and characters, stands among the most closely watched fantasy adaptations heading to theatres, and its arrival is shaping up as one of the season\u2019s most prominent releases.\n\nThe film adapts Adeyemi\u2019s West African-inspired saga, set in the kingdom of Or\u00efsha, where magic has disappeared and a young heroine must fight to restore it. The novel\u2019s fusion of Yoruba mythology, sweeping adventure and sharply drawn social themes has built a devoted global readership, and the adaptation has attracted broad attention for placing the material in the hands of Prince-Bythewood, whose filmmaking spans large-scale action spectacle and intimate character-driven drama.\n\nWith the theatrical window fast approaching, focus now turns to how the ensemble renders Adeyemi\u2019s characters on screen and how Prince-Bythewood translates the novel\u2019s scale for cinema audiences. The release marks a significant moment for fantasy drawn from African storytelling traditions, and the countdown to its big-screen debut begins in earnest as the summer season comes to an end.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/feature/children-of-blood-and-bone-movie-news-updates-adaptation-1237012631/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 25, 2026", "headline": "Economic diplomacy -Ministry, SIFC brief resident heads of missions", "deck": "ISLAMABAD: The Ministry of Foreign Affairs, in collaboration with the Special Investment Facilitation Council (SIFC), briefed resident heads of mission on Pakistan\u2019s economic diplomacy at a session held on Tuesday, highlighting the country\u2019s investment opportunities and the facilitation measures available to foreign investors.", "hero_source": "Business Recorder", "hero_url": "https://www.brecorder.com/news/40450595/economic-diplomacy-ministry-sifc-brief-resident-heads-of-missions", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["The Foreign Secretary chaired the briefing, which was attended by the National Coordinator, the Director General, the Secretary and other officials of the SIFC.", "Dr Jehanzeb Khan, Secretary of the SIFC Apex Committee, briefed participants on Pakistan\u2019s economic environment, the investment opportunities on offer, and the incentives and facilitation measures in place across key sectors, including mines and minerals, agriculture and livestock, information technology and IT-enabled services, healthcare, infrastructure, tourism, special economic zones (SEZs) and human resource development. Sector-specific investment pitch books were provided to the diplomats during the session.", "The National Coordinator, the Secretary and other SIFC officials fielded questions from the diplomats concerning SEZ incentives, the regulatory environment, profit repatriation, taxation and other related matters, responding to queries on the practical aspects of the investment framework.", "In his concluding remarks, the Foreign Secretary reaffirmed that \u201cPakistan is open for business to all\u201d and welcomed investors. He noted that the Ministry of Foreign Affairs, the SIFC and other relevant institutions were working closely to facilitate investment and support the country\u2019s economic growth. He also underscored the important role of resident heads of mission and their teams in helping businesses in their respective countries explore investment opportunities and strengthen economic ties with Pakistan."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "What happens when a bank ducks rules in Pakistan? For Deutsche Bank, perhaps nothing", "body": "In 2018, the world turned its microscope on Pakistan\u2019s financial system. Placed on the Financial Action Task Force (FATF) \u201c gray list \u201d, the country was thrust into a frantic race to prove it could secure its financial system against the flow of illicit capital. It was a moment of national urgency, defined by rigorous audits and a desperate need to reclaim international legitimacy in a landscape shadowed by allegations of money laundering and terror financing. The decision sent shockwaves through the country\u2019s financial system and the resulting restrictions battered the economy. Yet, even as policymakers were scrambling to bolster the defences of the nation\u2019s financial system, vulnerabilities in the internal systems of Deutsche Bank\u2019s Pakistan operations were complicating the fight against illicit money flows. The global banking giant\u2019s own assessment had classified Pakistan as a \u201crestricted\u201d high-risk country, subjecting businesses connected to it to additional checks and limitations. An internal report cited Pakistan\u2019s \u201cterrorism and Taliban links\u201d and proximity to Iran as key reasons for the classification. Bank documents, however, show a history of overlooked alerts and bypassed regulations, and in some instances, an inability to identify who was truly moving the money in this \u201crestricted country\u201d. These internal records are part of over 15 million internal Deutsche Bank files leaked to the journalists Josy Joseph and Khadija Sharife. The records span many of the bank\u2019s most sensitive departments: financial crime, sanctions monitoring, internal auditing, and the units responsible for deciding whether risky clients stay or go. This report is part of Inside Deutsche Bank , a months-long investigation of the leak involving over 200 journalists from more than 50 countries. The records reviewed by Dawn do not necessarily establish that suspicious or illicit transactions passed through the bank. What they reveal, however, is that while Pakistan was under intense international scrutiny over its financial controls, one of the world\u2019s largest banks, while operating within the territory, struggled to distinguish customers from non-customers, monitor financial transactions and implement safeguards against financial crime. The Pakistan operation Deutsche Bank has held a commercial banking license in Pakistan since 1962. It processes hundreds of millions of dollars\u2019 worth of transactions into, out of and within the country every year. It currently employs close to 100 staff in its Karachi and Lahore branches, offering Pakistan-based clients a \u201cwide range of corporate and investment bank products and services, including foreign exchange, fixed income sales and trading, cash management, trade finance and treasury solutions for corporates\u201d. Over the years, the bank\u2019s internal controls against financial crime have been found wanting in multiple jurisdictions across the world. It has paid billions of dollars in fines and settlements over interest-rate manipulation, failures to prevent money laundering and other misconduct. In Pakistan, however, its small yet significant operation has maintained an image of respectability, not once being named in any scandal or accused of involvement in financial irregularities. According to internal documents, Pakistan has been one of the most active countries in Deutsche Bank\u2019s global trade finance business. In 2016, it ranked third by the number of letters of credit handled by the bank, behind only China and India. That year, Deutsche Bank processed an estimated \u20ac872 million in incoming funds and \u20ac255 million in outgoing funds for Pakistan. Across its global network, the bank exchanged around 187,000 incoming and 174,000 outgoing cross-border payment instructions involving Pakistan in the same period. About six in 10 were in US dollars. Locally, the bank\u2019s operations were relatively small and largely hands-on. An internal Deutsche Bank Pakistan spreadsheet dated December 2019 shows its local teams dealt with an average of about 4,560 items a day across cash counters, cheque clearing, payment orders and electronic payments. None of these was fully automated, according to the document. The spreadsheet also recorded more than 14,000 daily reviews of transactions flagged by sanctions screening, illustrating the substantial compliance workload the bank faced alongside its routine operations. Local compliance challenges In October 2019, the State Bank of Pakistan (SBP) introduced key requirements under its Trade-Based Money Laundering (TBML) framework and ordered banks to implement them with immediate effect. However, after feedback from some banks on implementation challenges, the regulator extended the deadline to September 30, 2020. The framework, seen by Dawn , came on the heels of pressure from the FATF and aimed to strengthen \u201ctrade-related Anti-Money Laundering/Combating Financing of Terrorism (AML/CFT) regime and restrict possible misuse of banking channels\u201d. It was part of a broader overhaul of processes relating to financial institutions. Yet, internal records show Deutsche Bank Pakistan failed to implement two essential safeguards months after the September 2020 deadline: a price due diligence mechanism to identify artificially inflated or undervalued trade transactions; and an automated Management Information System (MIS) to monitor suspicious activity across its vast transaction volume. \u201cDB Pakistan Trade Finance has not fulfilled the SBP\u2019s TBML Framework requirements on implementation of a price due diligence mechanism and an automated MIS tool,\u201d Khurram Amanullah, the bank\u2019s principal auditor for Pakistan, wrote in an email on July 30, 2021, almost 10 months after the SBP\u2019s revised deadline. The email was addressed to Markus Weick, who was part of the bank\u2019s Trade Finance Product Management team in Germany. At least a dozen other bank staff were copied. According to Amanullah, \u201cDB Pakistan Trade Finance spent excessive time in deciding whether to implement the relevant system in-house or outsourced to external vendor. (Lack of Diligence).\u201d Amanullah and Weick did not respond to requests for comment. This wasn\u2019t the first time the bank had flagged shortcomings in its trade finance processes in Pakistan. An earlier group audit, published in 2017, into Deutsche Bank Pakistan\u2019s operations in 2016 had flagged similar concerns, stating: \u201cTrade Finance Operations (TFO) does not always check whether underlying goods (HS Codes) for letter of credit (LC) transactions meet local requirements. In addition, Trade Product Management do not fully document expected client trade flows required to monitor [anti-money laundering] risk and identify potential red flags (GTB Due Diligence policy requirement).\u201d This was almost three years before the SBP ordered banks to address such risks. Yet it seems nothing had been done to mitigate them even by July 2021. Whose money? Who knows Beyond trade finance protocols, the 2017 audit report flagged another discovery: \u201cDB Pakistan does not perform transaction filtering (sanction screening) for manual domestic cheque payments (\u20ac4.6bn in 2016) and a subset of local bank payments made through DBDC (global app).\u201d All banks in Pakistan are required to cross-check their clients against sanctions lists \u2014 such as the United Nations Security Council Consolidated Sanctions List and the National Counter Terrorism Authority Proscribed Persons List \u2014 and report any irregularities to the Financial Monitoring Unit, Pakistan\u2019s central financial intelligence unit. A banker with over two decades of experience in the compliance departments of various Pakistani banks told Dawn that the SBP requires banks to screen all active clients against these lists every month. \u201cThe lists are frequently updated, sometimes even within hours, so it\u2019s common practice to perform the screening regularly,\u201d he explained. The 2017 audit report identified the risk that \u201cDB Pakistan may process transactions with sanctioned/embargo counterparties or jurisdictions without detection.\u201d The bank was clearly wary that some suspicious transactions may have escaped detection, especially considering the number of transactions and the quantum of funds involved. This was against the Deutsche Bank Group\u2019s own Embargo Policy, which mandates that \u201call transactions resulting in the transfer of assets or which instruct the transfer of assets are to be filtered against the applicable embargo lists prior to leaving DB Group, or subject to further processing within DB Group, to ensure DB Group does not process transactions with sanctioned designations\u201d. In 2016, the report noted, the matter had been escalated by the Pakistan operations staff to senior management, but the former were advised \u201dnot to do anything further\u201d because \u201c\u2026 a system flag was due to be implemented across the group\u201d. This wasn\u2019t the first time the bank had faced such a situation in the region. In 2015, according to the audit report, Deutsche Bank had paid a $258 million fine \u201cas a result of sanction breaches for transactions in embargoed Middle East territories\u201d. The report detailed that Deutsche Bank Pakistan had processed 76,821 unfiltered cheques worth \u20ac4.6 billion \u2014 \u20ac3.5 billion in deposits and \u20ac1.1 billion in payments \u2014 in 2016 alone. \u201cThe majority (circa \u20ac2.9bn of deposits) relates to one high-risk client, which is in the process of being off-boarded,\u201d said the report. The audit report was silent on who this high-risk client was and why they were being off-boarded. Another audit report from 2020 on Deutsche Bank Pakistan\u2019s anti-financial crime functions noted that not a single Suspicious Activity Report or Suspicious Transaction Report was generated by the bank between July 2019 and June 2020 \u2014 a highly unusual occurrence given the volume of transactions the bank was handling. Banks must file such reports to legal and regulatory authorities whenever their internal compliance checks detect potential money laundering, terror financing or other financial crime. Confusion over KYC function In September 2019, Chiara Monaco from the anti-financial crime unit at Deutsche Bank\u2019s headquarters in Frankfurt emailed bank staff in Pakistan to flag a concern regarding \u201ccertain sub-accounts in Pakistan belonging to customers not KYC\u2019ed\u201d. KYC stands for \u201cKnow Your Customer\u201d or \u201cKnow Your Client\u201d. This is the information-gathering process by which a bank checks who you are, works out what you use your account for, and decides how risky you are as a customer. Banks need it to meet anti-money laundering (AML) and Combating the Financing of Terrorism (CFT) rules. In another email the next day, Monaco wrote: \u201cWe found 1000s of subaccounts in Pakistan without KYC, opened for custody purposes and belonging to clients of State Street Bank and Bank of NY Mellon.\u201d \u201cCan you please help [us] to fully understand the business model, the setup and background behind these accounts. They have not been KYC\u2019ed,\u201d she added. The emails triggered a debate among the bank\u2019s personnel regarding the nature of these accounts and whether they were subject to KYC regulations. Custody is a banking service where a bank holds and protects financial assets \u2014 stocks, bonds, securities and the like \u2014 on behalf of clients. In this instance, the \u201csub-accounts\u201d referred to Special Convertible Rupee Accounts (SCRA) maintained by Deutsche Bank Pakistan for two major international financial institutions, both based in the United States. An SCRA account, introduced by the Securities and Exchange Commission of Pakistan (SECP) in 2008, is a kind of specialised, repatriable bank account that allows non-resident investors, foreign nationals and overseas Pakistanis to trade freely in local capital markets. The sub-accounts in question held money in the form of securities or treasury bonds belonging to other investors, many of whom never dealt with Deutsche Bank or its Pakistan operations directly. \u201cThe local AML/CFT Regulations of State Bank of Pakistan require due diligence/KYC to be performed on the customers\u2019 of the bank, where such underlying accounts do not fall under the definition of customers as per the regulations,\u201d Zeeshan Waheed, the head of the compliance and anti-financial crime unit in Pakistan, wrote back. He added, \u201cvery recently we had a review being conducted by the Central Bank\u2019s Inspection team and they had gone through the business model of DB Pakistan for Security Services and its operations, where they had not highlighted any concern/observation from an ML/TF risk point of view or overall controls with respect to compliance of local AML/CFT Regulations\u201d. A year earlier, the SBP had issued an update to its AML/CFT Regulations explicitly defining a \u201ccustomer\u201d as \u201cany person having a relationship with the bank, such as holding deposits, placing money with the bank/DFI, availing financial services, locker facilities, safe deposit facilities, or custodial services\u201d. Under these regulations (Paras 7-9), banks are required to apply customer due diligence measures for all customers, including \u201cidentifying and verifying beneficial owners through reliable sources; understanding ownership/control structures for legal persons; and verifying senior managing officials where no controlling owner is identified\u201d. Moreover, according to the Anti-Money Laundering Act, 2010, a beneficial owner is defined as a \u201cnatural person who ultimately owns or controls a customer or the natural person on whose behalf a transaction is being conducted\u201d. The same law also provides a framework for due diligence as follows: identify the customer and verify the customer\u2019s identity on the basis of documents, data or information obtained from reliable and independent sources; identify the beneficial owner and take reasonable measures to verify the beneficial owner\u2019s identity on the basis of documents, data or information obtained from reliable sources and be satisfied that it knows who the beneficial owner is; understand and, as appropriate, obtain information on the purpose and intended nature of the business relationship; and monitor the business relationship on an ongoing basis. Dawn reached out to Monaco and Waheed for comment, but did not hear back. Three bankers, who spoke to Dawn on condition of anonymity, said that the SBP requires banks to conduct customer due diligence (CDD) in these cases. \u201cKYC/CDD requirements apply, although the precise extent of due diligence on each underlying investor depends on the account structure, customer relationship and applicable regulatory requirements,\u201d one banker with over two decades of experience in compliance explained to Dawn via email. \u201cUnder Regulation R-2 of the SBP AML/CFT/CPF Regulations, banks must conduct CDD in accordance with the Anti-Money Laundering Act, 2010.\u201d Deutsche Bank Pakistan, the emails show, vacillated on whether the beneficiaries of custodial accounts were in fact its customers, despite the fact that the SBP and other banks did apply KYC requirements to such accounts. The debate lasted more than two months before the issue was closed. As of last year, Deutsche Bank Pakistan held Rs 143.63 billion in government securities and shares, as per its published financial statement . According to the statement, the bank does not treat these as its own assets. Until 2019 at least, it apparently did not know who the actual owners of these assets were. The documents reviewed by Dawn do not make clear if the 2019 Trade-Based Money Laundering compliance framework and KYC disputes were ultimately resolved, whether any corrective measures addressed the concerns raised by senior compliance officials, or whether the deficiencies identified by auditors in 2021 were ever fully remedied. Each of the audit reports reviewed by Dawn recommended short-term and long-term measures to be adopted by Deutsche Bank Pakistan to mitigate the risks flagged. It remains unclear whether these were implemented. It also remains unclear whether any of these issues were taken up by the SBP as part of its annual audits. Despite repeated reminders, the SBP did not respond to a detailed questionnaire sent by Dawn . In a summary response to over a dozen questions from Dawn , Deutsche Bank stated: \u201cWe do not comment on potential, former or existing client relationships. \u201cDeutsche Bank takes its obligations to prevent financial crime seriously and maintains controls designed to comply with applicable anti-money laundering, sanctions and other regulatory requirements.\u201d Editing by Roman Gautam/Himal Southasian; Header art by Mohsin Alam/Dawn The Inside Deutsche Bank investigation was coordinated by Barracuda Media in South Africa, with technical support from the Data and Research Center (DARC) in Germany.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2046548/what-happens-when-a-bank-ducks-rules-in-pakistan-for-deutsche-bank-perhaps-nothing"}, {"head": "11 injured as Riyadh skyscraper hit second time in less than a week", "body": "Riyadh\u2019s tallest skyscraper was struck for the second time in days on Tuesday, injuring 11 people, as the coalition fighting Houthis denounced a \u201cterrorist attack\u201d. The building, which was also attacked last Thursday , is one of several high-profile targets hit since hostilities with the Houthis restarted in July. Saudi Arabia\u2019s Civil Defence reported Tuesday\u2019s injuries and posted a picture of the landmark tower housing the headquarters of the Saudi Public Investment Fund (PIF). The image showed some damage to the building about halfway up the facade, similar to the impact from a strike on the same tower on Nov 19, which caused damage but no injuries. Reuters could not immediately determine when the image was taken or the extent of the further damage from the latest strike. Saudi Civil Defence said the 11 people injured included two Saudi citizens, four Egyptian nationals, three Nepalese nationals and two Indian nationals. \u201cRelevant authorities responded to the incident immediately, implementing all established protocols and measures for handling such situations, and taking the necessary steps to ensure the safety of lives and property,\u201d the Arabia statement said. \u201cOne of the towers in the financial centre was targeted in a cowardly terrorist attack,\u201d coalition spokesperson Turki al-Malki said in a social media post, without naming the building. Standing 385 metres high, the PIF tower is the most prominent landmark of King Abdullah Financial District (KAFD), a showcase for Saudi Arabia\u2019s economic ambitions. A witness told AFP that a vehicle fitted with a speaker had warned pedestrians in the area to take cover on Tuesday. No warning was sent to mobile phones about any threats to the capital. Afterwards, police cars blocked some entrances to the gleaming financial district. With imposing skyscrapers, luxury shops and green spaces, the district also hosts the headquarters of the Saudi stock exchange along with multinationals such as Goldman Sachs. An attack on the PIF is symbolic as the fund is driving efforts to diversify the oil-reliant Saudi economy \u2014 a project that has been complicated by the Middle East war and Houthi strikes. A tower belonging to state oil giant Aramco in KAFD was hit earlier this month, while Riyadh\u2019s international airport was repeatedly struck in October, with one attack killing 14 people . The Houthis, who control much of western Yemen including the capital Sanaa, have been firing at Saudi airports, oil infrastructure and office buildings since Yemen\u2019s frozen civil war reignited in July in a knock-on from the US-Iran war. The attacks have caused the cancellation of most international flights to Riyadh, and forced Saudi Arabia to postpone or cancel major international events, including soccer\u2019s AFC Asian Cup. Such cowardly attacks undermine peace efforts: Pakistan strongly condemned the \u201cterrorist attack carried out today by the Houthi militia\u201d, the Foreign Office said. In a statement, FO said Islamabad denounced \u201csuch cowardly attacks, which endanger civilians and civilian infrastructure, heighten regional tensions and undermine efforts to restore peace and stability\u201d. \u201cPakistan stands in full solidarity with Saudi Arabia in the face of these attacks. The Kingdom has every right to defend its territory and protect its citizens and residents,\u201d FO affirmed. It expressed Pakistan\u2019s deep sympathies with those injured and their families and wished them swift and full recovery. FO also commended the Saudi authorities for their \u201cprompt response\u201d and the steps taken to protect lives and property. Islamabad has condemned Houthi attacks repeatedly , including on international platforms , and termed them a grave violation of the kingdom\u2019s sovereignty. Pakistan and Riyadh have signed two defence pacts aimed at collective deterrence, the Strategic Mutual Defence Agreement between the two and the Makkah Joint Defence Agreement that also includes Turkiye. Under the Makkah Defence Alliance, Pakistani, Saudi and Turkish leaders met in Riyadh in October and agreed to deploy military forces and capabilities rapidly in the kingdom. Pakistan is providing \u201cwhatever support is needed\u201d to defend Saudi Arabia amid the Houthi attacks, the military\u2019s spokesperson Lieutenant General Ahmed Sharif Chaudhry said later that month. \u201826 killed in Yemen attack\u2019 On the ground in Yemen, the war has caused a major humanitarian crisis, with hundreds of thousands of people displaced from their homes since July. The Houthis have seized swathes of territory, forcing forces aligned with the internationally recognised government to stage a major retreat this month. The Saudi-led military coalition has been striking Houthi targets in the impoverished country. On Tuesday, local officials said a coalition airstrike on buses and trucks killed 26 people in Lahj province. On the other hand, government forces blamed the Houthis for the attack. As the conflict shows no sign of slowing, Britain sanctioned the Houthis and four of its top officials \u201cfor deliberately attempting to undermine stability\u201d on Tuesday. The measures include an asset freeze against the group and an asset freeze and travel ban on four figures, including security and intelligence head Abdul Hakim Hashem Ali al-Khaiwani, and interior affairs official Abdulkarim Amir al-Din Hussein al-Houthi. The Saudi-led coalition intervened in Yemen in early 2015, after the Houthis had captured the capital Sanaa and sent the internationally recognised government fleeing to Aden. The war left hundreds of thousands dead and triggered a humanitarian catastrophe before an uneasy ceasefire went into effect in 2022.", "source": "Dawn Latest News", "url": "https://www.dawn.com/news/2046804/11-injured-as-riyadh-skyscraper-hit-second-time-in-less-than-a-week"}, {"head": "Equities end flat amid regional, political tensions", "body": "KARACHI: The Pakistan Stock Exchange saw a volatile session on Monday as cautious sentiment, amid renewed fears of escalation in the Middle East and domestic political tensions over a proposed referendum to create new provinces or administrative units across the country, kept investors vigilant despite easing crude oil prices. The benchmark KSE-100 index moved both ways, but buying at lows helped it close in the green with meagre gains as profit-taking pared early advances. Topline Securities Ltd said the index initially extended its recovery before surrendering most of its intraday gains. It hit a high of 178,746.45 and a low of 177,357.46 before closing at 177,473.86 points, up 91.29 points, or 0.05pc, reflecting a largely flat session. The market remained volatile throughout the day, with early buying interest in key sectors lifting the index. However, profit-taking and cautious investor sentiment trimmed gains towards the close, limiting overall upside. Engro Holdings, Hub Power, Mari Energies, Pakistan Services and The Searle emerged as the leading positive contributors, collectively adding about 411 points to the benchmark. Conversely, Engro Fertilisers, Oil and Gas Development Company and Systems Ltd collectively dragged the index down by about 135 points, partially offsetting the early gains. Arif Habib Ltd noted that the market began the week flat, with 50 shares rising while 49 fell. Investor participation weakened further as trading volume dipped 11.15pc to 551.5 million shares, and turnover eased 0.42pc to Rs22.5 billion. WorldCall Telecom topped the volume chart with 88.79m shares. On the corporate front, Nishat Chunian Ltd notified the exchange that it intends to buy back 50.4m shares, or 21pc of its total issued and paid-up shares, from Nov 30 to May 19, 2027. On the Middle East front, US President Donald Trump indicated he might resume the war on Iran next year if talks failed to yield a diplomatic resolution, blaming his party\u2019s election loss for Tehran\u2019s increasingly aggressive policies. Analysts expect the market to move sideways, with support at 175,000-176,000 and 182,500 as the upside target once the consolidation period ends. Published in Dawn, November 24th, 2026", "source": "Dawn Business", "url": "https://www.dawn.com/news/2046649/equities-end-flat-amid-regional-political-tensions"}, {"head": "Foreign investors\u2019 confidence turns negative as Pakistan\u2019s business sentiment deteriorates sharply, says OICCI", "body": "KARACHI: Business confidence in Pakistan has deteriorated sharply as heightened geopolitical tensions, including the US-Iran war and the wider instability sweeping the Middle East, combine with persistent and mounting pressures inside the domestic economy. The latest Business Confidence Survey by the Overseas Investors Chamber of Commerce and Investment (OICCI) shows that sentiment across the wider business community has weakened markedly, with the mood among foreign investors sliding into outright negative territory.\n\nForeign investors registered an even steeper decline in confidence than the broader business community, a divergence that places overseas sentiment below the general corporate mood captured in the survey. Business confidence readings are widely treated as a barometer of how companies judge prevailing conditions and the outlook ahead, and the negative reading for overseas investors is a pointed signal about the operating environment facing both existing and prospective investors in Pakistan.\n\nThe findings point to twin headwinds reinforcing each other, with external hostilities and internal economic strain together deepening caution among firms over investment and expansion plans. With foreign sentiment now negative even as overall confidence weakens, the deterioration underscores how quickly geopolitical spillovers and unresolved domestic pressures can erode the perceptions that underpin sustained private investment.", "source": "CustomsNews.pk Desk", "url": "https://customnews.pk/2026/11/24/foreign-investors-confidence-turns-negative-as-pakistans-business-sentiment-deteriorates-sharply-says-oicci/"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "WEDNESDAY, NOVEMBER 25, 2026", "headline": "Cricket's saliva ban to stay despite Indian skipper Shubman Gill\u2019s call to overturn rule", "deck": "The International Cricket Council (ICC) has no plans to reverse its ban on applying saliva to shine the ball, despite a public call from India skipper Shubman Gill to overturn the rule.", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2046748/crickets-saliva-ban-to-stay-despite-indian-skipper-shubman-gills-call-to-overturn-rule", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Gill said on Monday the prohibition should be revoked to help bowlers obtain reverse swing, after India's high-scoring opening Test against New Zealand in Wellington ended in a draw. The ICC, however, has no immediate plans to relax the measure, which is treated in the same way as any other unfair method of changing the ball's condition.", "Officials view saliva as a threat to the integrity of the ball's surface because it can materially alter the leather when mixed with sweets, chewing gum and mints, and the practice is considered incredibly hard to monitor and regulate. The ICC temporarily barred the use of saliva as a precautionary measure during the pandemic in 2020 and made the prohibition permanent two years later. Shining one side of an old ball while keeping the other rough has long helped fast bowlers extract late swing from the leather.", "\"I don't understand why we haven't been allowed to shine the ball yet \u2013 we are way past Covid times,\" Gill said after the draw. \"There was a rule that you can't put saliva on the ball to make it shine. It's been seven-eight years and I still don't understand why they are not allowing it. I think this is also a big factor (in bowlers struggling to get wickets).\"", "The tourists declared their first innings on a mammoth 720-9 midway through the fourth day, but New Zealand survived 120 overs to finish on 239-5 at the close. The Indian Premier League (IPL) lifted its saliva ban last year, much to the bowlers' delight, but the ICC finds no reason to relax it in international matches. India and New Zealand now head to Christchurch for the second and deciding Test starting Friday, where both captains expect a more typical green, grassy and seamer-friendly wicket."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Records tumble as teen Sooryavanshi smashes 53-ball 204", "body": "Teenage sensation Vaibhav Sooryavanshi hammered 204 off 53 balls for India A on Tuesday to break a host of records, including for both the fastest century and double-century in List A cricket. The 15-year-old Sooryavanshi struck a staggering 28 sixes, the most ever in a senior men\u2019s innings, as India passed their target of 250 against the United Arab Emirates in just 14.2 overs. Sooryavanshi reached his hundred off 28 balls to take Australian Jake Fraser-McGurk\u2019s record by one delivery. He raised his 200 off 52 deliveries, smashing the 103-ball mark previously held by Chad Bowes. Sooryavanshi also broke his own record for fastest 150, reaching that milestone from 40 balls. \u201cNo words to say for him. I would only say it\u2019s like absolute carnage,\u201d India A captain Tilak Varma said after the Asia Cup Rising Stars match. \u201cThe way he played, I think first five overs the match was done, five overs we are 100 and the way he carried on after that, it was tremendous to watch. Honestly, everyone knows how he can hit the sixes.\u201d In July, Sooryavanshi became India\u2019s youngest men\u2019s international when he made his T20I debut against England in Manchester, eclipsing Sachin Tendulkar\u2019s long-standing record. He amassed 776 runs for Rajasthan Royals to finish as the tournament\u2019s leading run-scorer in this year\u2019s IPL, at a remarkable strike-rate of 237.30.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2046800/records-tumble-as-teen-sooryavanshi-smashes-53-ball-204"}, {"head": "Bellingham beauty in Real Madrid win as Arsenal, Man City held in Champions League", "body": "Jude Bellingham scored one of the goals of the season as Real Madrid hammered PSV Eindhoven 5-1 on Tuesday to maintain their perfect record in this season\u2019s Champions League, while Arsenal and Manchester City were both held to draws at home. Elsewhere, debutants Como and Real Betis continued their excellent form since the start of the league phase, but Aston Villa slumped to another defeat on their travels. Record 15-time European champions Real had to come from behind to beat PSV at the Bernabeu as they made it five wins from five in this season\u2019s league phase to go clear at the top of the standings with 15 points. Dutch champions PSV led at half-time courtesy of an Ivan Perisic penalty, but Federico Valverde equalised five minutes after the restart. Bellingham then put Real ahead on the hour with a remarkable strike, as he controlled a Kylian Mbappe lay-off outside the box and then teed himself up for a sweet volley on the outside of his right boot, which flew into the corner of the net. Real Madrid\u2019s Kylian Mbappe (second R) scores against PSV Eindhoven during their UEFA Champions League first-round match at Santiago Bernabeu in Madrid, Spain, on November 24, 2026. \u2014AFP Mbappe then scored twice to move to 19 goals in all competitions this season and 76 career Champions League goals. The France captain now has 105 Real Madrid goals, one more than the Brazilian Ronaldo managed for the club. Vinicius Junior sealed the win for Jose Mourinho\u2019s side, who have now claimed 10 consecutive victories in all competitions. \u201cThat one was nice, it popped up for me nicely, and then I just hit it. I thought I would go with the outside of the boot a little bit, stab it a little bit; I am not one for smashing the ball too hard. It was a nice moment,\u201d England star Bellingham told British broadcaster TNT Sports about his goal. Real Betis\u2019 Cucho Hernandez (L) vies for the ball with Slovan Bratislava\u2019s Rahim Ibrahim during their UEFA Champions League first-round match at Tehelne pole in Bratislava, Slovakia, on November 24, 2026. \u2014Reuters Reigning champions Paris Saint-Germain can join Real at the top of the standings if they beat AS Roma on Wednesday, but Como and Real Betis are currently level with the French side on 12 points after they beat AEK Athens and Slovan Bratislava, respectively. Como and Betis flying Luis Milla scored as Como beat AEK 1-0 in Italy after Lucas Da Cunha earlier squandered a penalty, while Cucho Hernandez grabbed both goals for Betis in their 2-0 victory in Slovakia. Como\u2019s Luis Milla celebrates after scoring against AEK Athens during their UEFA Champions League first-round match at Stadio Giuseppe Sinigaglia in Como, Italy, on November 24, 2026. \u2014AFP Arsenal had to settle for a point after drawing 1-1 with Borussia Dortmund at the Emirates Stadium, as Viktor Gyokeres put the Gunners ahead but later missed a golden chance to win the game. Gyokeres opened the scoring with a thunderous strike, but Maximilian Beier equalised for Dortmund and the Arsenal striker headed woefully wide from Martin Odegaard\u2019s cross late on. Arsenal\u2019s Viktor Gyokeres misses a chance to score against Borussia Dortmund during their UEFA Champions League first-round match at the Emirates Stadium in London, Britain, on November 24, 2026. \u2014Reuters It is the second time Arsenal, last season\u2019s beaten finalists, have dropped points to German opposition this season following a 2-2 draw at Bayern Munich. Manchester City are in the midst of a poor run of form in the Premier League, and Enzo Maresca\u2019s side had to come from behind twice in the second half to draw 2-2 against Napoli. Rasmus Hojlund, formerly of Manchester United, gave the Italians the lead early in the second half only for Ayyoub Bouaddi to equalise. Kevin De Bruyne was returning to face his former side, and he saw his Napoli team retake the lead through Noa Lang in the 76th minute, but Rayan Cherki\u2019s fine late goal earned City a point. Manchester City\u2019s Rayan Cherki (L) scores past Napoli goalkeeper Vanja Milinkovic Savic during their UEFA Champions League first-round match at the Etihad Stadium in Manchester, Britain, on November 24, 2026. \u2014Reuters City won 10 of their first 11 games this season under Maresca. But the wheels have come off in the wake of the club being found guilty of widespread breaches of Premier League financial rules. \u201cWe don\u2019t like these moments \u2014 we want to win games \u2014 but unfortunately this moment is like this,\u201d said Maresca, ahead of a trip to Premier League champions Arsenal on Sunday. Aston Villa lose None of the Premier League\u2019s representatives in the competition won on Tuesday, with Villa losing 1-0 to Galatasaray in Istanbul as Deniz Gul scored the only goal of the game late on. Galatasaray\u2019s Deniz Gul (R) scores past Aston Villa goalkeeper Zion Suzuki during their UEFA Champions League first-round match at Rams Park in Istanbul, Turkiye, on November 24, 2026. \u2014Reuters The two clubs are now level on nine points in the standings. Portuguese champions Porto won 1-0 at Feyenoord thanks to Oussama Targhalline\u2019s early own-goal, while Antonio Nusa netted twice as RB Leipzig beat RC Lens 3-1 \u2014 that was a fourth straight Champions League loss for the French team. A stoppage-time own-goal gave Bodo/Glimt a 1-0 victory against Austria\u2019s LASK in Norway.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2046928/bellingham-beauty-in-real-madrid-win-as-arsenal-man-city-held-in-champions-league"}, {"head": "FA chief signs NDA to view Fifa sell-off plot documents", "body": "Football Association (FA) chair Debbie Hewitt is among several football chiefs who have signed a non-disclosure agreement (NDA) to view documents made available by Fifa about a proposed sell-off plan. The agreements prevent Hewitt and her counterparts from speaking publicly about the contents of the material, leaving senior officials with detailed knowledge of the proposals unable to explain them in public.\n\nThe use of NDAs is an unusual step in the governance of world football, where changes to competition structures and commercial rights are normally aired through formal channels involving national federations. By binding the officials it consults to silence, Fifa has confined knowledge of the plan to a small circle, restricting the capacity of national associations to brief their boards, clubs and supporters.\n\nHewitt, the first woman to chair the FA, has held the position through a period of significant change in the English game. Her inability to discuss the documents underscores the secrecy surrounding the sell-off plan, with stakeholders outside the closed-door sessions left waiting for a fuller account from world football's governing body.", "source": "BBC Sport Wire", "url": "https://www.bbc.co.uk/sport/football/articles/cqx2x4k74ryxo?at_medium=RSS&at_campaign=rss"}, {"head": "Rohail Nazir's fifty books Asia Cup Rising Stars semi-finals spot for Pakistan Shaheens", "body": "An unbeaten half-century by Rohail Nazir, followed by a devastating bowling display, helped Pakistan Shaheens defeat Nepal by 96 runs in their final Group \u2018B\u2019 match of the Asia Cup Rising Stars at the University of Doha for Science and Technology on Tuesday. The defending champions remained unbeaten in the tournament, winning all three of their group matches to qualify for the semi-finals, where they will face Bangladesh A on Nov 27. Batting first, Pakistan Shaheens were in trouble at 66-6 in 16.5 overs before wicket-keeper-batter Rohail steadied the innings with an unbeaten 64 off 83 balls, hitting four fours and three sixes. After Hasan Nawaz fell for 28 off 59 balls, leaving the Shaheens at 88-7, Rohail added 70 runs for the eighth wicket with Ahmed Daniyal, who scored 16 off 35 balls, to help his side reach 168 before being bowled out in 42 overs. For Nepal, Rashid Khan claimed five wickets for 39 runs, while Abhishesh Gautam took two. Nepal\u2019s chase got off to a disastrous start as Muhammad Imran and Mohammad Hasnain reduced them to 15-4 inside six overs. Hasnain struck twice in successive deliveries to dismiss Ishan Pandey and Lokesh Bam without scoring. Left-arm spinner Sufyan Moqim then claimed three wickets as Nepal slumped to 59-9. Mayan Yadav offered some resistance with a top score of 41 off 50 balls but was trapped leg-before by Maaz Sadaqat as Nepal were dismissed for 72 in 17.3 overs. Hasnain and Sufyan took three wickets each for 21 and 17 runs respectively, while Imran claimed two for 29. Rohail was named player of the match for his match-winning innings.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2046798/rohail-nazirs-fifty-books-asia-cup-rising-stars-semi-finals-spot-for-pakistan-shaheens"}, {"head": "'Issues and disputes' put India's Olympic bid under scrutiny", "body": "India must urgently resolve internal disputes dogging its Olympic association to strengthen its chances of hosting the 2036 Games, experts warn, as the country\u2019s bid comes under scrutiny on Thursday. The International Olympic Committee this month expressed disappointment over \u201cextremely regrettable\u201d schisms within the IOA, warning they were damaging the reputation of the Olympic movement in India. India is among seven countries interested in hosting the 2036 Olympics alongside Germany, Hungary, Qatar, South Africa, South Korea and Turkey. The Indian Olympic Association (IOA) and other stakeholders will present their case to the IOC\u2019s Future Host Commission in Switzerland on Thursday. India\u2019s delegation is expected to include IOA president P.T. Usha, IOC member Nita Ambani and government representatives including officials from Gujarat, the state where proposed host city Ahmedabad is located and the home state of Prime Minister Narendra Modi. \u201cThere is a massive governance flaw that has not been addressed,\u201d sports writer Sharda Ugra told AFP. \u201cI think setting the house in order has to start \u2013 they don\u2019t even accept that the house is a problem.\u201d \u2018Not going away\u2019 IOA executive council elections are scheduled for December 5 but controversy erupted after Usha was initially excluded from the contest for a second term as president, amid allegations of fraud in the nomination process. The former sprinter, who became the first woman to lead the IOA in 2022, later entered the presidential race after being nominated by another national federation. Usha, 62, a member of parliament\u2019s upper house, alleged that a \u201cbig fraud\u201d had been carried out. \u201cWinning and losing is normal but results have to be fair,\u201d she told The Tribune newspaper. Ugra said the problems could not be concealed by a polished presentation. \u201cNo matter what you show in your PowerPoint presentation and in your video (to the IOC), this is not going away,\u201d she said. The IOA faced major governance and constitutional disputes in 2022 over a failure to comply with India\u2019s sports development code. Judicial intervention was needed to overhaul its constitution and electoral framework, but similar problems have resurfaced ahead of next month\u2019s elections. The sports ministry declined to comment. The IOA did not publicly respond to the IOC warning. \u2018Extremely regrettable\u2019 The IOC, in its letter to the IOA earlier this month, said it was \u201cvery disappointed to note that, once again, issues and disputes seem to have resurfaced in the conduct of the IOA election process and in the implementation of the rules governing the IOA elections\u201d. \u201cThis extremely regrettable situation is, once again, negatively affecting the operations and reputation of the Olympic Movement in India,\u201d the IOC said. Veteran sports journalist G. Rajaraman said the IOC\u2019s displeasure should not cause panic. \u201cI don\u2019t think it will have a deep impact on the whole process of host city nomination,\u201d Rajaraman told AFP. \u201cI think the process will go through smoothly,\u201d he added, pointing out that the presentation will be led by the Gujarat state authorities. Rajaraman said a lack of administrative experience among some former athletes remained a challenge for sports governance, which required specialist expertise. \u201cI think athletes should come up step-by-step in administration, and not parachuted into the top positions.\u201d Ahmedabad will host the 2030 Commonwealth Games, seen as a major rehearsal for an Olympics. The city is also home to the world\u2019s largest cricket stadium. The 2028 Olympics will take place in Los Angeles and Brisbane will host in 2032.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2046745/issues-and-disputes-put-indias-olympic-bid-under-scrutiny"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function unescapeText(val) {
+  return String(val == null ? '' : val)
+    .replace(/\\+r\\+n/g, '\n')
+    .replace(/\\+[nr]/g, '\n')
+    .replace(/\\+t/g, ' ')
+    .replace(/\\+(["'])/g, '$1')
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n');
+}
+
+function splitParas(val) {
+  const raw = Array.isArray(val) ? val : [val];
+  const out = [];
+  for (const chunk of raw) {
+    const cleaned = unescapeText(chunk).trim();
+    if (!cleaned) continue;
+    const parts = cleaned.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+    if (parts.length === 1 && parts[0].includes('\n')) {
+      for (const ln of parts[0].split('\n').map(s => s.trim()).filter(Boolean)) out.push(ln);
+    } else {
+      for (const p of parts) out.push(p);
+    }
+  }
+  return out;
+}
+
+function renderParagraphsHtml(val) {
+  return splitParas(val).map(p => `<p>${p}</p>`).join('');
+}
+
+function dedupeDeckBody(deck, bodyVal) {
+  const cleanDeck = unescapeText(deck || '').trim();
+  const paras = splitParas(bodyVal);
+  const norm = s => String(s || '').toLowerCase().replace(/[^\w\u0600-\u06FF]+/g, ' ').trim();
+  if (cleanDeck && paras.length > 0) {
+    const dn = norm(cleanDeck);
+    const p0n = norm(paras[0]);
+    if (dn === p0n || (dn.length >= 24 && p0n.startsWith(dn)) || (p0n.length >= 24 && dn.startsWith(p0n))) {
+      if (paras.length >= 2) {
+        return { deck: paras[0].length >= cleanDeck.length ? paras[0] : cleanDeck, body: paras.slice(1) };
+      }
+      return { deck: '', body: [paras[0].length >= cleanDeck.length ? paras[0] : cleanDeck] };
+    }
+  }
+  return { deck: cleanDeck, body: paras };
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  const heroSplit = dedupeDeckBody(d.deck, d.body);
+  let editorialHtml = '';
+  if (d.editorial) {
+    const edSplit = dedupeDeckBody(d.editorial.deck, d.editorial.paragraphs);
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${unescapeText(d.editorial.title)}</div>
+        ${edSplit.deck ? `<div class="editorial-special-deck">${edSplit.deck}</div>` : ''}
+        <div class="editorial-special-body">
+          ${edSplit.body.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${unescapeText(it.head)} <span class="ext-link-arrow">↗</span></a>` : unescapeText(it.head)}
+                </div>
+                <div class="card-body">${renderParagraphsHtml(it.body)}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${unescapeText(d.headline)} <span class="ext-link-arrow">↗</span></a>` : unescapeText(d.headline)}</h2>
+      ${heroSplit.deck ? `<p class="hero-deck">${heroSplit.deck}</p>` : ''}
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${heroSplit.body.map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
