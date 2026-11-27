@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhawana Tribune — Serene Web-Magazine Edition (FRIDAY, NOVEMBER 27, 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060a12;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 24px 16px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Top Masthead */
+  .masthead {
+    background: linear-gradient(180deg, #0b1326 0%, #080e1e 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 28px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .masthead-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .seal-svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.4));
+  }
+
+  .brand-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #f8fafc;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .edition-badge {
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 26, 54, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    padding: 4px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #f59e0b;
+    color: #050a14;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  }
+
+  .lang-btn.inactive {
+    color: #94a3b8;
+  }
+
+  .lang-btn.inactive:hover {
+    color: #fbbf24;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Navigation Pills */
+  .desk-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .desk-pill {
+    background: #0d172e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .desk-pill:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f8fafc;
+  }
+
+  .desk-pill.active {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #050a14;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Active Desk Hero Showcase */
+  .desk-card {
+    background: linear-gradient(180deg, #091024 0%, #060b18 100%);
+    border: 1px solid rgba(217, 119, 6, 0.28);
+    border-radius: 32px;
+    padding: 48px 56px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tag-pill {
+    background: #f59e0b;
+    color: #050a14;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .category-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+  }
+
+  .date-text {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-deck {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    border-left: 3.5px solid #f59e0b;
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    color: #e2e8f0;
+    font-size: 17.5px;
+    line-height: 1.85;
+    margin-bottom: 36px;
+  }
+
+  /* Quote Callout Box */
+  .quote-box {
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #fde68a;
+    line-height: 1.5;
+  }
+
+  .quote-author {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin-top: 10px;
+    font-style: normal;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  /* Page 1 Standalone Founder's Editorial Special Box (Distinct Playfair Display + Lora Typography & Royal Burgundy-Gold Accent) */
+  .editorial-special {
+    background: linear-gradient(180deg, rgba(28, 18, 28, 0.94) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 2px solid #d97706;
+    border-top: 6px solid #9f1239;
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin: 36px 0;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  }
+
+  .editorial-special-title {
+    font-family: 'Playfair Display', 'Cinzel', Georgia, serif;
+    font-size: 26px;
+    color: #fcd34d;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+  }
+
+  .editorial-special-deck {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #fde68a;
+    border-left: 3px solid #d97706;
+    padding-left: 14px;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+
+  .editorial-special-body p {
+    font-family: 'Lora', Georgia, serif;
+    margin-bottom: 15px;
+    font-size: 16.8px;
+    line-height: 1.85;
+    color: #f8fafc;
+  }
+
+  /* Secondary Items Grid */
+  .secondary-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 36px;
+    margin-top: 40px;
+  }
+
+  .secondary-heading {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .secondary-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(217, 119, 6, 0.3);
+  }
+
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .secondary-card {
+    background: rgba(13, 23, 46, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .secondary-card:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .card-body p {
+    margin-bottom: 10px;
+  }
+
+  .card-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-source {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+
+  /* Legal Disclaimer & Limitation of Liability Banner (Desk 6) */
+  .legal-disclaimer-card {
+    background: linear-gradient(180deg, #0b1328 0%, #070d1c 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
+    border-left: 4px solid #d97706;
+    border-radius: 20px;
+    padding: 30px 36px;
+    margin-top: 40px;
+  }
+
+  .legal-disclaimer-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 17px;
+    color: #fbbf24;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legal-disclaimer-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+
+  .legal-disclaimer-text b {
+    color: #f1f5f9;
+  }
+
+  .advisory-gratis-pill {
+    display: inline-block;
+    background: rgba(217, 119, 6, 0.15);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin: 10px 0 14px;
+    text-transform: uppercase;
+  }
+
+  .legal-contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-contacts-row a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .legal-contacts-row a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer Navigation */
+  .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #64748b;
+  }
+
+  .nav-btn {
+    background: #0f1a36;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #fbbf24;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f59e0b;
+    color: #050a14;
+  }
+
+  /* Interactive News Links & External Icons */
+  .hero-headline-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline;
+  }
+  .hero-headline-link:hover {
+    color: #fbbf24;
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+  }
+  .card-head-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .card-head-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  .ext-link-arrow {
+    display: inline-block;
+    color: #f59e0b;
+    font-size: 0.82em;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+    font-weight: 700;
+  }
+  .secondary-card:hover .ext-link-arrow,
+  .hero-headline-link:hover .ext-link-arrow {
+    transform: translate(2px, -2px);
+  }
+  .source-link {
+    color: #cda851;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(205, 168, 81, 0.6);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .source-link:hover {
+    color: #fbbf24;
+    border-bottom-color: #fbbf24;
+  }
+
+  /* Weather & Logistics Bar */
+  .weather-forecast-bar {
+    margin-top: 18px;
+    padding: 16px 22px;
+    background: rgba(10, 18, 38, 0.85);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .weather-bar-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+  .weather-card {
+    background: rgba(15, 26, 54, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .weather-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+    background: rgba(18, 32, 68, 0.8);
+  }
+  .weather-date-cond {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+  }
+  .weather-temp {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  .weather-pop {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-header">
+      <div class="brand-group">
+        <svg class="seal-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" stroke="#d97706" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="100" r="86" stroke="#b45309" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+          <circle cx="100" cy="100" r="82" fill="#080e1e"/>
+          <line x1="68" y1="92" x2="132" y2="92" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="65" x2="100" y2="138" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="4" fill="#fbbf24"/>
+          <path d="M 52 148 Q 100 162 148 148 Q 138 160 100 162 Q 62 160 52 148 Z" fill="#d97706"/>
+          <text x="100" y="157" fill="#fbbf24" font-size="8" font-weight="bold" font-family="serif" text-anchor="middle" letter-spacing="1.2">VERITAS & LEX</text>
+        </svg>
+        <div>
+          <h1 class="brand-title">Bhawana Tribune</h1>
+          <div class="brand-tagline">Serene Web-Magazine Edition • Founder: Muhammad Iqbal Bhawana</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="lang-switcher">
+          <span class="lang-btn active">English</span>
+          <a href="./urdu.html" class="lang-btn inactive" id="urduSwitchLink" title="اردو نستعلیق ایڈیشن میں پڑھیں">اردو</a>
+        </div>
+        <div class="edition-badge">FRIDAY, NOVEMBER 27, 2026</div>
+      </div>
+    </div>
+
+    <!-- Desk Navigation -->
+    <div class="desk-pills" id="deskPills">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Regional Logistics & Weather Forecast Bar -->
+    <div class="weather-forecast-bar">
+      <div class="weather-bar-title">
+        <span>⛅</span> REGIONAL WEATHER & PORT FREIGHT TELEMETRY · 5-DAY VERIFIED OBSERVATIONS
+      </div>
+      <div class="weather-grid" id="weatherGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Desk Card Presentation Stage -->
+  <main id="deskStage">
+    <!-- Rendered dynamically -->
+  </main>
+
+  <footer class="footer-bar">
+    <div>Bhawana Tribune • Global Digital Sovereign Master Edition • Verified Gazette Ledger</div>
+    <div>100% Artificially Generated Open Access Research Journal</div>
+  </footer>
+</div>
+
+<script>
+const DESKS = [{"id": 1, "desk": "Customs, Revenue & Trade Strategy", "category": "Statutory Directive", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 27, 2026", "headline": "Pakistan Customs seizes 40,000 litres of smuggled diesel worth Rs40 million", "deck": "Pakistan Customs has seized 40,000 litres of smuggled diesel valued at Rs40 million, a recovery that underlines the persistence of the illicit fuel trade moving through unofficial supply channels into the domestic market.", "author": "Muhammad Iqbal Bhawana", "authorRole": "Senior Member, Pakistan Customs Service (Retd.) \u00b7 Founder", "hero_source": "PKRevenue.com Wire", "hero_url": "https://pkrevenue.com/pakistan-customs-seizes-40000-litres-smuggled-diesel/", "body": ["The contraband was intercepted during enforcement action against petroleum smuggling, a segment of the grey economy that has long thrived on duty evasion and the undercutting of legally traded fuel products.", "Smuggled diesel typically enters the country across stretches of the western border where enforcement coverage thins out, and is then moved inland in tankers and bowsers to wholesale and retail points far from the seizure point. Because the illicit product bypasses customs duty, sales tax and other statutory levies, it is sold well below the price of fuel supplied through licensed channels, distorting competition for oil marketing companies and their retail networks while draining the national exchequer of revenue that would otherwise form part of the federal ledger.", "Fuel of unverified provenance also carries consequences for consumers, since diesel that has never passed through regulated storage and quality controls can damage vehicle engines and industrial machinery. Enforcement against contraband petroleum is treated by the anti-smuggling apparatus as a deterrent signal to networks that consider the trade low-risk and high-margin, with operations increasingly aimed at disrupting the storage, transport and distribution links rather than confining action to the border belt alone.", "Seized petroleum products in anti-smuggling cases are dealt with under the Customs Act, 1969, which provides for confiscation of contraband goods and penal proceedings against those found responsible, while vehicles and equipment used in their transport can likewise face forfeiture. Recovered stock is generally placed in the custody of the customs warehouse pending completion of legal formalities, ensuring the matter proceeds through formal adjudication rather than informal disposal.", "The recovery reflects the continued emphasis placed by Pakistan Customs and its field formations on petroleum enforcement, pursued in coordination with border management agencies responsible for hardening the routes used for fuel infiltration. Large seizures are regarded within the federal revenue establishment as central to protecting the documented economy, and vigilance along vulnerable corridors is set to remain a priority in the enforcement agenda ahead."], "quote": "Collect harder at the border, coerce less in the recovery statute \u2014 the two halves of a single fiscal doctrine.", "secondary_title": "Customs Valuation, SRO Gazettes & Tax Compliance Telemetry", "secondary_items": [{"head": "FBR lists assets and income exempt from tax recovery attachment for TY2027", "body": "Under Rule 128 of the Income Tax Rules, 2002, essential household items, agricultural equipment, books of account, certain pensions, wages and portions of salaries are protected from attachment and sale during tax recovery proceedings.\n\nISLAMABAD: The Federal Board of Revenue (FBR) has specified a list of assets, income and personal belongings that cannot be attached or sold during income tax recovery proceedings for Tax Year 2027.\n\nThe FBR issued the Income Tax Rules, 2002, updated up to September 15, 2026, covering the tax year from July 1, 2026 to June 30, 2027.\n\nUnder Rule 128, certain properties and income are exempt from attachment and sale under the tax recovery rules, providing protection to taxpayers and their families.\n\nThe rules exempt essential wearing apparel, cooking vessels, beds and bedding belonging to the defaulter, their spouse and children.\n\nTools used by artisans are exempt, while agricultural implements, necessary livestock and seed grain belonging to agriculturists are protected to the extent considered necessary by the Commissioner to enable them to earn their livelihood.\n\nHouses and other buildings, including their materials, sites and immediately adjoining land, belonging to and occupied by an agriculturist are also exempt.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-tax-recovery-exemptions-ty2027/"}, {"head": "FBR introduces new quota rules for white spirit and solvent oil", "body": "The Federal Board of Revenue (FBR) has introduced new quota rules for white spirit and solvent oil, formalising the process through which import authorisations for these petroleum products are allocated. The framework sets out how quota entitlements are granted, consumed and monitored, bringing the trade in these industrial solvents within a defined regulatory channel. White spirit and solvent oil serve as thinners and diluents in paints, varnishes, printing inks, adhesives and cleaning formulations, and their cross-border movement has long drawn scrutiny from revenue authorities because of the risk of misdeclaration and leakage of duties and taxes.\n\nUnder the new regime, imports of the two products are to be permitted against quotas assigned to importers, with clearances processed strictly within the applicable limits. Customs authorities handling consignments at ports are required to match arrivals against the entitlement on record before release, a step designed to keep actual inflows aligned with allocated quantities and to prevent the products from entering the market outside the documented channel. Businesses sourcing these solvents from abroad will need to build the quota mechanism into their procurement planning, as allocations now determine the volume on which clearances proceed.\n\nThe measure touches a broad industrial base, including paints and coatings, printing, adhesives and dry-cleaning operations that depend on steady supplies of these solvents. A transparent quota mechanism is intended to balance legitimate manufacturing demand with revenue protection, ensuring that imports arrive under declared classifications and against documented entitlements. For the exchequer, tighter oversight of the solvent trade narrows the space for under-invoicing and category misuse, while compliant importers gain a clearer and more predictable operating environment for their shipments.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/fbr-white-spirit-solvent-oil-quota-rules/"}, {"head": "Why Ride-Hailing Drivers in Pakistan Chose Bidding in 2026", "body": "The ride-hailing industry in Pakistan continues to evolve as drivers increasingly look for flexible earning opportunities, greater control over their work and transparent payment structures. Among the models gaining attention is fare bidding, which allows drivers to participate in setting the price of a ride rather than relying entirely on fixed fares. in Drive\u2019s peer-to-peer bidding model reflects this shift by giving drivers greater visibility and choice when accepting ride requests. One of the key reasons drivers are drawn to this model is the flexibility it offers. On in Drive, drivers can view essential trip details, including the pickup point, destination, passenger rating and proposed fare, before accepting a request. This allows them to assess whether a trip suits their preferences and circumstances. Drivers can accept the proposed fare, suggest a counteroffer based on factors such as traffic conditions, distance and fuel expenses, or decline a request that does not align with their requirements. This approach gives drivers a more active role in managing their daily schedules and making decisions about trips they undertake. Another important consideration is the platform\u2019s commission structure. With commission generally ranging from 5% to 10%, in Drive allows drivers to retain a larger share of their ride earnings. A transparent fee structure also makes it easier for drivers to understand deductions, estimate their take-home income and plan for recurring expenses such as fuel, vehicle maintenance and household needs. Beyond individual ride earnings, incentives and loyalty programmes can provide additional value to drivers. Throughout 2026, in Drive has continued to offer initiatives such as in-app bonuses, fuel voucher campaigns and tier-based loyalty benefits. Eligible drivers in the Platinum and Legend categories can also access family-oriented benefits, including STEM and artificial intelligence education programmes for their children. These initiatives demonstrate how driver support can extend beyond the immediate transaction and contribute to broader family and educational opportunities.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/26/why-ride-hailing-drivers-in-pakistan-chose-bidding-in-2026/"}, {"head": "Ahsan Iqbal Predicts Pakistan\u2019s First Moon Landing By 2035", "body": "Pakistan is targeting a lunar landing by 2035 and plans to send a rover to the Moon as part of its expanding space program, Planning Minister Ahsan Iqbal announced on Thursday. Speaking at a press conference in Beijing, the Planning Minister said Pakistan was working to accelerate its space ambitions by building on cooperation with China, which recently included Pakistani astronaut Zeeshan Ali\u2019s participation in a Chinese manned space mission. He said Pakistan had become China\u2019s first international partner in a manned space mission, while Zeeshan Ali became the first international visitor to the Chinese space station. The minister thanked Chinese President Xi Jinping, the Chinese government and the China Manned Space Program for providing Pakistan with the opportunity to participate in the mission. Planning Minister said Pakistan had launched around five satellites over the past two years and was looking to expand its capabilities through further cooperation with China.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/26/ahsan-iqbal-predicts-pakistans-first-moon-landing-by-2035/"}, {"head": "Domestic worker death case -Court reserves verdict on plea challenging decision of JM", "body": "ISLAMABAD: The District and Sessions Court on Thursday reserved its verdict on an appeal challenging the decision of the judicial magistrate in a case registered against the wife of a senior Federal Investigation Agency (FIA) officer and another person in connection with the death of a 13-year-old domestic worker under mysterious circumstances at her residence. Additional District and Session Judge Raja Asif reserved its judgment after hearing arguments on a petition filed by defence counsel challenging the order of Judicial Magistrate Naima Iffat in a case registered against accused Afshan, wife of FIA Director, and Qari Ali Raza, in connection with the death of domestic worker Fatima Asghar, who died due to alleged physical torture. Defence counsel Akmal Khan alleged that in this case the Judicial Magistrate had become an Investigating Officer (IO). He also alleged contradictions in the Judicial Magistrate\u2019s decision. He said that the defence has two major objections in the appeal. Our first objection is that our evidence was not brought on record and second, that the Judicial Magistrate exceeded her jurisdiction. The defence counsel further maintained that the magistrate had directed the application of provisions of the Child Labour Act and other relevant laws, despite the fact that the deceased girl was the niece of an FIA officer and the case did not fall under the category of child labour. He also alleged that the police were repeatedly approaching the court for orders because they had failed to obtain statements according to their wishes. Special Prosecutor Wajid Munir objected to the application, pleading with the court to reject the plea. He said that this is a case of the torture and killing of an 11-year-and-11-month-old girl. Munir said that the judicial magistrate acted in a supervisory capacity and that the area magistrate had issued the order strictly within her legal authority. He further maintained that the police investigation was progressing in the right direction. The court, after hearing arguments from both sides, reserved its verdict. According to the written order of the Judicial Magistrate, the FIR stated that the complainant, the child\u2019s father, handed her over to the accused family three years ago for education; the record lacked material to verify this claim. The record shows that the case is registered under Section 302 PPC.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450979/domestic-worker-death-case-court-reserves-verdict-on-plea-challenging-decision-of-jm"}, {"head": "Pakistan\u2019s vast natural stone, mineral resources highlighted", "body": "KARACHI: Sanaullah Khan, former Chairman of the All Pakistan Marble Industries Association (APMIA) has stressed that Pakistan has the potential to emerge as a significant international hub for dimension stone production, processing and trade through technological advancement and international collaboration. Discussing marble sector potential in a meeting with the Consul General of Italy in Karachi, Fabrizio Bielli, Director of the Italian Trade Agency (ICE) in Pakistan, Dr. Salvatore Parano, and Italian technical experts Engr. Paolo Marone and Engr. Claudia Chiappino, he highlighted Pakistan\u2019s vast natural stone and mineral resources, emphasising the need to modernise the industry, improve processing efficiency, reduce material wastage and enhance the international competitiveness of Pakistani products. \u201cOur objective is to transform Pakistan\u2019s dimension stone industry from a largely raw-material-based sector into a modern, technology-driven and export-oriented industry. Italy\u2019s world-class expertise, combined with Pakistan\u2019s abundant natural resources, can create valuable opportunities for both countries,\u201d Khan stated. The meeting, brought together leading Pakistani entrepreneurs, quarry owners, mining representatives and industry stakeholders associated with marble, granite, onyx and other minerals. The Italian delegation was coordinated in collaboration with Confindustria Marmomacchine and ICE. Discussions focused on introducing advanced Italian technology, modern quarrying and processing machinery, international quality standards, technical expertise and strengthening bilateral trade and investment opportunities between Pakistan and Italy. The Italian representatives welcomed the proposals and expressed their willingness to explore opportunities for technical cooperation, knowledge exchange and stronger commercial relations within their respective capacities. The meeting marked a constructive step towards building stronger Pakistan-Italy industrial relations and promoting the sustainable development of Pakistan\u2019s marble, granite, onyx and wider mineral sector.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450983/pakistans-vast-natural-stone-mineral-resources-highlighted"}, {"head": "NAB Wants Answers Over Who Takes Out Pakistan\u2019s Gas and at What Cost", "body": "The National Accountability Bureau (NAB) has launched an inquiry into the policy allowing exploration and production (E&P) companies to sell 35 percent of additional gas from their new discoveries to the private sector.\n\nNAB has issued notices to the Petroleum Division, Sui Northern Gas Pipelines Limited (SNGPL), Universal Gas Distribution Company (UGDC), the Oil and Gas Regulatory Authority (OGRA), and other relevant entities over alleged corruption and corrupt practices.\n\nAccording to details, NAB\u2019s Special Investigation Division (SID) issued notices on November 17 in connection with the allocation of additional gas to the private sector.\n\nThe latest notices follow an earlier round of questioning by NAB, which had sought a detailed explanation from the managing director of SNGPL over the alleged illegal and nontransparent allocation of gas and pipeline transmission capacity to UGDC.\n\nIn a letter issued by NAB\u2019s Special Investigation Division, the bureau sought certified records and explanations regarding the allocation of 50 million cubic feet per day (MMcfd) of pipeline transmission capacity to UGDC. It specifically sought the complete, unredacted minutes and proceedings of SNGPL board meetings held on August 15 and September 11, 2025, during which the allocation was reportedly approved, subsequently deferred or reversed, and later reauthorized.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/26/nab-wants-answers-over-who-takes-out-pakistans-gas-and-at-what-cost/"}, {"head": "SBP introduces new Rs25 million loan tier under PM Youth Scheme", "body": "The State Bank of Pakistan (SBP) has revised the Prime Minister's Youth Business and Agriculture Loan Scheme (PMYB&ALS), introducing a new tier that permits financing of up to Rs25 million \u2014 the largest loan size available under the programme since its launch in 2021. The raised ceiling moves the scheme beyond its original maximum of Rs7.5 million and is directed at larger business and agricultural ventures that previously fell outside the scheme's structure.\n\nUnder the revised framework, the new tier sits above the three original slabs, which ranged from Rs0.5 million to Rs7.5 million, and is intended to let borrowers scale up into heavier investments such as machinery, farm equipment, livestock, dairy and value-added processing. The programme, operated through participating commercial, Islamic and microfinance banks, reserves at least 25 per cent of its financing for women borrowers and targets young entrepreneurs seeking self-employment.\n\nThe expansion aligns the youth-loan programme with the wider policy push to formalise small and medium enterprises (SMEs) and to modernise agriculture, where access to institutional credit remains thin. By widening the permissible ticket size, the central bank allows established borrowers under the scheme to structure larger working-capital and capital-expenditure financing, bringing the PM Youth Scheme closer in scale to mainstream enterprise lending.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/sbp-revises-pm-youth-business-agriculture-loan-scheme/"}, {"head": "Only 3 of Pakistan\u2019s 578 Seafood Exporters Sell Value-Added Products", "body": "The government has proposed that seafood exporters allocate at least 5 percent of their total exports to value-added products, highlighting the limited processing activity in Pakistan\u2019s fisheries industry. Federal Minister for Maritime Affairs Muhammad Junaid Anwar Chaudhry said only three of the country\u2019s 578 seafood exporters currently deal in value-added products. The minister proposed while chairing a meeting on measures to increase seafood exports. He also formed a committee to engage provincial fisheries departments and exporters and recommend ways to promote processed seafood products and increase foreign exchange earnings. The committee, headed by Fisheries Development Commissioner Dr. Muhammad Hafeez-ur-Rehman, will coordinate with provincial authorities and industry representatives to identify opportunities for expanding value addition. Chaudhry urged exporters to begin value-addition activities on a small scale and gradually expand their operations. He encouraged businesses to invest in processing, packaging, and other activities that could help them access higher-value international markets.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/11/26/only-3-of-pakistans-578-seafood-exporters-sell-value-added-products/"}, {"head": "Qatari Company Plans Big Investment in Pakistan\u2019s Agriculture", "body": "Qatar\u2019s Baladna Group has identified Pakistan as a potential strategic supplier of animal feed for its expanding international operations, expressing interest in sourcing maize, soybean, alfalfa, and other forage crops to diversify its global supply chains.\n\nA delegation from the company met Federal Minister for National Food Security and Research Rana Tanveer Hussain to explore opportunities for expanding agricultural trade and joint ventures in livestock development, dairy production, and animal feed. The minister said agriculture contributes approximately 24 percent to Pakistan\u2019s gross domestic product (GDP), while livestock accounts for more than 60 percent of the agricultural sector.\n\nHussain highlighted Pakistan\u2019s surplus maize production through hybrid seed technology, proximity to Middle Eastern markets, and competitive production potential. He proposed involving the private sector in commercially viable partnerships to position Pakistan as an animal feed supply hub for the Middle East.\n\nThe minister also proposed joint ventures in integrated dairy and livestock farming, modern slaughterhouses, meat processing, milk processing and packaging, and the production of cheese, milk powder, and other value-added dairy products.\n\nBaladna briefed the minister on its experience in achieving dairy self-sufficiency in Qatar through advanced technology, improved genetics, and professional farm management. The delegation also discussed its $5.4 billion integrated dairy project in Algeria, which aims to meet 50 percent of the country\u2019s milk powder requirements.\n\nThe government is looking to accelerate investment in climate and development projects after Finance Minister Muhammad Aurangzeb held talks with a United Nations Development Program (UNDP) delegation on potential financing opportunities under the Bridge Initiative of T\u00fcrkiye\u2019s COP31 presidency.\n\nThe meeting, held in Islamabad on November 26, focused on Pakistan\u2019s development priorities, climate finance and cooperation with international development partners. The UNDP delegation was led by its Resident Representative, Samuel Rizk.", "source": "ProPakistani \u00b7 Business Web Desk", "url": "https://propakistani.pk/2026/11/26/qatari-company-plans-big-investment-in-pakistans-agriculture/"}], "editorial": {"title": "Between the Seizure and the Shield", "deck": "One interdiction of contraband diesel and one bounded recovery schedule say more about Pakistan's fiscal character than any budget speech ever delivered.", "paragraphs": ["The seizure of 40,000 litres of smuggled diesel valued at Rs40 million is a competent day's work for any customs formation, but the arithmetic deserves closer scrutiny. Every contraband litre displaces legally traded fuel on which customs duty, petroleum levy and sales tax have been assessed or would have been; multiply one interdiction by the volume that slips daily through the western and southwestern approaches, and foregone revenue becomes a budgetary line item in its own right. Smuggling on this scale is not chiefly a law-and-order failure \u2014 it is a price-differential business. So long as the duty-free frontier price sits far below the taxed domestic ex-depot price, contravention under the Customs Act, 1969 remains rational commerce for those willing to run the risk. Confiscation and penalty deter only at the margin; the structural correction lies in calibrated border tariffs, regulated bartered-trade corridors and digital tracking of fuel from terminal to pump. Enforcement that seizes the product but not the economics of evasion keeps the force busy and the treasury thin.", "Against that enforcement narrative stands the FBR's schedule of assets and income exempt from attachment in tax recovery for Tax Year 2027, which deserves at least as much attention as any flash seizure. Attachment under section 138 of the Income Tax Ordinance, 2001 is the sharpest instrument in the collector's drawer: it converts an assessment into deprivation without a trial, which is precisely why the law cabins it. By enumerating what cannot be touched \u2014 the wage-earner's protected income, household effects, tools of trade, retirement and provident savings \u2014 the Board is doing more than administrative housekeeping in an administration long bruised by SRO-based carve-outs; it is codifying proportionality. A recovery regime able to strip a citizen to the bone is fiscally self-defeating, for it destroys the very taxpayer base it exists to sustain. This statutory relief is not leniency. It is institutional hygiene, the line that separates assessment from expropriation, and it must be defended against every future impulse to dilute it when revenue targets run hot.", "The macro backdrop lends both stories urgency. The Pakistan Stock Exchange's faltering session \u2014 a positive opening undone by profit-taking on regional uncertainty \u2014 shows domestic capital pricing risk faster than reassurance, even with a $1.12 billion IMF disbursement tentatively on the executive board's calendar for December 11. Euro zone yields reversing higher as global stocks bounce confirm that liquidity remains skittish worldwide, and emerging markets inherit that mood through capital flows long before improved domestic fundamentals are felt. Programme credibility in such an environment is not a diplomatic abstraction; it is underwritten by quarterly revenue outcomes, and those outcomes are produced exactly where the day's events converge \u2014 at the border, where the levy is protected, and in the recovery statute, where the taxpayer is. A state that demonstrably guards lawful revenue while demonstrably limiting coercive reach gives both the Fund and the bond market something durable to underwrite.", "The lesson for fiscal policy is uncomfortable but plain. Pakistan does not lack enforcement statutes; it lacks the discipline to enforce them evenly and the restraint to keep coercion within the letter of the law. The forty million rupees of diesel recovered enters an account; the Tax Year 2027 exemption schedule keeps thousands of taxpayers inside the net. Only the second act builds the durable tax capacity on which every disbursement, every basis point of yield, and every index point ultimately depends."]}}, {"id": 2, "desk": "Provincial Revenue & Global Markets", "category": "Bilateral Capital & Banking", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 27, 2026", "headline": "Stocks falter on geopolitical uncertainty", "deck": "KARACHI: Nervousness gripped the Pakistan Stock Exchange (PSX) on Wednesday as the benchmark KSE-100 index failed to sustain its recovery, with investors taking profits amid mounting regional concerns and domestic political tensions.", "hero_source": "Dawn Business", "hero_url": "https://www.dawn.com/news/2047125/stocks-falter-on-geopolitical-uncertainty", "author": "Provincial Revenue & Banking Desk", "authorRole": "Financial Intelligence", "body": ["The index initially rose 375 points, reflecting early buying interest, but the optimism proved short-lived as selling pressure emerged at higher levels, dragging the benchmark down by 435 points intraday. The market eventually settled at 178,121.25, shedding 421 points, or 0.24 per cent, as investors overlooked the likely approval of a $1.12 billion disbursement by the International Monetary Fund (IMF).", "Topline Securities Ltd said the bourse saw a volatile trading session, largely tracking cues from international markets as investors remained cautious amid global uncertainty. Ali Najib, Deputy Head of Trading at Arif Habib Ltd, said the market opened on a positive note, but the early optimism faded as profit-taking emerged, dragging the benchmark into negative territory. Engro Holdings, United Bank, Lucky Cement and Pakistan Services emerged as the major laggards, collectively wiping out approximately 321 points. Investor participation remained subdued, with the total traded volume at approximately 643.9 million shares and turnover at Rs18.5 billion.", "On the external front, the IMF's executive board is expected to convene on December 11 to consider releasing a combined $1.2 billion under the Extended Fund Facility (EFF) and the Resilience and Sustainability Facility (RSF). Separately, Pakistan has selected Commerzbank, JPMorgan and Standard Chartered as financing partners for a $500 million trade-finance facility backed by the World Bank's Multilateral Investment Guarantee Agency.", "On the corporate front, Honda Atlas Cars Ltd announced its 1HMY27 results, posting earnings per share of Rs27.55, up 150 per cent year on year. Net sales rose 34 per cent to Rs69.7 billion, driven by a 47 per cent rise in volumes to 15,319 units, while 2QMY27 sales rose 28 per cent to Rs32.5 billion, supported by 52 per cent volume growth. Analysts expect the market to remain volatile below 180,000 amid heightened regional and domestic political uncertainty; however, positive developments could boost investor sentiment and pave the way for a recovery toward 180,000."], "quote": "Bilateral instant payment corridors provide structural protection for worker remittances while reducing dependency on informal cash channels. \u2014 SBP Telemetry", "secondary_title": "Provincial Authorities, Banking APIs & Global Market Indicators", "secondary_items": [{"head": "Euro zone bond yields rise as stocks bounce", "body": "FRANKFURT: Euro zone bond yields climbed on Thursday after four straight sessions of declines, as a recovery in global stock markets and a rise in oil prices prompted investors to dial back demand for safe-haven assets. Markets showed little obvious reaction to the news that Spain\u2019s Pablo Hernandez de Cos was set to be nominated by EU leaders as the head of the European Central Bank, with analysts saying a focus on inflation and consensus-based decision-making would continue. Germany\u2019s 10-year government bond yields rose 5 basis points to 3.266 percent. They hit 3.2081 percent on Wednesday, their lowest since November 22. Equities rose on Thursday after the latest wave of US tariffs looked less damaging than first feared, while the Thanksgiving holiday offered a welcome break from the recently painful AI trade. Crude oil prices climbed, extending the previous session\u2019s gains, also helping to push yields higher. Data from the European Central Bank showed lending growth to firms accelerated to its fastest pace in more than three years, adding to evidence that the economy remains resilient to high energy prices. German 2-year government bond yields, which are sensitive to expectations for policy rates, rose 6 bps to 3.079 percent. Yields move inversely to prices. Spain\u2019s De Cos was on track to become the new ECB chief after EU officials said Dutch Prime Minister Rob Jetten agreed on Thursday to support the Spaniard over Klaas Knot in the race to succeed Christine Lagarde. Peter Schaffrik, global macro strategist at RBC Capital Markets, said it was too soon to say whether De Cos would be dovish or hawkish on interest rates. \u201cThe times usually shape the president rather than the other way around,\u201d he said. \u201cWhen he was the head of the Bank of Spain, he was dovish. But does that mean he\u2019s going to be dovish going forward? That\u2019s a different question.\u201d", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450943/euro-zone-bond-yields-rise-as-stocks-bounce"}, {"head": "Govt raises Rs689bn via treasury bills", "body": "KARACHI: The government raised much less than the amount maturing at Thursday\u2019s treasury bills auction, sticking to its strategy of cutting short-term debt despite strong demand from banks. The government raised Rs689.5 billion against a target of Rs750bn and maturities of Rs1,317bn. Total bids amounted to Rs2.77 trillion, of which Rs173.6bn was accepted through the auction and Rs515.9bn through non-competitive bids. Cut-off yields were mixed. The yield on one-month bills fell by 19 basis points to 11.69 per cent, while the yield on six-month bills rose by 10bps to 12.29pc and that on 12-month bills rose by 11bps to 12.52pc. The 12-month return exceeded the 12pc policy rate by 52bps. The three-month bill attracted the highest bids, at Rs902.8bn, against which the government raised Rs69bn. Its rate remained unchanged at 11.99pc. Bids for the six-month tenor were the lowest, at Rs483.9bn, with only Rs1bn accepted. For one-month bills, bids totalled Rs627.5bn, with Rs25bn accepted. For 12-month bills, bids totalled Rs756bn, with Rs78.5bn accepted. Financial experts said the bidding pattern showed ample liquidity with banks, while the government appeared less interested in short-term borrowing. The long-term PIBs remain the government\u2019s priority, with outstanding stock now double that of short-term T-bills. The financial sector believes there is room for another 50bps increase in the policy rate, citing double-digit average inflation over the past four months. The State Bank expects inflation to fall to 5-7pc by the end of FY27. Published in Dawn, November 26th, 2026", "source": "Dawn Business", "url": "https://www.dawn.com/news/2047129/govt-raises-rs689bn-via-treasury-bills"}, {"head": "Senators Want Answers on Alleged Gambling-Related Money Laundering", "body": "The Senate Standing Committee on Finance has summoned officials from the State Bank of Pakistan (SBP), Securities and Exchange Commission of Pakistan (SECP), and National Cyber Crime Investigation Agency (NCCIA) to explain allegations that billions of rupees were transferred through digital banking channels to offshore online gambling and betting platforms. The committee, chaired by Senator Saleem Mandviwalla, sought a detailed briefing on the alleged transactions, the financial institutions involved, and the regulatory checks governing cross-border payments through digital banking and online payment systems. \u201cHow are these payments being processed through digital banks and mobile payment systems?\u201d the committee chairman questioned, raising concerns about how such large sums could allegedly leave the country without adequate monitoring and regulatory controls. The committee directed the SBP and SECP to provide a comprehensive briefing at its next meeting. It also summoned the NCCIA to explain the progress of its investigations and identify those allegedly responsible for facilitating the transactions. The issue emerged during a discussion on an agenda item concerning SECP\u2019s demand for an explanation from HUM Network over financial discrepancies involving Rs. 5.739 billion in receivables. However, the report presented by SECP related to HUM TV and was not connected to the matter under discussion.", "source": "ProPakistani \u00b7 Banking & Fintech", "url": "https://propakistani.pk/2026/11/26/senators-want-answers-on-alleged-gambling-related-money-laundering/"}, {"head": "Customs seizes boat carrying 40,000 smuggled diesel", "body": "KARACHI: Pakistan Customs\u2019 Marine Enforcement Unit in Gwadar has seized a boat carrying 40,000 liters of smuggled high-speed diesel off the Balochistan coast. Customs valued the seizure, along with the boat, at around Rs40 million. Officials said the unit acted on intelligence about fuel being smuggled by sea. It tracked and pursued the vessel for more than 72 hours through rough sea conditions before intercepting it. The boat, identified as Al-Behar-e-Amber, was taken into custody along with its cargo. Customs said legal proceedings had been initiated against those involved under the relevant laws. The department did not disclose how many people had been arrested or where the fuel came from. Officials said the seizure was part of ongoing anti-smuggling operations by the Marine Enforcement Units at Gwadar and Gadani to curb the illegal trade in petroleum products along the coast.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450980/customs-seizes-boat-carrying-40000-smuggled-diesel"}, {"head": "Askari Bank Invests Rs. 1 Billion in Brokerage Business", "body": "Askari Bank Limited (PSX: AKBL) has approved a further investment of Rs. 1.02 billion in Foundation Securities (Pvt) Limited, a subsidiary in which the bank holds a 51 percent stake. The bank\u2019s Board of Directors approved the investment at a meeting held on November 26, 2026, according to a notice submitted to the Pakistan Stock Exchange. The investment will be made through participation in a rights issue, subject to the receipt of all required shareholder, corporate and regulatory approvals. Askari Bank said the move would strengthen Foundation Securities\u2019 financial position and support the expansion of its brokerage business. The additional capital is expected to help Foundation Securities onboard new clients for share trading by increasing its Assets Under Custody limit and improving its capacity to settle large trades involving non-IDS clients.", "source": "ProPakistani \u00b7 Banking & Fintech", "url": "https://propakistani.pk/2026/11/26/askari-bank-invests-rs-1-billion-in-brokerage-business/"}]}, {"id": 3, "desk": "AI Frontier Models & Developer Infrastructure", "category": "Frontier Architectures", "readTime": "5 min read", "date": "FRIDAY, NOVEMBER 27, 2026", "headline": "Nvidia hits pause on chip shipments to Southeast Asia", "deck": "Nvidia has told its manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia, the clearest sign yet that Washington's tightening campaign to keep advanced artificial intelligence (AI) chips out of China is now reshaping trade flows across Southeast Asia.", "hero_source": "TechCrunch Wire", "hero_url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/", "author": "AI Systems & Frontier Tech Desk", "authorRole": "Technical Intelligence", "body": ["The directive covers servers built with Nvidia accelerators, the specialised hardware used to train and run large AI models in data centres.", "The pause lands amid an escalating United States export-control regime that restricts the sale of advanced AI chips to China and has sharpened scrutiny of third-country routes through which such hardware could be diverted. The rationale behind the tightening is that servers and accelerators shipped to other destinations for assembly, testing or warehousing can be re-exported or quietly redeployed to Chinese buyers, bypassing direct export prohibitions. Southeast Asia's dense network of electronics manufacturing and logistics hubs has come under particular examination as a potential waypoint for such diversion.", "For the four countries named in the pause, the order arrives at a delicate moment. Malaysia, Singapore, Thailand and Indonesia have spent recent years courting data-centre investment and building out the factory floors, ports and power capacity that anchor the regional electronics supply chain. A freeze on server deliveries risks delaying rollouts for partners who assemble, test or store Nvidia-based systems, and the affected companies must now weigh inventory, contract and compliance decisions against an unclear regulatory horizon.", "The pause carries no stated end date, and companies across the regional supply chain are watching whether the halt hardens into formal compliance requirements or fresh restrictions. For now, Nvidia's directive pulls one of the world's busiest manufacturing corridors into the centre of the United States\u2013China standoff over AI compute, tying the pace of hardware movement in Southeast Asia directly to the tightening politics of chip export control."], "quote": "Empirical benchmarks and transparent system architecture define durable AI progress.", "secondary_title": "Compute Pods, Sandboxing Protocols & Silicon Telemetry", "secondary_items": [{"head": "Nvidia reportedly cuts gaming GPU supplies by up to 30%", "body": "Nvidia has trimmed its supply of gaming graphics processing units (GPUs) by as much as 30 per cent, restricting the flow of desktop graphics cards through distributors and retail channels. The cutback bears on the GeForce product family, which anchors Nvidia's consumer gaming business, and lands while advanced fabrication capacity, packaging lines and memory supply are being contested by the datacenter accelerators that now dominate the company's earnings. A contraction on this scale typically registers first in reduced allocations to board partners, and then in thinner shop inventories and firmer prices for the most sought-after models.\n\nThe reduction reflects the imbalance Nvidia must manage between two markets. Its datacenter accelerators for artificial intelligence (AI) have grown into the largest single pool of its revenue, and those chips draw on precisely the manufacturing inputs that feed consumer graphics cards. Any volume shifted toward AI hardware ripples quickly through the gaming side of the business, where demand for high-end boards has stayed robust and stock of premium models is often absorbed within days of reaching dealers.\n\nFor gamers and system builders, the immediate consequence is less headroom: fewer GPUs per shipment cycle, narrowed room for discounting and a higher risk of upward price drift at retail. The cut carries no timetable or stated destination for the redirected capacity, so attention now turns to restock cadence and to whether the reduction proves a temporary inventory adjustment or a structural rebalancing of supply toward AI hardware. Until that picture clarifies, availability of premium graphics cards is likely to stay tight in the near term.", "source": "PKRevenue.com Wire", "url": "https://pkrevenue.com/nvidia-reportedly-cuts-gaming-gpu-supplies-by-up-to-30/"}, {"head": "NCCIA Issues Important Warning for Hacked Social Media Accounts", "body": "The National Cyber Crime Investigation Agency (NCCIA) has warned citizens against account recovery scams in which fraudsters demand money to restore hacked or blocked social media accounts.\n\nIn an advisory, the agency cautioned people against trusting individuals who claim they can recover compromised accounts in exchange for payment.\n\nScammers often target users who have lost access to their accounts by offering quick recovery services. However, sharing information with these individuals can put personal data, online accounts and money at risk.\n\nThe NCCIA has advised citizens never to share their passwords, one-time passwords (OTPs), payment details or personal information with unknown individuals.\n\nThe agency also urged users to avoid contacting unofficial account recovery agents and use only the official recovery channels provided by social media platforms.\n\nCitizens can report such scams or seek assistance by calling the NCCIA helpline at 1799.", "source": "ProPakistani \u00b7 Business Desk", "url": "https://propakistani.pk/2026/11/26/nccia-issues-important-warning-for-hacked-social-media-accounts/"}, {"head": "Draining peatlands is responsible for a few percent of our global warming", "body": "Detailed estimate going back to 1800 shows how much carbon is being liberated.", "source": "Ars Technica Feed", "url": "https://arstechnica.com/science/2026/11/draining-peatlands-is-responsible-for-a-few-percent-of-our-global-warming/"}, {"head": "Ford unveils the GT41 as it hopes to win Le Mans again", "body": "Ford enters the World Endurance Championship in 2027 with the new prototype.", "source": "Ars Technica Feed", "url": "https://arstechnica.com/cars/2026/11/ford-unveils-the-gt41-as-it-hopes-to-win-le-mans-again/"}, {"head": "Pakistan\u2019s Leading Telco Plans to Acquire Major Fiber ISP", "body": "Pakistan\u2019s leading telecom company and its parent company, headquartered in Dubai, United Arab Emirates, have approached a major Pakistani internet service provider (ISP) with plans to merge the businesses after earlier discussions with Nayatel and Transworld failed to materialize, sources told ProPakistani. Sources said due diligence is currently underway as part of the proposed transaction, while the ISP has also initiated internal audits. The telecom\u2019s representatives have also been seen visiting the ISP\u2019s offices during the process.\n\nThe merger could give telco access to an extensive nationwide fibre-optic network and strengthen its position in Pakistan\u2019s fixed connectivity market, particularly as direct competition with Pakistan Telecommunication Company (PTCL) in fibre connectivity, wholesale telecommunications, broadband and enterprise services. The ISP operates a fibre-optic network spanning more than 50,000 kilometres and connecting over 240 cities. Its infrastructure includes metropolitan and long-haul fibre networks, dark fibre services, telecom tower connectivity and enterprise networking solutions.\n\nThe network could allow the telecom to connect more of its mobile network towers directly to fibre infrastructure, reducing reliance on third-party connectivity providers. This could help improve network capacity, support growing data consumption and strengthen its preparedness for next-generation mobile services.", "source": "ProPakistani \u00b7 Industry & Trade", "url": "https://propakistani.pk/2026/11/26/pakistans-leading-telco-plans-to-acquire-major-fiber-isp/"}]}, {"id": 4, "desk": "Screen, Sound, Creators & Global Entertainment", "category": "Studio Regulation & Music Charts", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 27, 2026", "headline": "Gerald R. Molen, Oscar-Winning \u2018Schindler\u2019s List\u2019 Producer, Dies at 91", "deck": "Gerald R. Molen, the Academy Award-winning producer of Steven Spielberg\u2019s \"Schindler\u2019s List,\" has died at the age of 91.", "hero_source": "Variety Global Wire", "hero_url": "https://variety.com/2026/film/news/gerald-r-molen-dead-schindlers-list-producer-1236959200/", "author": "Culture & Screen Desk", "authorRole": "Global Arts Review", "body": ["His great-niece, Rachel Lorraine Pullan, announced the death in an Instagram post on Sunday. \"This morning my great-uncle, Gerald R. Molen,\" Pullan wrote, \"passed on to join my great-grandma and his dear wife Pat.\" A cause of death was not disclosed.", "Over a decades-long career in Hollywood, Molen served as one of Spielberg\u2019s most trusted collaborators, heading production at Amblin Entertainment, the director\u2019s company. His credits with Spielberg stretched from the drama \"The Color Purple\" (1985) to the blockbuster \"Jurassic Park\" (1993), the disaster spectacle \"Twister\" (1996) and the science-fiction thriller \"Minority Report\" (2002).", "\"Schindler\u2019s List,\" Spielberg\u2019s 1993 landmark film about the Holocaust, collected seven Academy Awards at the 66th Academy Awards ceremony in March 1994, among them Best Picture, which went to Molen alongside Spielberg and fellow producer Branko Lustig. The account of Oskar Schindler, the German businessman who shielded more than 1,000 Jews from the Nazis, also earned Spielberg his first Academy Award for direction.", "Molen\u2019s career left its fingerprints on some of the defining films of late twentieth-century Hollywood, from the amusement-park nightmare of \"Jurassic Park\" to the historical gravity of \"Schindler\u2019s List.\" In her tribute, Pullan described Molen as having gone to join his wife, Pat."], "quote": "Statutory exhibition quotas preserve auteur storytelling while ensuring independent theatrical chains remain viable. \u2014 Exhibition Dispatch", "secondary_title": "Studio Mergers, MTV VMA Honors & Billboard Records", "secondary_items": [{"head": "Asha Bhosle and S. Janaki Remembered by Singer K.S. Chithra and Suhasini Maniratnam at IFFI\u2019s Lata Mangeshkar Talk", "body": "Asha Bhosle and S. Janaki, two of Indian cinema\u2019s most celebrated playback singers, were remembered at the 57th International Film Festival of India (IFFI) in Goa by singer K.S.\n\nChithra and actor-filmmaker Suhasini Maniratnam. Bhosle, a two-time Grammy nominee whose name was referenced in Cornershop\u2019s 1997 hit \u201cBrimful of Asha,\u201d died in April at 92.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/festivals/asha-bhosle-s-janaki-ks-chithra-suhasini-iffi-1236959192/"}, {"head": "John Travolta Didn\u2019t Recognize Himself as Alleged JFK Assassin Johnny Roselli in \u2018November 1963\u2019 -\u2018I Went, \u201cOh My God, He\u2019s the Devil\u201d\u2019", "body": "John Travolta has said he did not recognise himself while playing Johnny Roselli, the alleged assassin of President John F. Kennedy, in \u2018November 1963\u2019, recalling that his first sight of his transformed appearance left him exclaiming, \u201cI went, \u2018Oh My God, He\u2019s the Devil.\u2019\u201d The actor described Roselli as one of the rare characters with whom he feels little personal connection, adding that he sometimes loves to hate the parts he plays.\n\nSetting out his approach to unsympathetic characters, Travolta said, \u201cThey say you have to find something you like. But I\u2019ve never felt that. I think you have to like the result, pulling it off. That\u2019s where the joy comes from.\u201d In his view, the satisfaction of a performance rests on execution rather than affection, and the darkness of a figure such as Roselli poses no obstacle to committing fully to the portrayal.\n\n\u2018November 1963\u2019 takes its name from the month in which President Kennedy was assassinated, November 1963, and places Travolta\u2019s Roselli among the figures long accused of involvement in the killing. For the veteran star, the part stands as a further expression of a long-held professional creed: the pleasure of acting lies not in liking the character but in liking the result \u2014 pulling it off.", "source": "Variety Global Wire", "url": "https://variety.com/2026/film/festivals/john-travolta-jfk-assassin-johnny-roselli-november-1963-1236959137/"}, {"head": "\u2018Hunger Games\u2019 Producer Regrets Splitting \u2018Mockingjay\u2019 As Fans Felt It Was A \u201cPlay To Make Them See Two Films Instead Of One\u201d", "body": "Nina Jacobson, the producer who has steered The Hunger Games franchise from its start, has said she regrets the decision to split the final book, Mockingjay, into two films, conceding that fans saw the division as \u201ca play to make them see two films instead of one\u201d. Her reassessment lands with the release of the prequel The Hunger Games: Sunrise on the Reaping. When the choice was made, The Twilight Saga and Harry Potter had both broken their grand finales into two parts, and Lionsgate followed suit by splitting the last Suzanne Collins book of the original Hunger Games trilogy into a two-part conclusion.\n\nAlthough the new picture is built around Haymitch Abernathy, Oscar nominee Jesse Plemons was the first performer cast in the film. Plemons plays Plutarch Heavensbee, a Capitol insider who becomes a key figure in the rebellion that sparks in the latter half of Suzanne Collins\u2019 original trilogy of dystopian novels.\n\nAt the box office, Lionsgate\u2019s sixth film in its dystopian franchise looks to win its sophomore frame after notching series records with its debut Monday and Tuesday, a start that underscores the property\u2019s enduring pull as its longtime producer reconsiders how the earlier finale reached audiences.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/hunger-games-producer-regrets-splitting-mockingjay-1237233567/"}, {"head": "\u2018Percy Jackson\u2019s Courtney B. Vance On \u201cDoing Right By\u201d Late Lance Reddick After Taking Over Zeus Role", "body": "As the gods and demigods of Percy Jackson and the Olympians return for a third season, Courtney B. Vance has a mighty toga to fill. The Golden Globe nominee reprises the part of Zeus in Season 3 of the Disney+ series, taking over the role originated by the late Lance Reddick, and has framed the job above all as doing right by the actor who preceded him.\n\nVance remembered Reddick as \u201ca great, great man,\u201d a tribute that underlined the weight of the handover. Reddick, who died at the age of 60 in March 2023, defined the king of the gods for viewers of the show\u2019s first season, which premiered in December 2023, months after his passing. Widely beloved for his work on The Wire, Fringe and the John Wick films, he brought a commanding gravity to the throne of Olympus that set a high bar for his successor.\n\nStepping into the mythology mid-run, Vance has placed the charge of stewardship at the centre of his approach \u2014 honouring Reddick\u2019s Zeus while keeping the king of the gods fully alive before a returning cast of demigods and deities. For the Golden Globe nominee, the measure of the performance lies in doing right by the man who made the role his own, and in a series built on inherited legends, that inheritance now rests in careful hands.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/percy-jackson-courtney-b-vance-doing-late-lance-reddick-1237234178/"}, {"head": "Erika Hammond Teases \u201cDrama\u201d & \u201cResolution\u201d At \u2018RHONY\u2019 Season 16 Reunion, Says Devyn Simone Is \u201cNot A Friend I Want\u201d", "body": "Erika Hammond has teased that the Season 16 reunion of The Real Housewives of New York City (RHONY) will deliver both \u201cdrama\u201d and \u201cresolution,\u201d signalling that the sit-down will bring the season\u2019s fractured relationships to a head. Hammond frames the gathering as a decisive finale to a cycle in which the group\u2019s dynamics have been repeatedly tested, and suggests that at least some of the discord among the women will finally be settled before the cameras.\n\nWhile Hammond indicated that certain problems within the group will find resolution once the women sit down together, she drew a firm line at Devyn Simone, the new \u201cfriend of\u201d introduced this season. Hammond made clear she does not see a path forward with Simone, bluntly describing her as \u201cnot a friend I want\u201d \u2014 a pointed verdict on the newest addition to the ensemble.\n\nThe remarks position the reunion as the defining moment for the RHONY cast, with Hammond\u2019s comments suggesting the reunion table will close some wounds while confirming at least one rift that will not heal. Attention now turns to how Simone responds when she is finally seated across from Hammond.", "source": "Deadline Hollywood Wire", "url": "https://deadline.com/2026/11/erika-hammond-drama-rhony-season-16-reunion-devyn-simone-1237234147/"}]}, {"id": 5, "desk": "Travel, Northern Valleys, Heritage & Geopolitics", "category": "Aviation & Multilateral Diplomacy", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 27, 2026", "headline": "Roads blocked, traffic congested in several parts of Karachi", "deck": "Traffic across Karachi was heavily disrupted on Thursday as protest-related road closures severed key arterial routes, leaving long queues of vehicles stranded along the Superhighway near Al Asif Square, Hub River Road and stretches of the National Highway.", "hero_source": "Dawn Latest News", "hero_url": "https://www.dawn.com/news/2047233/roads-blocked-traffic-congested-in-several-parts-of-karachi", "author": "Alpine & Sovereign Affairs Desk", "authorRole": "Field Telemetry", "body": ["The Karachi Traffic Police (KTP) closed both inbound and outbound roads at multiple points, issued diversion plans for heavy and light vehicles, and assured commuters that its personnel were taking necessary measures to maintain the flow of traffic, though officials did not elaborate on the nature of the protests.", "KTP said both inbound and outbound roads on the Superhighway near Al Asif Square were closed to traffic due to a protest, and advised commuters travelling from Hyderabad to use Punjab Adda, Total Pump and Faria Chowk as an alternative route towards Mubina Town police station. In updates issued at around 9:30pm, the police said the roads on both sides of Hub River Road and both sides of the Superhighway near Al Asif Square remained closed, with heavy traffic from Hub River Road towards Karachi lined up. Light traffic was diverted from Rais Goth towards the inner areas, while traffic heading from Karachi towards Hub was diverted towards Hamdard University near the Northern Bypass. Vehicles coming from Shahrah-i-Pakistan towards Al Asif Square were diverted via Adil Shah Ramp towards Gulshan through Rashid Minhas Road, and heavy traffic was directed to the Northern Bypass from near the Burraq fuel station.", "On the National Highway, both roads linking Ghaghar Phatak near Sassi Toll Plaza were closed to traffic due to a protest. Light traffic coming from Thatta was diverted from ICI Chowk towards the FFC Factory Area, Steel Mill and Steel Mill Chowrangi, while vehicles heading from Steel Mill to Ghaghar Phatak could proceed towards Thatta via the Superhighway after using a link road from the T-junction before Sassi Toll Plaza. At 8:30pm, the traffic police flagged heavy congestion at Abu Al-Hasan Isfahani Road, Madras Chowk and its surroundings, Maskan Chowrangi towards the Superhighway, and Nipa towards Mausamiyat, noting that the flow was slow because the roads near Al Asif Square were shut to vehicles in both directions.", "Earlier in the day, both incoming and outgoing roads at Lucky Pahari on Hub River Road were also closed due to a protest, with heavy traffic backed up on both sides and small vehicles diverted through the inner areas. Around 5pm, Sharea Faisal near the Baloch Colony flyover was closed to traffic because of a protest, though the police later confirmed that the demonstration had ended and traffic had returned to normal. Personnel remained deployed on Natha Khan Bridge to keep traffic moving towards the airport, with effective measures taken to ensure an uninterrupted flow."], "quote": "Satellite performance navigation at high-altitude mountain airports bridges pristine alpine valleys with global cultural tourism. \u2014 Aviation Telemetry", "secondary_title": "Northern Valleys Expeditions, Satellite Aviation & UNGA 81", "secondary_items": [{"head": "Atta-ur-Rahman calls for greater investment in research, technology", "body": "KARACHI: Renowned scientist Professor Dr. Atta-ur-Rahman called for greater investment in research, innovation and technology at a China\u2013Pakistan Youth Dialogue organised jointly by the Economic Diplomacy Forum (EDF) and the Chinese Consulate in Karachi. The seminar, titled \u201cChina\u2013Pakistan Youth Dialogue: Carrying Forward the Ironclad Friendship, Building a Shared Future\u201d, was held at the Chinese Consulate to mark the 75th anniversary of diplomatic relations between Pakistan and China. Dr. Atta-ur-Rahman, former Federal Minister for Science and Technology and founding chairman of the Higher Education Commission (HEC), said Pakistan should draw lessons from China\u2019s development model to build a sustainable knowledge-based economy. He called for increased research funding, tax incentives for private-sector research and development, accessible financing for technology companies and the establishment of modern technology zones and advanced research laboratories. Dr. Feng Deheng, Acting Consul General of China in Karachi, who delivered the keynote address, highlighted the role of education and youth engagement in strengthening bilateral relations. He said more than 30,000 Pakistani students were pursuing higher education in Chinese universities, while the CPEC Consortium of Universities brought together 93 Pakistani and 40 Chinese universities. He also highlighted joint academic programmes, scientific research and faculty and student exchanges. Dr. Feng outlined the Chinese Consulate\u2019s educational initiatives in Sindh and Balochistan, including the Consul General Scholarship programme, support for the Confucius Institute at the University of Karachi and Chinese language education. Referring to CPEC Version 2.0, he said bilateral cooperation was expanding into modern industry, agriculture, scientific and technological innovation, the digital economy and green development. Dr. Muhammad Farooq Afzal, Founder President of the Economic Diplomacy Forum, said Pakistan\u2013China friendship must be carried forward by younger generations through education, research, innovation, entrepreneurship and people-to-people engagement. He said bilateral relations had evolved over 75 years into a comprehensive partnership encompassing trade, investment, infrastructure, technology, education and culture. Highlighting the next phase of CPEC, Dr. Afzal called for greater cooperation in technology, research, entrepreneurship and human resource development. He also urged Pakistani universities to strengthen links with Chinese institutions through joint research, faculty exchanges and student mobility. \u201cThe future of Pakistan\u2013China relations cannot depend on governments and diplomats alone. It must also be shaped by universities, researchers, entrepreneurs, professionals and, above all, our young people,\u201d he said. University of Karachi Vice Chancellor Professor Dr. WasimQazi and NED University of Engineering and Technology\u2019s Professor Dr. Sajida Zaki highlighted their institutions\u2019 efforts to promote Chinese language education and academic cooperation with Chinese universities. Professor Dr. Tariq Rahim Soomro of the Institute of Business Management stressed the importance of engaging young people from both countries through regular dialogues and opportunities to exchange ideas. Students from the University of Karachi, NED University, the Institute of Business Management and Muhammad Ali Jinnah University attended the seminar. Three students from China\u2019s Sichuan Normal University also participated virtually, sharing their experiences and discussing educational opportunities and support extended by the Chinese government. Pakistani students also interacted with their Chinese counterparts during a question-and-answer session, exchanging views and exploring opportunities for academic and scientific cooperation.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450977/atta-ur-rahman-calls-for-greater-investment-in-research-technology"}, {"head": "Global maritime trade set for zero growth in 2026 -UN", "body": "GENEVA, (Switzerland): Global maritime trade \u2014 which carries more than 80 percent of the world\u2019s goods \u2014 is set to stagnate in 2026 due to shipping disruptions and trade uncertainties arising from the war in the Middle East, the United Nations said Thursday. \u201cMaritime trade is projected to record zero growth in 2026 after expanding 1.9 percent in 2025,\u201d the UN trade and development agency UNCTAD said. Ongoing disruptions to maritime traffic through the Strait of Hormuz \u2014 a vital shipping route for roughly a fifth of the global oil supply, and other strategic commodities like fertiliser \u2014 plus the spread of the conflict to the Red Sea have been complicating trade and causing severe volatility in oil prices in late February. Before the disruption, around 120 ships crossed the Strait of Hormuz daily. But by early March, traffic measured by gross tonnage had fallen by roughly 95 percent, said UNCTAD. The instability in the Red Sea also forced many ships to switch to a longer route around the Cape of Good Hope. UNCTAD also highlighted disruptions to grain shipments in the Black Sea and via the Panama Canal. \u201cDisruptions to major shipping routes and chokepoints are lengthening voyages, raising operating costs and freight volatility, and putting additional pressure on supply chains, particularly in developing countries,\u201d the agency said. The use of other ports, inland transport networks and new logistics solutions has helped to keep trade flowing, albeit at a higher cost, according to UNCTAD. The agency said seaborne trade came in at 12.3 billion tonnes in 2025, up 1.9 percent, compared to growth of 3.9 percent in 2024. It projects zero growth in 2026. Interim UNCTAD chief Pedro Manuel Moreno told a press conference: \u201cOur simulations show that if a fuel shock like these years proceeds through 2027, higher shipping costs alone could push consumer prices in least-developed countries to almost twice the global average increase.\u201d In light of these challenges, UNCTAD advocated shifting from a crisis-response mindset to an approach rooted in preparedness and flexibility. \u201cResilience cannot be based on simply finding alternative routes every time a crisis occurs,\u201d Moreno told reporters in Geneva. \u201cIt requires better preparation, stronger international cooperation, predictable rules, and investments in the future of the global fleets.\u201d UNCTAD urged governments and industry to collaborate and strengthen resilience across shipping and port planning, operations and investment while protecting navigation and seafarers.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450961/global-maritime-trade-set-for-zero-growth-in-2026-un"}, {"head": "PIA cancels 2 UK flights as Norse suspends operations", "body": "KARACHI: Pakistan International Airlines (PIA) early Thursday cancelled two flights from Britain after its leasing partner, Norway\u2019s Norse Atlantic Airways, abruptly suspended operations. Hours earlier, Norse had warned that its finances were in critical condition. According to PIA officials, the airline received notice of the suspension as passengers were preparing to board flight PK786 from London Heathrow to Islamabad and PK710 from Manchester to Lahore. The flag carrier attributed the cancellations to \u201can unexpected operational suspension\u201d by Norse. However, Norse has not publicly explained the PIA cancellations. The Norwegian carrier said in its statement that its situation depended on securing financing for short-term liquidity needs, and it had explored strategic alternatives and was in discussions over a potential takeover. Norse did not respond to an email for comment. Meanwhile, PIA said that the airline has transitioned its UK operations directly onto its own widebody Boeing 777 fleet and scheduled UK services and operations across PIA\u2019s entire domestic and international network are running on schedule. According to the Western media, Norse\u2019s troubles had been building for months, and in May, the airline cut 75 administrative jobs as part of a restructuring focused on wet-lease and charter flying. The airline, which scheduled 4,822 flights in 2024, fell to 2,565 flights in 2026, with just 122 planned for November, raising questions about PIA\u2019s due diligence before signing a wet-lease agreement with Norse. The national flag carrier signed this agreement in October for two Boeing 787-9 Dreamliners, and operations began in early November. Under the deal, Norse supplied the aircraft, crew, maintenance, and insurance.\n\nPakistan International Airlines\u2019 plan to lease two Boeing 787 Dreamliner aircraft from Norwegian carrier Norse Atlantic Airways faces fresh uncertainty after the airline suspended its flights and warned that it could file for bankruptcy if it fails to secure emergency financing. Norse Atlantic said on Thursday that its financial position had become critical after its shares plunged 85 percent on Wednesday after it warned about its financial position, then fell another 10.2 percent by 0830 GMT on Thursday. The decline has taken its share price down 99.2 percent since the beginning of the year. The company said it urgently needed funding to meet its short-term liquidity and operational requirements. The airline warned that its board intended to file for bankruptcy if a financing solution was not secured. The development puts the spotlight on PIA\u2019s aircraft leasing arrangement with the Norwegian carrier, which had already been suspended. PIA said on Wednesday that Norse Atlantic had abruptly halted the deal, forcing it to cancel two flights. Norse Atlantic has returned all its aircraft to bases in Norway, Sweden and Britain, according to its Chief Executive Eivind Roald, who spoke to Norwegian business daily Finansavisen. The airline is still exploring options to raise short-term financing and is also in discussions with investors over a possible takeover that could include a funding solution.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450958/pia-cancels-2-uk-flights-as-norse-suspends-operations"}, {"head": "Namira Salim Claims She\u2019s the First Pakistani Astronaut", "body": "Namira Salim, who flew to space with Virgin Galactic in 2023, has welcomed Pakistan\u2019s human spaceflight mission with China but maintains that she is the country\u2019s first astronaut. Speaking to Independent Urdu, Salim said the Pakistani government had officially recognised her as Pakistan\u2019s first astronaut in the past, but the same title is now being used for Muhammad Zeeshan Ali. Salim said that in 2006, the Ministry of Information and Broadcasting officially launched her across the country as the first Pakistani astronaut. She explained that she bought her Virgin Galactic ticket that year, when private spaceflight was only just starting in the US, and that the company took around 18 years to complete its spaceline and test flights before flying its commercial astronauts. She eventually flew to space on October 6, 2023, aboard Virgin Galactic\u2019s Galactic 04 mission. Salim stressed that although she lives outside Pakistan, she holds no other passport and still proudly carries her Pakistani one, which is why the government recognised her. \u201cIf the government overlooks this and ignores the efforts of a private citizen, that is their problem,\u201d she said.", "source": "ProPakistani \u00b7 National Desk", "url": "https://propakistani.pk/2026/11/26/namira-salim-claims-first-pakistani-astronaut/"}]}, {"id": 6, "desk": "Sport, Science, Books & Ideas", "category": "Monday Night Football & Astrophysics", "readTime": "4 min read", "date": "FRIDAY, NOVEMBER 27, 2026", "headline": "Jodar sends Spain into Davis Cup semi-final clash with Britain", "deck": "Spain charged into a Davis Cup semi-final against Britain after 20-year-old Rafael Jodar overhauled Austria's Jurij Rodionov 2-6, 6-0, 6-1 in Bologna, surrendering only one game across the final two sets of the quarter-final.", "hero_source": "Dawn Sport Desk", "hero_url": "https://www.dawn.com/news/2047321/jodar-sends-spain-into-davis-cup-semi-final-clash-with-britain", "author": "Eyewitness Sports & Scientific Desk", "authorRole": "Match Centre Analysis", "body": ["Spain already led the tie 1-0 thanks to Daniel Merida, who beat Joel Schwaerzler 6-4, 6-4 earlier, a result that made the doubles unnecessary and allowed Carlos Alcaraz a full day's rest. \"It was very difficult for me because the first matches in tournaments are not easy,\" said Jodar, who only made his Davis Cup debut in the qualifiers. \"I couldn't find my rhythm. At the start of the second set, I started playing better, more aggressively, and more solidly from the baseline.\" Merida added: \"It was amazing for me to give the first point for Spain. I didn't play my best level today, but I got the win.\"", "Spain captain David Ferrer indicated that Alcaraz, fresh from three consecutive individual titles including last week's ATP Finals, could feature in the singles against Britain on Saturday. \"I will see on Saturday. I don't know yet. But yeah, could be possible,\" said Ferrer of the seven-time Grand Slam champion. Spain are pursuing a seventh Davis Cup crown, and their first since 2019, when Rafael Nadal played a starring role in the campaign.", "Britain had earlier secured their semi-final place with a 2-1 win over Alexander Zverev's Germany. Cameron Norrie defeated Jan-Lennard Struff 6-3, 3-6, 6-2 in the opening singles, before world number one Zverev levelled the tie by beating Arthur Fery 6-3, 6-2, the same opponent he overcame in the Wimbledon semi-finals. The decisive doubles saw Henry Patten, the world number one in doubles, and Neal Skupski, ranked third, defeat Kevin Krawietz and Tim Puetz 6-2, 7-6(8/7), surviving a second-set tie-break in which Skupski served for the match at 6-5 before converting Britain's second match point. It carried the Britons into the last four for the first time in seven years.", "Three-time reigning champions Italy will meet the Czech Republic in the first semi-final on Friday."], "quote": "Universal physical triggers govern cosmic particle jets across all mass scales, demonstrating nature's structural invariance. \u2014 Nature Astronomy", "secondary_title": "NFL Reconstructions, Space Telescopes & Pro Bono Legal Desk", "secondary_items": [{"head": "Ireland men set for maiden tour of Pakistan in January, to play three ODIs", "body": "The Ireland men\u2019s team will tour Pakistan in January for the first time to play three One-day Internationals against the hosts, the cricket boards of both countries announced on Thursday. The visitors, according to the Pakistan Cricket Board (PCB), are scheduled to arrive in the country on Jan 9, and will take on national developmental side Pakistan Shaheens for three warm-up one-day matches between Jan 13 and 17. The ODIs are set for Jan 20, 22 and 24. All six matches, the PCB said, will be played at Lahore\u2019s Gaddafi Stadium. The series was originally planned to be a multi-format one before plans were changed with the proximity of the 2027 World Cup in mind. \u201cWhile we originally planned a multi-format series, both Boards have agreed that their respective squads would benefit most from playing 50-over cricket given our upcoming participation in the World Cup Qualifier and Pakistan preparing for the World Cup itself later in 2027,\u201d Graeme West, Director of High Performance at Cricket Ireland, said in a statement. This tour, therefore, is an important milestone for Ireland, who are also all set to feature in the upcoming World Cup Qualifier, through which they\u2019ll try to secure their spot for next year\u2019s showpiece. \u201cOver the years we have enjoyed a close relationship with the Pakistan Cricket Board and their players, and we look forward to this historic first tour \u2013 the first of many in the coming years, we hope,\u201d West added. For the hosts, meanwhile, the tour would be an opportunity to test their depth \u2013 especially through the Shaheens matches \u2013 and continue the fine-tuning process of their combinations ahead of the World Cup. Pakistan made a statement of sorts about their ODI form, convincingly winning a tri-series, which featured England and Sri Lanka along with Shaheen Shah Afridi\u2019s side. Correction: An earlier version of this story stated that the Ireland team would be arriving next month. The error is regretted.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2047197/ireland-men-set-for-maiden-tour-of-pakistan-in-january-to-play-three-odis"}, {"head": "US clears SpaceX to launch up to 1m orbital data-centre satellites", "body": "NEW YORK: The Trump administration authorized Elon Musk\u2019s SpaceX on Wednesday to launch up to one million satellites as part of its plan to build data centers in space, raising concerns from some experts. The US Federal Communications Commission (FCC) said SpaceX\u2019s Starmind constellation would \u201cprocess massive amounts of data to be used back here on Earth.\u201d The company\u2019s authorization runs until 2040, according to a document published on the FCC\u2019s website. \u201cAmerica is leading the world into the era of super intelligence,\u201d FCC Chairman Brendan Carr said in a statement, using Trump\u2019s moniker for artificial intelligence. He added that data centers would be \u201cessential to sustaining America\u2019s leadership in SI.\u201d Projects for orbiting data centers have multiplied over the past year. Alongside SpaceX and its Starmind constellation, Google is pursuing its own initiative under the codename \u201cSuncatcher,\u201d while Jeff Bezos\u2019s Blue Origin has submitted an application to the FCC for its \u201cProject Sunrise.\u201d Several startups are also in the race, including Starcloud, which successfully operated an advanced processor known as a GPU aboard a satellite in late 2025. Google also reached that milestone in October. SpaceX has the advantage of having its own rockets that have already completed hundreds of missions. In August, Musk promised a first SpaceX satellite launch into orbit in the fourth quarter of 2027 and a ramp-up in 2028. The company has struck a deal with Nvidia, which will supply its latest-generation Vera Rubin processors, specially designed to operate in space. \u2018Disheartened and dismayed\u2019 Most space-based data center projects have a similar architecture: a constellation of satellites in low Earth orbit (LEO), positioned close together to ensure reliable connections between them. Starmind\u2019s satellites will communicate with those already in orbit as part of SpaceX\u2019s Starlink satellite internet network, which will then relay the data to Earth. Other competing networks plan to receive data directly from Earth and send it back using lasers. But experts have warned of technical obstacles, as well as environmental concerns. Unresolved technical challenges include processors\u2019 ability to withstand the high levels of radiation in space. Observers also point to the difficulty of withstanding extreme temperatures or avoiding damage from space debris and micrometeorites. The American Astronomical Society (AAS) said it was \u201cdisheartened and dismayed\u201d by Wednesday\u2019s decision. \u201cThe proposed constellation would significantly undermine decades of federal investment in astronomical facilities and the ability of astronomers and the public to enjoy and study the night sky,\u201d the AAS said in a statement. It noted that the constellation \u201cinvolves larger (and therefore brighter) and more numerous objects,\u201d meaning the satellites would \u201cbe visible as extremely bright objects for longer periods in the night sky.\u201d \u201cDrastically expanding satellites in space has a direct impact on people\u2019s everyday lives as well as the future of our planet,\u201d Jan Hasselman, a senior attorney at the nonprofit group Earthjustice, said in a statement. There are, however, numerous advantages to locating a data center in space over building one on Earth. Among those, a satellite in what is known as a sun-synchronous orbit can capture solar energy continuously and with eight times the efficiency of its ground-based equivalent. SpaceX made its stock market debut in June, raising about $85.7 billion.", "source": "Business Recorder", "url": "https://www.brecorder.com/news/40450962/us-clears-spacex-to-launch-up-to-1m-orbital-data-centre-satellites"}, {"head": "Rana Irfan whitewashes Asif to win IBSF Men's World Cup in Muscat", "body": "Rana Irfan produced a flawless 5-0 whitewash of Mohammad Asif on Thursday to claim the IBSF Men\u2019s World Cup title at the Active Oman Sports and Entertainment Hub in Muscat, avenging his defeat to the same opponent in the National Championship final in January. In January, Irfan had fired century breaks of 112 and 141 against Asif in the national final, yet still walked away empty-handed, losing 6-3 to the three-time IBSF world champion. On Thursday, he made sure history would not repeat itself, wrapping up the final with breaks of 56, 46 and 68 en route to a 96(56)-46, 67-48, 64-1, 91(68)-12, 69-06. Irfan, visibly emotional, hugged his compatriot before spreading his arms in triumph amidst applause. \u201cI am really delighted to win,\u201d Irfan told Dawn after his triumph. \u201cYeah, I got a bit emotional after the win, as when you get rewarded for your struggles, it\u2019s only natural to react this way, I guess.\u201d It was the first time Irfan was representing Pakistan in an international tournament, and he lamented the lack of exposure. \u201cThere aren\u2019t many opportunities in snooker, but again you have to avail any opportunity, and I am happy that I was able to win here.\u201d The marathon day began with the quarter-finals, where Irfan dispatched compatriot Mubashir Raza 4-2. Asif, meanwhile, was in imperious form against England\u2019s Harvey Chandler, winning 4-1 with a composed 58 break. Asjad Iqbal also advanced, defeating Iran\u2019s Amir Sarkhosh 4-2 with a stunning 105 break. Pakistan cueist Mohammad Asif in action during the IBSF Men\u2019s World Cup final against compatriot Rana Irfan at the Active Oman Sports and Entertainment Hub in Muscat, Oman, on November 26, 2026. \u2014Courtesy PBSA The semi-finals brought a dramatic all-Pakistan clash between Irfan and last-year finalist Asjad. Asjad opened with a 66 break to take the first frame, but Irfan responded with a 51 to level. The match swung back and forth, with 36-year-old Asjad firing a stunning 123 break in the sixth frame to force a decider. Irfan held his nerve, closing it out 69-15 to book his place in the final. In the other semi-final, Asif comfortably dispatched Afghanistan\u2019s Mohammad Rais Senzahi 4-1. The final itself began with early nerves from Irfan. He opened the first frame with two fouls, which cost at least four points each, to gift Asif an eight-point lead.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2047243/rana-irfan-whitewashes-asif-to-win-ibsf-mens-world-cup-in-muscat"}, {"head": "Australia's sandpapergate probe to also include 2017-18 Ashes", "body": "Cricket Australia's fresh independent probe into the sandpapergate ball-tampering scandal has been widened beyond the third Test against South Africa at Newlands in Cape Town in March 2018 to take in Australia's entire 2017-18 home summer, adding the Ashes series against England to its scope. The review stems from the episode in which opener Cameron Bancroft was caught on television cameras using sandpaper to alter the condition of the ball, with then captain Steve Smith and vice-captain David Warner each suspended for 12 months for their roles in the plan and Bancroft banned for nine months.\n\nThe widening of the terms of reference follows David Warner's renewed calls for the case to be reopened after he claimed publicly that the plot behind the tampering was never confined to the three players who were punished, saying that others in and around the squad also knew of it. Australia's 2017-18 Ashes triumph over England, sealed 4-0 between November 2017 and January 2018, immediately preceded the South Africa tour, and the enlarged review will now examine the conduct and culture of that Ashes summer as well as the Cape Town Test itself.\n\nThe affair remains one of the most damaging episodes in Australian cricket history, costing Steve Smith the national captaincy and David Warner the vice-captaincy, and forcing then coach Darren Lehmann from the role shortly afterwards. The expanded probe is intended to establish how far knowledge of the tampering scheme spread through the setup before its findings are delivered.", "source": "BBC Sport & Sky Sports", "url": "https://www.bbc.co.uk/sport/cricket/articles/cxdd1335nyj0o?at_medium=RSS&at_campaign=rss"}, {"head": "Bournemouth, Milan record comeback victories in Europa League", "body": "Ten-man Bournemouth fought back to maintain their 100-per cent record in the Europa League with a 2-1 victory at Celta Vigo on Thursday, while AC Milan overturned a two-goal deficit to defeat Olympiakos. The fifth round of matches was overshadowed by clashes between Georgian police and Besiktas fans, which caused the Turkish club\u2019s match against Israeli side Hapoel Beer-Sheva in Batumi to be temporarily suspended. Marco Rose\u2019s Bournemouth notched a 10th successive win in all competitions despite finding themselves a goal and a man down in Spain. The Premier League club, playing in Europe for the first time, now sit two points clear at the top of the 36-team table above second-placed Juventus, who saw off Cypriots Omonia 4-1 in Turin. \u201cMy team, with one player down and 1-0 down, and this kind of energy and spirit \u2014 this is quite remarkable and amazing,\u201d said Bournemouth boss Rose. \u201cSometimes I have the feeling with this team [that they] don\u2019t even need a coach.\u201d Bournemouth could secure a top-eight finish and a last-16 berth when they host Viktoria Plzen, 4-0 winners over Benfica on Thursday, in two weeks. Celta struck first in the 19th minute as Bournemouth allowed 39-year-old Iago Aspas time and space in the box to score his first goal since August. The visitors were dealt another blow just three minutes later when Bafode Diakite was sent off following a VAR review for a tackle on Couhaib Driouech. But the Cherries pulled themselves level two minutes after half-time as Alvaro Rodriguez headed in Amine Adli\u2019s cross. The 10 men completed a remarkable turnaround with 12 minutes to play when Rayan slotted home Marcus Tavernier\u2019s square pass to cap a quick counter-attack. Ruben Amorim\u2019s Milan, who had lost three of their opening four matches, gave their hopes of avoiding an embarrassing early exit a boost with a 4-2 victory at Olympiakos. Milan were facing another huge blow to their bid to reach the knock-out phase when they were trailing to a Mike Maignan own goal and Joao Silva\u2019s 49th-minute strike. But Omari Hutchinson\u2019s brilliant solo goal gave Milan a lifeline, and the former Ipswich Town winger then set up Alphadjo Cisse to equalise in the 63rd minute. Hutchinson added another assist as he crossed for Christian Pulisic to volley home 19 minutes from time, before Diego Moreira\u2019s injury-time fourth, breathing life into the seven-time European champions\u2019 campaign.", "source": "Dawn Sport Desk", "url": "https://www.dawn.com/news/2047317/bournemouth-milan-record-comeback-victories-in-europa-league"}, {"head": "Pro Bono Customs & Taxpayer Advisory Desk (Muhammad Iqbal Bhawana)", "body": "100% Gratis legal assistance for taxpayers facing Customs SCNs, Demand Notices, valuation disputes, or statutory appeals. Contact: WhatsApp +92 300 7698209 / +92 321 9211243 | Email: iqbalbhawana@gmail.com", "source": "Bhawana Tribune Legal Advisory Unit", "url": "https://wa.me/923007698209"}]}];
+const FORECAST_DATA = [{"date": "KARACHI PORT", "cond": "FAIR", "temp": "34\u00b0C / 25\u00b0C", "pop": "Port Karachi: Dwell normal \u00b7 Clear Fairways"}, {"date": "PORT QASIM", "cond": "CLEAR", "temp": "35\u00b0C / 24\u00b0C", "pop": "Turnaround < 18h \u00b7 Marine Telemetry Active"}, {"date": "LAHORE DRY PORT", "cond": "DRY & SUNNY", "temp": "32\u00b0C / 20\u00b0C", "pop": "Rail Freight Operational \u00b7 Customs Normal"}, {"date": "ISLAMABAD", "cond": "CLEAR", "temp": "30\u00b0C / 17\u00b0C", "pop": "FBR Telemetry & Interbank Flow Normal"}, {"date": "SKARDU & GILGIT", "cond": "CRISP AUTUMN", "temp": "21\u00b0C / 08\u00b0C", "pop": "100% On-time flights \u00b7 Doppler Radar Active"}];
+let activeDeskId = 1;
+
+// Render Weather & Logistics Bar
+function renderWeatherBar() {
+  try {
+    const wGrid = document.getElementById('weatherGrid');
+    if (!wGrid) return;
+    const items = Array.isArray(FORECAST_DATA) ? FORECAST_DATA : (FORECAST_DATA && typeof FORECAST_DATA === 'object' ? [FORECAST_DATA] : []);
+    if (!items || items.length === 0) {
+      if (wGrid.parentElement) wGrid.parentElement.style.display = 'none';
+      return;
+    }
+    wGrid.innerHTML = items.map(it => `
+      <div class="weather-card">
+        <div class="weather-date-cond">
+          <span>${it.date || it.city || 'OBSERVATION'}</span>
+          <span style="color: #fbbf24;">${it.cond || it.condition || ''}</span>
+        </div>
+        <div class="weather-temp">${it.temp || (it.high ? `${it.high} / ${it.low}` : '')}</div>
+        <div class="weather-pop">${it.pop || it.condition || ''}</div>
+      </div>
+    `).join('');
+  } catch (err) {
+    console.warn("weather bar notice:", err);
+  }
+}
+try {
+  renderWeatherBar();
+} catch (e) {
+  console.warn("weather bar init notice:", e);
+}
+
+function unescapeText(val) {
+  return String(val == null ? '' : val)
+    .replace(/\\+r\\+n/g, '\n')
+    .replace(/\\+[nr]/g, '\n')
+    .replace(/\\+t/g, ' ')
+    .replace(/\\+(["'])/g, '$1')
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n');
+}
+
+function splitParas(val) {
+  const raw = Array.isArray(val) ? val : [val];
+  const out = [];
+  for (const chunk of raw) {
+    const cleaned = unescapeText(chunk).trim();
+    if (!cleaned) continue;
+    const parts = cleaned.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+    if (parts.length === 1 && parts[0].includes('\n')) {
+      for (const ln of parts[0].split('\n').map(s => s.trim()).filter(Boolean)) out.push(ln);
+    } else {
+      for (const p of parts) out.push(p);
+    }
+  }
+  return out;
+}
+
+function renderParagraphsHtml(val) {
+  return splitParas(val).map(p => `<p>${p}</p>`).join('');
+}
+
+function dedupeDeckBody(deck, bodyVal) {
+  const cleanDeck = unescapeText(deck || '').trim();
+  const paras = splitParas(bodyVal);
+  const norm = s => String(s || '').toLowerCase().replace(/[^\w\u0600-\u06FF]+/g, ' ').trim();
+  if (cleanDeck && paras.length > 0) {
+    const dn = norm(cleanDeck);
+    const p0n = norm(paras[0]);
+    if (dn === p0n || (dn.length >= 24 && p0n.startsWith(dn)) || (p0n.length >= 24 && dn.startsWith(p0n))) {
+      if (paras.length >= 2) {
+        return { deck: paras[0].length >= cleanDeck.length ? paras[0] : cleanDeck, body: paras.slice(1) };
+      }
+      return { deck: '', body: [paras[0].length >= cleanDeck.length ? paras[0] : cleanDeck] };
+    }
+  }
+  return { deck: cleanDeck, body: paras };
+}
+
+function buildDeskCardHtml(d, showNav = true) {
+  const heroSplit = dedupeDeckBody(d.deck, d.body);
+  let editorialHtml = '';
+  if (d.editorial) {
+    const edSplit = dedupeDeckBody(d.editorial.deck, d.editorial.paragraphs);
+    editorialHtml = `
+      <div class="editorial-special">
+        <div class="editorial-special-title">${unescapeText(d.editorial.title)}</div>
+        ${edSplit.deck ? `<div class="editorial-special-deck">${edSplit.deck}</div>` : ''}
+        <div class="editorial-special-body">
+          ${edSplit.body.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  let secondaryHtml = '';
+  if (d.secondary_items && d.secondary_items.length > 0) {
+    secondaryHtml = `
+      <div class="secondary-section">
+        <div class="secondary-heading">${d.secondary_title}</div>
+        <div class="secondary-grid">
+          ${d.secondary_items.map(it => `
+            <div class="secondary-card" ${it.url ? `onclick="window.open('${it.url}', '_blank', 'noopener,noreferrer')"` : ''} style="${it.url ? 'cursor: pointer;' : ''}" title="Click to view original source dispatch">
+              <div>
+                <div class="card-head">
+                  ${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="card-head-link" onclick="event.stopPropagation()">${unescapeText(it.head)} <span class="ext-link-arrow">↗</span></a>` : unescapeText(it.head)}
+                </div>
+                <div class="card-body">${renderParagraphsHtml(it.body)}</div>
+              </div>
+              <div class="card-source">${it.url ? `<a href="${it.url}" target="_blank" rel="noopener noreferrer" class="source-link" onclick="event.stopPropagation()">${it.source} ↗</a>` : it.source}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <article class="desk-card" id="deskCard-${d.id}">
+      <div class="meta-row">
+        <span class="tag-pill">${d.desk}</span>
+        <span class="category-pill">${d.category}</span>
+        <span class="date-text">${d.date} • ${d.readTime}</span>
+      </div>
+
+      <h2 class="hero-headline">${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" class="hero-headline-link" title="Click to view original source dispatch">${unescapeText(d.headline)} <span class="ext-link-arrow">↗</span></a>` : unescapeText(d.headline)}</h2>
+      ${heroSplit.deck ? `<p class="hero-deck">${heroSplit.deck}</p>` : ''}
+
+      ${editorialHtml}
+
+      <div class="hero-body">
+        ${heroSplit.body.map(p => `<p>${p}</p>`).join('')}
+      </div>
+
+      ${d.hero_source ? `
+      <div class="hero-source" style="margin: -10px 0 24px 0; font-size: 13px; color: #a1a1aa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        Source: ${d.hero_url ? `<a href="${d.hero_url}" target="_blank" rel="noopener noreferrer" style="color: #cda851; text-decoration: none; border-bottom: 1px dotted rgba(205,168,81,0.6); font-weight: 600;">${d.hero_source} ↗</a>` : d.hero_source}
+      </div>
+      ` : ''}
+
+      <blockquote class="quote-box">
+        <p class="quote-text">"${d.quote}"</p>
+        <cite class="quote-author">— ${d.author}, ${d.authorRole}</cite>
+      </blockquote>
+
+      ${secondaryHtml}
+
+      ${d.id === 6 ? `
+      <section class="legal-disclaimer-card">
+        <div class="legal-disclaimer-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Publisher's Legal Notice · AI Generation & Limitation of Liability
+        </div>
+        <p class="legal-disclaimer-text">
+          <b>Wholly Artificially Generated:</b> <i>Bhawana Tribune</i> is an experimental, non-profit digital newspaper wholly artificially generated by automated multi-agent artificial intelligence pipelines without any manual intervention, modification, or pre-publication curation by the named editor.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Source Attribution & Disclaimers:</b> Diligent efforts have been made to attribute all news items, regulatory summaries, gazette notifications, market telemetry, and scientific briefs to original sources via verified interactive hyperlinks. Neither the editor, the publisher, nor the automated multi-agent pipeline assumes any legal liability or warranty for inaccuracies, omissions, third-party claims, or temporal shifts in source records. Readers and corporate entities must verify statutory SROs and compliance deadlines independently with official government gazettes.
+        </p>
+        <p class="legal-disclaimer-text">
+          <b>Non-Commercial Status:</b> Published strictly for non-profit research, public educational awareness, and technology benchmarking.
+        </p>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(217, 119, 6, 0.3);">
+          <div class="legal-disclaimer-title" style="font-size: 15px;">
+            Pro Bono Customs & Taxpayer Advisory Desk · Muhammad Iqbal Bhawana
+          </div>
+          <p class="legal-disclaimer-text">
+            <b>Gratis Assistance on Customs & Taxation:</b> Any taxpayer, importer, exporter, industrialist, or clearing agent having issues regarding Pakistan Customs or Federal/Provincial taxation matters (including issuance of Show Cause Notices [SCNs], Demand Notices, valuation disputes, input tax adjustments, SRO interpretations, or statutory appeals) is invited to reach out directly to Muhammad Iqbal Bhawana for guidance.
+          </p>
+          <div class="advisory-gratis-pill">100% GRATIS · PURELY PRO BONO · NO FEE OR CHARGE EVER LEVIED</div>
+          <div class="legal-contacts-row">
+            <span><b>WhatsApp:</b> <a href="https://wa.me/923007698209" target="_blank">+92 300 7698209</a> &nbsp;|&nbsp; <a href="https://wa.me/923219211243" target="_blank">+92 321 9211243</a></span>
+            <span><b>Email:</b> <a href="mailto:iqbalbhawana@gmail.com">iqbalbhawana@gmail.com</a></span>
+            <span><b>Jurisprudence:</b> Dedicated to transparent tax jurisprudence, compliance advocacy, and public legal education.</span>
+          </div>
+        </div>
+      </section>
+      ` : ''}
+
+      ${showNav ? `
+      <div style="display: flex; justify-content: space-between; margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <button class="nav-btn" onclick="renderDesk(${d.id === 1 ? 6 : d.id - 1})">
+          ← Previous Desk (0${d.id === 1 ? 6 : d.id - 1})
+        </button>
+        <button class="nav-btn" onclick="renderDesk(${d.id === 6 ? 1 : d.id + 1})">
+          Next Desk (0${d.id === 6 ? 1 : d.id + 1}) →
+        </button>
+      </div>
+      ` : ''}
+    </article>
+  `;
+}
+
+function renderDesk(id) {
+  try {
+    activeDeskId = id;
+    const urduLink = document.getElementById('urduSwitchLink');
+    if (urduLink) {
+      urduLink.href = `./urdu.html?desk=${id}`;
+    }
+
+    // Update pills
+    const pillsContainer = document.getElementById('deskPills');
+    if (pillsContainer) {
+      const deskButtons = DESKS.map(item => `
+        <button class="desk-pill ${item.id === id ? 'active' : ''}" onclick="renderDesk(${item.id})">
+          Desk 0${item.id} • ${item.category}
+        </button>
+      `).join('');
+      const allButton = `
+        <button class="desk-pill ${id === 'all' ? 'active' : ''}" onclick="renderDesk('all')" style="border-color: #d97706; background: ${id === 'all' ? '#d97706' : 'rgba(217,119,6,0.15)'}; color: ${id === 'all' ? '#000' : '#fbbf24'}; font-weight: 800;">
+          ✦ All 6 Desks (Complete Broadsheet)
+        </button>
+      `;
+      pillsContainer.innerHTML = deskButtons + allButton;
+    }
+
+    const stage = document.getElementById('deskStage');
+    if (!stage) return;
+
+    if (id === 'all') {
+      stage.innerHTML = DESKS.map(d => buildDeskCardHtml(d, false)).join('<div style="height: 32px; border-bottom: 2px dashed rgba(217, 119, 6, 0.35); margin-bottom: 32px;"></div>');
+    } else {
+      const numId = typeof id === 'number' ? id : parseInt(id, 10);
+      const d = DESKS.find(item => item.id === numId) || DESKS[0];
+      stage.innerHTML = buildDeskCardHtml(d, true);
+    }
+  } catch (err) {
+    console.error("Critical error in renderDesk:", err);
+  }
+}
+
+// Initialize with URL parameter support
+try {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDesk = urlParams.get('desk');
+  if (paramDesk === 'all') {
+    activeDeskId = 'all';
+  } else {
+    const parsed = parseInt(paramDesk || '1', 10);
+    if (!isNaN(parsed) && parsed >= 1 && parsed <= 6) {
+      activeDeskId = parsed;
+    }
+  }
+  renderDesk(activeDeskId);
+} catch (e) {
+  console.error("Initialization error:", e);
+  renderDesk(1);
+}
+</script>
+
+</body>
+</html>
